@@ -1,0 +1,102 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]
+
+[sub_resource type="RectangleShape2D" id="floor"]
+size = Vector2(832, 24)
+
+[sub_resource type="RectangleShape2D" id="wall"]
+size = Vector2(24, 384)
+
+[node name="Room" type="Node2D"]
+
+[node name="Backdrop" type="Polygon2D" parent="."]
+z_index = -10
+color = Color(0.018, 0.055, 0.075, 1)
+polygon = PackedVector2Array(0, 0, 832, 0, 832, 384, 0, 384)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(416, 396)
+shape = SubResource("floor")
+
+[node name="Visual" type="Polygon2D" parent="Floor"]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(0, 384, 832, 384, 832, 408, 0, 408)
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(416, -12)
+shape = SubResource("floor")
+
+[node name="Visual" type="Polygon2D" parent="Ceiling"]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(0, -24, 832, -24, 832, 0, 0, 0)
+
+[node name="Left" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Left"]
+position = Vector2(-12, 192)
+shape = SubResource("wall")
+
+[node name="Visual" type="Polygon2D" parent="Left"]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(-24, 0, 0, 0, 0, 384, -24, 384)
+
+[node name="Right" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Right"]
+position = Vector2(844, 192)
+shape = SubResource("wall")
+
+[node name="Visual" type="Polygon2D" parent="Right"]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 40.0
+text = "BOSS / TEMPLATE 2"
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(64, 350)
+
+[node name="RewardSpawn" type="Marker2D" parent="."]
+position = Vector2(420, 350)
+
+[node name="DoorSpawns" type="Node2D" parent="."]
+
+[node name="Marker0" type="Marker2D" parent="DoorSpawns"]
+position = Vector2(640, 350)
+
+[node name="Marker1" type="Marker2D" parent="DoorSpawns"]
+position = Vector2(760, 350)
+
+[node name="EnemySpawns" type="Node2D" parent="."]
+
+[node name="Marker0" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(324, 350)
+
+[node name="Marker1" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(399, 350)
+
+[node name="Marker2" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(474, 350)
+
+[node name="Marker3" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(549, 350)
+
+[node name="SeaMist" type="Node2D" parent="."]
+z_index = -3
+position = Vector2(80, 80)
+script = ExtResource("sea")

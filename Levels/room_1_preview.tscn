@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cloirbp3y10ek"]
+
+[ext_resource type="PackedScene" uid="uid://mega7ir561m" path="res://Levels/stage_graph_template.tscn" id="1"]
+
+[node name="Room1Preview" unique_id=915986110 instance=ExtResource("1")]
+preview_start_node = 1

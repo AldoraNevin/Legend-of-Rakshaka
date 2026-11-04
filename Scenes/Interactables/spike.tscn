@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://dwjqi2vaye2o0"]
+
+[ext_resource type="Script" uid="uid://b6v5jv3chwoe5" path="res://Script/Interactables/damage_zone.gd" id="1_okc22"]
+[ext_resource type="Texture2D" uid="uid://bgyonvaylxhg3" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/spikes_spritesheet.png" id="2_rm3an"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0qyu"]
+size = Vector2(16, 12)
+
+[sub_resource type="Animation" id="Animation_r8l0b"]
+resource_name = "Active"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitbox_collision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q7g4m"]
+resource_name = "Active_animated"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9, 1, 1.8, 1.9, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 2, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitbox_collision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.9, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_egmw0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitbox_collision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0d8dc"]
+resource_name = "Unactive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hitbox_collision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xktf"]
+_data = {
+&"Active": SubResource("Animation_r8l0b"),
+&"Active_animated": SubResource("Animation_q7g4m"),
+&"RESET": SubResource("Animation_egmw0"),
+&"Unactive": SubResource("Animation_0d8dc")
+}
+
+[node name="spike" type="Area2D" unique_id=25311992]
+collision_layer = 32
+script = ExtResource("1_okc22")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=385722396]
+texture = ExtResource("2_rm3an")
+hframes = 7
+frame = 5
+
+[node name="hitbox_collision" type="CollisionShape2D" parent="." unique_id=888885098]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_j0qyu")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1909365069]
+libraries/ = SubResource("AnimationLibrary_1xktf")
+autoplay = &"Unactive"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

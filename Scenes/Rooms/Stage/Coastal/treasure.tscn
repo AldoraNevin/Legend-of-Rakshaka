@@ -1,0 +1,114 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]
+
+
+[sub_resource type="RectangleShape2D" id="s0"]
+size = Vector2(640, 32)
+
+[sub_resource type="RectangleShape2D" id="s1"]
+size = Vector2(640, 16)
+
+[node name="TreasureRoom" type="Node2D"]
+metadata/module_id = "treasure"
+metadata/width = 640
+
+[node name="Backdrop" type="Polygon2D" parent="."]
+z_index = -10
+color = Color(0.018, 0.055, 0.075, 1)
+polygon = PackedVector2Array(0, -32, 640, -32, 640, 384, 0, 384)
+
+[node name="MainPath" type="Node2D" parent="."]
+
+[node name="Shell" type="Node2D" parent="."]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Block0" type="StaticBody2D" parent="MainPath"]
+position = Vector2(0, 256)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="MainPath/Block0"]
+position = Vector2(320, 16)
+shape = SubResource("s0")
+
+[node name="Visual" type="Polygon2D" parent="MainPath/Block0"]
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 0, 640, 0, 640, 32, 0, 32)
+
+[node name="Trim" type="Line2D" parent="MainPath/Block0"]
+points = PackedVector2Array(0, 0, 640, 0)
+width = 2.0
+default_color = Color(0.28, 0.68, 0.63, 1)
+
+[node name="Block1" type="StaticBody2D" parent="Shell"]
+position = Vector2(0, -32)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Shell/Block1"]
+position = Vector2(320, 8.0)
+shape = SubResource("s1")
+
+[node name="Visual" type="Polygon2D" parent="Shell/Block1"]
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 0, 640, 0, 640, 16, 0, 16)
+
+[node name="Trim" type="Line2D" parent="Shell/Block1"]
+points = PackedVector2Array(0, 0, 640, 0)
+width = 2.0
+default_color = Color(0.28, 0.68, 0.63, 1)
+
+[node name="Theme0" type="Polygon2D" parent="Decor"]
+z_index = -5
+position = Vector2(36.9231, 16)
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 160, 0, 32, 9.23077, 16, 6.15385, 0, 24.6154, 8, 21.5385, 160)
+
+[node name="Theme1" type="Polygon2D" parent="Decor"]
+z_index = -5
+position = Vector2(135.385, 16)
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 160, 0, 32, 9.23077, 16, 6.15385, 0, 24.6154, 8, 21.5385, 160)
+
+[node name="Theme2" type="Polygon2D" parent="Decor"]
+z_index = -5
+position = Vector2(233.846, 16)
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 160, 0, 32, 9.23077, 16, 6.15385, 0, 24.6154, 8, 21.5385, 160)
+
+[node name="Theme3" type="Polygon2D" parent="Decor"]
+z_index = -5
+position = Vector2(332.308, 16)
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 160, 0, 32, 9.23077, 16, 6.15385, 0, 24.6154, 8, 21.5385, 160)
+
+[node name="Theme4" type="Polygon2D" parent="Decor"]
+z_index = -5
+position = Vector2(430.769, 16)
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 160, 0, 32, 9.23077, 16, 6.15385, 0, 24.6154, 8, 21.5385, 160)
+
+[node name="Theme5" type="Polygon2D" parent="Decor"]
+z_index = -5
+position = Vector2(529.231, 16)
+color = Color(0.08, 0.22, 0.23, 1)
+polygon = PackedVector2Array(0, 160, 0, 32, 9.23077, 16, 6.15385, 0, 24.6154, 8, 21.5385, 160)
+
+[node name="Title" type="Label" parent="."]
+position = Vector2(18.4615, 0)
+text = "RUANG HARTA PESISIR"
+modulate = Color(0.65, 0.65, 0.70, 1)
+
+[node name="Entry" type="Marker2D" parent="."]
+position = Vector2(0, 256)
+
+[node name="Exit" type="Marker2D" parent="."]
+position = Vector2(640, 256)
+
+[node name="OceanMist" type="Node2D" parent="."]
+z_index = -3
+script = ExtResource("sea")

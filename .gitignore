@@ -1,0 +1,17 @@
+# Godot cache
+.godot/
+
+# Godot logs
+*.log
+
+# Export builds
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

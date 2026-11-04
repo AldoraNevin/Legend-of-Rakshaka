@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://ce46whornb2wn"]
+
+[ext_resource type="Script" uid="uid://4bbho0gpi8e" path="res://Script/Interactables/crates.gd" id="1_t6dgu"]
+[ext_resource type="Texture2D" uid="uid://jhfqiuq175i8" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png" id="2_nitks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bl4m"]
+size = Vector2(16, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cph6"]
+radius = 12.0
+
+[sub_resource type="Animation" id="Animation_ljpfq"]
+resource_name = "Active"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("crate_collider:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/Hitbox_collider:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1mmwf"]
+resource_name = "Destroyed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/Hitbox_collider:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("crate_collider:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_il0nt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/Hitbox_collider:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("crate_collider:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cg8t8"]
+_data = {
+&"Active": SubResource("Animation_ljpfq"),
+&"Destroyed": SubResource("Animation_1mmwf"),
+&"RESET": SubResource("Animation_il0nt")
+}
+
+[node name="crates" type="StaticBody2D" unique_id=40798320]
+collision_layer = 2
+script = ExtResource("1_t6dgu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=40025153]
+texture = ExtResource("2_nitks")
+hframes = 11
+
+[node name="crate_collider" type="CollisionShape2D" parent="." unique_id=108617472]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1bl4m")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1506179245]
+collision_layer = 8
+collision_mask = 4
+
+[node name="Hitbox_collider" type="CollisionShape2D" parent="Hitbox" unique_id=1165944273]
+shape = SubResource("CircleShape2D_0cph6")
+disabled = true
+debug_color = Color(0.96082896, 0, 0.51655287, 0.41960785)
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=642278509]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_cg8t8")
+autoplay = &"Active"
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

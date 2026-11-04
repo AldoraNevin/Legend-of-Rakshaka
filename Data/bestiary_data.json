@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "enemies": [
+    {
+      "entity_id": "kuntilanak",
+      "name": "Kuntilanak",
+      "region": "Nusantara (Jawa/Melayu)",
+      "category": "Melee",
+      "hp": 3,
+      "attack": 1,
+      "lore_text": "Roh wanita pendendam bergaun putih yang melayang di udara. Bergerak mendekati pemain dan melakukan serangan jarak dekat dengan cara memuntahkan darah kental ke arah Player.",
+      "image_path": "res://Assets/Enemies/Kuntilanak/Kuntilanak_left_400%.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "banaspati",
+      "name": "Banaspati",
+      "region": "Jawa",
+      "category": "Melee",
+      "hp": 4,
+      "attack": 1,
+      "lore_text": "Entitas roh purba berwujud bola api atau pusaran tengkorak berapi yang melayang. Berperilaku sangat agresif mengejar pemain dan memberikan efek Burn saat bersentuhan.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "leak",
+      "name": "Leak",
+      "region": "Bali",
+      "category": "Ranged",
+      "hp": 4,
+      "attack": 1,
+      "lore_text": "Praktisi sihir hitam dari Bali dalam wujud kepala terbang dengan organ dalam yang menggantung. Menjaga jarak dari pemain sambil menembakkan proyektil sihir gelap berkecepatan tinggi.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "warak_ngendhog",
+      "name": "Warak Ngendhog",
+      "region": "Semarang, Jawa Tengah",
+      "category": "Melee",
+      "hp": 6,
+      "attack": 2,
+      "lore_text": "Makhluk bersisik buraq, berkepala naga, dan berkaki kambing. Berperan sebagai musuh darat yang gesit, menggunakan mekanik Charge dengan tanduknya.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "cindaku",
+      "name": "Cindaku",
+      "region": "Kerinci, Sumatera",
+      "category": "Melee",
+      "hp": 5,
+      "attack": 2,
+      "lore_text": "Siluman manusia harimau pelindung hutan dari Sumatera. Musuh yang sangat lincah, mampu melompat jauh ke arah pemain dan memberikan tebasan cakar yang cepat.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "genderuwo",
+      "name": "Genderuwo",
+      "region": "Jawa",
+      "category": "Melee",
+      "hp": 10,
+      "attack": 2,
+      "lore_text": "Makhluk halus raksasa berbulu lebat. Memiliki Health Point (HP) yang sangat tebal. Menyerang dengan pukulan keras ke tanah yang menghasilkan getaran Area of Effect (AoE) di sekitarnya.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "jerangkong",
+      "name": "Jerangkong",
+      "region": "Jawa",
+      "category": "Melee",
+      "hp": 3,
+      "attack": 1,
+      "lore_text": "Tulang belulang manusia kutukan yang bergerak secara gaib. Musuh rapuh namun memiliki mekanik Revive: jika tulangnya tidak segera dihancurkan sepenuhnya setelah tumbang, ia bisa menyatu dan bangkit kembali.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "aul",
+      "name": "Aul",
+      "region": "Jawa Barat",
+      "category": "Melee",
+      "hp": 5,
+      "attack": 2,
+      "lore_text": "Manusia serigala Nusantara dengan wajah terbalik. Merupakan predator darat yang menyerang secara brutal. Memiliki Movement Speed tinggi dan suka melompat untuk menggigit pemain.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "sarpakenaka",
+      "name": "Sarpakenaka",
+      "region": "Pewayangan Jawa",
+      "category": "Melee",
+      "hp": 6,
+      "attack": 2,
+      "lore_text": "Siluman wanita mematikan dengan kuku-kuku panjang beracun. Memiliki gaya serangan rentetan cakaran beruntun yang dapat memberikan status efek debuff pada player.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "bajang",
+      "name": "Bajang",
+      "region": "Nusantara (Melayu)",
+      "category": "Melee",
+      "hp": 3,
+      "attack": 1,
+      "lore_text": "Roh kerdil yang sangat mengganggu. Mekaniknya melompat dari jarak dekat lalu menempel ke badan Player untuk memperlambat Movement.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "gupala",
+      "name": "Gupala",
+      "region": "Jawa (Candi)",
+      "category": "Melee",
+      "hp": 8,
+      "attack": 3,
+      "lore_text": "Arca batu raksasa penjaga candi yang dihidupkan sihir kuno. Musuh tipe idle. Mengayunkan senjata Gada besar yang bisa di picu apabila player berada didekatnya.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "mahesa_sura",
+      "name": "Mahesa Sura",
+      "region": "Jawa",
+      "category": "Melee",
+      "hp": 7,
+      "attack": 3,
+      "lore_text": "Siluman beringas berbadan manusia dengan kepala kerbau. Musuh brutal yang menggunakan serangan Dash merusak rintangan dan menghasilkan damage fisik yang masif.",
+      "image_path": "",
+      "is_unlocked": false
+    }
+  ],
+  "bosses": [
+    {
+      "entity_id": "nyi_roro_kidul",
+      "name": "Nyi Roro Kidul",
+      "region": "Pantai Selatan Jawa",
+      "category": "AoE Magic",
+      "hp": 25,
+      "attack": 3,
+      "lore_text": "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "rangda",
+      "name": "Rangda",
+      "region": "Bali",
+      "category": "Summoner",
+      "hp": 20,
+      "attack": 2,
+      "lore_text": "Ratu ilmu hitam dan pemimpin para Leak dari mitologi Bali. Boss dengan pergerakan melayang yang sulit ditebak. Mekanik utamanya adalah Summoning, yaitu memanggil 2-3 Leak atau musuh kecil ke dalam area untuk mengepung dan mendistraksi pemain.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "antaboga",
+      "name": "Antaboga",
+      "region": "Pewayangan Jawa (Saptapratala)",
+      "category": "Giant Beast",
+      "hp": 30,
+      "attack": 3,
+      "lore_text": "Naga raksasa penguasa lapisan bumi bawah (Saptapratala). Mekaniknya meliputi semburan racun dari mulutnya dan hantaman ekor ke tanah yang memicu gempa bumi yang menyababkan batu berjatuhan dari langit-langit area.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "batara_kala",
+      "name": "Batara Kala",
+      "region": "Pewayangan Jawa",
+      "category": "Time Manipulator",
+      "hp": 40,
+      "attack": 4,
+      "lore_text": "Dewa waktu dan kehancuran berwujud raksasa mengerikan penyebab gerhana. Memiliki kemampuan memanipulasi waktu (memperlambat Movement dan Dash pemain secara signifikan). Memiliki fase Enrage saat HP-nya menipis, di mana serangan areanya menjadi dua kali lebih cepat dan mematikan.",
+      "image_path": "",
+      "is_unlocked": false
+    }
+  ],
+  "artifacts": [
+    {
+      "entity_id": "gadha_rujakpolo",
+      "name": "Gadha Rujakpolo",
+      "category": "Offensive",
+      "lore_text": "Gada masif milik Bima. Menambah damage fisik secara drastis, namun sedikit mengurangi (Movement Speed) pemain.",
+      "image_path": "res://Assets/Artefak/Gadha Rujakpolo/gada v2.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "keris_mpu_gandring",
+      "name": "Keris Mpu Gandring",
+      "category": "Offensive",
+      "lore_text": "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh.",
+      "image_path": "res://Assets/Artefak/Keris Mpu Gandring/keris_v2.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "golok_jakasembung",
+      "name": "Golok Jakasembung",
+      "category": "Offensive",
+      "lore_text": "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat.",
+      "image_path": "res://Assets/Artefak/Golok Jakasembung/golok v3.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "tombak_baru_klinting",
+      "name": "Tombak Baru Klinting",
+      "category": "Offensive",
+      "lore_text": "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee.",
+      "image_path": "res://Assets/Artefak/Tombak Baru Klinting/tombak baru klinting v2.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "kujang_pusaka",
+      "name": "Kujang Pusaka",
+      "category": "Offensive",
+      "lore_text": "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan).",
+      "image_path": "res://Assets/Artefak/Kujang Pusaka/Kujang Pusaka1.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "rencong_sakti",
+      "name": "Rencong Sakti",
+      "category": "Offensive",
+      "lore_text": "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis.",
+      "image_path": "res://Assets/Artefak/Rencong Sakti/Rencong Sakti.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "pecut_samandiman",
+      "name": "Pecut Samandiman",
+      "category": "AoE",
+      "lore_text": "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan.",
+      "image_path": "res://Assets/Artefak/Pecut Samandiman-20261101T132418Z-1-001/Pecut Samandiman/pecut samandiman.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "jimat_kalimasada",
+      "name": "Jimat Kalimasada",
+      "category": "Buff",
+      "lore_text": "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan.",
+      "image_path": "res://Assets/Artefak/Jimat Kalimasada/Jimat Kalimasada.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "mustika_merah_delima",
+      "name": "Mustika Merah Delima",
+      "category": "Buff",
+      "lore_text": "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain.",
+      "image_path": "res://Assets/Artefak/Mustika Merah Delima/mustika merah v3.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "zirah_antakusuma",
+      "name": "Zirah Antakusuma",
+      "category": "Buff",
+      "lore_text": "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh.",
+      "image_path": "res://Assets/Artefak/Zirah Antakusuma/Zirah Antakusuma.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "selendang_bidadari",
+      "name": "Selendang Bidadari",
+      "category": "Buff",
+      "lore_text": "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara.",
+      "image_path": "res://Assets/Artefak/Selendang Bidadari/Selendang Bidadari.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "pring_pethuk",
+      "name": "Pring Pethuk",
+      "category": "Buff",
+      "lore_text": "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan.",
+      "image_path": "res://Assets/Artefak/Pring Pethuk/bambu_pethuk2.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "air_tirta_amerta",
+      "name": "Air Tirta Amerta",
+      "category": "Heal",
+      "lore_text": "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu.",
+      "image_path": "res://Assets/Artefak/Air Tirta Amerta/Air Tirta Amerta.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "daun_kelor",
+      "name": "Daun Kelor",
+      "category": "Heal",
+      "lore_text": "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika.",
+      "image_path": "res://Assets/Artefak/Daun Kelor/daun kelor2.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "paku_emas",
+      "name": "Paku Emas",
+      "category": "Utility",
+      "lore_text": "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat.",
+      "image_path": "res://Assets/Artefak/Paku Emas/paku emas_v2.png",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "keris_nogososro",
+      "name": "Keris Nogososro",
+      "category": "Offensive",
+      "lore_text": "Keris pusaka bertahtakan emas lambang kejayaan Mataram. Meningkatkan kecepatan serang dan penetrasi daya rusak.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "kembang_wijayakusuma",
+      "name": "Kembang Wijayakusuma",
+      "category": "Buff",
+      "lore_text": "Bunga sakti pembawa berkah kehidupan milik Prabu Kresna. Memberikan kesempatan hidup kembali (revive) satu kali per sesi permainan.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "badik_tua_celebes",
+      "name": "Badik Tua Celebes",
+      "category": "Offensive",
+      "lore_text": "Senjata tikam sakti dari Sulawesi. Memberikan peningkatan serangan tusuk mendadak setelah melakukan Dash.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "tameng_salawaku",
+      "name": "Tameng Salawaku",
+      "category": "Defense",
+      "lore_text": "Perisai perang tradisional Maluku bertuah. Mengurangi knockback dan menyerap benturan dari serangan depan.",
+      "image_path": "",
+      "is_unlocked": false
+    },
+    {
+      "entity_id": "mandau_terbang",
+      "name": "Mandau Terbang",
+      "category": "Offensive",
+      "lore_text": "Bilah pusaka Dayak Kalimantan yang dapat digerakkan secara gaib. Memicu tebasan proyektil magis saat combo serangan melee terakhir.",
+      "image_path": "",
+      "is_unlocked": false
+    }
+  ]
+}

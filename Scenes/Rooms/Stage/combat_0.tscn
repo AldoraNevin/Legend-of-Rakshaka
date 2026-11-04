@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://d1qp1sef27mf2"]
+
+[sub_resource type="RectangleShape2D" id="floor"]
+size = Vector2(832, 24)
+
+[sub_resource type="RectangleShape2D" id="wall"]
+size = Vector2(24, 384)
+
+[node name="Room" type="Node2D" unique_id=425494114]
+
+[node name="Backdrop" type="Polygon2D" parent="." unique_id=5819058]
+z_index = -10
+color = Color(0.25, 0.22, 0.3, 1)
+polygon = PackedVector2Array(0, 0, 832, 0, 832, 384, 0, 384)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=226017727]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Floor" unique_id=1087039644]
+position = Vector2(416, 396)
+shape = SubResource("floor")
+
+[node name="Visual" type="Polygon2D" parent="Floor" unique_id=1864462341]
+color = Color(0.5, 0.5, 0.55, 1)
+polygon = PackedVector2Array(0, 384, 832, 384, 832, 408, 0, 408)
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=2078320411]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Ceiling" unique_id=1061888422]
+position = Vector2(416, -12)
+shape = SubResource("floor")
+
+[node name="Visual" type="Polygon2D" parent="Ceiling" unique_id=749456476]
+color = Color(0.5, 0.5, 0.55, 1)
+polygon = PackedVector2Array(0, -24, 832, -24, 832, 0, 0, 0)
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=487818013]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Left" unique_id=1676577640]
+position = Vector2(-12, 192)
+shape = SubResource("wall")
+
+[node name="Visual" type="Polygon2D" parent="Left" unique_id=32180658]
+color = Color(0.5, 0.5, 0.55, 1)
+polygon = PackedVector2Array(-24, 0, 0, 0, 0, 384, -24, 384)
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=604558123]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Right" unique_id=516060916]
+position = Vector2(844, 192)
+shape = SubResource("wall")
+
+[node name="Visual" type="Polygon2D" parent="Right" unique_id=906424669]
+color = Color(0.5, 0.5, 0.55, 1)
+polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
+
+[node name="Title" type="Label" parent="." unique_id=112926873]
+offset_left = 48.0
+offset_top = 40.0
+text = "COMBAT / TEMPLATE 1"
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=764523273]
+position = Vector2(64, 350)
+
+[node name="RewardSpawn" type="Marker2D" parent="." unique_id=537129828]
+position = Vector2(420, 350)
+
+[node name="DoorSpawns" type="Node2D" parent="." unique_id=1300939919]
+
+[node name="Marker0" type="Marker2D" parent="DoorSpawns" unique_id=68169758]
+position = Vector2(640, 350)
+
+[node name="Marker1" type="Marker2D" parent="DoorSpawns" unique_id=666718995]
+position = Vector2(760, 350)
+
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=1129851410]
+
+[node name="Marker0" type="Marker2D" parent="EnemySpawns" unique_id=1569123931]
+position = Vector2(300, 350)
+
+[node name="Marker1" type="Marker2D" parent="EnemySpawns" unique_id=2035157729]
+position = Vector2(375, 350)

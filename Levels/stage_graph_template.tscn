@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://mega7ir561m"]
+
+[ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://bif27rjwvapti" path="res://Assets/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_tiles"]
+[ext_resource type="Script" uid="uid://d3k0ahlsbgywk" path="res://Script/Control/camera.gd" id="3_camera"]
+[ext_resource type="Script" uid="uid://d00pgrmr2we0" path="res://Script/Stage/graph_stage.gd" id="4_generator"]
+[ext_resource type="Script" uid="uid://hgi6toxkfov2" path="res://Script/UI/gui.gd" id="5_gui"]
+[ext_resource type="Texture2D" uid="uid://lvfoclcmqxkg" path="res://Assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="6_heart"]
+[ext_resource type="Texture2D" uid="uid://u5rns0nhucsr" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/coin.png" id="7_coin"]
+[ext_resource type="PackedScene" uid="uid://bb5ncf3indl2s" path="res://Scenes/Rooms/room_combat_01.tscn" id="8_roomcombat1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_level2"]
+texture = ExtResource("2_tiles")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_level2"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_level2")
+
+[node name="GraphStageTemplate" type="Node2D" unique_id=621713756]
+script = ExtResource("4_generator")
+room_templates = Array[PackedScene]([ExtResource("8_roomcombat1")])
+
+[node name="Player" parent="." unique_id=668942640 instance=ExtResource("1_player")]
+position = Vector2(48, 176)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=865325190]
+tile_set = SubResource("TileSet_level2")
+format = 2
+layer_0/name = "Ground"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1620704639 node_paths=PackedStringArray("target")]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 2944
+limit_bottom = 240
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+script = ExtResource("3_camera")
+target = NodePath("../Player")
+follow_speed = 8.0
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=2138333748]
+script = ExtResource("5_gui")
+
+[node name="heart" type="Sprite2D" parent="GUI" unique_id=369749220]
+position = Vector2(26, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("6_heart")
+hframes = 5
+
+[node name="coin_sprite" type="Sprite2D" parent="GUI" unique_id=821239169]
+position = Vector2(27, 62)
+scale = Vector2(2, 2)
+texture = ExtResource("7_coin")
+hframes = 12
+
+[node name="coin_number" type="Label" parent="GUI" unique_id=2086465325]
+offset_left = 55.0
+offset_top = 38.0
+offset_right = 115.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemies" type="Node" parent="." unique_id=156165777]
+
+[node name="Coin" type="Node" parent="." unique_id=795360421]
+
+[node name="Spike" type="Node" parent="." unique_id=256249640]
+
+[node name="RoomRoot" type="Node2D" parent="." unique_id=1464548452]
+
+[node name="Doors" type="Node2D" parent="." unique_id=280568739]

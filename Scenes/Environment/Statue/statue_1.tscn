@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdye1ceiig1tl"]
+
+[ext_resource type="Texture2D" uid="uid://bif27rjwvapti" path="res://Assets/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="1_d7fml"]
+
+[node name="Statue_1" type="Node2D" unique_id=1194184899]
+
+[node name="Head_1" type="Sprite2D" parent="." unique_id=1110716330]
+position = Vector2(-64, -54)
+texture = ExtResource("1_d7fml")
+region_enabled = true
+region_rect = Rect2(64, 110, 16, 21)
+
+[node name="Head_2" type="Sprite2D" parent="." unique_id=952674738]
+position = Vector2(-64, -41)
+texture = ExtResource("1_d7fml")
+region_enabled = true
+region_rect = Rect2(80, 110, 16, 21)

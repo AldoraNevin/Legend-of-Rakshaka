@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Script/Stage/coastal_catalog.gd" id="catalog"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/tidal_hall.tres" id="t0"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/reef_tower.tres" id="t1"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/wave_gallery.tres" id="t2"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/left_grotto.tres" id="t3"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/right_grotto.tres" id="t4"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/pearl_hall.tres" id="t5"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/shrine.tres" id="t6"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/ruined_gallery.tres" id="t7"]
+
+[resource]
+script = ExtResource("catalog")
+room_templates = Array[Resource]([ExtResource("t0"), ExtResource("t1"), ExtResource("t2"), ExtResource("t3"), ExtResource("t4"), ExtResource("t5"), ExtResource("t6"), ExtResource("t7")])

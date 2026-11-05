@@ -1,6 +1,7 @@
 extends Node2D
 const GRAPH = preload("res://Script/Stage/coastal_graph.gd")
-const PROFILES = preload("res://Script/Stage/coastal_profiles.gd")
+const PLACER = preload("res://Script/Stage/coastal_placer.gd")
+const ROUTES = preload("res://Script/Stage/coastal_routes.gd")
 const BACKDROP = preload("res://Script/Stage/coastal_backdrop.gd")
 const MAP = preload("res://Script/UI/coastal_map.gd")
 const TREASURE = preload("res://Script/Interactables/coastal_treasure.gd")
@@ -10,81 +11,55 @@ var exit_open := false
 var return_currents: Array[Dictionary] = []
 
 static func generate_layout(seed_value: int) -> Dictionary:
-	var rng := RandomNumberGenerator.new()
-	rng.seed = seed_value
 	var graph := GRAPH.generate(seed_value)
+	var placement: Dictionary = PLACER.new().solve(graph, seed_value)
+	if placement.has("error"):
+		return {"error": placement.error}
+	var rooms: Array = placement.rooms
+	var connections: Array = placement.connections
 	var regions: Array[Rect2] = []
-	var rooms: Array[Dictionary] = []
-	var route: Array[Rect2] = []
 	var platforms: Array[Rect2] = []
+	var route: Array[Rect2] = []
 	var branches: Array[Dictionary] = []
-	var x := 0.0
-	var floor_y := 0.0
-	var last_profile := -1
-	for id in graph.main_path:
-		var profile_index := rng.randi_range(0, PROFILES.PROFILES.size() - 1)
-		if profile_index == last_profile:
-			profile_index = (profile_index + 1) % PROFILES.PROFILES.size()
-		last_profile = profile_index
-		var profile: Dictionary = PROFILES.PROFILES[profile_index]
-		var origin := Vector2(x, floor_y - profile.height)
-		rooms.append({"index": id, "kind": graph.nodes[id].kind, "profile": profile_index,
-			"position": origin, "floor": floor_y, "width": profile.width, "height": profile.height})
-		regions.append_array(PROFILES.regions(profile, origin))
-		route.append(Rect2(x, floor_y, profile.width, TILE))
-		x += profile.width
-		if id == graph.main_path.back():
-			continue
-		var steps := rng.randi_range(3, 7)
-		# Alternating direction creates hills and valleys, with seeded amplitude.
-		var direction := -1.0 if (id + (seed_value & 1)) % 2 == 0 else 1.0
-		for step in range(steps + 1):
-			var step_y := floor_y + direction * step * 32
-			regions.append(Rect2(x, step_y - 128, 64, 128))
-			route.append(Rect2(x, step_y, 64, TILE))
-			x += 64
-		floor_y += direction * steps * 32
-	for edge in graph.edges:
-		if edge.kind != "optional":
-			continue
-		var source: Dictionary = rooms[edge.from]
-		var profile: Dictionary = PROFILES.PROFILES[source.profile]
-		var branch_floor: float = source.position.y - profile.crown - 128
-		var branch_origin: Vector2 = Vector2(source.position.x + 32, branch_floor - 160)
-		var branch_width: float = source.width - 64
-		var shaft_x: float = source.position.x + (source.width - 192) / 2.0
-		regions.append(Rect2(branch_origin, Vector2(branch_width, 160)))
-		# A real open shaft, with space beside its steps for a safe return drop.
-		regions.append(Rect2(shaft_x, branch_floor - 64, 192, source.floor - branch_floor + 64))
-		var branch_route: Array[Rect2] = [Rect2(shaft_x, source.floor, 192, TILE)]
-		var y: float = source.floor - 32
-		while y >= branch_floor:
-			var step := Rect2(shaft_x + 24, y, 144, 8)
-			platforms.append(step)
-			branch_route.append(step)
-			y -= 32
-		branch_route.append(Rect2(branch_origin.x, branch_floor, shaft_x - branch_origin.x, TILE))
-		var chest := Vector2(branch_origin.x + 48, branch_floor - 16)
-		branches.append({"from": edge.from, "to": edge.to, "route": branch_route,
-			"treasure": chest, "shaft": Rect2(shaft_x, branch_floor - 64, 192, source.floor - branch_floor + 64)})
-		rooms.append({"index": edge.to, "kind": "treasure", "profile": -1,
-			"position": branch_origin, "floor": branch_floor, "width": branch_width, "height": 160})
+	for room in rooms:
+		for rect in room.template.air_regions:
+			regions.append(Rect2(room.position + rect.position, rect.size))
+		for step in ROUTES.climb(room):
+			if step not in platforms:
+				platforms.append(step)
+		if "down" in room.used_sockets:
+			platforms.append(ROUTES.floors(room)[1])
+	for connection in connections:
+		regions.append(connection.region)
+		for step in ROUTES.shaft_steps(connection):
+			if step not in platforms:
+				platforms.append(step)
+		var edge_route := ROUTES.edge_route(connection, rooms)
+		if connection.kind == "main":
+			for surface in edge_route:
+				if route.is_empty() or route.back() != surface:
+					route.append(surface)
+		else:
+			var treasure: Vector2 = rooms[connection.to].position + rooms[connection.to].template.anchor + Vector2(0, 18)
+			branches.append({"from": connection.from, "to": connection.to, "route": edge_route,
+				"return_route": ROUTES.edge_route(connection, rooms, true), "treasure": treasure,
+				"sign": rooms[connection.from].position + rooms[connection.from].template.anchor + Vector2(0, -64)})
 	var air := rasterize(regions)
 	var shell := build_shell(air)
 	var bounds := regions[0]
-	for region in regions:
-		bounds = bounds.merge(region)
+	for rect in regions:
+		bounds = bounds.merge(rect)
 	var first: Dictionary = rooms[0]
 	var last: Dictionary = rooms[graph.main_path.back()]
 	var enemies: Array[Vector2] = []
 	for id in graph.main_path:
 		if id > 0:
-			enemies.append(Vector2(rooms[id].position.x + 64, rooms[id].floor - 34))
-	return {"seed": seed_value, "graph": graph, "rooms": rooms, "regions": regions, "shell": shell,
-		"platforms": platforms, "route": route, "branches": branches, "bounds": bounds.grow(TILE),
-		"spawn": Vector2(first.position.x + 48, first.floor - 34),
-		"exit": Vector2(last.position.x + last.width - 48, last.floor - 34),
-		"reward": Vector2(last.position.x + last.width - 112, last.floor - 34), "enemies": enemies}
+			enemies.append(rooms[id].position + rooms[id].template.anchor)
+	return {"seed": seed_value, "graph": graph, "rooms": rooms, "connections": connections,
+		"regions": regions, "shell": shell, "platforms": platforms, "route": route, "branches": branches,
+		"bounds": bounds.grow(TILE), "spawn": first.position + first.template.anchor,
+		"exit": last.position + last.template.anchor,
+		"reward": last.position + last.template.anchor + Vector2(-24, 0), "enemies": enemies}
 
 static func rasterize(regions: Array[Rect2]) -> Dictionary:
 	var air := {}
@@ -123,11 +98,39 @@ static func build_shell(air: Dictionary) -> Array[Rect2]:
 	return result
 
 static func validate_layout(candidate: Dictionary) -> PackedStringArray:
+	if candidate.has("error"):
+		return PackedStringArray([candidate.error])
 	var errors := GRAPH.validate(candidate.graph)
+	var rooms: Array = candidate.rooms
+	var connections: Array = candidate.connections
+	if connections.size() != candidate.graph.edges.size():
+		errors.append("Jumlah koneksi fisik tidak cocok dengan graph.")
+	var used := {}
+	for i in range(rooms.size()):
+		var room: Dictionary = rooms[i]
+		for j in range(i):
+			if room.bounds.grow(16).intersects(rooms[j].bounds):
+				errors.append("Ruangan bertumpuk.")
+	for i in range(connections.size()):
+		var connection: Dictionary = connections[i]
+		var source: Dictionary = rooms[connection.from]
+		var target: Dictionary = rooms[connection.to]
+		if connection.start != source.position + source.template.socket(connection.from_socket).position or connection.end != target.position + target.template.socket(connection.to_socket).position:
+			errors.append("Socket tidak sejajar.")
+		for pair in [[connection.from, connection.from_socket], [connection.to, connection.to_socket]]:
+			var socket_key := str(pair)
+			if used.has(socket_key):
+				errors.append("Socket dipakai lebih dari sekali.")
+			used[socket_key] = true
+		for room in rooms:
+			if room.index not in [connection.from, connection.to] and connection.region.grow(16).intersects(room.bounds):
+				errors.append("Koridor memotong ruangan lain.")
+		for j in range(i):
+			if connection.region.grow(16).intersects(connections[j].region):
+				errors.append("Koridor bertabrakan.")
 	var air := rasterize(candidate.regions)
 	if candidate.shell != build_shell(air):
 		errors.append("Shell tidak sesuai ruang terbuka.")
-	# A flood fill checks actual air connectivity, independently of the graph.
 	var first := Vector2i(floori(candidate.spawn.x / TILE), floori(candidate.spawn.y / TILE))
 	var reached := {first: true}
 	var pending: Array[Vector2i] = [first]
@@ -143,22 +146,26 @@ static func validate_layout(candidate: Dictionary) -> PackedStringArray:
 	if reached.size() != air.size():
 		errors.append("Ada ruang fisik yang terputus.")
 	for point in [candidate.spawn, candidate.exit, candidate.reward] + candidate.enemies:
-		var cell := Vector2i(floori(point.x / TILE), floori(point.y / TILE))
-		if not reached.has(cell):
+		if not reached.has(Vector2i(floori(point.x / TILE), floori(point.y / TILE))):
 			errors.append("Marker di luar ruang yang terhubung.")
-	for i in range(candidate.route.size()):
-		var surface: Rect2 = candidate.route[i]
-		var sample := Vector2i(floori(surface.get_center().x / TILE), roundi(surface.position.y / TILE))
-		if air.has(sample) or not air.has(sample + Vector2i.UP):
-			errors.append("Jalur utama tidak memiliki lantai.")
-		if i > 0:
-			var previous: Rect2 = candidate.route[i - 1]
-			if absf(surface.position.y - previous.position.y) > 32 or surface.position.x != previous.end.x:
-				errors.append("Tangga utama di luar kemampuan lompat dasar.")
+	var routes: Array = [candidate.route]
 	for branch in candidate.branches:
-		for step in branch.route.slice(1, -1):
-			if step not in candidate.platforms:
-				errors.append("Tangga cabang hilang.")
+		routes.append(branch.route)
+		routes.append(branch.return_route)
+	for path in routes:
+		for i in range(path.size()):
+			var surface: Rect2 = path[i]
+			var supported := false
+			for ground in candidate.shell + candidate.platforms:
+				if ground.position.y == surface.position.y and ground.position.x <= surface.get_center().x and ground.end.x >= surface.get_center().x:
+					supported = true
+			if not supported:
+				errors.append("Lantai/platform jalur hilang.")
+			if i > 0:
+				var previous: Rect2 = path[i - 1]
+				var gap := maxf(0, maxf(surface.position.x - previous.end.x, previous.position.x - surface.end.x))
+				if previous.position.y - surface.position.y > 32 or gap > 24:
+					errors.append("Jalur membutuhkan lompatan di luar kemampuan dasar.")
 	return errors
 
 func prepare(seed_value: int) -> bool:
@@ -184,7 +191,7 @@ func prepare(seed_value: int) -> bool:
 	for rect in layout.platforms:
 		platform(rect, true)
 	for data in layout.rooms:
-		var title := "RUANG HARTA" if data.kind == "treasure" else str(PROFILES.PROFILES[data.profile].name)
+		var title := "RUANG HARTA" if data.kind == "treasure" else str(data.title)
 		path_label(data.position + Vector2(24, 16), title, Color(0.4, 0.7, 0.7))
 	for i in range(layout.branches.size()):
 		var branch: Dictionary = layout.branches[i]
@@ -192,7 +199,7 @@ func prepare(seed_value: int) -> bool:
 		chest.name = "OptionalTreasure" if i == 0 else "BonusTreasure"
 		chest.position = branch.treasure
 		add_child(chest)
-		path_label(Vector2(branch.shaft.position.x, branch.shaft.end.y - 80), "^ TREASURE\nJalur opsional", Color(1, 0.8, 0.35))
+		path_label(branch.sign, "TREASURE\nLihat peta [M]", Color(1, 0.8, 0.35))
 	marker(self, "PlayerSpawn", layout.spawn)
 	marker(self, "RewardSpawn", layout.reward)
 	var doors := Node2D.new()

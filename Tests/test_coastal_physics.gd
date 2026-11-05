@@ -8,6 +8,9 @@ func _initialize() -> void:
 func routes() -> Array:
 	return [room.layout.route]
 
+func seeds() -> Array:
+	return range(12)
+
 func after_routes() -> bool:
 	return await move_to(room.layout.exit.x, room.layout.exit.y + 34)
 
@@ -26,7 +29,7 @@ func run_test() -> void:
 	collider.position = Vector2(1, 5)
 	body.add_child(collider)
 	root.add_child(body)
-	for seed_value in range(12):
+	for seed_value in seeds():
 		assert(room.prepare(seed_value))
 		await physics_frame
 		for route in routes():
@@ -39,12 +42,12 @@ func run_test() -> void:
 			for i in range(1, route.size()):
 				var source: Rect2 = route[i - 1]
 				var target: Rect2 = route[i]
-				var target_x := clampf(source.get_center().x, target.position.x + 14, target.end.x - 14)
-				var approach := clampf(target_x, source.position.x + 14, source.end.x - 14)
+				var target_x := clampf(source.get_center().x, target.position.x + 8, target.end.x - 8)
+				var approach := clampf(target_x, source.position.x + 8, source.end.x - 8)
 				if not await move_to(approach, source.position.y):
 					fail(seed_value, i, "approach")
 					return
-				if target.position.y != source.position.y or target.position.x > source.end.x or source.position.x > target.end.x:
+				if target.position.y < source.position.y or (target.position.y == source.position.y and (target.position.x > source.end.x or source.position.x > target.end.x)):
 					body.velocity.y = -300
 				if not await move_to(target_x, target.position.y, 6):
 					fail(seed_value, i, "landing")
@@ -52,7 +55,7 @@ func run_test() -> void:
 		if not await after_routes():
 			fail(seed_value, -1, "return")
 			return
-	print("PASS: continuous traversal with baseline speed/jump and real collisions across 12 irregular layouts.")
+	print("PASS: continuous traversal with baseline speed/jump and real collisions across %d layouts." % seeds().size())
 	room.queue_free()
 	body.queue_free()
 	await process_frame

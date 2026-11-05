@@ -1,0 +1,35 @@
+[gd_resource type="Resource" format=3 uid="uid://vggu1j5khjh5"]
+
+[ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
+[ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
+
+[sub_resource type="Resource" id="left"]
+script = ExtResource("socket")
+position = Vector2(0, 320)
+
+[sub_resource type="Resource" id="right"]
+script = ExtResource("socket")
+side = "right"
+position = Vector2(384, 320)
+
+[sub_resource type="Resource" id="up"]
+script = ExtResource("socket")
+side = "up"
+position = Vector2(192, 0)
+opening = 192
+
+[sub_resource type="Resource" id="down"]
+script = ExtResource("socket")
+side = "down"
+position = Vector2(192, 384)
+opening = 192
+
+[resource]
+script = ExtResource("template")
+template_id = "reef_tower"
+display_name = "MENARA KARANG"
+size = Vector2(384, 384)
+air_regions = Array[Rect2]([Rect2(0, 256, 384, 128), Rect2(96, 0, 192, 256)])
+sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
+allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
+anchor = Vector2(64, 350)

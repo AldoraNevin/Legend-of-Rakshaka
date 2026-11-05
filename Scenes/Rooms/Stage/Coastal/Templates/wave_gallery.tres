@@ -1,0 +1,34 @@
+[gd_resource type="Resource" format=3 uid="uid://cqa1mdesv22pp"]
+
+[ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
+[ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
+
+[sub_resource type="Resource" id="left"]
+script = ExtResource("socket")
+position = Vector2(0, 192)
+
+[sub_resource type="Resource" id="right"]
+script = ExtResource("socket")
+side = "right"
+position = Vector2(512, 192)
+
+[sub_resource type="Resource" id="up"]
+script = ExtResource("socket")
+side = "up"
+position = Vector2(256, 0)
+opening = 192
+
+[sub_resource type="Resource" id="down"]
+script = ExtResource("socket")
+side = "down"
+position = Vector2(256, 256)
+opening = 192
+
+[resource]
+script = ExtResource("template")
+template_id = "wave_gallery"
+display_name = "GALERI OMBAK"
+size = Vector2(512, 256)
+air_regions = Array[Rect2]([Rect2(0, 128, 512, 128), Rect2(64, 64, 384, 64), Rect2(160, 0, 192, 64)])
+sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
+allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")

@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://hgi6toxkfov2" path="res://Script/UI/gui.gd" id="5_gui"]
 [ext_resource type="Texture2D" uid="uid://lvfoclcmqxkg" path="res://Assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="6_heart"]
 [ext_resource type="Texture2D" uid="uid://u5rns0nhucsr" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/coin.png" id="7_coin"]
-[ext_resource type="PackedScene" uid="uid://bb5ncf3indl2s" path="res://Scenes/Rooms/room_combat_01.tscn" id="8_roomcombat1"]
+[ext_resource type="PackedScene" uid="uid://7f7pdwtjsf5j" path="res://Scenes/Rooms/room_combat_01.tscn" id="8_roomcombat1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_level2"]
 texture = ExtResource("2_tiles")

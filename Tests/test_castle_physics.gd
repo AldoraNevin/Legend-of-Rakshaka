@@ -46,4 +46,3 @@ func run_test() -> void:
 				return
 	print("PASS: all modular routes across 4 seeds (including descent) with Godot collisions and baseline capsule/speed/gravity.")
 	quit()
-

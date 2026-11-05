@@ -1,36 +1,37 @@
 extends SceneTree
 const Coast = preload("res://Script/Stage/coastal_room_pcg.gd")
 func _initialize() -> void:
-	var sizes := {}
-	var shapes := {}
+	var templates := {}
+	var directions := {}
+	var negative_positions := false
 	for seed_value in range(200):
 		var layout := Coast.generate_layout(seed_value)
-		assert(Coast.validate_layout(layout).is_empty())
+		var errors := Coast.validate_layout(layout)
+		assert(errors.is_empty(), "seed=%d: %s" % [seed_value, errors])
 		assert(layout == Coast.generate_layout(seed_value))
 		for room in layout.rooms:
-			sizes[Vector2(room.width, room.height)] = true
-			shapes[room.profile] = true
+			templates[room.template.template_id] = true
+			negative_positions = negative_positions or room.position.x < 0 or room.position.y < 0
+		for connection in layout.connections:
+			directions[connection.direction] = true
 		assert(layout.branches.size() == 2)
 		for branch in layout.branches:
 			assert(branch.to not in layout.graph.main_path)
-		# Distinct chambers occupy disjoint horizontal slots (branches sit above).
-		for i in range(layout.rooms.size()):
-			var a: Dictionary = layout.rooms[i]
-			for j in range(i + 1, layout.rooms.size()):
-				var b: Dictionary = layout.rooms[j]
-				assert(not Rect2(a.position, Vector2(a.width, a.height)).intersects(Rect2(b.position, Vector2(b.width, b.height))))
-	assert(sizes.size() >= 5 and shapes.size() == 6)
+	assert(templates.size() == 8 and directions.size() == 4 and negative_positions)
 	var broken := Coast.generate_layout(42)
 	broken.shell.pop_back()
 	assert(not Coast.validate_layout(broken).is_empty())
 	broken = Coast.generate_layout(42)
-	broken.route[1].position.y -= 64
+	broken.platforms.clear()
 	assert(not Coast.validate_layout(broken).is_empty())
 	broken = Coast.generate_layout(42)
-	broken.platforms.pop_back()
+	broken.rooms[1].bounds = broken.rooms[0].bounds
+	assert(not Coast.validate_layout(broken).is_empty())
+	broken = Coast.generate_layout(42)
+	broken.connections[0].end += Vector2(16, 0)
 	assert(not Coast.validate_layout(broken).is_empty())
 	broken = Coast.generate_layout(42)
 	broken.graph.edges.remove_at(0)
 	assert(not Coast.validate_layout(broken).is_empty())
-	print("PASS: 200 deterministic irregular layouts, varied profiles, disjoint rooms, physical connectivity, damaged shell/stairs/graph rejection.")
+	print("PASS: 200 deterministic layouts, 8 templates, all 4 directions, non-overlap, matching sockets, connected geometry and invalid layout rejection.")
 	quit()

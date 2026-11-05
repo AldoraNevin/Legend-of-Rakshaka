@@ -1,0 +1,35 @@
+[gd_resource type="Resource" format=3 uid="uid://xn7wwp2r65ue"]
+
+[ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
+[ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
+
+[sub_resource type="Resource" id="left"]
+script = ExtResource("socket")
+position = Vector2(0, 224)
+
+[sub_resource type="Resource" id="right"]
+script = ExtResource("socket")
+side = "right"
+position = Vector2(448, 224)
+
+[sub_resource type="Resource" id="up"]
+script = ExtResource("socket")
+side = "up"
+position = Vector2(224, 0)
+opening = 192
+
+[sub_resource type="Resource" id="down"]
+script = ExtResource("socket")
+side = "down"
+position = Vector2(224, 288)
+opening = 192
+
+[resource]
+script = ExtResource("template")
+template_id = "right_grotto"
+display_name = "GUA TIMUR"
+size = Vector2(448, 288)
+air_regions = Array[Rect2]([Rect2(0, 160, 448, 128), Rect2(128, 64, 320, 96), Rect2(128, 0, 192, 64)])
+sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
+allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
+anchor = Vector2(64, 254)

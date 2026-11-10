@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://buf33mkth3cxv"
+path="res://.godot/imported/Intro Boss.ogg-523b463407e454f149491d2a552b905f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Legend of Rakshaka/BGM/Intro Boss.ogg"
+dest_files=["res://.godot/imported/Intro Boss.ogg-523b463407e454f149491d2a552b905f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

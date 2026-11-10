@@ -24,7 +24,7 @@ signal game_exited
 var sub_menu : Control
 
 @onready var menu_container = %MenuContainer
-@onready var menu_buttons_box_container = %MenuButtonsBoxContainer
+@onready var menu_buttons_box_container = $MenuContainer/MenuButtonsMargin/MenuButtonsContainer
 @onready var new_game_button = %NewGameButton
 @onready var options_button = %OptionsButton
 @onready var credits_button = %CreditsButton

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="2d_metroidvania_1"
 run/main_scene="uid://c63y6b25bs4bk"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -60,10 +60,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/
 2d_physics/layer_4="Interactables"
 2d_physics/layer_5="Coin"
 2d_physics/layer_6="Damage_zone"
-<<<<<<< HEAD
-=======
 2d_physics/layer_7="Enemy"
->>>>>>> origin/main
 
 [maaacks_menus_template]
 

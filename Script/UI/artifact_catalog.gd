@@ -37,19 +37,11 @@ func _style(color: Color, border: Color, width: int = 1) -> StyleBoxFlat:
 	style.content_margin_bottom = 12
 	return style
 
-<<<<<<< HEAD
-func _label(text: String, font_size: int = 16) -> Label:
-	var label := Label.new()
-	label.text = text
-	label.add_theme_color_override("font_color", INK)
-	label.add_theme_font_size_override("font_size", font_size)
-=======
 func _label(text: String, size: int = 16) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.add_theme_color_override("font_color", INK)
 	label.add_theme_font_size_override("font_size", size)
->>>>>>> origin/main
 	return label
 
 func _button(text: String) -> Button:

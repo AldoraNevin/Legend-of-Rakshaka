@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dmgla7rq1g2cc"]
+
+[ext_resource type="PackedScene" uid="uid://c8vnncjwqcpab" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/audio/audio_options_menu.tscn" id="1_ro573"]
+[ext_resource type="Texture2D" uid="uid://b6nynmjwunkc2" path="res://Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons.png" id="2_7gtnt"]
+[ext_resource type="PackedScene" uid="uid://dxj1gsxtlp6v0" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/audio/audio_input_option_control.tscn" id="3_orobk"]
+[ext_resource type="Texture2D" uid="uid://26r1st0pqebp" path="res://Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons5.png" id="3_p7ank"]
+[ext_resource type="Texture2D" uid="uid://b6t1wklfunjpk" path="res://Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons4.png" id="3_ycft5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bc1jy"]
+texture = ExtResource("3_p7ank")
+texture_margin_top = 5.0
+texture_margin_bottom = 5.0
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p7ank"]
+texture = ExtResource("3_p7ank")
+texture_margin_top = 7.0
+texture_margin_bottom = 7.0
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycft5"]
+texture = ExtResource("3_ycft5")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_6uavc"]
+HSlider/icons/grabber = ExtResource("2_7gtnt")
+HSlider/icons/grabber_disabled = ExtResource("2_7gtnt")
+HSlider/icons/grabber_highlight = ExtResource("2_7gtnt")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_bc1jy")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_p7ank")
+HSlider/styles/slider = SubResource("StyleBoxTexture_ycft5")
+
+[node name="Audio" unique_id=651805888 instance=ExtResource("1_ro573")]
+theme = SubResource("Theme_6uavc")
+
+[node name="AudioInputOptionControl" parent="VBoxContainer" parent_id_path=PackedInt32Array(1265848630) index="2" unique_id=774781052 instance=ExtResource("3_orobk")]
+layout_mode = 2

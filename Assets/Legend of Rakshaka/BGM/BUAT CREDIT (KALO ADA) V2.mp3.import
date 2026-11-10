@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh0kx705pgy7"
+path="res://.godot/imported/BUAT CREDIT (KALO ADA) V2.mp3-eb3879dc0142ede86f65c2a1d088735d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Legend of Rakshaka/BGM/BUAT CREDIT (KALO ADA) V2.mp3"
+dest_files=["res://.godot/imported/BUAT CREDIT (KALO ADA) V2.mp3-eb3879dc0142ede86f65c2a1d088735d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

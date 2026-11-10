@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://dwkerrcilb7vr"]
+
+[ext_resource type="Script" uid="uid://bf21xv5r4x04t" path="res://Script/Enemies/kuntilanak.gd" id="1_6fcdt"]
+[ext_resource type="Texture2D" uid="uid://c8i5y17gpy1op" path="res://Assets/Enemies/Kuntilanak/Kuntilanak_left_400%.png" id="2_sm6tu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ywksi"]
+radius = 29.0
+height = 158.0
+
+[sub_resource type="Animation" id="Animation_n63yd"]
+resource_name = "Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_14c8m"]
+resource_name = "Chase"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_g08yo"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_e4emk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1563x"]
+_data = {
+&"Attack": SubResource("Animation_n63yd"),
+&"Chase": SubResource("Animation_14c8m"),
+&"Idle": SubResource("Animation_g08yo"),
+&"RESET": SubResource("Animation_e4emk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fcdt"]
+size = Vector2(86, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm6tu"]
+size = Vector2(134, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywksi"]
+size = Vector2(386, 152)
+
+[node name="Kuntilanak" type="CharacterBody2D" unique_id=2057398156]
+scale = Vector2(0.2, 0.2)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_6fcdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1374761118]
+position = Vector2(0, -2)
+scale = Vector2(0.7610294, 0.7610294)
+texture = ExtResource("2_sm6tu")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1520026535]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ywksi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=301880247]
+libraries/ = SubResource("AnimationLibrary_1563x")
+autoplay = &"Idle"
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=543350425]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=85441478]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_6fcdt")
+debug_color = Color(0.99999994, 0.7646509, 0.3560448, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=134127130]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=718016581]
+position = Vector2(7, 3)
+shape = SubResource("RectangleShape2D_sm6tu")
+debug_color = Color(0.5592879, 0, 0.14570707, 0.41960785)
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1864681753]
+
+[node name="Left" type="CollisionShape2D" parent="DetectionArea" unique_id=1809393476]
+position = Vector2(-193, 4)
+shape = SubResource("RectangleShape2D_ywksi")
+
+[node name="Right" type="CollisionShape2D" parent="DetectionArea" unique_id=1101829730]
+position = Vector2(194, 4)
+shape = SubResource("RectangleShape2D_ywksi")

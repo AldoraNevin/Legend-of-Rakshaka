@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://bk437evh0jpax"]
+
+[ext_resource type="Script" path="res://Script/Stage/coastal_style.gd" id="script"]
+[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Assets/Tileset/coastal_tileset.tres" id="tiles"]
+
+[resource]
+script = ExtResource("script")
+tileset = ExtResource("tiles")
+climb_rise = 32
+climb_width = 80
+climb_offset = 24

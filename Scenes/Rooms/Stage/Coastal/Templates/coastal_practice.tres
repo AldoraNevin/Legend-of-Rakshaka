@@ -1,19 +1,16 @@
-[gd_resource type="Resource" load_steps=7 format=3]
+[gd_resource type="Resource" format=3 uid="uid://bj2jcxg1h0llh"]
 
-[ext_resource type="Script" path="res://Script/Stage/coastal_template.gd" id="template"]
-[ext_resource type="Script" path="res://Script/Stage/coastal_socket.gd" id="socket"]
+[ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
+[ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
 
 [sub_resource type="Resource" id="left"]
 script = ExtResource("socket")
-side = "left"
 position = Vector2(0, 256)
-opening = 128
 
 [sub_resource type="Resource" id="right"]
 script = ExtResource("socket")
 side = "right"
 position = Vector2(512, 256)
-opening = 128
 
 [sub_resource type="Resource" id="up"]
 script = ExtResource("socket")
@@ -32,7 +29,12 @@ script = ExtResource("template")
 template_id = "coastal_practice"
 display_name = "GUA LATIHAN"
 size = Vector2(512, 320)
-anchor = Vector2(64, 286)
 air_regions = Array[Rect2]([Rect2(0, 192, 512, 128), Rect2(160, 0, 192, 320), Rect2(32, 96, 128, 96)])
 sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
-
+allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
+anchor = Vector2(64, 286)
+decoration_scene = "res://Scenes/Rooms/Stage/Coastal/Decorations/coastal_practice.tscn"
+automatic_decorations = false
+manual_floor = true
+automatic_balconies = false
+extra_platforms = Array[Rect2]([Rect2(0, 288, 24, 8), Rect2(32, 256, 112, 8), Rect2(32, 224, 112, 8), Rect2(456, 288, 32, 8), Rect2(368, 256, 112, 8), Rect2(368, 224, 112, 8)])

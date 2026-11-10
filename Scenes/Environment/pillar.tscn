@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bb61mqo0d3vsv"]
+
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="1_uds1h"]
+
+[node name="Pillar" type="Sprite2D" unique_id=926497192]
+texture_filter = 1
+texture = ExtResource("1_uds1h")
+region_enabled = true
+region_rect = Rect2(39, 5, 63, 130)

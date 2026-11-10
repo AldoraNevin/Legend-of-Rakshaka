@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://eitqikjpkl4p"]
+[gd_resource type="Resource" format=3 uid="uid://bv0fs0ihadsbs"]
 
 [ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
 [ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
@@ -33,3 +33,6 @@ air_regions = Array[Rect2]([Rect2(0, 128, 544, 192), Rect2(64, 64, 416, 64), Rec
 sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
 allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
 anchor = Vector2(64, 286)
+decoration_scene = "res://Scenes/Rooms/Stage/Coastal/Decorations/pearl_hall.tscn"
+automatic_decorations = false
+manual_floor = true

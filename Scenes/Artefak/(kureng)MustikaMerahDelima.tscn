@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cpkaidruyx1y2"]
+
+[ext_resource type="Texture2D" uid="uid://bu6tt5os80k88" path="res://Assets/Artefak/Mustika Merah Delima/mustika merah v3-sheet.png" id="1_ena8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7x1f"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(0, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fci5x"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(120, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0uqq"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(240, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npy6f"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(360, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rruk"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(480, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87sht"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(600, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8feck"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(720, 0, 120, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3h8d"]
+atlas = ExtResource("1_ena8r")
+region = Rect2(840, 0, 120, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3032d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7x1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fci5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0uqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npy6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rruk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87sht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8feck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3h8d")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="MustikaMerahDelima" type="Area2D" unique_id=1038489754]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448900327]
+sprite_frames = SubResource("SpriteFrames_3032d")
+animation = &"Idle"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=185858279]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=732862110]

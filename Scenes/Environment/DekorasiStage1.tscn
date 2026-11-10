@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bgnw7obfbs4t"]
+
+[ext_resource type="PackedScene" uid="uid://bb61mqo0d3vsv" path="res://Scenes/Environment/pillar.tscn" id="1_ryltb"]
+[ext_resource type="PackedScene" uid="uid://bg4adf6m3cw1r" path="res://Scenes/Environment/broken_pilar.tscn" id="2_gajvb"]
+[ext_resource type="PackedScene" uid="uid://vka2pok103ay" path="res://Scenes/Environment/badge.tscn" id="3_j80by"]
+[ext_resource type="PackedScene" uid="uid://bwimahmo7fp72" path="res://Scenes/Environment/badge_2.tscn" id="4_lalne"]
+[ext_resource type="PackedScene" uid="uid://c2fc50cccxu8t" path="res://Scenes/Environment/coral.tscn" id="5_6utsq"]
+[ext_resource type="PackedScene" uid="uid://bobaoewsf17a6" path="res://Scenes/Environment/coral_2.tscn" id="6_tc5a4"]
+[ext_resource type="PackedScene" uid="uid://1h1bwcy3o4bt" path="res://Scenes/Environment/grass.tscn" id="7_0d364"]
+
+[node name="DekorasiStage1" type="Node2D" unique_id=1373341958]
+
+[node name="Pillar" parent="." unique_id=926497192 instance=ExtResource("1_ryltb")]
+
+[node name="BrokenPilar" parent="." unique_id=419381924 instance=ExtResource("2_gajvb")]
+position = Vector2(88, 0)
+
+[node name="Badge" parent="." unique_id=343663523 instance=ExtResource("3_j80by")]
+position = Vector2(184, 0)
+
+[node name="Badge2" parent="." unique_id=1718022287 instance=ExtResource("4_lalne")]
+position = Vector2(272, 0)
+
+[node name="Coral" parent="." unique_id=1114980619 instance=ExtResource("5_6utsq")]
+position = Vector2(360, 0)
+
+[node name="Coral2" parent="." unique_id=462135575 instance=ExtResource("6_tc5a4")]
+position = Vector2(456, 0)
+
+[node name="Grass" parent="." unique_id=1878025945 instance=ExtResource("7_0d364")]
+position = Vector2(560, 0)

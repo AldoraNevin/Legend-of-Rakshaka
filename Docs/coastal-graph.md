@@ -49,7 +49,7 @@ selalu di belakang pemain dan dipotong mengikuti ruang kosong template.
 ## Koneksi dan akses
 
 Koridor horizontal memiliki tinggi 128 px; panjang dipilih dari 128/192/256 px.
-Koridor vertikal memakai tangga one-way beda tinggi 32 px. Ada ruang di samping
+Koridor vertikal memakai pijakan one-way beda tinggi maksimal 40 px. Ada ruang di samping
 pijakan untuk turun, serta platform penangkap di bagian bawah shaft. Tidak perlu
 teleport, dash, atau upgrade kemampuan. Bukaan lantai dapat dilompati.
 
@@ -78,3 +78,18 @@ Godot --headless --fixed-fps 60 --path . --log-file test.log --script Tests/test
 Tes render `test_coastal_visibility.gd` dijalankan tanpa `--headless` dan memastikan
 sprite pemain benar-benar terlihat. Untuk memperbarui screenshot map, jalankan
 `test_coastal_map.gd` tanpa `--headless` lalu tambahkan `-- --capture`.
+
+## Platform parkour dan tileset
+
+Pijakan zigzag kini memakai pengaturan di `Assets/Tileset/coastal_style.tres`:
+lebar 96 px, offset 32 px, dan jarak maksimal 40 px yang dibagi merata.
+Pijakan masuk 144 px dan penangkap 192 px tetap dipertahankan.
+Semua room mendapat balkon samping jika air_regions cukup luas, dengan
+pijakan awal yang tidak menghalangi spawn/reward/pintu. Setiap template memiliki
+Automatic Balconies dan Extra Platforms untuk pengeditan lewat Inspector.
+
+Visual memakai TileSet atlas 16 px dengan PNG yang dapat diedit. Collision
+terpisah dari gambar; map M tetap mengikuti shell dan platform sebenarnya.
+Baca [panduan tileset dan platform](coastal-tileset-editing.md) untuk langkah
+pengeditan dan contoh room latihan. Tes `test_coastal_balconies.gd` memeriksa
+akses platform samping dengan collision nyata.

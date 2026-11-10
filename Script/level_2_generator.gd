@@ -8,9 +8,9 @@ const LEFT_EDGE_TILE := Vector2i(0, 1)
 const RIGHT_EDGE_TILE := Vector2i(2, 1)
 
 const COIN_SCENE := preload("res://Scenes/Interactables/coin.tscn")
-const ENEMY_SCENE := preload("res://Script/Enemies/kuntilanak.tscn")
+const ENEMY_SCENE := preload("res://Scenes/Enemies/Aul.tscn")
 const SPIKE_SCENE := preload("res://Scenes/Interactables/spike.tscn")
-const ENEMY_SCALE := Vector2(0.2, 0.2)
+const ENEMY_SCALE := Vector2(0.5, 0.5)
 
 enum RoomState { COMBAT, REWARD, DOOR_SELECT }
 

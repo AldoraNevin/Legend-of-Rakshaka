@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://dbmsp47d2tqlk"]
+
+[ext_resource type="Texture2D" uid="uid://b3chdltw16p6" path="res://Assets/Artefak/Jimat Kalimasada/Jimat Kalimasada-sheet.png" id="1_545rn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv0pi"]
+atlas = ExtResource("1_545rn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i67r"]
+atlas = ExtResource("1_545rn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsept"]
+atlas = ExtResource("1_545rn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eypq"]
+atlas = ExtResource("1_545rn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nm1r"]
+atlas = ExtResource("1_545rn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmc1y"]
+atlas = ExtResource("1_545rn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg8ke"]
+atlas = ExtResource("1_545rn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbim5"]
+atlas = ExtResource("1_545rn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkr5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv0pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1i67r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsept")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eypq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nm1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmc1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg8ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbim5")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_545rn"]
+radius = 30.016663
+
+[sub_resource type="Animation" id="Animation_31mnv"]
+resource_name = "Float"
+length = 2.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q7vt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ot56e"]
+_data = {
+&"Float": SubResource("Animation_31mnv"),
+&"RESET": SubResource("Animation_q7vt5")
+}
+
+[node name="JimatKalimasada" type="Area2D" unique_id=760472200]
+collision_layer = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1157595850]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nkr5k")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1845827788]
+shape = SubResource("CircleShape2D_545rn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1228518883]
+libraries/ = SubResource("AnimationLibrary_ot56e")
+autoplay = &"Float"

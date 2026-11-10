@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="TileSet" path="res://Assets/Tileset/coastal_tileset.tres" id="tiles"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Sprites/coastal_ruins.png" id="image"]
+
+[node name="CoastalTilesetPreview" type="Node2D"]
+
+[node name="AtlasPreview" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("image")
+centered = false
+scale = Vector2(4, 4)
+
+[node name="Instructions" type="Label" parent="."]
+offset_top = 264.0
+text = "16 x 16 px | Row 0: ledges | Row 1: stone | Row 2: background | Row 3: decor\nSelect PaintHere > TileSet to edit atlas. Paint below to experiment."
+
+[node name="PaintHere" type="TileMapLayer" parent="."]
+position = Vector2(0, 336)
+texture_filter = 1
+tile_set = ExtResource("tiles")
+collision_enabled = false
+

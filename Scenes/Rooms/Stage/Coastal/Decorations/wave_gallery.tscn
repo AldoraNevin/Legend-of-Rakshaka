@@ -1,0 +1,189 @@
+[gd_scene format=4]
+
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="4_6h0ox"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/badge_2.tscn" id="4_j61tq"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/broken_pilar.tscn" id="5_t6qq5"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/coral.tscn" id="6_6h0ox"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/coral_2.tscn" id="7_cv7kd"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/grass.tscn" id="8_7at1x"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai.png" id="10_cv7kd"]
+[ext_resource type="Script" path="res://Script/Stage/coastal_decoration_guide.gd" id="guide"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/pillar.tscn" id="pillar"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/wave_gallery.tres" id="template"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrm0"]
+atlas = ExtResource("10_cv7kd")
+region = Rect2(204, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nak7l"]
+resource_name = "Tengah A"
+texture = SubResource("AtlasTexture_hhrm0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo6kc"]
+atlas = ExtResource("10_cv7kd")
+region = Rect2(286, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vjws"]
+resource_name = "Tengah B"
+texture = SubResource("AtlasTexture_qo6kc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhary"]
+atlas = ExtResource("10_cv7kd")
+region = Rect2(31, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqcp4"]
+resource_name = "Ujung kiri"
+texture = SubResource("AtlasTexture_lhary")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7qrc"]
+atlas = ExtResource("10_cv7kd")
+region = Rect2(453, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1kap"]
+resource_name = "Ujung kanan"
+texture = SubResource("AtlasTexture_n7qrc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1oy8"]
+atlas = ExtResource("10_cv7kd")
+region = Rect2(204, 124, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27l8k"]
+resource_name = "Batu isi"
+texture = SubResource("AtlasTexture_o1oy8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wn2go"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_nak7l")
+sources/1 = SubResource("TileSetAtlasSource_5vjws")
+sources/2 = SubResource("TileSetAtlasSource_sqcp4")
+sources/3 = SubResource("TileSetAtlasSource_p1kap")
+sources/4 = SubResource("TileSetAtlasSource_27l8k")
+
+[node name="wave_gallery" type="Node2D" unique_id=1133524106]
+
+[node name="RoomGuide" type="Node2D" parent="." unique_id=2140998316]
+show_behind_parent = true
+script = ExtResource("guide")
+show_tiles = false
+template = ExtResource("template")
+
+[node name="Decorations" type="Node2D" parent="." unique_id=1427986170]
+
+[node name="PillarExample" type="Sprite2D" parent="Decorations" unique_id=1913959658 instance=ExtResource("pillar")]
+texture_filter = 1
+position = Vector2(17.000002, 231.00002)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(39, 5, 63, 130)
+
+[node name="PillarExample2" type="Sprite2D" parent="Decorations" unique_id=926497192 instance=ExtResource("pillar")]
+texture_filter = 1
+position = Vector2(381, 134)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(39, 5, 63, 130)
+
+[node name="Badge2" type="Sprite2D" parent="Decorations" unique_id=1718022287 instance=ExtResource("4_j61tq")]
+texture_filter = 1
+position = Vector2(84, 138)
+scale = Vector2(0.3560606, 0.35606062)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(394, 9, 66, 124)
+
+[node name="Badge3" type="Sprite2D" parent="Decorations" unique_id=767997509 instance=ExtResource("4_j61tq")]
+texture_filter = 1
+position = Vector2(383.00003, 235)
+scale = Vector2(0.3560606, 0.35606062)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(394, 9, 66, 124)
+
+[node name="BrokenPilar" type="Sprite2D" parent="Decorations" unique_id=419381924 instance=ExtResource("5_t6qq5")]
+texture_filter = 1
+position = Vector2(491.00003, 239)
+scale = Vector2(0.4213483, 0.4213483)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(144, 46, 90, 89)
+
+[node name="BrokenPilar2" type="Sprite2D" parent="Decorations" unique_id=439146252 instance=ExtResource("5_t6qq5")]
+texture_filter = 1
+position = Vector2(49, 239)
+scale = Vector2(0.4213483, 0.4213483)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(144, 46, 90, 89)
+
+[node name="Coral" type="Sprite2D" parent="Decorations" unique_id=1114980619 instance=ExtResource("6_6h0ox")]
+texture_filter = 1
+position = Vector2(84, 248.99998)
+scale = Vector2(0.34444445, 0.34444445)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(26, 308, 79, 45)
+
+[node name="Coral2" type="Sprite2D" parent="Decorations" unique_id=2018541865 instance=ExtResource("6_6h0ox")]
+texture_filter = 1
+position = Vector2(405, 248.99998)
+scale = Vector2(0.34444445, 0.34444445)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(26, 308, 79, 45)
+
+[node name="Coral3" type="Sprite2D" parent="Decorations" unique_id=462135575 instance=ExtResource("7_cv7kd")]
+texture_filter = 1
+position = Vector2(107, 247.00002)
+scale = Vector2(0.30882353, 0.30882353)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(137, 285, 98, 68)
+
+[node name="Coral4" type="Sprite2D" parent="Decorations" unique_id=565860381 instance=ExtResource("7_cv7kd")]
+texture_filter = 1
+position = Vector2(426.99997, 247.00002)
+scale = Vector2(0.30882353, 0.30882353)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(137, 285, 98, 68)
+
+[node name="Grass" type="Sprite2D" parent="Decorations" unique_id=1878025945 instance=ExtResource("8_7at1x")]
+texture_filter = 1
+position = Vector2(134, 242.00002)
+scale = Vector2(0.38059703, 0.38059703)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(267, 278, 67, 78)
+
+[node name="Grass2" type="Sprite2D" parent="Decorations" unique_id=125809497 instance=ExtResource("8_7at1x")]
+texture_filter = 1
+position = Vector2(365, 243)
+scale = Vector2(0.38059703, 0.38059703)
+texture = ExtResource("4_6h0ox")
+region_enabled = true
+region_rect = Rect2(267, 278, 67, 78)
+
+[node name="FloorTiles" type="TileMapLayer" parent="." unique_id=197019387]
+texture_filter = 1
+position = Vector2(0, 256)
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_wn2go")
+collision_enabled = false

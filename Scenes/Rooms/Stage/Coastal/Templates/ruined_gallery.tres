@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://dxdibhogq2sy1"]
+[gd_resource type="Resource" format=3 uid="uid://cievb0ggdn1g"]
 
 [ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
 [ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
@@ -32,3 +32,6 @@ size = Vector2(640, 256)
 air_regions = Array[Rect2]([Rect2(0, 128, 640, 128), Rect2(96, 64, 448, 64), Rect2(224, 0, 192, 64)])
 sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
 allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
+decoration_scene = "res://Scenes/Rooms/Stage/Coastal/Decorations/ruined_gallery.tscn"
+automatic_decorations = false
+manual_floor = true

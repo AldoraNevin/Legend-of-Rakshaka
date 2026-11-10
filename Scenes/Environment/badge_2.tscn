@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bwimahmo7fp72"]
+
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="1_gfmb3"]
+
+[node name="Badge2" type="Sprite2D" unique_id=1718022287]
+texture_filter = 1
+texture = ExtResource("1_gfmb3")
+region_enabled = true
+region_rect = Rect2(394, 9, 66, 124)

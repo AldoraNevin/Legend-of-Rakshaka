@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://begf4rb0swioy"]
+[gd_resource type="Resource" format=3 uid="uid://dmosvt3jx4f3x"]
 
 [ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
 [ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
@@ -33,3 +33,6 @@ air_regions = Array[Rect2]([Rect2(0, 64, 576, 128), Rect2(192, 0, 192, 64)])
 sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
 allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
 anchor = Vector2(64, 158)
+decoration_scene = "res://Scenes/Rooms/Stage/Coastal/Decorations/tidal_hall.tscn"
+automatic_decorations = false
+manual_floor = true

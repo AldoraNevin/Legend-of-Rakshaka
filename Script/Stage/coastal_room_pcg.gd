@@ -24,7 +24,7 @@ static func generate_layout(seed_value: int) -> Dictionary:
 	for room in rooms:
 		for rect in room.template.air_regions:
 			regions.append(Rect2(room.position + rect.position, rect.size))
-		for step in ROUTES.climb(room):
+		for step in ROUTES.climb(room) + ROUTES.interior(room):
 			if step not in platforms:
 				platforms.append(step)
 		if "down" in room.used_sockets:
@@ -164,7 +164,7 @@ static func validate_layout(candidate: Dictionary) -> PackedStringArray:
 			if i > 0:
 				var previous: Rect2 = path[i - 1]
 				var gap := maxf(0, maxf(surface.position.x - previous.end.x, previous.position.x - surface.end.x))
-				if previous.position.y - surface.position.y > 32 or gap > 24:
+				if previous.position.y - surface.position.y > 40 or gap > 24:
 					errors.append("Jalur membutuhkan lompatan di luar kemampuan dasar.")
 	return errors
 
@@ -191,6 +191,31 @@ func prepare(seed_value: int) -> bool:
 	for rect in layout.platforms:
 		platform(rect, true)
 	for data in layout.rooms:
+		if not data.template.decoration_scene.is_empty():
+			var scene := load(data.template.decoration_scene) as PackedScene
+			if scene != null:
+				var decoration := scene.instantiate() as Node2D
+				if decoration != null:
+					var holder := Node2D.new()
+					holder.name = "ManualDecor_%d" % data.id if data.has("id") else "ManualDecor_%d" % layout.rooms.find(data)
+					holder.position = data.position
+					holder.z_index = -5
+					holder.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+					holder.add_child(decoration)
+					add_child(holder)
+					# Remove paint over an open down socket (or outside the floor).
+					var floor_tiles := decoration.get_node_or_null("FloorTiles") as TileMapLayer
+					if floor_tiles != null:
+						floor_tiles.visible = data.template.manual_floor
+						for cell in floor_tiles.get_used_cells():
+							var point := floor_tiles.to_global(floor_tiles.map_to_local(cell)) - global_position
+							var solid := false
+							for rect in layout.shell:
+								if rect.has_point(point) and is_equal_approx(point.y, data.position.y + data.height + 8):
+									solid = true
+									break
+							if not solid:
+								floor_tiles.erase_cell(cell)
 		var title := "RUANG HARTA" if data.kind == "treasure" else str(data.title)
 		path_label(data.position + Vector2(24, 16), title, Color(0.4, 0.7, 0.7))
 	for i in range(layout.branches.size()):
@@ -250,12 +275,8 @@ func platform(rect: Rect2, one_way: bool) -> void:
 	collider.shape = shape
 	collider.one_way_collision = one_way
 	body.add_child(collider)
-	var visual := Polygon2D.new()
-	visual.color = Color(0.12, 0.31, 0.32) if one_way else Color(0.07, 0.22, 0.23)
-	visual.polygon = PackedVector2Array([Vector2.ZERO, Vector2(rect.size.x, 0), rect.size, Vector2(0, rect.size.y)])
-	body.add_child(visual)
-	var trim := Line2D.new()
-	trim.points = PackedVector2Array([Vector2.ZERO, Vector2(rect.size.x, 0)])
-	trim.width = 2
-	trim.default_color = Color(0.3, 0.7, 0.65)
-	body.add_child(trim)
+	if one_way:
+		var art := preload("res://Script/Stage/coastal_platform_art.gd").new()
+		art.platform_size = rect.size
+		art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		body.add_child(art)

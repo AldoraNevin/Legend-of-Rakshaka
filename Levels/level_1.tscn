@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://lvfoclcmqxkg" path="res://Assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="7_0urlm"]
 [ext_resource type="Script" uid="uid://hgi6toxkfov2" path="res://Script/UI/gui.gd" id="7_xoyoh"]
 [ext_resource type="Texture2D" uid="uid://u5rns0nhucsr" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/coin.png" id="8_77x7w"]
+[ext_resource type="PackedScene" uid="uid://nlfhlpgc4kqp" path="res://Scenes/Enemies/Aul.tscn" id="9_lk57d"]
 [ext_resource type="PackedScene" uid="uid://dwjqi2vaye2o0" path="res://Scenes/Interactables/spike.tscn" id="10_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://dwkerrcilb7vr" path="res://Script/Enemies/kuntilanak.tscn" id="11_62b6n"]
 
@@ -563,27 +564,27 @@ vertical_alignment = 1
 
 [node name="Enemies" type="Node" parent="." unique_id=214371582]
 
+[node name="Aul" parent="Enemies" unique_id=425479105 instance=ExtResource("9_lk57d")]
+position = Vector2(839, 540)
+scale = Vector2(0.5, 0.5)
+
 [node name="Kuntilanak" parent="Enemies" unique_id=2057398156 instance=ExtResource("11_62b6n")]
 position = Vector2(1180, 452.99997)
-scale = Vector2(0.2, 0.2)
 chase_speed = 30.0
 attack_cooldown = 1.2
 
 [node name="Kuntilanak2" parent="Enemies" unique_id=724150147 instance=ExtResource("11_62b6n")]
 position = Vector2(2008.9999, 500.99997)
-scale = Vector2(0.2, 0.2)
 chase_speed = 30.0
 attack_cooldown = 1.2
 
 [node name="Kuntilanak3" parent="Enemies" unique_id=1429556438 instance=ExtResource("11_62b6n")]
 position = Vector2(2033.9999, 501)
-scale = Vector2(0.2, 0.2)
 chase_speed = 30.0
 attack_cooldown = 1.2
 
 [node name="Kuntilanak4" parent="Enemies" unique_id=217828065 instance=ExtResource("11_62b6n")]
 position = Vector2(793, 44.00003)
-scale = Vector2(0.2, 0.2)
 chase_speed = 30.0
 attack_cooldown = 1.2
 
@@ -768,6 +769,6 @@ current_state = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1792125071]
 z_index = -2
-position = Vector2(878, -272)
+position = Vector2(722, -444)
 scale = Vector2(3.456597, 3.1585646)
 texture = ExtResource("3_rs4xw")

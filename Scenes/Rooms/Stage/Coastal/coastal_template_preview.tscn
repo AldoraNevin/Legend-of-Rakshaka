@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://cfxsousriwxht"]
 
-[ext_resource type="Script" path="res://Script/Stage/coastal_template_preview.gd" id="preview"]
-[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/reef_tower.tres" id="template"]
+[ext_resource type="Script" uid="uid://du8nit18op4j5" path="res://Script/Stage/coastal_template_preview.gd" id="preview"]
+[ext_resource type="Resource" uid="uid://vggu1j5khjh5" path="res://Scenes/Rooms/Stage/Coastal/Templates/reef_tower.tres" id="template"]
 
-[node name="CoastalTemplatePreview" type="Node2D"]
+[node name="CoastalTemplatePreview" type="Node2D" unique_id=1159674393]
 script = ExtResource("preview")
 template = ExtResource("template")

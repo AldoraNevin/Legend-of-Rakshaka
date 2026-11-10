@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://ci6kvvbmn4sot"]
+
+[ext_resource type="Texture2D" uid="uid://c58xc7bjaox35" path="res://Assets/Artefak/Keris Mpu Gandring/keris_v2-sheet.png" id="1_i7pep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iw1w"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csuhn"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71qs7"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4ac6"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ivw7"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0auf"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhcq3"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toset"]
+atlas = ExtResource("1_i7pep")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_buf0o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iw1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csuhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71qs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4ac6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ivw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0auf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhcq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toset")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vio5i"]
+radius = 33.01515
+
+[sub_resource type="Animation" id="Animation_n72up"]
+resource_name = "Float"
+length = 2.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hw6ly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f54x"]
+_data = {
+&"Float": SubResource("Animation_n72up"),
+&"RESET": SubResource("Animation_hw6ly")
+}
+
+[node name="KerisMpuGandring" type="Area2D" unique_id=1298777213]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=675112818]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_buf0o")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=861316274]
+shape = SubResource("CircleShape2D_vio5i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=177521419]
+libraries/ = SubResource("AnimationLibrary_3f54x")
+autoplay = &"Float"

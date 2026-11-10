@@ -60,6 +60,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/
 2d_physics/layer_4="Interactables"
 2d_physics/layer_5="Coin"
 2d_physics/layer_6="Damage_zone"
+2d_physics/layer_7="Enemy"
 
 [maaacks_menus_template]
 

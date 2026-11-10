@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bdu28edc8m7nc"]
+
+[ext_resource type="Script" uid="uid://bf21xv5r4x04t" path="res://Script/Enemies/kuntilanak.gd" id="1_6fcdt"]
+[ext_resource type="Texture2D" uid="uid://c8i5y17gpy1op" path="res://Assets/Enemies/Kuntilanak/Kuntilanak_left_400%.png" id="2_sm6tu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ywksi"]
+radius = 29.0
+height = 158.0
+
+[sub_resource type="Animation" id="Animation_n63yd"]
+resource_name = "Attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_14c8m"]
+resource_name = "Chase"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_g08yo"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_e4emk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1563x"]
+_data = {
+&"Attack": SubResource("Animation_n63yd"),
+&"Chase": SubResource("Animation_14c8m"),
+&"Idle": SubResource("Animation_g08yo"),
+&"RESET": SubResource("Animation_e4emk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_181ps"]
+size = Vector2(101, 161.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j01ln"]
+size = Vector2(57, 159)
+
+[node name="Kuntilanak" type="CharacterBody2D" unique_id=2057398156]
+scale = Vector2(0.2, 0.2)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_6fcdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1374761118]
+position = Vector2(0, -2)
+scale = Vector2(0.7610294, 0.7610294)
+texture = ExtResource("2_sm6tu")
+hframes = 5
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1520026535]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ywksi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=301880247]
+libraries/ = SubResource("AnimationLibrary_1563x")
+autoplay = &"Idle"
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=543350425]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=85441478]
+position = Vector2(-21.5, 3.25)
+shape = SubResource("RectangleShape2D_181ps")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=134127130]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=718016581]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_j01ln")

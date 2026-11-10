@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://dhw8p2w4xnpjm"]
+
+[ext_resource type="Texture2D" uid="uid://bra1jdc33s54l" path="res://Assets/metroid_asset_1_2/Sprites/Environment/kSvekj.png" id="1_k3c6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(841, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left_wall"]
+size = Vector2(32, 414)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right_wall"]
+size = Vector2(32, 414)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(841, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform_wide"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform_mid"]
+size = Vector2(112, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_platform_small"]
+size = Vector2(80, 16)
+
+[node name="RoomCombat01" type="Node2D" unique_id=96784301]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=456992953]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1909569330]
+position = Vector2(420.5, 398)
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="Visual" type="Polygon2D" parent="Floor" unique_id=744893965]
+position = Vector2(0, 126)
+scale = Vector2(1.5459557, 1)
+color = Color(0.24, 0.2, 0.18, 1)
+polygon = PackedVector2Array(0, 256, 544, 256, 544.00006, 268.9344, 544, 288, 0, 288)
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=143543929]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=332195123]
+position = Vector2(16, 207)
+shape = SubResource("RectangleShape2D_left_wall")
+
+[node name="Visual" type="Polygon2D" parent="LeftWall" unique_id=1905621711]
+scale = Vector2(1, 1.4375)
+color = Color(0.18, 0.17, 0.16, 1)
+polygon = PackedVector2Array(0, 0, 32, 0, 32, 288, 12.594627, 288, 0, 288)
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1331511994]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=476054926]
+position = Vector2(825, 207)
+shape = SubResource("RectangleShape2D_right_wall")
+
+[node name="Visual" type="Polygon2D" parent="RightWall" unique_id=2111966346]
+position = Vector2(297, 0)
+scale = Vector2(1, 1.4374999)
+color = Color(0.18, 0.17, 0.16, 1)
+polygon = PackedVector2Array(512, 0, 544, 0, 544, 288, 525.2835, 288.00003, 512, 288)
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=1897436603]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=238952944]
+position = Vector2(420.5, 8)
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="Visual" type="Polygon2D" parent="Ceiling" unique_id=609220520]
+scale = Vector2(1.5459555, 1)
+color = Color(0.16, 0.15, 0.14, 1)
+polygon = PackedVector2Array(0, 0, 544, 0, 544.0001, 7.6616745, 544, 16, 0, 16)
+
+[node name="PlatformLeft" type="StaticBody2D" parent="." unique_id=2051493173]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformLeft" unique_id=229096688]
+position = Vector2(104, 256)
+shape = SubResource("RectangleShape2D_platform_wide")
+
+[node name="Visual" type="Polygon2D" parent="PlatformLeft" unique_id=587976282]
+position = Vector2(-40, 64)
+color = Color(0.36, 0.3, 0.24, 1)
+polygon = PackedVector2Array(72, 184, 216, 184, 216, 200, 72, 200)
+
+[node name="PlatformCenter" type="StaticBody2D" parent="." unique_id=543546616]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCenter" unique_id=1752035115]
+position = Vector2(288, 128)
+shape = SubResource("RectangleShape2D_platform_mid")
+
+[node name="Visual" type="Polygon2D" parent="PlatformCenter" unique_id=1491253969]
+color = Color(0.36, 0.3, 0.24, 1)
+polygon = PackedVector2Array(232, 120, 344, 120, 344, 136, 232, 136)
+
+[node name="PlatformRight" type="StaticBody2D" parent="." unique_id=1636286833]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRight" unique_id=250586080]
+position = Vector2(432, 192)
+shape = SubResource("RectangleShape2D_platform_small")
+
+[node name="Visual" type="Polygon2D" parent="PlatformRight" unique_id=851042328]
+color = Color(0.36, 0.3, 0.24, 1)
+polygon = PackedVector2Array(392, 184, 472, 184, 472, 200, 392, 200)
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1540417068]
+position = Vector2(55, 214)
+
+[node name="RewardSpawn" type="Marker2D" parent="." unique_id=1989006859]
+position = Vector2(649, 368)
+
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=129557635]
+
+[node name="EnemySpawn1" type="Marker2D" parent="EnemySpawns" unique_id=1241397586]
+position = Vector2(331, 110)
+
+[node name="EnemySpawn2" type="Marker2D" parent="EnemySpawns" unique_id=1347253062]
+position = Vector2(406, 174)
+
+[node name="EnemySpawn3" type="Marker2D" parent="EnemySpawns" unique_id=522589002]
+position = Vector2(251, 110)
+
+[node name="SpikeSpawns" type="Node2D" parent="." unique_id=1582723319]
+
+[node name="SpikeSpawn1" type="Marker2D" parent="SpikeSpawns" unique_id=1972668696]
+position = Vector2(271, 371)
+
+[node name="SpikeSpawn2" type="Marker2D" parent="SpikeSpawns" unique_id=1636775672]
+position = Vector2(287, 371)
+
+[node name="SpikeSpawn3" type="Marker2D" parent="SpikeSpawns" unique_id=1490861945]
+position = Vector2(302, 371)
+
+[node name="DoorSpawns" type="Node2D" parent="." unique_id=1027533679]
+
+[node name="DoorSpawn1" type="Marker2D" parent="DoorSpawns" unique_id=934455361]
+position = Vector2(737, 369)
+
+[node name="KSvekj" type="Sprite2D" parent="." unique_id=1234081717]
+z_index = -3
+position = Vector2(420.2201, 199)
+scale = Vector2(2.0248954, 1.6944443)
+texture = ExtResource("1_k3c6y")

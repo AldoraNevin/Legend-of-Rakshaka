@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://Script/Stage/coastal_template.gd" id="template"]
+[ext_resource type="Script" path="res://Script/Stage/coastal_socket.gd" id="socket"]
+
+[sub_resource type="Resource" id="left"]
+script = ExtResource("socket")
+side = "left"
+position = Vector2(0, 256)
+opening = 128
+
+[sub_resource type="Resource" id="right"]
+script = ExtResource("socket")
+side = "right"
+position = Vector2(512, 256)
+opening = 128
+
+[sub_resource type="Resource" id="up"]
+script = ExtResource("socket")
+side = "up"
+position = Vector2(256, 0)
+opening = 192
+
+[sub_resource type="Resource" id="down"]
+script = ExtResource("socket")
+side = "down"
+position = Vector2(256, 320)
+opening = 192
+
+[resource]
+script = ExtResource("template")
+template_id = "coastal_practice"
+display_name = "GUA LATIHAN"
+size = Vector2(512, 320)
+anchor = Vector2(64, 286)
+air_regions = Array[Rect2]([Rect2(0, 192, 512, 128), Rect2(160, 0, 192, 320), Rect2(32, 96, 128, 96)])
+sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
+

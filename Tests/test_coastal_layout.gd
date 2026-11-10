@@ -17,7 +17,7 @@ func _initialize() -> void:
 		assert(layout.branches.size() == 2)
 		for branch in layout.branches:
 			assert(branch.to not in layout.graph.main_path)
-	assert(templates.size() == 8 and directions.size() == 4 and negative_positions)
+	assert(templates.size() == Coast.PLACER.CATALOG.room_templates.size() and directions.size() == 4 and negative_positions)
 	var broken := Coast.generate_layout(42)
 	broken.shell.pop_back()
 	assert(not Coast.validate_layout(broken).is_empty())

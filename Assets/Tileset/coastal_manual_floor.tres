@@ -1,0 +1,66 @@
+[gd_resource type="TileSet" format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai.png" id="1_ygekl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrm0"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(204, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nak7l"]
+resource_name = "Tengah A"
+texture = SubResource("AtlasTexture_hhrm0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo6kc"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(286, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vjws"]
+resource_name = "Tengah B"
+texture = SubResource("AtlasTexture_qo6kc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhary"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(31, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqcp4"]
+resource_name = "Ujung kiri"
+texture = SubResource("AtlasTexture_lhary")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7qrc"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(453, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1kap"]
+resource_name = "Ujung kanan"
+texture = SubResource("AtlasTexture_n7qrc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1oy8"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(204, 124, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27l8k"]
+resource_name = "Batu isi"
+texture = SubResource("AtlasTexture_o1oy8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_nak7l")
+sources/1 = SubResource("TileSetAtlasSource_5vjws")
+sources/2 = SubResource("TileSetAtlasSource_sqcp4")
+sources/3 = SubResource("TileSetAtlasSource_p1kap")
+sources/4 = SubResource("TileSetAtlasSource_27l8k")

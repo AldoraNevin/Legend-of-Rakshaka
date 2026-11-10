@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bg4adf6m3cw1r"]
+
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="1_kid38"]
+
+[node name="BrokenPilar" type="Sprite2D" unique_id=419381924]
+texture_filter = 1
+texture = ExtResource("1_kid38")
+region_enabled = true
+region_rect = Rect2(144, 46, 90, 89)

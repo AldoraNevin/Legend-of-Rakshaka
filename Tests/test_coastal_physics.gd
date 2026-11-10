@@ -50,6 +50,7 @@ func run_test() -> void:
 				if target.position.y < source.position.y or (target.position.y == source.position.y and (target.position.x > source.end.x or source.position.x > target.end.x)):
 					body.velocity.y = -300
 				if not await move_to(target_x, target.position.y, 6):
+					print("HOP ", source, " -> ", target)
 					fail(seed_value, i, "landing")
 					return
 		if not await after_routes():
@@ -74,3 +75,4 @@ func move_to(target_x: float, floor_y: float, minimum_frames := 0) -> bool:
 func fail(seed_value: int, hop: int, phase: String) -> void:
 	push_error("Coastal traversal failed seed=%d hop=%d phase=%s at %s" % [seed_value, hop, phase, body.position])
 	quit(1)
+

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1h1bwcy3o4bt"]
+
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="1_d2g5e"]
+
+[node name="Grass" type="Sprite2D" unique_id=1878025945]
+texture_filter = 1
+texture = ExtResource("1_d2g5e")
+region_enabled = true
+region_rect = Rect2(267, 278, 67, 78)

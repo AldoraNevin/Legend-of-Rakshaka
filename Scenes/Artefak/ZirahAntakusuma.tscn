@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://8eev3trefqib"]
+
+[ext_resource type="Texture2D" uid="uid://4ai4wt536dxo" path="res://Assets/Artefak/Zirah Antakusuma/Zirah Antakusuma-sheet.png" id="1_ic4qh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l1aw"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpqkh"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5annm"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8num"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7my6"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pelw"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2x7f"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xccj"]
+atlas = ExtResource("1_ic4qh")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3o58k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l1aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpqkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5annm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8num")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7my6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pelw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2x7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xccj")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20omf"]
+radius = 33.06055
+
+[sub_resource type="Animation" id="Animation_8ciwb"]
+resource_name = "Float"
+length = 2.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j1p8j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_65ims"]
+_data = {
+&"Float": SubResource("Animation_8ciwb"),
+&"RESET": SubResource("Animation_j1p8j")
+}
+
+[node name="ZirahAntakusuma" type="Area2D" unique_id=1280980373]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=29266590]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3o58k")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2022819643]
+shape = SubResource("CircleShape2D_20omf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242900646]
+libraries/ = SubResource("AnimationLibrary_65ims")
+autoplay = &"Float"

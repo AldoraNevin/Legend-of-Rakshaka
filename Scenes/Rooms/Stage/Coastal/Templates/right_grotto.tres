@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://xn7wwp2r65ue"]
+[gd_resource type="Resource" format=3 uid="uid://dup3krqhbdtln"]
 
 [ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
 [ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
@@ -33,3 +33,6 @@ air_regions = Array[Rect2]([Rect2(0, 160, 448, 128), Rect2(128, 64, 320, 96), Re
 sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
 allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
 anchor = Vector2(64, 254)
+decoration_scene = "res://Scenes/Rooms/Stage/Coastal/Decorations/right_grotto.tscn"
+automatic_decorations = false
+manual_floor = true

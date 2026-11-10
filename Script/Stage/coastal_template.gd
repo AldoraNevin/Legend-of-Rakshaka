@@ -8,6 +8,16 @@ extends Resource
 @export var sockets: Array[Resource] = []
 @export var allowed_kinds := PackedStringArray(["entrance", "combat", "exit", "treasure"])
 @export var anchor := Vector2(64, 222)
+@export_group("Manual decorations")
+## Scene in room-local coordinates. A path avoids a resource cycle with its editor guide.
+@export_file("*.tscn") var decoration_scene := ""
+@export var automatic_decorations := true
+## FloorTiles replaces automatic art on the bottom row; collision stays procedural.
+@export var manual_floor := false
+@export_group("Interior platforms")
+@export var automatic_balconies := true
+## Local Rect2: x/y = top-left; width = landing area; height = 8.
+@export var extra_platforms: Array[Rect2] = []
 
 func socket(side: String) -> Resource:
 	for entry in sockets:
@@ -22,6 +32,20 @@ func validate() -> PackedStringArray:
 	if anchor != Vector2(64, size.y - 34):
 		errors.append(template_id + ": anchor must be (64, height - 34).")
 	var bounds := Rect2(Vector2.ZERO, size)
+	for platform in extra_platforms:
+		if platform.size.y != 8 or platform.size.x < 24 or not bounds.encloses(platform):
+			errors.append(template_id + ": platform must be inside room, width >= 24, height = 8.")
+		var safe_foothold := platform.position.y == size.y - 32 and (platform.end.x <= 24 or (platform.position.x >= size.x - 56 and platform.end.x <= size.x - 24))
+		if (platform.position.y > size.y - 64 and not safe_foothold) or (platform.end.x > size.x / 2 - 112 and platform.position.x < size.x / 2 + 112):
+			errors.append(template_id + ": custom platform must stay >= 64px above floor and outside center shaft + landing clearance.")
+		for x in range(int(platform.position.x), int(platform.end.x), 8):
+			for y in range(int(platform.position.y) - 32, int(platform.end.y), 8):
+				var covered := false
+				for air in air_regions:
+					if air.has_point(Vector2(x + 4, y + 4)):
+						covered = true
+				if not covered:
+					errors.append(template_id + ": platform needs 32px clear headroom inside air regions.")
 	for rect in air_regions:
 		if not bounds.encloses(rect) or rect.size.x <= 0 or rect.size.y <= 0:
 			errors.append(template_id + ": air region outside bounds.")

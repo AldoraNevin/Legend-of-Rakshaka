@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bobaoewsf17a6"]
+
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="1_s8ypq"]
+
+[node name="Coral2" type="Sprite2D" unique_id=462135575]
+texture_filter = 1
+texture = ExtResource("1_s8ypq")
+region_enabled = true
+region_rect = Rect2(137, 285, 98, 68)

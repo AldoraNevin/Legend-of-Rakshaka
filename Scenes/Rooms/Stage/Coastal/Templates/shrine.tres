@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://dtux3tsb6eik3"]
+[gd_resource type="Resource" format=3 uid="uid://bgsmnfu8t8i4v"]
 
 [ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
 [ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]
@@ -33,3 +33,6 @@ air_regions = Array[Rect2]([Rect2(0, 96, 384, 128), Rect2(96, 0, 192, 96), Rect2
 sockets = Array[Resource]([SubResource("left"), SubResource("right"), SubResource("up"), SubResource("down")])
 allowed_kinds = PackedStringArray("entrance", "combat", "exit", "treasure")
 anchor = Vector2(64, 190)
+decoration_scene = "res://Scenes/Rooms/Stage/Coastal/Decorations/shrine.tscn"
+automatic_decorations = false
+manual_floor = true

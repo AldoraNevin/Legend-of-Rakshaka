@@ -1,0 +1,96 @@
+[gd_scene format=4]
+
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="4_h6dvh"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai.png" id="5_ym2nt"]
+[ext_resource type="Script" path="res://Script/Stage/coastal_decoration_guide.gd" id="guide"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/pillar.tscn" id="pillar"]
+[ext_resource type="Resource" path="res://Scenes/Rooms/Stage/Coastal/Templates/reef_tower.tres" id="template"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrm0"]
+atlas = ExtResource("5_ym2nt")
+region = Rect2(204, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nak7l"]
+resource_name = "Tengah A"
+texture = SubResource("AtlasTexture_hhrm0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo6kc"]
+atlas = ExtResource("5_ym2nt")
+region = Rect2(286, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vjws"]
+resource_name = "Tengah B"
+texture = SubResource("AtlasTexture_qo6kc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhary"]
+atlas = ExtResource("5_ym2nt")
+region = Rect2(31, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqcp4"]
+resource_name = "Ujung kiri"
+texture = SubResource("AtlasTexture_lhary")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7qrc"]
+atlas = ExtResource("5_ym2nt")
+region = Rect2(453, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1kap"]
+resource_name = "Ujung kanan"
+texture = SubResource("AtlasTexture_n7qrc")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1oy8"]
+atlas = ExtResource("5_ym2nt")
+region = Rect2(204, 124, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27l8k"]
+resource_name = "Batu isi"
+texture = SubResource("AtlasTexture_o1oy8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wn2go"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_nak7l")
+sources/1 = SubResource("TileSetAtlasSource_5vjws")
+sources/2 = SubResource("TileSetAtlasSource_sqcp4")
+sources/3 = SubResource("TileSetAtlasSource_p1kap")
+sources/4 = SubResource("TileSetAtlasSource_27l8k")
+
+[node name="reef_tower" type="Node2D" unique_id=299762946]
+
+[node name="RoomGuide" type="Node2D" parent="." unique_id=1788864415]
+show_behind_parent = true
+script = ExtResource("guide")
+show_tiles = false
+template = ExtResource("template")
+
+[node name="Decorations" type="Node2D" parent="." unique_id=930350954]
+
+[node name="PillarExample" type="Sprite2D" parent="Decorations" unique_id=1137008875 instance=ExtResource("pillar")]
+texture_filter = 1
+position = Vector2(32, 358)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_h6dvh")
+region_enabled = true
+region_rect = Rect2(39, 5, 63, 130)
+
+[node name="FloorTiles" type="TileMapLayer" parent="." unique_id=1134026538]
+texture_filter = 1
+position = Vector2(0, 384)
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_wn2go")
+collision_enabled = false

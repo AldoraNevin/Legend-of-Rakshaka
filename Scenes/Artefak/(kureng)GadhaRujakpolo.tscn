@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://d2phw4ndkw5ex"]
+
+[ext_resource type="Texture2D" uid="uid://bay1cih45lph0" path="res://Assets/Artefak/Gadha Rujakpolo/gada v2-sheet.png" id="1_0ownv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48ol6"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(0, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u600"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(116, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj7fm"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(232, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se43l"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(348, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxhu6"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(464, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv0k2"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(580, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d12co"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(696, 0, 116, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te65k"]
+atlas = ExtResource("1_0ownv")
+region = Rect2(812, 0, 116, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkp18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48ol6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u600")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj7fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se43l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxhu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv0k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d12co")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te65k")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_yw24b"]
+resource_name = "Float"
+length = 2.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_hu8qu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8cwd"]
+_data = {
+&"Float": SubResource("Animation_yw24b"),
+&"RESET": SubResource("Animation_hu8qu")
+}
+
+[node name="GadhaRujakpolo" type="Area2D" unique_id=460083642]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1410381761]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jkp18")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1328218741]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=144969812]
+libraries/ = SubResource("AnimationLibrary_v8cwd")
+autoplay = &"Float"

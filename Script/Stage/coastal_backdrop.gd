@@ -1,16 +1,54 @@
 extends Node2D
-## Draw scenery behind actors regardless of scene-tree sibling order.
+## Visual art only; generated geometry owns all collisions.
+const STYLE = preload("res://Assets/Tileset/coastal_style.tres")
+const ART = preload("res://Script/Stage/coastal_asset_art.gd")
 var layout: Dictionary = {}
+var air := {}
 
-func _draw() -> void:
-	for rect in layout.get("regions", []):
-		draw_rect(rect, Color(0.018, 0.065, 0.08))
-	for data in layout.get("rooms", []):
-		# Non-colliding stone pillars keep the coastal identity in varied chambers.
-		for x in range(32, int(data.width) - 32, 96):
-			var pillar := Rect2(data.position + Vector2(x, 40), Vector2(12, data.height - 40))
-			for rect in data.template.air_regions:
-				var clipped := pillar.intersection(Rect2(data.position + rect.position, rect.size))
-				if clipped.has_area():
-					draw_rect(clipped, Color(0.04, 0.13, 0.15))
-
+func _ready() -> void:
+	var sky := CanvasLayer.new()
+	sky.name = "CoastalParallax"
+	sky.layer = -100
+	var art := preload("res://Script/Stage/coastal_parallax.gd").new()
+	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sky.add_child(art)
+	add_child(sky)
+	for rect in layout.regions:
+		for x in range(int(rect.position.x / 16), int(rect.end.x / 16)):
+			for y in range(int(rect.position.y / 16), int(rect.end.y / 16)):
+				var cell := Vector2i(x, y)
+				air[cell] = true
+	var decorations := Node2D.new()
+	decorations.name = "Decorations"
+	add_child(decorations)
+	for i in range(layout.rooms.size()):
+		var room: Dictionary = layout.rooms[i]
+		if not room.template.automatic_decorations:
+			continue
+		# Side alcoves leave the central spawn, treasure and exit readable.
+		for side in [0, 1]:
+			var foot: Vector2 = room.position + Vector2(48 if side == 0 else room.width - 48, room.height)
+			var cell := Vector2i(floori(foot.x / 16), floori(foot.y / 16))
+			if air.has(cell + Vector2i.UP) and not air.has(cell):
+				decorations.add_child(ART.prop((i * 3 + side) % ART.PROPS.size(), foot))
+		var banner := ART.prop(2 if i % 2 == 0 else 3, room.position + Vector2(room.width * 0.5, 72))
+		decorations.add_child(banner)
+	var terrain := Node2D.new()
+	terrain.name = "TerrainArt"
+	terrain.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	add_child(terrain)
+	terrain.draw.connect(func():
+		for rect in layout.shell:
+			for x in range(int(rect.position.x), int(rect.end.x), 16):
+				var cell := Vector2i(x / 16, int(rect.position.y / 16))
+				# Show walkable floors; side/ceiling bounds remain invisible colliders.
+				if air.has(cell + Vector2i.UP):
+					var manual := false
+					for room in layout.rooms:
+						if room.template.manual_floor and rect.position.y == room.position.y + room.height and x >= room.position.x and x < room.position.x + room.width:
+							manual = true
+							break
+					if manual:
+						continue
+					ART.draw_surface(terrain, Rect2(x, rect.position.y, 16, 16), true)
+	)

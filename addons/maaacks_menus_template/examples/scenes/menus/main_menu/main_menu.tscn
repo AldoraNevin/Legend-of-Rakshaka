@@ -1,11 +1,17 @@
-[gd_scene format=3 uid="uid://byvydukidk6i2"]
+[gd_scene format=3 uid="uid://dq6ovsv4eilqd"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_pss7b"]
-[ext_resource type="Script" uid="uid://bdet8115mn02d" path="res://addons/maaacks_menus_template/examples/scenes/menus/main_menu/main_menu.gd" id="2_lk0wa"]
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_menus_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_qhsni"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_menus_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_qhsni"]
 
+[sub_resource type="GDScript" id="GDScript_mcy7l"]
+script/source = "extends MainMenu
+"
+
 [node name="MainMenu" unique_id=869232425 instance=ExtResource("1_pss7b")]
-script = ExtResource("2_lk0wa")
+script = SubResource("GDScript_mcy7l")
 options_packed_scene = ExtResource("3_qhsni")
 credits_packed_scene = ExtResource("4_qhsni")
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="0" unique_id=359406872]
+text = "2d_metroidvania_1"

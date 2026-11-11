@@ -26,6 +26,9 @@
     {
       "entity_id": "leak",
       "name": "Leak",
+      "description": "Leak menjaga jarak dan menyerang dengan proyektil sihir gelap.",
+      "attack_pattern": "Menjaga jarak dari pemain sambil menembakkan proyektil sihir gelap berkecepatan tinggi.",
+      "tactics": "Hindari lintasan proyektil dan cari kesempatan mendekat di antara serangannya.",
       "region": "Bali",
       "category": "Ranged",
       "hp": 4,

@@ -27,7 +27,8 @@ static func set_config_input_events(action_name : String, inputs : Array) -> voi
 	PlayerConfig.set_config(INPUT_SECTION, action_name, inputs)
 
 static func _clear_config_input_events() -> void:
-	PlayerConfig.erase_section(INPUT_SECTION)
+	for action_name in default_action_events:
+		PlayerConfig.erase_section_key(INPUT_SECTION, action_name)
 
 static func remove_action_input_event(action_name : String, input_event : InputEvent) -> void:
 	InputMap.action_erase_event(action_name, input_event)
@@ -46,8 +47,7 @@ static func set_input_from_config(action_name : String) -> void:
 		return
 	InputMap.action_erase_events(action_name)
 	for config_event in config_events:
-		if config_event not in action_events:
-			InputMap.action_add_event(action_name, config_event)
+		InputMap.action_add_event(action_name, config_event)
 
 static func _get_action_names() -> Array[StringName]:
 	return InputMap.get_actions()
@@ -165,7 +165,7 @@ static func get_vsync(window : Window = null) -> DisplayServer.VSyncMode:
 static func _set_v_sync_from_config(window: Window) -> DisplayServer.VSyncMode:
 	var vsync := get_vsync(window)
 	vsync = PlayerConfig.get_config(VIDEO_SECTION, V_SYNC, vsync)
-	set_vsync(vsync)
+	set_vsync(vsync, window)
 	return vsync
 
 static func set_video_from_config(window : Window) -> void:
@@ -175,14 +175,20 @@ static func set_video_from_config(window : Window) -> void:
 		var current_resolution : Vector2i = get_resolution(window)
 		set_resolution(current_resolution, window)
 	_set_v_sync_from_config(window)
+	window.msaa_2d = clampi(int(PlayerConfig.get_config(VIDEO_SECTION, "Anti-aliasing", 0)), 0, 3)
 
 # All
 
 static func set_from_config() -> void:
 	set_default_inputs()
 	set_inputs_from_config()
+	apply_controller_deadzone(float(PlayerConfig.get_config(INPUT_SECTION, "ControllerDeadzone", 0.2)))
 	set_audio_from_config()
 
 static func set_from_config_and_window(window : Window) -> void:
 	set_from_config()
 	set_video_from_config(window)
+
+static func apply_controller_deadzone(value: float) -> void:
+	for action in ["ui_left", "ui_right", "ui_up", "ui_down"]:
+		InputMap.action_set_deadzone(action, clampf(value, 0.05, 0.8))

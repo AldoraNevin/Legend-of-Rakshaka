@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://p4f1m6s8okjn"]
+
+[ext_resource type="Script" path="res://Script/UI/bestiary_card.gd" id="1"]
+[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="1_ftjel"]
+[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="3_2y2rt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6mc8"]
+atlas = ExtResource("1_ftjel")
+region = Rect2(65, 174, 66, 97)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6nwo"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_r6mc8")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24kjo"]
+atlas = ExtResource("1_ftjel")
+region = Rect2(253, 174, 66, 97)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2xpgi"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_24kjo")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44wig"]
+atlas = ExtResource("3_2y2rt")
+region = Rect2(100, 186, 82, 72)
+
+[node name="BestiaryCard" type="Button" unique_id=2028236111]
+custom_minimum_size = Vector2(100, 104)
+tooltip_text = "Leak"
+accessibility_name = "Leak"
+theme_override_styles/normal = SubResource("StyleBoxTexture_c6nwo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2xpgi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2xpgi")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_2xpgi")
+theme_override_styles/focus = SubResource("StyleBoxTexture_2xpgi")
+toggle_mode = true
+script = ExtResource("1")
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=1424404758]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = -24.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_44wig")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="." unique_id=595351843]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -20.0
+offset_right = -6.0
+offset_bottom = -4.0
+theme_override_font_sizes/font_size = 11
+text = "LEAK"
+horizontal_alignment = 1
+text_overrun_behavior = 3

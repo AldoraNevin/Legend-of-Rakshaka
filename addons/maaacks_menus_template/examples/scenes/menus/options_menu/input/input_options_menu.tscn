@@ -6,6 +6,9 @@
 [node name="Controls" unique_id=294191899 instance=ExtResource("1_b6ygu")]
 
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" parent_id_path=PackedInt32Array(1004992485) index="1" unique_id=2089976301 node_paths=PackedStringArray("input_icon_mapper")]
+input_action_names = Array[StringName]([&"ui_left", &"ui_right", &"ui_accept", &"ui_sword", &"ui_dash", &"ui_interact"])
+readable_action_names = Array[String](["Move Left", "Move Right", "Jump / Confirm", "Attack", "Dash", "Interact"])
+show_all_actions = false
 input_icon_mapper = NodePath("../../../InputIconMapper")
 
 [node name="InputActionsTree" parent="VBoxContainer/InputMappingContainer" parent_id_path=PackedInt32Array(1004992485) index="2" unique_id=780755880 node_paths=PackedStringArray("input_icon_mapper")]

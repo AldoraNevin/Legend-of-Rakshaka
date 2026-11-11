@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d613o3c166fb"]
 
+[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
 [ext_resource type="Script" uid="uid://wwj4ntoc2k04" path="res://Script/Lobby/lobby.gd" id="2_lobby"]
 [ext_resource type="Script" uid="uid://d3r73cq02in48" path="res://Script/Lobby/lobby_interactable.gd" id="3_interact"]
@@ -143,30 +144,6 @@ offset_right = 42.0
 offset_bottom = -28.0
 theme_override_font_sizes/font_size = 10
 text = "BESTIARY"
-horizontal_alignment = 1
-
-[node name="ArtifactShelf" type="Area2D" parent="Stations" unique_id=385770050]
-position = Vector2(300, 75)
-collision_layer = 8
-script = ExtResource("3_interact")
-interaction_type = "artifact"
-title = "Artefak"
-description = "Buka ensiklopedia artefak yang sudah ditemukan."
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stations/ArtifactShelf" unique_id=1707865740]
-shape = SubResource("RectangleShape2D_interact")
-
-[node name="Marker" type="Polygon2D" parent="Stations/ArtifactShelf" unique_id=29924412]
-color = Color(0.62, 0.42, 0.74, 1)
-polygon = PackedVector2Array(-18, 18, 18, 18, 18, -18, -18, -18)
-
-[node name="Label" type="Label" parent="Stations/ArtifactShelf" unique_id=1539492764]
-offset_left = -42.0
-offset_top = -52.0
-offset_right = 42.0
-offset_bottom = -28.0
-theme_override_font_sizes/font_size = 10
-text = "ARTEFAK"
 horizontal_alignment = 1
 
 [node name="LevelGate" type="Area2D" parent="Stations" unique_id=1665780988]
@@ -359,3 +336,5 @@ offset_top = 248.0
 offset_right = 380.0
 offset_bottom = 282.0
 text = "Tutup"
+
+[node name="PauseMenu" parent="." instance=ExtResource("99_pause")]

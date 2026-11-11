@@ -3,7 +3,7 @@ extends Node2D
 const LEVEL_1_SCENE := "res://Levels/stage_graph_template.tscn"
 
 var current_interactable = null
-var artifact_catalog: Control
+var bestiary_catalog: Control
 
 @onready var prompt_panel: Panel = $LobbyUI/PromptPanel
 @onready var prompt_label: Label = $LobbyUI/PromptPanel/PromptLabel
@@ -21,8 +21,8 @@ var artifact_catalog: Control
 
 
 func _ready() -> void:
-	artifact_catalog = preload("res://Scenes/UI/artifact_catalog.tscn").instantiate()
-	$LobbyUI.add_child(artifact_catalog)
+	bestiary_catalog = preload("res://Scenes/Interactables/bestiary_catalog.tscn").instantiate()
+	$LobbyUI.add_child(bestiary_catalog)
 	$LobbyUI.visible = true
 	$LobbyUI.show()
 	player_data.restore_life()
@@ -41,9 +41,6 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_interact := event.is_action_pressed("ui_interact")
-	if not is_interact and event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_E or event.physical_keycode == KEY_E:
-			is_interact = true
 
 	if is_interact and current_interactable != null:
 		current_interactable.activate(self)
@@ -84,33 +81,13 @@ func open_upgrade_panel() -> void:
 
 
 func open_bestiary_panel() -> void:
-	player_data.init_system()
-	var enemies: Array = player_data.bestiary_master.get("enemies", [])
-	var bosses: Array = player_data.bestiary_master.get("bosses", [])
-	var total_count: int = enemies.size() + bosses.size()
-	var unlocked_entries: Array = []
-
-	for item in enemies:
-		if item.get("is_unlocked", false):
-			unlocked_entries.append("%s [%s - %s]: %s" % [item.get("name", ""), item.get("category", ""), item.get("region", ""), item.get("lore_text", "")])
-
-	for item in bosses:
-		if item.get("is_unlocked", false):
-			unlocked_entries.append("★ BOSS %s [%s - %s]: %s" % [item.get("name", ""), item.get("category", ""), item.get("region", ""), item.get("lore_text", "")])
-
-	var text: String
-	if unlocked_entries.is_empty():
-		text = "Progres: 0 / %d Entitas Terbuka\n\nBelum ada entitas mitologi yang dicatat.\nKalahkan musuh (seperti Kuntilanak) di dalam pertempuran untuk membuka data sejarah dan mitos aslinya." % total_count
-	else:
-		text = "Progres: %d / %d Entitas Terbuka\n\n" % [unlocked_entries.size(), total_count]
-		text += "\n\n".join(unlocked_entries)
-
-	open_message_panel("Katalog Mitologi (Bestiary)", text)
+	close_panels()
+	bestiary_catalog.open_book()
 
 
 func open_artifact_panel() -> void:
 	close_panels()
-	artifact_catalog.open_book()
+	bestiary_catalog.open_book(true)
 
 
 func travel_to_scene(scene_path: String) -> void:
@@ -131,8 +108,8 @@ func _change_to_scene(scene_path: String) -> void:
 
 
 func close_panels() -> void:
-	if is_instance_valid(artifact_catalog):
-		artifact_catalog.close_book()
+	if is_instance_valid(bestiary_catalog):
+		bestiary_catalog.close_book()
 	info_panel.hide()
 	upgrade_panel.hide()
 

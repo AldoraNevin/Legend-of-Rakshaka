@@ -218,12 +218,6 @@ position = Vector2(582.857, -16)
 color = Color(0.08, 0.22, 0.23, 1)
 polygon = PackedVector2Array(0, 0, 17.1429, 64, 28.5714, 16, 45.7143, 48, 57.1429, 0)
 
-[node name="Title" type="Label" parent="." unique_id=472153346]
-modulate = Color(0.65, 0.65, 0.7, 1)
-offset_left = 17.1429
-offset_right = 17.1429
-text = "GUA OMBAK"
-
 [node name="Entry" type="Marker2D" parent="." unique_id=1333558752]
 position = Vector2(0, 256)
 

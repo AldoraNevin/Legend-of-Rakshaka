@@ -53,9 +53,6 @@ func build_template_room(template: PackedScene) -> void:
 		spawn_from_markers("SpikeSpawns", SPIKE_SCENE, spikes)
 	else:
 		super.build_template_room(template)
-	var title := current_room.get_node_or_null("Title") as Label
-	if title != null:
-		title.text = stage_graph[node_id].label
 
 func complete_combat() -> void:
 	if stage_graph[node_id].kind == "start":

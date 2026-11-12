@@ -221,11 +221,6 @@ z_index = 1
 color = Color(0.08, 0.22, 0.23, 1)
 polygon = PackedVector2Array(0, 272, 640, 272, 640, 304, 0, 304)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(16, 0)
-text = "LORONG PASANG"
-modulate = Color(0.65, 0.65, 0.70, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

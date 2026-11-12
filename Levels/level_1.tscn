@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dm3t03sg8b7vl"]
 
+[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_n0qsc"]
 [ext_resource type="Texture2D" uid="uid://bif27rjwvapti" path="res://Assets/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_dilhk"]
 [ext_resource type="PackedScene" uid="uid://bdye1ceiig1tl" path="res://Scenes/Environment/Statue/statue_1.tscn" id="3_3mhv4"]
@@ -772,3 +773,5 @@ z_index = -2
 position = Vector2(722, -444)
 scale = Vector2(3.456597, 3.1585646)
 texture = ExtResource("3_rs4xw")
+
+[node name="PauseMenu" parent="." instance=ExtResource("99_pause")]

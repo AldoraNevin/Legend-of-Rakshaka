@@ -29,3 +29,5 @@ key = "CameraShake"
 section = "VideoSettings"
 property_type = 3
 default_value = 1.0
+
+[connection signal="setting_changed" from="VBoxContainer/AntiAliasingControl" to="." method="_on_anti_aliasing_changed"]

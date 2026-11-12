@@ -544,11 +544,6 @@ points = PackedVector2Array(0, 0, 0, 72)
 width = 4.0
 default_color = Color(0.28, 0.68, 0.63, 1)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(15, 0)
-text = "KERATON LAUT GAIB"
-modulate = Color(0.65, 0.65, 0.70, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

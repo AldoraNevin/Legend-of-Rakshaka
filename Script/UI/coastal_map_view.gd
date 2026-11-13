@@ -18,7 +18,9 @@ func _draw() -> void:
 	var viewport_size := get_viewport_rect().size
 	draw_rect(Rect2(Vector2.ZERO, viewport_size), Color(0.015, 0.035, 0.05))
 	var font := ThemeDB.fallback_font
-	draw_string(font, Vector2(24, 36), "PETA PESISIR", HORIZONTAL_ALIGNMENT_LEFT, -1, 22, MAIN)
+	var title := "PETA RERUNTUHAN" if room.get_meta("modular_level", false) else "PETA PESISIR"
+	draw_string(font, Vector2(24, 36), title, HORIZONTAL_ALIGNMENT_LEFT, -1, 22, MAIN)
+	draw_string(font, Vector2(viewport_size.x - 240, 36), "SEED  %s" % room.layout.seed, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(0.6, 0.7, 0.8))
 	draw_string(font, Vector2(24, 60), "M / Esc: kembali bermain  |  Game dijeda", HORIZONTAL_ALIGNMENT_LEFT, -1, 14)
 	var bounds: Rect2 = room.get_meta("playable_bounds")
 	map_scale = minf((viewport_size.x - 48) / bounds.size.x, (viewport_size.y - 170) / bounds.size.y)
@@ -41,6 +43,11 @@ func _draw() -> void:
 		var chest := room.get_node_or_null(chest_name) as Node2D
 		if chest != null:
 			map_marker(chest.position, "Peti kosong" if chest.opened else "Treasure", GOLD)
+	var rewards := room.get_node_or_null("Rewards")
+	if rewards != null:
+		for reward in rewards.get_children():
+			var artifact: bool = reward.reward_kind == "artifact"
+			map_marker(reward.position, "Diambil" if reward.opened else ("Artefak" if artifact else "Treasure"), Color(0.4, 0.85, 1) if artifact else GOLD)
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 	if player != null:
 		var point := map_point(room.to_local(player.global_position))
@@ -51,6 +58,12 @@ func _draw() -> void:
 
 func collect_surfaces() -> Array[Dictionary]:
 	var surfaces: Array[Dictionary] = []
+	if room.get_meta("modular_level", false):
+		# These rectangles are read from the authored collision TileMaps at generation.
+		for one_way in [false, true]:
+			for rect: Rect2 in room.layout.platforms if one_way else room.layout.shell:
+				surfaces.append({"points": PackedVector2Array([rect.position, Vector2(rect.end.x, rect.position.y), rect.end, Vector2(rect.position.x, rect.end.y)]), "one_way": one_way})
+		return surfaces
 	for collider in room.find_children("*", "CollisionShape2D", true, false):
 		if collider.disabled or not collider.get_parent() is StaticBody2D or not collider.shape is RectangleShape2D:
 			continue

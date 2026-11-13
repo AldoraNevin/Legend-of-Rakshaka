@@ -70,6 +70,8 @@ func load_next_room() -> void:
 	var template: PackedScene = pick_room_template()
 	if template != null:
 		build_template_room(template)
+		if current_room == null:
+			return
 	else:
 		build_fallback_room()
 
@@ -124,6 +126,14 @@ func build_template_room(template: PackedScene) -> void:
 
 func update_camera_limits_for_template() -> void:
 	if current_room == null:
+		return
+	if current_room.has_meta("playable_bounds"):
+		var bounds: Rect2 = current_room.get_meta("playable_bounds")
+		bounds.position += current_room.global_position
+		camera.limit_left = floori(bounds.position.x)
+		camera.limit_top = floori(bounds.position.y)
+		camera.limit_right = ceili(bounds.end.x)
+		camera.limit_bottom = ceili(bounds.end.y)
 		return
 
 	# Cari batas room dari semua StaticBody2D (lantai, dinding, langit-langit)

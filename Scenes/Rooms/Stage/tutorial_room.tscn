@@ -1,0 +1,360 @@
+[gd_scene format=3 uid="uid://re6b3x81w2qw"]
+
+[ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="book"]
+[ext_resource type="FontFile" uid="uid://q8r42pd8vbfm" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="font"]
+[ext_resource type="Script" uid="uid://kabvrfkj0pbl" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]
+[ext_resource type="Texture2D" uid="uid://tsfbhlmdyj7u" path="res://Assets/Legend of Rakshaka/NPC/Semar/Semar.png" id="semar"]
+[ext_resource type="Script" uid="uid://ckxghnp4ghgdw" path="res://Script/Stage/tutorial_room.gd" id="tutorial"]
+
+[ext_resource type="Script" path="res://Script/Stage/tutorial_dialogue_line.gd" id="dialogue_line"]
+
+[sub_resource type="RectangleShape2D" id="floor"]
+size = Vector2(832, 24)
+
+[sub_resource type="RectangleShape2D" id="wall"]
+size = Vector2(24, 384)
+
+[sub_resource type="RectangleShape2D" id="npc_range"]
+size = Vector2(110, 100)
+
+[sub_resource type="AtlasTexture" id="SemarFrame0"]
+atlas = ExtResource("semar")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame1"]
+atlas = ExtResource("semar")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame2"]
+atlas = ExtResource("semar")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame3"]
+atlas = ExtResource("semar")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame4"]
+atlas = ExtResource("semar")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame5"]
+atlas = ExtResource("semar")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame6"]
+atlas = ExtResource("semar")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame7"]
+atlas = ExtResource("semar")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame8"]
+atlas = ExtResource("semar")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame9"]
+atlas = ExtResource("semar")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame10"]
+atlas = ExtResource("semar")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame11"]
+atlas = ExtResource("semar")
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame12"]
+atlas = ExtResource("semar")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame13"]
+atlas = ExtResource("semar")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame14"]
+atlas = ExtResource("semar")
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="SemarFrame15"]
+atlas = ExtResource("semar")
+region = Rect2(768, 768, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SemarAnimations"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("SemarFrame0")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame1")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame2")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame3")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame4")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame5")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame6")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame7")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame8")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame9")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame10")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame11")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame12")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame13")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame14")
+}, {
+"duration": 1.0,
+"texture": SubResource("SemarFrame15")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="paper"]
+atlas = ExtResource("book")
+region = Rect2(39, 227, 179, 27)
+
+[sub_resource type="StyleBoxTexture" id="paper_panel"]
+texture = SubResource("paper")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="tutorial_theme"]
+default_font = ExtResource("font")
+default_font_size = 18
+Label/colors/font_color = Color(0.2, 0.12, 0.06, 1)
+Panel/styles/panel = SubResource("paper_panel")
+PanelContainer/styles/panel = SubResource("paper_panel")
+
+[node name="TutorialRoom" type="Node2D" unique_id=768969811]
+script = ExtResource("tutorial")
+
+[node name="DialoguePages" type="Node" parent="."]
+
+[node name="Introduction" type="Node" parent="DialoguePages"]
+
+[node name="Greeting" type="Node" parent="DialoguePages/Introduction"]
+script = ExtResource("dialogue_line")
+text = "Selamat datang, Rakshaka! Aku Semar. Mari berlatih sebelum melanjutkan perjalanan."
+
+[node name="Movement" type="Node" parent="DialoguePages/Introduction"]
+script = ExtResource("dialogue_line")
+text = "Gunakan {ui_left} dan {ui_right} untuk bergerak. Tekan {ui_accept} untuk melompat; tekan lagi di udara untuk lompatan kedua."
+
+[node name="Combat" type="Node" parent="DialoguePages/Introduction"]
+script = ExtResource("dialogue_line")
+text = "Tekan {ui_sword} untuk menyerang dengan pedang. Tekan {ui_dash} untuk dash dan menghindari serangan."
+
+[node name="Practice" type="Node" parent="DialoguePages/Introduction"]
+script = ExtResource("dialogue_line")
+text = "Sekarang kalahkan Aul latihan. Setelah menang, kembali dan bicara denganku untuk melapor sebelum masuk gate."
+
+[node name="Report" type="Node" parent="DialoguePages"]
+script = ExtResource("dialogue_line")
+text = "Bagus, Rakshaka! Kamu sudah mengalahkan Aul dan menyelesaikan latihan. Gate telah siap. Lanjutkan perjalananmu ke Room 1!"
+
+[node name="Backdrop" type="Polygon2D" parent="." unique_id=11547515]
+z_index = -10
+color = Color(0.018, 0.055, 0.075, 1)
+polygon = PackedVector2Array(0, 0, 832, 0, 832, 384, 0, 384)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=583773744]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Floor" unique_id=1670678085]
+position = Vector2(416, 396)
+shape = SubResource("floor")
+
+[node name="Visual" type="Polygon2D" parent="Floor" unique_id=2031915003]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(0, 384, 832, 384, 832, 408, 0, 408)
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=532825518]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Ceiling" unique_id=1599964095]
+position = Vector2(416, -12)
+shape = SubResource("floor")
+
+[node name="Visual" type="Polygon2D" parent="Ceiling" unique_id=1103641163]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(0, -24, 832, -24, 832, 0, 0, 0)
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=1544998365]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Left" unique_id=409919749]
+position = Vector2(-12, 192)
+shape = SubResource("wall")
+
+[node name="Visual" type="Polygon2D" parent="Left" unique_id=1363036021]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(-24, 0, 0, 0, 0, 384, -24, 384)
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=792551338]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Right" unique_id=1553804131]
+position = Vector2(844, 192)
+shape = SubResource("wall")
+
+[node name="Visual" type="Polygon2D" parent="Right" unique_id=1333544243]
+color = Color(0.08, 0.24, 0.25, 1)
+polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
+
+[node name="RewardSpawn" type="Marker2D" parent="." unique_id=1908115859]
+position = Vector2(420, 350)
+
+[node name="DoorSpawns" type="Node2D" parent="." unique_id=1124618269]
+
+[node name="Marker0" type="Marker2D" parent="DoorSpawns" unique_id=75431791]
+position = Vector2(640, 350)
+
+[node name="Marker1" type="Marker2D" parent="DoorSpawns" unique_id=1569715822]
+position = Vector2(760, 350)
+
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=1294395546]
+
+[node name="SeaMist" type="Node2D" parent="." unique_id=1204223004]
+z_index = -3
+position = Vector2(145, 252)
+script = ExtResource("sea")
+
+[node name="HostileSpawn" type="Marker2D" parent="." unique_id=457385145]
+position = Vector2(470, 350)
+
+[node name="NPC" type="Area2D" parent="." unique_id=1505947515]
+position = Vector2(170, 350)
+collision_layer = 0
+
+[node name="Range" type="CollisionShape2D" parent="NPC" unique_id=1722181529]
+position = Vector2(-3, 0)
+shape = SubResource("npc_range")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC" unique_id=1415672120]
+z_index = -1
+position = Vector2(-2, 3)
+scale = Vector2(0.38, 0.38)
+sprite_frames = SubResource("SemarAnimations")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Name" type="Label" parent="NPC" unique_id=74263763]
+offset_left = -67.0
+offset_top = -40.0
+offset_right = 63.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("font")
+theme_override_font_sizes/font_size = 12
+text = "Semar"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="NPC" unique_id=2068622283]
+offset_left = -68.0
+offset_top = -51.0
+offset_right = 62.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("font")
+theme_override_font_sizes/font_size = 10
+text = "[E] Bicara"
+horizontal_alignment = 1
+
+[node name="GateHint" type="Label" parent="." unique_id=2146340902]
+visible = false
+offset_left = 525.0
+offset_top = 245.0
+offset_right = 755.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(1, 0.85, 0.5, 1)
+theme_override_fonts/font = ExtResource("font")
+theme_override_font_sizes/font_size = 11
+text = "Berinteraksi dengan Semar terlebih dahulu"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TutorialUI" type="CanvasLayer" parent="." unique_id=427733087]
+layer = 5
+
+[node name="Objective" type="Label" parent="TutorialUI" unique_id=1139327170]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 220.0
+offset_top = 22.0
+offset_right = -30.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("font")
+theme_override_font_sizes/font_size = 18
+text = "Bicara dengan Semar (E)."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Dialogue" type="PanelContainer" parent="TutorialUI"]
+texture_filter = 1
+offset_left = 40.0
+offset_top = 100.0
+offset_right = 660.0
+offset_bottom = 300.0
+theme = SubResource("tutorial_theme")
+
+[node name="Margin" type="MarginContainer" parent="TutorialUI/Dialogue"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="TutorialUI/Dialogue/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Speaker" type="Label" parent="TutorialUI/Dialogue/Margin/Content"]
+layout_mode = 2
+text = "Semar"
+
+[node name="Body" type="Label" parent="TutorialUI/Dialogue/Margin/Content"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+text = "Selamat datang, Rakshaka!"
+autowrap_mode = 2
+
+[node name="Next" type="Button" parent="TutorialUI/Dialogue/Margin/Content"]
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 0
+text = "Lanjut"
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1336981937]
+position = Vector2(64, 350)
+

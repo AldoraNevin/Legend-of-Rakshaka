@@ -5,6 +5,7 @@ signal stage_completed
 const Graph = preload("res://Script/Stage/stage_graph.gd")
 @export_range(0, 8) var preview_start_node := 0
 @export var template_directory := "res://Scenes/Rooms/Stage/"
+@export_file("*.tscn") var tutorial_room_scene := "res://Scenes/Rooms/Stage/tutorial_room.tscn"
 var stage_graph: Array[Dictionary] = []
 var node_id := 0
 var templates: Dictionary = {}
@@ -19,6 +20,8 @@ func start_run() -> void:
 	templates.clear()
 	for room in stage_graph:
 		var path := template_directory + "%s_%d.tscn" % [room.kind, room.variant]
+		if room.kind == "start":
+			path = tutorial_room_scene
 		if room.kind == "combat":
 			path = template_directory + "coastal_room.tscn"
 		if not ResourceLoader.exists(path):
@@ -54,7 +57,7 @@ func build_template_room(template: PackedScene) -> void:
 	else:
 		super.build_template_room(template)
 	var title := current_room.get_node_or_null("Title") as Label
-	if title != null:
+	if title != null and stage_graph[node_id].kind != "start":
 		title.text = stage_graph[node_id].label
 
 func complete_combat() -> void:
@@ -96,6 +99,9 @@ func _enter_graph_door(body: Node2D, target: int) -> void:
 	if current_state != RoomState.DOOR_SELECT or stage_finished or not body.is_in_group("player"):
 		return
 	if target not in stage_graph[node_id].next:
+		return
+	if current_room.has_method("can_exit") and not current_room.can_exit():
+		current_room.show_gate_hint()
 		return
 	current_state = RoomState.COMBAT
 	node_id = target

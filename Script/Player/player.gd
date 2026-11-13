@@ -3,6 +3,9 @@ extends CharacterBody2D
 enum PlayerStates { MOVE, SWORD, DEAD, DASH, HIT }
 
 const ENEMY_BODY_LAYER := 5
+const MAX_COMBO := 3
+
+const LOCK_MOVE_FROM_STEP := 2
 
 var input := 0.0
 var facing := 1
@@ -15,6 +18,10 @@ var can_dash := true
 var jump_count := 0
 var wall_jump_count := 0
 var sword_hit_targets: Array[Node] = []
+
+# Combo serangan
+var combo_step := 0
+var combo_queued := false
 
 var current_state := PlayerStates.MOVE
 
@@ -34,16 +41,19 @@ var current_state := PlayerStates.MOVE
 @export var dash_time := 0.12
 @export var dash_cooldown := 0.35
 @export var sword_damage := 1
+# Damage tambahan khusus serangan ke-3 (0 = sama seperti serangan biasa)
+@export var combo_finisher_bonus := 0
 
 @onready var wall: RayCast2D = $wall_ray
-@onready var anim: AnimationPlayer = $anim
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword_area: Area2D = $sword
 @onready var sword_collider: CollisionShape2D = $sword/Sword_Collider
 
 
 func _ready() -> void:
-	anim.animation_finished.connect(_on_animation_finished)
+	sprite.animation_finished.connect(_on_animation_finished)
+	sprite.frame_changed.connect(_update_sword_window)
+	sprite.play("Idle")
 	add_to_group("player")
 	player_data.apply_player_stats(self)
 	sword_area.add_to_group("player_sword")
@@ -86,7 +96,11 @@ func movement(delta: float) -> void:
 
 
 func sword(delta: float) -> void:
-	input_movement(delta)
+	input_movement(delta, combo_step < LOCK_MOVE_FROM_STEP)
+
+	if Input.is_action_just_pressed("ui_sword") and combo_step < MAX_COMBO:
+		combo_queued = true
+
 	check_sword_hits()
 	move_and_slide()
 
@@ -101,20 +115,24 @@ func start_dead() -> void:
 	is_dead = true
 	is_attacking = false
 	is_invincible = false
+	combo_step = 0
+	combo_queued = false
 	current_state = PlayerStates.DEAD
 	sword_collider.set_deferred("disabled", true)
-	anim.play("Dead")
+	sprite.play("Dead")
 
 
-
-func input_movement(delta: float) -> void:
+func input_movement(delta: float, can_move := true) -> void:
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	velocity.x = input * speed
 
-	if input > 0:
-		set_facing(1)
-	elif input < 0:
-		set_facing(-1)
+	if can_move:
+		velocity.x = input * speed
+		if input > 0:
+			set_facing(1)
+		elif input < 0:
+			set_facing(-1)
+	else:
+		velocity.x = 0
 
 	if is_on_floor():
 		jump_count = 0
@@ -157,6 +175,7 @@ func start_dash() -> void:
 	if input != 0:
 		dash_direction = sign(input)
 
+	sprite.play("Dash")
 	velocity.x = dash_direction * dash_speed
 	velocity.y = 0
 
@@ -170,6 +189,7 @@ func start_dash() -> void:
 	current_state = PlayerStates.MOVE
 	set_collision_mask_value(ENEMY_BODY_LAYER, true)
 
+	update_animation()
 	await get_tree().create_timer(dash_cooldown).timeout
 
 	if is_on_floor():
@@ -186,11 +206,13 @@ func take_damage(amount: int = 1) -> void:
 		return
 	current_state = PlayerStates.HIT
 	is_attacking = false
+	combo_step = 0
+	combo_queued = false
 	is_wall_sliding = false
 	is_invincible = true
 	velocity.x = 0
 	sword_collider.set_deferred("disabled", true)
-	anim.play("Hit")
+	sprite.play("Hit")
 
 
 func set_facing(direction: int) -> void:
@@ -232,14 +254,37 @@ func start_sword_attack() -> void:
 
 	is_attacking = true
 	current_state = PlayerStates.SWORD
+	combo_step = 1
+	combo_queued = false
+	play_attack(combo_step)
+
+
+func play_attack(step: int) -> void:
 	sword_hit_targets.clear()
+	sword_collider.set_deferred("disabled", true)
+	sprite.play("Attack%d" % step, 1.5)
+	_update_sword_window()
 
-	sword_collider.set_deferred("disabled", false)
-	anim.play("Sword")
+
+func end_combo() -> void:
+	combo_step = 0
+	combo_queued = false
+	sword_collider.set_deferred("disabled", true)
+	reset_states()
+	update_animation()
 
 
-func _on_animation_finished(animation_name: StringName) -> void:
-	match animation_name:
+func _update_sword_window() -> void:
+	if not is_attacking or current_state != PlayerStates.SWORD:
+		return
+	var frame_count := sprite.sprite_frames.get_frame_count(sprite.animation)
+	# Wind-up and recovery do not deal damage; only the middle swing frames do.
+	var active := sprite.frame > 0 and sprite.frame < frame_count - 1
+	sword_collider.set_deferred("disabled", not active)
+
+
+func _on_animation_finished() -> void:
+	match sprite.animation:
 		&"Dead":
 			if is_dead:
 				player_data.execute_roguelike_loop(self)
@@ -248,15 +293,25 @@ func _on_animation_finished(animation_name: StringName) -> void:
 				is_invincible = false
 				reset_states()
 				update_animation()
-		&"Sword":
-			if current_state == PlayerStates.SWORD and not is_dead:
-				sword_collider.set_deferred("disabled", true)
-				reset_states()
+		&"Attack1", &"Attack2", &"Attack3":
+			if current_state != PlayerStates.SWORD or is_dead:
+				return
+
+			if combo_queued and combo_step < MAX_COMBO:
+				combo_step += 1
+				combo_queued = false
+				play_attack(combo_step)
+			else:
+				end_combo()
 
 
 func check_sword_hits() -> void:
 	if not is_attacking or sword_collider.disabled:
 		return
+
+	var damage := sword_damage
+	if combo_step == MAX_COMBO:
+		damage += combo_finisher_bonus
 
 	for area: Area2D in sword_area.get_overlapping_areas():
 		var target: Node = area.get_parent()
@@ -266,7 +321,7 @@ func check_sword_hits() -> void:
 
 		if target.has_method("take_damage"):
 			sword_hit_targets.append(target)
-			target.take_damage(sword_damage)
+			target.take_damage(damage)
 
 
 func wall_collider() -> bool:
@@ -286,13 +341,13 @@ func update_animation() -> void:
 		return
 
 	if is_wall_sliding:
-		anim.play("Fall")
+		sprite.play("Wall")
 	elif not is_on_floor():
 		if velocity.y < 0:
-			anim.play("Jump")
+			sprite.play("Jump")
 		else:
-			anim.play("Fall")
+			sprite.play("Drop")
 	elif input != 0:
-		anim.play("Walk")
+		sprite.play("Walk")
 	else:
-		anim.play("Idle")
+		sprite.play("Idle")

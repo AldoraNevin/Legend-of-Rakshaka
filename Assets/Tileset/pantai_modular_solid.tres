@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3]
+[gd_resource type="TileSet" format=3 uid="uid://b27g4tdwhwtjs"]
 
 [ext_resource type="Texture2D" path="res://Assets/Tileset/pantai_modular_texture.tres" id="1_cxufc"]
 

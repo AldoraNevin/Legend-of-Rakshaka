@@ -216,11 +216,6 @@ z_index = 1
 color = Color(0.10, 0.32, 0.26, 0.7)
 polygon = PackedVector2Array(0, 272, 960, 272, 960, 304, 0, 304)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(24, 0)
-text = "FORGOTTEN DRAINS"
-modulate = Color(0.65, 0.65, 0.70, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

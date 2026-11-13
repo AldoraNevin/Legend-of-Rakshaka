@@ -405,11 +405,6 @@ position = Vector2(880, 168)
 color = Color(0.95, 0.57, 0.25, 1)
 polygon = PackedVector2Array(-4, 0, -6, -8, 0, -20, 5, -8, 4, 0)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(448, 8)
-text = "GRAND GALLERY"
-modulate = Color(0.72, 0.58, 0.75, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

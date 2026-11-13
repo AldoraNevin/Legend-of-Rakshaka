@@ -18,6 +18,13 @@ func _ready() -> void:
 			for y in range(int(rect.position.y / 16), int(rect.end.y / 16)):
 				var cell := Vector2i(x, y)
 				air[cell] = true
+	var corners := preload("res://Script/Stage/coastal_auto_corners.gd").new()
+	corners.name = "AutomaticCorners"
+	corners.corners = corners.find_corners(air)
+	corners.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	# Above shell art but behind manual decorations and player.
+	corners.z_index = 1
+	add_child(corners)
 	var decorations := Node2D.new()
 	decorations.name = "Decorations"
 	add_child(decorations)
@@ -41,7 +48,7 @@ func _ready() -> void:
 		for rect in layout.shell:
 			for x in range(int(rect.position.x), int(rect.end.x), 16):
 				var cell := Vector2i(x / 16, int(rect.position.y / 16))
-				# Show walkable floors; side/ceiling bounds remain invisible colliders.
+				# Draw the solid shell, keeping door openings and manual floors intact.
 				if air.has(cell + Vector2i.UP):
 					var manual := false
 					for room in layout.rooms:
@@ -51,4 +58,6 @@ func _ready() -> void:
 					if manual:
 						continue
 					ART.draw_surface(terrain, Rect2(x, rect.position.y, 16, 16), true)
+				else:
+					ART.draw_surface(terrain, Rect2(x, rect.position.y, 16, 16), false)
 	)

@@ -1,0 +1,852 @@
+[
+  {
+    "path": "art-check.log",
+    "bytes": 1843,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "art-inspect.log",
+    "bytes": 2052,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "art-layout.log",
+    "bytes": 1892,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "art-scene.log",
+    "bytes": 1748,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "art-visual-gl.log",
+    "bytes": 2636,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "art-visual.log",
+    "bytes": 70,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "art_inspect_tmp.gd",
+    "bytes": 283,
+    "reason": "Script inspeksi sementara / profil lama yang tidak direferensikan."
+  },
+  {
+    "path": "art_inspect_tmp.gd.uid",
+    "bytes": 20,
+    "reason": "Script inspeksi sementara / profil lama yang tidak direferensikan."
+  },
+  {
+    "path": "Assets/Artefak/Tombak Baru Klinting/tombak baru klinting v2-sheet-sheet (1).png",
+    "bytes": 8117,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Artefak/Tombak Baru Klinting/tombak baru klinting v2-sheet-sheet (1).png.import",
+    "bytes": 1057,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Enemies/Sprites/Player2.png",
+    "bytes": 7993,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Enemies/Sprites/Player2.png.import",
+    "bytes": 948,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/FX/Sprites/Explosions.png",
+    "bytes": 12547,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/FX/Sprites/Explosions.png.import",
+    "bytes": 952,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/Bench.png",
+    "bytes": 988,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/Bench.png.import",
+    "bytes": 948,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/BossDoor.png",
+    "bytes": 819,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/BossDoor.png.import",
+    "bytes": 956,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/EnergyBorne.png",
+    "bytes": 1143,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/EnergyBorne.png.import",
+    "bytes": 965,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/Lever.png",
+    "bytes": 1267,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Interactables/Sprites/Lever.png.import",
+    "bytes": 947,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/---/banaspati-projectile.png",
+    "bytes": 120104,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/---/banaspati-projectile.png.import",
+    "bytes": 994,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/---/kuntinalak-projectile.png",
+    "bytes": 116142,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/---/kuntinalak-projectile.png.import",
+    "bytes": 996,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/---/leak-projectile.png",
+    "bytes": 156171,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/---/leak-projectile.png.import",
+    "bytes": 979,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Battle Phase boss.ogg",
+    "bytes": 2925413,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Battle Phase boss.ogg.import",
+    "bytes": 436,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/battle phase.mp3",
+    "bytes": 3506624,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/battle phase.mp3.import",
+    "bytes": 395,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/bgm_1.mp3",
+    "bytes": 20523885,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/bgm_1.mp3.import",
+    "bytes": 374,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/bgm_1.ogg",
+    "bytes": 7181010,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/bgm_1.ogg.import",
+    "bytes": 401,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/bgm_2.mp3",
+    "bytes": 4051829,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/bgm_2.mp3.import",
+    "bytes": 373,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/boss fight.mp3",
+    "bytes": 3819751,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/boss fight.mp3.import",
+    "bytes": 389,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/BUAT CREDIT (KALO ADA) V2.mp3",
+    "bytes": 3901484,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/BUAT CREDIT (KALO ADA) V2.mp3.import",
+    "bytes": 433,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/BUAT CREDIT (KALO BISA).mp3",
+    "bytes": 3860737,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/BUAT CREDIT (KALO BISA).mp3.import",
+    "bytes": 428,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Intro Boss.ogg",
+    "bytes": 255255,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Intro Boss.ogg.import",
+    "bytes": 416,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Lobby Theme.mp3",
+    "bytes": 3816700,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Lobby Theme.mp3.import",
+    "bytes": 390,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/LOR Boss Battle Extend.mp3",
+    "bytes": 8482585,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/LOR Boss Battle Extend.mp3.import",
+    "bytes": 425,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Main Menu Themen.ogg",
+    "bytes": 2284965,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Main Menu Themen.ogg.import",
+    "bytes": 434,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Outro Boss.ogg",
+    "bytes": 202684,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/BGM/Outro Boss.ogg.import",
+    "bytes": 416,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/1-Sheet-sheet.png",
+    "bytes": 8236,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/1-Sheet-sheet.png.import",
+    "bytes": 989,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/black kunt.png",
+    "bytes": 501,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/black kunt.png.import",
+    "bytes": 980,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Keris Mpu Gandring.png",
+    "bytes": 499,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Keris Mpu Gandring.png.import",
+    "bytes": 1003,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_left_100_.png",
+    "bytes": 8421,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_left_100_.png.import",
+    "bytes": 1010,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_left_400_.png",
+    "bytes": 15246,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_left_400_.png.import",
+    "bytes": 1010,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_Right_100_.png",
+    "bytes": 8310,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_Right_100_.png.import",
+    "bytes": 1013,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_Right_400_.png",
+    "bytes": 22804,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_Right_400_.png.import",
+    "bytes": 1013,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Anoman/Anoman_V2.png",
+    "bytes": 156984,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Anoman/Anoman_V2.png.import",
+    "bytes": 968,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Arjuna/Arjuna.png",
+    "bytes": 365984,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Arjuna/Arjuna.png.import",
+    "bytes": 959,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Gatotkaca/GatotKaca.png",
+    "bytes": 390395,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Gatotkaca/GatotKaca.png.import",
+    "bytes": 971,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Puntadewa/Puntadewa.png",
+    "bytes": 35237,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Puntadewa/Puntadewa.png.import",
+    "bytes": 971,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Puntadewa/Puntadewa_V2.png",
+    "bytes": 154197,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Puntadewa/Puntadewa_V2.png.import",
+    "bytes": 980,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Semar/Semar.png",
+    "bytes": 126768,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Semar/Semar.png.import",
+    "bytes": 954,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Srikandi/Srikandi.png",
+    "bytes": 377701,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Srikandi/Srikandi.png.import",
+    "bytes": 967,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Werkudara/werkudara-spritesheet-sheet.png",
+    "bytes": 72795,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/NPC/Werkudara/werkudara-spritesheet-sheet.png.import",
+    "bytes": 1025,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons2.png",
+    "bytes": 2964,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons2.png.import",
+    "bytes": 990,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons3.png",
+    "bytes": 2898,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons3.png.import",
+    "bytes": 991,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons6.png",
+    "bytes": 2880,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons6.png.import",
+    "bytes": 991,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons7.png",
+    "bytes": 2969,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/Bestiary/bestiary icons7.png.import",
+    "bytes": 990,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/bestiary hovers.png",
+    "bytes": 163078,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/bestiary hovers.png.import",
+    "bytes": 982,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/blank book.png",
+    "bytes": 424324,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/blank book.png.import",
+    "bytes": 966,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/button_main menu.png",
+    "bytes": 124966,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/button_main menu.png.import",
+    "bytes": 985,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu1.png",
+    "bytes": 11725,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu1.png.import",
+    "bytes": 1028,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu10.png",
+    "bytes": 9666,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu10.png.import",
+    "bytes": 1032,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu12.png",
+    "bytes": 9265,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu12.png.import",
+    "bytes": 1031,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu4.png",
+    "bytes": 11422,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu4.png.import",
+    "bytes": 1028,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu5.png",
+    "bytes": 7096,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu5.png.import",
+    "bytes": 1029,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu6.png",
+    "bytes": 7558,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu6.png.import",
+    "bytes": 1029,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu7.png",
+    "bytes": 7179,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu7.png.import",
+    "bytes": 1028,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu8.png",
+    "bytes": 7170,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu8.png.import",
+    "bytes": 1029,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu9.png",
+    "bytes": 9712,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu9.png.import",
+    "bytes": 1029,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/cursor/cursor.png",
+    "bytes": 3362,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/cursor/cursor.png.import",
+    "bytes": 962,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/cursor/hover.png",
+    "bytes": 3626,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/cursor/hover.png.import",
+    "bytes": 959,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png",
+    "bytes": 1070775,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png.import",
+    "bytes": 982,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/UI panels.png",
+    "bytes": 192173,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Legend of Rakshaka/UI HUD/UI panels.png.import",
+    "bytes": 964,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Environment/background_sprite_1.png",
+    "bytes": 689,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Environment/background_sprite_1.png.import",
+    "bytes": 1005,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Environment/background_sprite_2.png",
+    "bytes": 687,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Environment/background_sprite_2.png.import",
+    "bytes": 1005,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/chest-sheet.png",
+    "bytes": 566,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/chest-sheet.png.import",
+    "bytes": 984,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/JumpPowerUp.png",
+    "bytes": 705,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/JumpPowerUp.png.import",
+    "bytes": 984,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/Lamp.png",
+    "bytes": 772,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/Lamp.png.import",
+    "bytes": 963,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/LanternW3.png",
+    "bytes": 774,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/metroid_asset_1_2/Sprites/Interactables/LanternW3.png.import",
+    "bytes": 977,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Player/Sprites/Player_hollow_knight.png",
+    "bytes": 10305,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Player/Sprites/Player_hollow_knight.png.import",
+    "bytes": 986,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Tileset/Environment/Moonlit Javanese Sea Palace Arena-1.png",
+    "bytes": 573083,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Tileset/Environment/Moonlit Javanese Sea Palace Arena-1.png.import",
+    "bytes": 1036,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Tileset/Environment/Pixel Water Effects Sprite Sheet-9.png",
+    "bytes": 477850,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Tileset/Environment/Pixel Water Effects Sprite Sheet-9.png.import",
+    "bytes": 1033,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/Tileset/Sprites/ground-tileset.png",
+    "bytes": 3412,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/Tileset/Sprites/ground-tileset.png.import",
+    "bytes": 968,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "Assets/UI/Sprites/tileset_map.png",
+    "bytes": 1049,
+    "reason": "Aset tanpa referensi path, nama file, atau UID dalam scene, script, data, tools, dan dokumentasi."
+  },
+  {
+    "path": "Assets/UI/Sprites/tileset_map.png.import",
+    "bytes": 955,
+    "reason": "Metadata import aset yang dihapus."
+  },
+  {
+    "path": "atlas-import.log",
+    "bytes": 4010,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "atlas-migrate.log",
+    "bytes": 1848,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "atlas-pack.log",
+    "bytes": 2194,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "atlas-reimport.log",
+    "bytes": 4574,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "atlas-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "boundary-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "corners-test.log",
+    "bytes": 1822,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "corners-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "exit-test.log",
+    "bytes": 1826,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "manual-decor-test.log",
+    "bytes": 1855,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "manual-decor-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "manual-floor-setup.log",
+    "bytes": 2187,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "manual-floor-test.log",
+    "bytes": 1841,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "manual-floor-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "map-geometry-test.log",
+    "bytes": 1862,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "palette-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "palette.log",
+    "bytes": 1845,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "parallax-bounds.log",
+    "bytes": 1820,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "parallax-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "Script/Stage/coastal_profiles.gd",
+    "bytes": 769,
+    "reason": "Script inspeksi sementara / profil lama yang tidak direferensikan."
+  },
+  {
+    "path": "Script/Stage/coastal_profiles.gd.uid",
+    "bytes": 20,
+    "reason": "Script inspeksi sementara / profil lama yang tidak direferensikan."
+  },
+  {
+    "path": "wall-setup.log",
+    "bytes": 1824,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "wall-test.log",
+    "bytes": 1833,
+    "reason": "Log hasil pengujian sebelumnya."
+  },
+  {
+    "path": "wall-visual.log",
+    "bytes": 2664,
+    "reason": "Log hasil pengujian sebelumnya."
+  }
+]

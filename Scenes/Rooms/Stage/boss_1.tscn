@@ -63,11 +63,6 @@ shape = SubResource("wall")
 color = Color(0.08, 0.24, 0.25, 1)
 polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
 
-[node name="Title" type="Label" parent="."]
-offset_left = 48.0
-offset_top = 40.0
-text = "BOSS / TEMPLATE 2"
-
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(64, 350)
 

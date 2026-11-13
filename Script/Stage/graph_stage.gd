@@ -5,6 +5,7 @@ signal stage_completed
 const Graph = preload("res://Script/Stage/stage_graph.gd")
 @export_range(0, 8) var preview_start_node := 0
 @export var template_directory := "res://Scenes/Rooms/Stage/"
+@export var procedural_level: PackedScene = preload("res://Scenes/Rooms/Modular/modular_level.tscn")
 var stage_graph: Array[Dictionary] = []
 var node_id := 0
 var templates: Dictionary = {}
@@ -20,7 +21,7 @@ func start_run() -> void:
 	for room in stage_graph:
 		var path := template_directory + "%s_%d.tscn" % [room.kind, room.variant]
 		if room.kind == "combat":
-			path = template_directory + "coastal_room.tscn"
+			path = procedural_level.resource_path
 		if not ResourceLoader.exists(path):
 			errors.append("Template tidak ditemukan: " + path)
 			continue
@@ -32,7 +33,9 @@ func start_run() -> void:
 		templates[room.id] = scene
 	if not errors.is_empty():
 		push_error("Stage dibatalkan: " + "; ".join(errors))
+		show_generation_error(run_seed)
 		return
+	player.set_physics_process(true)
 	print("Graph stage seed: ", run_seed, " | nodes: ", stage_graph.size())
 	node_id = preview_start_node
 	stage_finished = false
@@ -45,7 +48,7 @@ func build_template_room(template: PackedScene) -> void:
 		if not current_room.prepare(stage_graph[node_id].room_seed):
 			current_room.free()
 			current_room = null
-			get_tree().paused = true
+			show_generation_error(stage_graph[node_id].room_seed)
 			return
 		print(stage_graph[node_id].label, " seed: ", stage_graph[node_id].room_seed)
 		room_root.add_child(current_room)
@@ -53,6 +56,13 @@ func build_template_room(template: PackedScene) -> void:
 		spawn_from_markers("SpikeSpawns", SPIKE_SCENE, spikes)
 	else:
 		super.build_template_room(template)
+
+func show_generation_error(seed_value: int) -> void:
+	player.set_physics_process(false)
+	var error_label := Label.new()
+	error_label.text = "Level gagal dibuat (seed %d).\nPeriksa template/settings di Output Godot.\nEsc: menu jeda" % seed_value
+	error_label.position = Vector2(32, 100)
+	$GUI.add_child(error_label)
 
 func complete_combat() -> void:
 	if stage_graph[node_id].kind == "start":

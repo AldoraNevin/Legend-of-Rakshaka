@@ -72,6 +72,8 @@ static func validate_template(scene: PackedScene, door_count: int) -> PackedStri
 		errors.append("Jumlah marker pintu kurang.")
 	# Contract for these flat-floor templates: all gameplay markers share a safe corridor.
 	for marker in room.find_children("*", "Marker2D", true, false):
+		if room.get_meta("modular_level", false) and marker.get_parent().name == "Sockets":
+			continue
 		if marker.name in ["Entry", "Exit"] and marker.get_parent() != room.get_node_or_null("DoorSpawns"):
 			continue
 		if room.has_meta("playable_bounds"):
@@ -81,6 +83,14 @@ static func validate_template(scene: PackedScene, door_count: int) -> PackedStri
 				errors.append("Marker di luar batas room: " + str(marker.name))
 			var supported := false
 			var clearance := Rect2(point - Vector2(10, 16), Vector2(20, 32))
+			if room.get_meta("modular_level", false):
+				# TileMapLayer owns collision in modular rooms; there are no proxy bodies.
+				clearance = Rect2(point + Vector2(-6, -6), Vector2(14, 22))
+				for rect: Rect2 in room.layout.shell + room.layout.platforms:
+					if clearance.intersects(rect):
+						errors.append("Marker bertabrakan dengan tile: " + str(marker.name))
+					if point.x >= rect.position.x + 6 and point.x <= rect.end.x - 6 and rect.position.y - point.y >= 16 and rect.position.y - point.y <= 48:
+						supported = true
 			for collider in room.find_children("*", "CollisionShape2D", true, false):
 				if collider.disabled or not collider.shape is RectangleShape2D:
 					continue

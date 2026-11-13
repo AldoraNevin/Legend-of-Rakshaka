@@ -1,5 +1,9 @@
 # Mengedit visual dan platform coastal
 
+> Arsip sistem Coastal lama. Level combat aktif sekarang menggunakan room TileMap
+> `.tscn` di `Scenes/Rooms/Modular`. Ikuti [panduan level modular](modular-level-authoring.md)
+> untuk menggambar room, mengganti tileset, dan mengatur procedural generation.
+
 ## Aset stage 1 yang aktif
 
 Terrain dan platform coastal sekarang memakai `Assets/Tileset/Environment/tileset pantai.png`.

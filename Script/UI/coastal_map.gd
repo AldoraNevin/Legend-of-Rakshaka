@@ -14,7 +14,7 @@ func _ready() -> void:
 	view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	view.hide()
 	hint = Label.new()
-	hint.text = "[M] Peta coastal"
+	hint.text = "[M] Peta level" if room.get_meta("modular_level", false) else "[M] Peta coastal"
 	hint.position = Vector2(16, 64)
 	hint.add_theme_font_size_override("font_size", 14)
 	add_child(hint)

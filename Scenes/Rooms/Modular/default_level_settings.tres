@@ -1,0 +1,23 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/entrance.tscn" id="1_8wu6i"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/hall.tscn" id="2_tmc3h"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/long_gallery.tscn" id="3_wcfi7"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/vaulted_hall.tscn" id="4_vboxk"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/tower.tscn" id="5_pkbyd"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/short_tower.tscn" id="6_yargs"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/treasure.tscn" id="7_1hbhw"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/artifact.tscn" id="8_gkut7"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/exit.tscn" id="9_et8c5"]
+[ext_resource type="Script" path="res://Script/Stage/Modular/level_settings.gd" id="10_1xcs4"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/hall_buatan.tscn" id="10_tmc3h"]
+
+[resource]
+script = ExtResource("10_1xcs4")
+main_rooms_min = 12
+main_rooms_max = 15
+treasure_rooms = 3
+branch_combat_min = 1
+branch_combat_max = 2
+upward_bias = 0.7
+room_templates = Array[PackedScene]([ExtResource("1_8wu6i"), ExtResource("2_tmc3h"), ExtResource("3_wcfi7"), ExtResource("4_vboxk"), ExtResource("5_pkbyd"), ExtResource("6_yargs"), ExtResource("7_1hbhw"), ExtResource("8_gkut7"), ExtResource("9_et8c5"), ExtResource("10_tmc3h")])

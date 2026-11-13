@@ -1,0 +1,5 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="PackedScene" path="res://Levels/modular_room_workbench.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Modular/hall_buatan.tscn" id="2"]
+[node name="HallBuatanPreview" instance=ExtResource("1")]
+room_scene = ExtResource("2")

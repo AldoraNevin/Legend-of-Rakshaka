@@ -1,6 +1,6 @@
 extends SceneTree
 const Graph = preload("res://Script/Stage/stage_graph.gd")
-const Castle = preload("res://Script/Stage/coastal_room_pcg.gd")
+const Castle = preload("res://Script/Stage/Modular/modular_level.gd")
 
 func _initialize() -> void:
 	for main_seed in [0, 1, 42, 4294967295]:

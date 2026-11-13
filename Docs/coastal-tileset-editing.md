@@ -181,3 +181,65 @@ lukisanmu tetap utuh. Pijakan naik dan lantai koridor masih dibuat otomatis.
 Properti template **Manual Floor** mengaktifkan pengganti visual ini. Seluruh
 scene template yang tersedia sudah mendapat FloorTiles dan Manual Floor aktif.
 Susunan dekorasi yang sudah ada tetap dipertahankan. RoomGuide hanya panduan.
+
+Update batas room: dinding samping dan plafon kembali digambar menggunakan bagian batu dari tileset pantai.png. Background parallax tetap terlihat di ruang kosong; FloorTiles manual dan lubang socket tetap dipertahankan.
+
+## Blok di balik pembatas: WallTiles
+
+Setiap scene `Coastal/Decorations/*.tscn` punya `WallTiles`. Layer ini mengisi
+kantong padat di luar air_regions dan sabuk 192px di luar batas template.
+Pilih WallTiles > panel TileMap > source Batu isi, lalu lukis/hapus blok.
+Ctrl+S; hasil dipakai ketika template muncul pada stage 1. Jangan ubah transform
+layer (scale 0.25, posisi 0,0); satu sel menjadi 16px di gameplay.
+
+WallTiles hanya isi visual di belakang pembatas. Collision dan permukaan batas
+masih dibuat generator. Menghapus blok tidak membuka jalan baru. Saat runtime,
+blok di jalur player, sambungan antar-room, atau lapisan shell dibuang hanya
+pada instance sehingga pintu tidak tertutup; lukisan di file sumber tetap utuh.
+FloorTiles dan dekorasi manual tetap independen. Jika blok dua template bertumpuk
+di luar room, edit kedua template untuk mengosongkan bagian tersebut.
+
+## Pilihan tile sesuai kelompok aset
+
+Palette FloorTiles dan WallTiles sekarang berisi Surface (8 pilihan),
+Isi - batu retak, Platform (6 pilihan), serta Sudut dalam kiri/kanan.
+Pilih source Sudut dalam di panel TileMap; alternatif 0..7 menyediakan kombinasi
+flip horizontal, vertikal, dan transpose (rotasi/arah lainnya). Pilih alternatif
+lalu lukis. Semua gambar tetap berasal dari tileset pantai.png.
+ID lama 0..4 dipertahankan agar lukisan tidak hilang; ID 4 kini batu retak.
+Platform procedural memakai ujung kiri/kanan serta empat variasi tengah.
+
+Palette platform dan sudut tersedia untuk mengganti tampilan sel yang diizinkan
+layer tersebut. FloorTiles tetap khusus baris lantai bawah dan WallTiles untuk
+area padat; ini belum mengubah keduanya menjadi editor collision/platform bebas.
+
+## Sudut otomatis
+
+Backdrop/AutomaticCorners memasang ornamen sudut dalam dari tileset pantai
+setelah semua room dan koridor tersambung. Tile dibalik horizontal/vertikal untuk
+pertemuan dinding kiri/kanan dengan lantai/plafon. Deteksi memakai area playable
+final, sehingga pintu terbuka tidak dianggap dinding. Ornamen 16px ini visual
+saja, berada di sisi dalam pertemuan dinding; tidak menambah collision atau
+mengubah lukisan FloorTiles/WallTiles. Sudut luar tetap mengikuti shell batu.
+
+## Atlas rapi (aktif)
+
+Sekarang pilih source **Pantai - atlas 64px** pada FloorTiles / WallTiles.
+PNG: Assets/Tileset/Sprites/coastal_packed.png (512x384, 8 kolom x 6 baris).
+TileSet: Assets/Tileset/coastal_packed.tres. Texture Region Size 64x64,
+Margins 0, Separation 0. Scale layer tetap 0.25. Semua potongan masuk utuh;
+platform berada di bagian atas sel transparan dengan tinggi maksimal 32px.
+
+Baris dari atas: surface; dinding/isi/sudut; dasar/ornamen; platform;
+tangga/lereng; pasir. Pilih tile langsung pada atlas lalu lukis, tidak perlu
+menambahkan PNG asli lagi. Semua tile punya alternatif flip/transpose.
+Source custom di luar palette lama dipertahankan. Source atlas lama 0..16
+sudah dipetakan ke koordinat atlas baru; posisi lukisan dan dekorasi tetap.
+Jika Godot meminta reload scene yang berubah di disk, reload untuk melihat
+atlas baru. Simpan perubahan editor yang belum disimpan ke salinan scene
+terlebih dahulu agar tidak tertimpa.
+
+Tools/pack_coastal_atlas.gd mereproduksi PNG dari gambar asli tanpa menggambar
+ulang. Tools/migrate_coastal_packed.gd adalah migrasi satu kali, jangan dijalankan
+ulang pada scene yang sudah bermigrasi. Skrip setup/palette lama untuk atlas
+sebelumnya tidak perlu dijalankan lagi.

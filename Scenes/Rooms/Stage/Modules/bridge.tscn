@@ -217,11 +217,6 @@ position = Vector2(944, 16)
 color = Color(0.24, 0.24, 0.34, 1)
 polygon = PackedVector2Array(0, 160, 0, 32, 24, 0, 56, 0, 80, 32, 80, 160)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(24, 0)
-text = "MOONLIT VIADUCT"
-modulate = Color(0.65, 0.65, 0.70, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

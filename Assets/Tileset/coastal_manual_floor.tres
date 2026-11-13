@@ -1,66 +1,256 @@
-[gd_resource type="TileSet" format=3]
+[gd_resource type="TileSet" format=3 uid="uid://cjxeo0qasxnkj"]
 
-[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai.png" id="1_ygekl"]
+[ext_resource type="Texture2D" uid="uid://duw4vf5l2kyxx" path="res://Assets/Tileset/Environment/tileset pantai.png" id="1_ygekl"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhrm0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygekl"]
 atlas = ExtResource("1_ygekl")
 region = Rect2(204, 37, 64, 64)
 filter_clip = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nak7l"]
-resource_name = "Tengah A"
-texture = SubResource("AtlasTexture_hhrm0")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhrm0"]
+resource_name = "Surface tengah A"
+texture = SubResource("AtlasTexture_ygekl")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qo6kc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nak7l"]
 atlas = ExtResource("1_ygekl")
 region = Rect2(286, 37, 64, 64)
 filter_clip = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vjws"]
-resource_name = "Tengah B"
-texture = SubResource("AtlasTexture_qo6kc")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qo6kc"]
+resource_name = "Surface tengah B"
+texture = SubResource("AtlasTexture_nak7l")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhary"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vjws"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(118, 308, 64, 32)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lhary"]
+resource_name = "Platform tengah A"
+texture = SubResource("AtlasTexture_5vjws")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqcp4"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(204, 308, 64, 32)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n7qrc"]
+resource_name = "Platform tengah B"
+texture = SubResource("AtlasTexture_sqcp4")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1kap"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(286, 308, 64, 32)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1oy8"]
+resource_name = "Platform tengah C"
+texture = SubResource("AtlasTexture_p1kap")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27l8k"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(370, 308, 64, 32)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ks7u"]
+resource_name = "Platform tengah D"
+texture = SubResource("AtlasTexture_27l8k")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcldb"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(453, 308, 64, 32)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdpfy"]
+resource_name = "Platform ujung kanan"
+texture = SubResource("AtlasTexture_vcldb")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhdkq"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(453, 124, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbkri"]
+resource_name = "Sudut dalam kiri"
+texture = SubResource("AtlasTexture_jhdkq")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgwfo"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(540, 124, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0b3jn"]
+resource_name = "Sudut dalam kanan"
+texture = SubResource("AtlasTexture_qgwfo")
+texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70s26"]
 atlas = ExtResource("1_ygekl")
 region = Rect2(31, 37, 64, 64)
 filter_clip = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqcp4"]
-resource_name = "Ujung kiri"
-texture = SubResource("AtlasTexture_lhary")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0r853"]
+resource_name = "Surface rata"
+texture = SubResource("AtlasTexture_70s26")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7qrc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyk8a"]
 atlas = ExtResource("1_ygekl")
 region = Rect2(453, 37, 64, 64)
 filter_clip = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1kap"]
-resource_name = "Ujung kanan"
-texture = SubResource("AtlasTexture_n7qrc")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_liouu"]
+resource_name = "Surface ujung kanan"
+texture = SubResource("AtlasTexture_qyk8a")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o1oy8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxr2a"]
 atlas = ExtResource("1_ygekl")
-region = Rect2(204, 124, 64, 64)
+region = Rect2(370, 124, 64, 64)
 filter_clip = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27l8k"]
-resource_name = "Batu isi"
-texture = SubResource("AtlasTexture_o1oy8")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmwq2"]
+resource_name = "Isi - batu retak"
+texture = SubResource("AtlasTexture_fxr2a")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtjnx"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(118, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f17r"]
+resource_name = "Surface ujung kiri"
+texture = SubResource("AtlasTexture_qtjnx")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf8pg"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(370, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udprj"]
+resource_name = "Surface tengah C"
+texture = SubResource("AtlasTexture_hf8pg")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh40w"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(540, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_825bm"]
+resource_name = "Surface pulau kecil"
+texture = SubResource("AtlasTexture_dh40w")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la4no"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(626, 37, 64, 64)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rwhk"]
+resource_name = "Surface siku kanan"
+texture = SubResource("AtlasTexture_la4no")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0m2k2"]
+atlas = ExtResource("1_ygekl")
+region = Rect2(31, 308, 64, 32)
+filter_clip = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1y2ov"]
+resource_name = "Platform ujung kiri"
+texture = SubResource("AtlasTexture_0m2k2")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
 
 [resource]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_nak7l")
-sources/1 = SubResource("TileSetAtlasSource_5vjws")
-sources/2 = SubResource("TileSetAtlasSource_sqcp4")
-sources/3 = SubResource("TileSetAtlasSource_p1kap")
-sources/4 = SubResource("TileSetAtlasSource_27l8k")
+sources/0 = SubResource("TileSetAtlasSource_hhrm0")
+sources/1 = SubResource("TileSetAtlasSource_qo6kc")
+sources/2 = SubResource("TileSetAtlasSource_0r853")
+sources/3 = SubResource("TileSetAtlasSource_liouu")
+sources/4 = SubResource("TileSetAtlasSource_qmwq2")
+sources/5 = SubResource("TileSetAtlasSource_4f17r")
+sources/6 = SubResource("TileSetAtlasSource_udprj")
+sources/7 = SubResource("TileSetAtlasSource_825bm")
+sources/8 = SubResource("TileSetAtlasSource_0rwhk")
+sources/9 = SubResource("TileSetAtlasSource_1y2ov")
+sources/10 = SubResource("TileSetAtlasSource_lhary")
+sources/11 = SubResource("TileSetAtlasSource_n7qrc")
+sources/12 = SubResource("TileSetAtlasSource_o1oy8")
+sources/13 = SubResource("TileSetAtlasSource_3ks7u")
+sources/14 = SubResource("TileSetAtlasSource_cdpfy")
+sources/15 = SubResource("TileSetAtlasSource_rbkri")
+sources/16 = SubResource("TileSetAtlasSource_0b3jn")

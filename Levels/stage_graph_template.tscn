@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://mega7ir561m"]
 
-[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
 [ext_resource type="Texture2D" uid="uid://bif27rjwvapti" path="res://Assets/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="2_tiles"]
 [ext_resource type="Script" uid="uid://d3k0ahlsbgywk" path="res://Script/Control/camera.gd" id="3_camera"]
@@ -9,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lvfoclcmqxkg" path="res://Assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="6_heart"]
 [ext_resource type="Texture2D" uid="uid://u5rns0nhucsr" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/coin.png" id="7_coin"]
 [ext_resource type="PackedScene" uid="uid://7f7pdwtjsf5j" path="res://Scenes/Rooms/room_combat_01.tscn" id="8_roomcombat1"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_level2"]
 texture = ExtResource("2_tiles")
@@ -88,4 +88,4 @@ vertical_alignment = 1
 
 [node name="Doors" type="Node2D" parent="." unique_id=280568739]
 
-[node name="PauseMenu" parent="." instance=ExtResource("99_pause")]
+[node name="PauseMenu" parent="." unique_id=623102262 instance=ExtResource("99_pause")]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://Levels/stage_graph_template.tscn" id="1"]
+
+[node name="ModularLevelPreview" instance=ExtResource("1")]
+preview_start_node = 1
+random_seed = 42

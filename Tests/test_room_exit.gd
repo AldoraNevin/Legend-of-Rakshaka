@@ -19,7 +19,9 @@ func run_test() -> void:
 	await process_frame
 	assert(stage.current_state == stage.RoomState.DOOR_SELECT)
 	assert(is_instance_valid(stage.active_reward))
-	assert(not stage.current_room.get_node("OptionalTreasure").opened)
+	assert(stage.current_room.get_node("Rewards").get_child_count() >= 2)
+	for reward in stage.current_room.get_node("Rewards").get_children():
+		assert(not reward.opened)
 	assert(stage.current_room.get_node("ExitHint").text == "EXIT TERBUKA")
 	assert(stage.door_root.get_child_count() == 1)
 	assert(stage.door_root.get_child(0).global_position == stage.get_template_door_positions()[0])

@@ -478,11 +478,6 @@ points = PackedVector2Array(0, 0, 0, 120)
 width = 4.0
 default_color = Color(0.42, 0.32, 0.27, 1)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(24, 0)
-text = "PRISON VAULTS"
-modulate = Color(0.65, 0.65, 0.70, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

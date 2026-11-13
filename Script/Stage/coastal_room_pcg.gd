@@ -178,6 +178,8 @@ func prepare(seed_value: int) -> bool:
 		remove_child(child)
 		child.free()
 	exit_open = false
+	var clear_wall_cells := rasterize(layout.regions)
+	clear_wall_cells.merge(rasterize(layout.shell))
 	var backdrop := BACKDROP.new()
 	backdrop.name = "Backdrop"
 	backdrop.layout = layout
@@ -203,12 +205,22 @@ func prepare(seed_value: int) -> bool:
 					holder.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 					holder.add_child(decoration)
 					add_child(holder)
+					# Wall fill is editable, but must never cover rooms, passages or shell art.
+					var wall_tiles := decoration.get_node_or_null("WallTiles") as TileMapLayer
+					if wall_tiles != null:
+						for cell in wall_tiles.get_used_cells():
+							# prepare() runs before this room enters SceneTree in gameplay.
+							# Compose local transforms explicitly; global transforms are not ready yet.
+							var point: Vector2 = holder.transform * decoration.transform * wall_tiles.transform * wall_tiles.map_to_local(cell)
+							var world_cell := Vector2i(floori(point.x / TILE), floori(point.y / TILE))
+							if clear_wall_cells.has(world_cell):
+								wall_tiles.erase_cell(cell)
 					# Remove paint over an open down socket (or outside the floor).
 					var floor_tiles := decoration.get_node_or_null("FloorTiles") as TileMapLayer
 					if floor_tiles != null:
 						floor_tiles.visible = data.template.manual_floor
 						for cell in floor_tiles.get_used_cells():
-							var point := floor_tiles.to_global(floor_tiles.map_to_local(cell)) - global_position
+							var point: Vector2 = holder.transform * decoration.transform * floor_tiles.transform * floor_tiles.map_to_local(cell)
 							var solid := false
 							for rect in layout.shell:
 								if rect.has_point(point) and is_equal_approx(point.y, data.position.y + data.height + 8):
@@ -216,8 +228,6 @@ func prepare(seed_value: int) -> bool:
 									break
 							if not solid:
 								floor_tiles.erase_cell(cell)
-		var title := "RUANG HARTA" if data.kind == "treasure" else str(data.title)
-		path_label(data.position + Vector2(24, 16), title, Color(0.4, 0.7, 0.7))
 	for i in range(layout.branches.size()):
 		var branch: Dictionary = layout.branches[i]
 		var chest := TREASURE.new()

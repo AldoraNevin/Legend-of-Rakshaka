@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b324jtal4yse3"
-path="res://.godot/imported/Player_hollow_knight.png-fb5b89585f1a7df1c54933114db5e67f.ctex"
+uid="uid://dg2cr0ra201ok"
+path="res://.godot/imported/jump.png-c2b14db7dd0ea3769ec2b505a55b813c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Sprites/Player_hollow_knight.png"
-dest_files=["res://.godot/imported/Player_hollow_knight.png-fb5b89585f1a7df1c54933114db5e67f.ctex"]
+source_file="res://Assets/Player/Sprites/jump.png"
+dest_files=["res://.godot/imported/jump.png-c2b14db7dd0ea3769ec2b505a55b813c.ctex"]
 
 [params]
 

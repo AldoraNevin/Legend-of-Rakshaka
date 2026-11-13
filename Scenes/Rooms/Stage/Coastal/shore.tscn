@@ -220,11 +220,6 @@ position = Vector2(590, 16)
 color = Color(0.08, 0.22, 0.23, 1)
 polygon = PackedVector2Array(0, 160, 0, 32, 15, 0, 35, 0, 50, 32, 50, 160)
 
-[node name="Title" type="Label" parent="."]
-position = Vector2(15, 0)
-text = "PESISIR BERKABUT"
-modulate = Color(0.65, 0.65, 0.70, 1)
-
 [node name="Entry" type="Marker2D" parent="."]
 position = Vector2(0, 256)
 

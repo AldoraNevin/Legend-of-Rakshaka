@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Main Menu Themen.ogg-17b59aaa60c551ff607d8109
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

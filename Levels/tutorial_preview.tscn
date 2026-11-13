@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dpirbw5vlk2t0"]
+
+[ext_resource type="PackedScene" uid="uid://mega7ir561m" path="res://Levels/stage_graph_template.tscn" id="1_stage"]
+[ext_resource type="PackedScene" uid="uid://re6b3x81w2qw" path="res://Scenes/Rooms/Stage/tutorial_room.tscn" id="2_room"]
+
+[node name="TutorialPreview" unique_id=1749468837 instance=ExtResource("1_stage")]
+
+[node name="TutorialRoom" parent="RoomRoot" parent_id_path=PackedInt32Array(1464548452) index="0" unique_id=93382617 instance=ExtResource("2_room")]
+
+[node name="Overlay" parent="PauseMenu" parent_id_path=PackedInt32Array(623102262) index="0"]
+visible = false
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" parent="PauseMenu/Overlay" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" parent="PauseMenu/Overlay/MenuPanel" index="0"]
+layout_mode = 0
+
+[node name="ContinueButton" parent="PauseMenu/Overlay/MenuPanel" index="1"]
+layout_mode = 0
+
+[node name="OptionButton" parent="PauseMenu/Overlay/MenuPanel" index="2"]
+layout_mode = 0
+
+[node name="RestartButton" parent="PauseMenu/Overlay/MenuPanel" index="3"]
+layout_mode = 0
+
+[node name="LeaveButton" parent="PauseMenu/Overlay/MenuPanel" index="4"]
+layout_mode = 0
+
+[node name="OptionsPanel" parent="PauseMenu/Overlay" index="2"]
+anchors_preset = -1
+
+[node name="BackButton" parent="PauseMenu/Overlay/OptionsPanel" index="1"]
+layout_mode = 0
+
+[editable path="PauseMenu"]

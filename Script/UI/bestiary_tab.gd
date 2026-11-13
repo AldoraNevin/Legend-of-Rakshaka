@@ -38,6 +38,13 @@ var card_group := ButtonGroup.new()
 @onready var description_tab: Button = $Book/DescriptionTab
 @onready var history_tab: Button = $Book/HistoryTab
 @onready var close_button: Button = $Book/CloseButton
+
+const PAGE_SIZE := 12
+
+@warning_ignore("integer_division")
+func _page_of(index: int) -> int:
+	return index / PAGE_SIZE
+
 var entries: Array = []
 var filtered: Array = []
 var selected: Dictionary = {}
@@ -104,12 +111,12 @@ func _process(delta: float) -> void:
 	entry["is_unlocked"] = true
 	_select(entry)
 	progress.text = "%d / %d" % [nodes.size(), nodes.size()]
-	page_label.text = "%d / %d" % [selected_index / 12 + 1, maxi(1, ceili(nodes.size() / 12.0))]
+	page_label.text = "%d / %d" % [_page_of(selected_index) + 1, maxi(1, ceili(nodes.size() / 12.0))]
 	previous.disabled = selected_index < 12
-	next.disabled = (selected_index / 12 + 1) * 12 >= nodes.size()
+	next.disabled = (_page_of(selected_index) + 1) * 12 >= nodes.size()
 	empty_label.hide()
 	for index in range(nodes.size()):
-		nodes[index].visible = index / 12 == selected_index / 12
+		nodes[index].visible = _page_of(index) == _page_of(selected_index)
 		nodes[index].set_pressed_no_signal(index == selected_index)
 	enemy_tab.set_pressed_no_signal(not artifact_mode)
 	artifact_tab.set_pressed_no_signal(artifact_mode)
@@ -149,7 +156,7 @@ func refresh_entries(reveal_all: bool = false) -> void:
 	# The catalog and standalone tabs share the exact same preview selection.
 	if preview_mode and not entries.is_empty():
 		var index := clampi(preview_entry, 0, entries.size() - 1)
-		page = index / 12
+		page = _page_of(index)
 		_refresh_page()
 		cards[index].set_pressed_no_signal(true)
 		_select(entries[index])

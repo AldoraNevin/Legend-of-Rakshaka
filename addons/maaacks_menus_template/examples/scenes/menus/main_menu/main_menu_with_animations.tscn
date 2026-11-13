@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_menus_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_801fg"]
 [ext_resource type="Texture2D" uid="uid://cl3h5ndnqylqv" path="res://main_menu.png" id="5_mvgsf"]
 [ext_resource type="Texture2D" uid="uid://b4eor3md3gteu" path="res://Levels/legend_of_rakshaka.png" id="6_013fh"]
-[ext_resource type="AudioStream" uid="uid://brqgvb5f5l5yn" path="res://Assets/Legend of Rakshaka/BGM/Lobby Theme.ogg" id="6_woqsv"]
+[ext_resource type="AudioStream" uid="uid://dsloeln4lbimg" path="res://Assets/Legend of Rakshaka/BGM/Main Menu Themen.ogg" id="6_woqsv"]
 [ext_resource type="Texture2D" uid="uid://vjgihtki57da" path="res://Levels/button_main menu3.png" id="7_avwjl"]
 [ext_resource type="Texture2D" uid="uid://c7ti3imth8ptp" path="res://Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu2.png" id="8_aruns"]
 [ext_resource type="Texture2D" uid="uid://dxi35lou8gpee" path="res://Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu3.png" id="9_cbmiv"]

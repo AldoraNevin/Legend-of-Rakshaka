@@ -1,10 +1,14 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://c16rq2ioxlshy"]
 
-[ext_resource type="Script" path="res://Script/Stage/Modular/room_template.gd" id="1_4xvxq"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/coastal_tileset.tres" id="2_1ik2c"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_4xvxq"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_1ik2c"]
-[ext_resource type="Script" path="res://Script/Stage/Modular/room_socket.gd" id="5_1ky3k"]
+[ext_resource type="Script" uid="uid://b6ay5qsxgk4dj" path="res://Script/Stage/Modular/room_template.gd" id="1_4xvxq"]
+[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Assets/Tileset/coastal_tileset.tres" id="2_1ik2c"]
+[ext_resource type="TileSet" uid="uid://bi8al2lc0pl26" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_4xvxq"]
+[ext_resource type="TileSet" uid="uid://cbe258twrase6" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_1ik2c"]
+[ext_resource type="Script" uid="uid://dbkgi7bvmaat7" path="res://Script/Stage/Modular/room_socket.gd" id="5_1ky3k"]
+[ext_resource type="PackedScene" uid="uid://vka2pok103ay" path="res://Scenes/Environment/badge.tscn" id="6_1ky3k"]
+[ext_resource type="PackedScene" uid="uid://bwimahmo7fp72" path="res://Scenes/Environment/badge_2.tscn" id="7_i0rhc"]
+[ext_resource type="PackedScene" uid="uid://bg4adf6m3cw1r" path="res://Scenes/Environment/broken_pilar.tscn" id="8_i8f0s"]
+[ext_resource type="PackedScene" uid="uid://c2qsm64dy0asc" path="res://Scenes/Environment/chest.tscn" id="9_yjey5"]
 
 [node name="Artifact" type="Node2D" unique_id=381540580]
 texture_filter = 1
@@ -22,7 +26,7 @@ collision_enabled = false
 
 [node name="Solid" type="TileMapLayer" parent="." unique_id=838725263]
 scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAEAAAAAAAEAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAMAAAAEAAEAAAAAAAQAAAAEAAEAAAAAAAUAAAAEAAEAAAAAAAYAAAAEAAEAAAAAAAcAAAAEAAEAAAAAAAgAAAAEAAEAAAAAAAkA//////////8AAAoA//////////8AAAsA//////////8AAAwA//////////8AAA0AAAACAAAAAAABAAAAAAAEAAEAAAABAA0AAAACAAAAAAACAAAAAAAEAAEAAAACAA0AAAACAAAAAAADAAAAAAAEAAEAAAADAA0AAAACAAAAAAAEAAAAAAAEAAEAAAAEAA0AAAACAAAAAAAFAAAAAAAEAAEAAAAFAA0AAAACAAAAAAAGAAAAAAAEAAEAAAAGAA0AAAACAAAAAAAHAAAAAAAEAAEAAAAHAA0AAAACAAAAAAAIAAAAAAAEAAEAAAAIAA0AAAACAAAAAAAJAAAAAAAEAAEAAAAJAA0AAAACAAAAAAAKAAAAAAAEAAEAAAAKAA0AAAACAAAAAAALAAAAAAAEAAEAAAALAA0AAAACAAAAAAAMAAAAAAAEAAEAAAAMAA0AAAACAAAAAAANAAAAAAAEAAEAAAANAA0AAAACAAAAAAAOAAAAAAAEAAEAAAAOAA0AAAACAAAAAAAPAAAAAAAEAAEAAAAPAA0AAAACAAAAAAAQAAAAAAAEAAEAAAAQAA0AAAACAAAAAAARAAAAAAAEAAEAAAARAA0AAAACAAAAAAASAAAAAAAEAAEAAAASAA0AAAACAAAAAAATAAAAAAAEAAEAAAATAA0AAAACAAAAAAAUAAAAAAAEAAEAAAAUAA0AAAACAAAAAAAVAAAAAAAEAAEAAAAVAA0AAAACAAAAAAAWAAAAAAAEAAEAAAAWAA0AAAACAAAAAAAXAAAAAAAEAAEAAAAXAA0AAAACAAAAAAAYAAAAAAAEAAEAAAAYAA0AAAACAAAAAAAZAAAAAAAEAAEAAAAZAAEAAAAEAAEAAAAZAAIAAAAEAAEAAAAZAAMAAAAEAAEAAAAZAAQAAAAEAAEAAAAZAAUAAAAEAAEAAAAZAAYAAAAEAAEAAAAZAAcAAAAEAAEAAAAZAAgAAAAEAAEAAAAZAAkA//////////8ZAAoA//////////8ZAAsA//////////8ZAAwA//////////8ZAA0AAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAA0AAAACAAAAAAABAA0AAAACAAAAAAACAA0AAAACAAAAAAADAA0AAAACAAAAAAAEAA0AAAACAAAAAAAFAA0AAAACAAAAAAAGAA0AAAACAAAAAAAHAA0AAAACAAAAAAAIAA0AAAACAAAAAAAJAA0AAAACAAAAAAAKAA0AAAACAAAAAAALAA0AAAACAAAAAAAMAA0AAAACAAAAAAANAA0AAAACAAAAAAAOAA0AAAACAAAAAAAPAA0AAAACAAAAAAAQAA0AAAACAAAAAAARAA0AAAACAAAAAAASAA0AAAACAAAAAAATAA0AAAACAAAAAAAUAA0AAAACAAAAAAAVAA0AAAACAAAAAAAWAA0AAAACAAAAAAAXAA0AAAACAAAAAAAYAA0AAAACAAAAAAAZAA0AAAACAAAAAAAAAAgAAAAEAAIABQAAAAcAAAAEAAIABQAAAAYAAAAEAAIABQAAAAUAAAAEAAIABQAAAAQAAAAEAAIABQAAAAMAAAAEAAIABQAAAAIAAAAEAAIABQAAAAEAAAAEAAIABQAZAAgAAAAEAAIABgAZAAcAAAAEAAIABgAZAAYAAAAEAAIABgAZAAUAAAAEAAIABgAZAAQAAAAEAAIABgAZAAMAAAAEAAIABgAZAAIAAAAEAAIABgAZAAEAAAAEAAIABgABAAAAAAAEAAIAAgACAAAAAAAEAAIAAgADAAAAAAAEAAIAAgAEAAAAAAAEAAIAAgAFAAAAAAAEAAIAAgAGAAAAAAAEAAIAAgAHAAAAAAAEAAIAAgAIAAAAAAAEAAIAAgAJAAAAAAAEAAIAAgAKAAAAAAAEAAIAAgALAAAAAAAEAAIAAgAMAAAAAAAEAAIAAgANAAAAAAAEAAIAAgAOAAAAAAAEAAIAAgAPAAAAAAAEAAIAAgAQAAAAAAAEAAIAAgARAAAAAAAEAAIAAgASAAAAAAAEAAIAAgATAAAAAAAEAAIAAgAUAAAAAAAEAAIAAgAVAAAAAAAEAAIAAgAWAAAAAAAEAAIAAgAXAAAAAAAEAAIAAgAYAAAAAAAEAAIAAgAAAAAAAAAFAAIAAwAZAAAAAAAFAAIABgA=")
 tile_set = ExtResource("3_4xvxq")
 
 [node name="Platforms" type="TileMapLayer" parent="." unique_id=1026037477]
@@ -32,7 +36,7 @@ tile_set = ExtResource("4_1ik2c")
 
 [node name="SocketCaps" type="TileMapLayer" parent="." unique_id=1188477472]
 scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAAAAkAAAAEAAEAAAAAAAoAAAAEAAEAAAAAAAsAAAAEAAEAAAAAAAwAAAAEAAEAAAAZAAkAAAAEAAEAAAAZAAoAAAAEAAEAAAAZAAsAAAAEAAEAAAAZAAwAAAAEAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAkAAAAEAAIABQAAAAoAAAAEAAIABQAAAAsAAAAEAAIABQAAAAwAAAAEAAIABQAZAAwAAAAEAAIABgAZAAsAAAAEAAIABgAZAAoAAAAEAAIABgAZAAkAAAAEAAIABgA=")
 tile_set = ExtResource("3_4xvxq")
 
 [node name="Decorations" type="TileMapLayer" parent="." unique_id=921057082]
@@ -59,3 +63,27 @@ position = Vector2(64, 176)
 
 [node name="RewardSpawn" type="Marker2D" parent="." unique_id=464064431]
 position = Vector2(208, 176)
+
+[node name="Badge" parent="." unique_id=343663523 instance=ExtResource("6_1ky3k")]
+position = Vector2(88.00001, 54.999996)
+scale = Vector2(0.30357143, 0.30357146)
+
+[node name="Badge2" parent="." unique_id=1737365753 instance=ExtResource("6_1ky3k")]
+position = Vector2(248.00002, 54.999996)
+scale = Vector2(0.30357143, 0.30357146)
+
+[node name="Badge3" parent="." unique_id=1718022287 instance=ExtResource("7_i0rhc")]
+position = Vector2(48.25, 179.01515)
+scale = Vector2(0.47727275, 0.4772727)
+
+[node name="BrokenPilar" parent="." unique_id=419381924 instance=ExtResource("8_i8f0s")]
+position = Vector2(363.25705, 191.81252)
+scale = Vector2(0.40028116, 0.400281)
+
+[node name="BrokenPilar2" parent="." unique_id=1713832587 instance=ExtResource("8_i8f0s")]
+position = Vector2(78, 193.00002)
+scale = Vector2(0.36657313, 0.36657304)
+
+[node name="Pillar" parent="." unique_id=926497192 instance=ExtResource("9_yjey5")]
+position = Vector2(340.3173, 199.5)
+scale = Vector2(0.3653846, 0.36538458)

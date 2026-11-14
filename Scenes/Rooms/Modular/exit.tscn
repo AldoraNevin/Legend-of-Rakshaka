@@ -1,10 +1,13 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://ce3eij4m0v60y"]
 
-[ext_resource type="Script" path="res://Script/Stage/Modular/room_template.gd" id="1_3nwgt"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/coastal_tileset.tres" id="2_5t0yg"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_3nwgt"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_5t0yg"]
-[ext_resource type="Script" path="res://Script/Stage/Modular/room_socket.gd" id="5_pc8l4"]
+[ext_resource type="Script" uid="uid://b6ay5qsxgk4dj" path="res://Script/Stage/Modular/room_template.gd" id="1_3nwgt"]
+[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Assets/Tileset/coastal_tileset.tres" id="2_5t0yg"]
+[ext_resource type="TileSet" uid="uid://bi8al2lc0pl26" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_3nwgt"]
+[ext_resource type="TileSet" uid="uid://cbe258twrase6" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_5t0yg"]
+[ext_resource type="Script" uid="uid://dbkgi7bvmaat7" path="res://Script/Stage/Modular/room_socket.gd" id="5_pc8l4"]
+[ext_resource type="PackedScene" uid="uid://b2g7itbpv2bq2" path="res://Scenes/Environment/lamp.tscn" id="6_rwxvw"]
+[ext_resource type="PackedScene" uid="uid://dleqdxugfs1w7" path="res://Scenes/Environment/shrine.tscn" id="7_ihdes"]
+[ext_resource type="PackedScene" uid="uid://vka2pok103ay" path="res://Scenes/Environment/badge.tscn" id="8_ihdes"]
 
 [node name="Exit" type="Node2D" unique_id=634962824]
 texture_filter = 1
@@ -22,7 +25,7 @@ collision_enabled = false
 
 [node name="Solid" type="TileMapLayer" parent="." unique_id=1745900931]
 scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAAAAAAAAAEAAEAAAAAAAEAAAAEAAEAAAAAAAIAAAAEAAEAAAAAAAMAAAAEAAEAAAAAAAQAAAAEAAEAAAAAAAUAAAAEAAEAAAAAAAYAAAAEAAEAAAAAAAcA//////////8AAAgA//////////8AAAkA//////////8AAAoA//////////8AAAsAAAACAAAAAAABAAAAAAAEAAEAAAABAAsAAAACAAAAAAACAAAAAAAEAAEAAAACAAsAAAACAAAAAAADAAAAAAAEAAEAAAADAAsAAAACAAAAAAAEAAAAAAAEAAEAAAAEAAsAAAACAAAAAAAFAAAAAAAEAAEAAAAFAAsAAAACAAAAAAAGAAAAAAAEAAEAAAAGAAsAAAACAAAAAAAHAAAAAAAEAAEAAAAHAAsAAAACAAAAAAAIAAAAAAAEAAEAAAAIAAsAAAACAAAAAAAJAAAAAAAEAAEAAAAJAAsAAAACAAAAAAAKAAAAAAAEAAEAAAAKAAsAAAACAAAAAAALAAAAAAAEAAEAAAALAAsAAAACAAAAAAAMAAAAAAAEAAEAAAAMAAsAAAACAAAAAAANAAAAAAAEAAEAAAANAAsAAAACAAAAAAAOAAAAAAAEAAEAAAAOAAsAAAACAAAAAAAPAAAAAAAEAAEAAAAPAAsAAAACAAAAAAAQAAAAAAAEAAEAAAAQAAsAAAACAAAAAAARAAAAAAAEAAEAAAARAAsAAAACAAAAAAASAAAAAAAEAAEAAAASAAsAAAACAAAAAAATAAAAAAAEAAEAAAATAAsAAAACAAAAAAAUAAAAAAAEAAEAAAAUAAsAAAACAAAAAAAVAAAAAAAEAAEAAAAVAAsAAAACAAAAAAAWAAAAAAAEAAEAAAAWAAsAAAACAAAAAAAXAAAAAAAEAAEAAAAXAAEAAAAEAAEAAAAXAAIAAAAEAAEAAAAXAAMAAAAEAAEAAAAXAAQAAAAEAAEAAAAXAAUAAAAEAAEAAAAXAAYAAAAEAAEAAAAXAAcA//////////8XAAgA//////////8XAAkA//////////8XAAoA//////////8XAAsAAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAsAAAACAAAAAAABAAsAAAACAAAAAAACAAsAAAACAAAAAAADAAsAAAACAAAAAAAEAAsAAAACAAAAAAAFAAsAAAACAAAAAAAGAAsAAAACAAAAAAAHAAsAAAACAAAAAAAIAAsAAAACAAAAAAAJAAsAAAACAAAAAAAKAAsAAAACAAAAAAALAAsAAAACAAAAAAAMAAsAAAACAAAAAAANAAsAAAACAAAAAAAOAAsAAAACAAAAAAAPAAsAAAACAAAAAAAQAAsAAAACAAAAAAARAAsAAAACAAAAAAASAAsAAAACAAAAAAATAAsAAAACAAAAAAAUAAsAAAACAAAAAAAVAAsAAAACAAAAAAAWAAsAAAACAAAAAAAXAAsAAAACAAAAAAAAAAEAAAAEAAIABQAAAAIAAAAEAAIABQAAAAMAAAAEAAIABQAAAAQAAAAEAAIABQAAAAUAAAAEAAIABQAAAAYAAAAEAAIABQAXAAEAAAAEAAIABgAXAAIAAAAEAAIABgAXAAMAAAAEAAIABgAXAAQAAAAEAAIABgAXAAUAAAAEAAIABgAXAAYAAAAEAAIABgABAAAAAAAEAAIAAgACAAAAAAAEAAIAAgADAAAAAAAEAAIAAgAEAAAAAAAEAAIAAgAFAAAAAAAEAAIAAgAGAAAAAAAEAAIAAgAHAAAAAAAEAAIAAgAIAAAAAAAEAAIAAgAJAAAAAAAEAAIAAgAKAAAAAAAEAAIAAgALAAAAAAAEAAIAAgAMAAAAAAAEAAIAAgANAAAAAAAEAAIAAgAOAAAAAAAEAAIAAgAPAAAAAAAEAAIAAgAQAAAAAAAEAAIAAgARAAAAAAAEAAIAAgASAAAAAAAEAAIAAgATAAAAAAAEAAIAAgAUAAAAAAAEAAIAAgAVAAAAAAAEAAIAAgAWAAAAAAAEAAIAAgAXAAAAAAAFAAIABgAAAAAAAAAFAAIABwA=")
 tile_set = ExtResource("3_3nwgt")
 
 [node name="Platforms" type="TileMapLayer" parent="." unique_id=1140367313]
@@ -32,7 +35,7 @@ tile_set = ExtResource("4_5t0yg")
 
 [node name="SocketCaps" type="TileMapLayer" parent="." unique_id=1372613023]
 scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAAAAcAAAAEAAEAAAAAAAgAAAAEAAEAAAAAAAkAAAAEAAEAAAAAAAoAAAAEAAEAAAAXAAcAAAAEAAEAAAAXAAgAAAAEAAEAAAAXAAkAAAAEAAEAAAAXAAoAAAAEAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAAAEAAIABQAAAAgAAAAEAAIABQAAAAkAAAAEAAIABQAAAAoAAAAEAAIABQAXAAoAAAAEAAIABAAXAAkAAAAEAAIABAAXAAgAAAAEAAIABAAXAAcAAAAEAAIABAA=")
 tile_set = ExtResource("3_3nwgt")
 
 [node name="Decorations" type="TileMapLayer" parent="." unique_id=1332787645]
@@ -59,3 +62,23 @@ position = Vector2(64, 144)
 
 [node name="RewardSpawn" type="Marker2D" parent="." unique_id=263084355]
 position = Vector2(192, 144)
+
+[node name="Grass" parent="." unique_id=1878025945 instance=ExtResource("6_rwxvw")]
+position = Vector2(292, 162.00002)
+scale = Vector2(0.33076924, 0.33076924)
+
+[node name="Grass2" parent="." unique_id=1253986927 instance=ExtResource("6_rwxvw")]
+position = Vector2(232, 162)
+scale = Vector2(0.33076924, 0.33076924)
+
+[node name="Pillar" parent="." unique_id=926497192 instance=ExtResource("7_ihdes")]
+position = Vector2(262, 156)
+scale = Vector2(0.41836736, 0.41836733)
+
+[node name="Badge" parent="." unique_id=343663523 instance=ExtResource("8_ihdes")]
+position = Vector2(87, 57)
+scale = Vector2(0.3690476, 0.36904764)
+
+[node name="Badge2" parent="." unique_id=587248879 instance=ExtResource("8_ihdes")]
+position = Vector2(247, 57)
+scale = Vector2(0.3690476, 0.36904764)

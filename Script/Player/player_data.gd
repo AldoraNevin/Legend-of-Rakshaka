@@ -15,8 +15,11 @@ const ENCRYPTION_KEY := "RakshakaNusantaraKey2026AES256"
 # ==============================================================================
 static var player_id: String = "Saka_01"
 static var coin: int = 0
-static var life: int = 4
-static var max_life: int = 4
+const MAX_HEALTH := 100
+const HEALTH_VERSION := 2
+
+static var life: int = MAX_HEALTH
+static var max_life: int = MAX_HEALTH
 static var last_played: String = ""
 
 static var upgrade_levels: Dictionary = {
@@ -36,12 +39,14 @@ static var bestiary_master: Dictionary = {
 	"artifacts": []
 }
 
+static var progress_saver: Callable
+
 static var _is_initialized: bool = false
 
 const UPGRADE_DATA = {
 	"max_life": {
 		"name": "Vitalitas",
-		"description": "Tambah kapasitas nyawa.",
+		"description": "Kurangi damage masuk 5% per level; pulihkan HP.",
 		"base_cost": 3,
 		"max_level": 3,
 	},
@@ -75,7 +80,7 @@ static func init_system() -> void:
 		return
 	_is_initialized = true
 	load_bestiary_master()
-	load_game_data()
+	sync_bestiary_status()
 
 
 # ==============================================================================
@@ -85,12 +90,15 @@ static func init_system() -> void:
 ## RS-M06: Menserialisasi data atribut kelas pemain dan menyimpannya
 ## dengan enkripsi AES-256 serta mekanisme atomic temp-file swapping (failsafe).
 static func save_to_json() -> bool:
+	if progress_saver.is_valid():
+		return progress_saver.call()
 	last_played = Time.get_datetime_string_from_system()
 
 	var save_dict: Dictionary = {
 		"player_id": player_id,
 		"exp_point": coin,
 		"coin": coin,
+		"health_version": HEALTH_VERSION,
 		"player_hp": max_life,
 		"max_life": max_life,
 		"upgrade_levels": upgrade_levels.duplicate(true),
@@ -193,7 +201,7 @@ static func load_game_data() -> bool:
 static func _apply_loaded_dict(data: Dictionary) -> void:
 	player_id = data.get("player_id", player_id)
 	coin = data.get("coin", data.get("exp_point", coin))
-	max_life = data.get("max_life", data.get("player_hp", max_life))
+	max_life = MAX_HEALTH
 	life = max_life
 
 	var loaded_upgrades = data.get("upgrade_levels", {})
@@ -365,7 +373,7 @@ static func buy_upgrade(upgrade_id: String) -> bool:
 	upgrade_levels[upgrade_id] = upgrade_levels.get(upgrade_id, 0) + 1
 
 	if upgrade_id == "max_life":
-		max_life += 1
+		max_life = MAX_HEALTH
 		life = max_life
 
 	save_to_json()
@@ -386,3 +394,35 @@ static func apply_player_stats(player) -> void:
 static func _remove_file(path: String) -> void:
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(path)
+
+
+static func reset_progress() -> void:
+	coin = 0
+	max_life = MAX_HEALTH
+	life = MAX_HEALTH
+	last_played = ""
+	for key in upgrade_levels:
+		upgrade_levels[key] = 0
+	unlocked_skill = []
+	discovered_enemies = []
+	discovered_artifacts = []
+	sync_bestiary_status()
+
+static func add_gold(amount: int) -> void:
+	coin = maxi(0, coin + amount)
+	save_to_json()
+
+
+static func restore_health(saved_life: int, saved_max: int, version: int) -> void:
+	max_life = MAX_HEALTH
+	if version < HEALTH_VERSION:
+		# Older saves used hearts (4 + upgrades); preserve their health percentage.
+		life = clampi(roundi(float(saved_life) / maxi(1, saved_max) * MAX_HEALTH), 1, MAX_HEALTH)
+	else:
+		life = clampi(saved_life, 1, MAX_HEALTH)
+
+static func incoming_damage(amount: int) -> int:
+	if amount <= 0:
+		return 0
+	var reduction := clampi(int(upgrade_levels.get("max_life", 0)), 0, 3) * 0.05
+	return maxi(1, roundi(amount * (1.0 - reduction)))

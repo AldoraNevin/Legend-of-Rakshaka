@@ -72,6 +72,8 @@ func leave() -> void:
 func _change_scene(reload_level: bool) -> void:
 	if not owns_pause:
 		return
+	if not CheckpointManager.save_progress():
+		return
 	resume()
 	if reload_level:
 		player_data.restore_life()

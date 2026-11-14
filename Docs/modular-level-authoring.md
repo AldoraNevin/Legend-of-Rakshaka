@@ -1,5 +1,11 @@
 # Level modular: room buatan tangan + generator
 
+**Update atlas pantai:** Solid, Platforms, dan SocketCaps seluruh katalog aktif
+sekarang memakai atlas asli 64px `coastal_packed.png`, dengan scale layer 0.25.
+Satu sel tetap 16px di dunia game. Pertahankan scale tersebut ketika melukis.
+Backdrop/Decorations lama tetap 16px dengan scale 1. Petunjuk TileSet 16px di
+bawah berlaku untuk membuat tileset baru, bukan mengubah scale atlas pantai ini.
+
 Contoh pantai tiga lantai siap edit: [hall_buatan](hall-buatan.md).
 Scene ini sudah masuk katalog procedural dan memiliki preview bermain sendiri.
 

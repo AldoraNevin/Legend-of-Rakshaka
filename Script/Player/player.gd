@@ -28,7 +28,9 @@ var current_state := PlayerStates.MOVE
 @export var speed := 100.0
 @export var gravity := 1000.0
 
-@export var max_jump := 2
+@export var max_jump := 1
+## Empty means locked. Set to a bestiary artifact ID/name when that reward is chosen.
+@export var double_jump_artifact_id := "selendang_bidadari"
 @export var jump_force := 300.0
 
 @export var max_wall_jump := 2
@@ -56,6 +58,8 @@ func _ready() -> void:
 	sprite.play("Idle")
 	add_to_group("player")
 	player_data.apply_player_stats(self)
+	floor_snap_length = 6.0
+	floor_max_angle = deg_to_rad(50)
 	sword_area.add_to_group("player_sword")
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(2, true)
@@ -149,16 +153,29 @@ func input_movement(delta: float, can_move := true) -> void:
 		is_wall_sliding = false
 
 	if Input.is_action_just_pressed("ui_accept"):
-		if can_wall_jump():
-			wall_jump()
-			return
-
-		if jump_count < max_jump:
-			jump_count += 1
-			velocity.y = -jump_force
+		try_jump()
 
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
 		velocity.y *= 0.5
+
+func refresh_jump_ability() -> void:
+	max_jump = 2 if player_data.has_artifact(double_jump_artifact_id) else 1
+	# Walking off a ledge consumes the ground jump, preventing an extra mid-air jump.
+	if not is_on_floor():
+		jump_count = maxi(jump_count, 1)
+
+func try_jump() -> bool:
+	if can_wall_jump():
+		wall_jump()
+		return true
+	refresh_jump_ability()
+	if is_on_floor() or (max_jump > 1 and jump_count < max_jump):
+		if is_on_floor():
+			jump_count = 0
+		jump_count += 1
+		velocity.y = -jump_force
+		return true
+	return false
 
 
 func start_dash() -> void:
@@ -325,7 +342,8 @@ func check_sword_hits() -> void:
 
 
 func wall_collider() -> bool:
-	return wall.is_colliding()
+	# Contact normals also work when the sprite/body scale makes the ray too short.
+	return wall.is_colliding() or (is_on_wall_only() and get_wall_normal().x * facing < -0.5)
 
 
 func reset_states() -> void:

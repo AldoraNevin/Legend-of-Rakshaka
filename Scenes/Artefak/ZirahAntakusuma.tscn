@@ -156,6 +156,7 @@ _data = {
 }
 
 [node name="ZirahAntakusuma" type="Area2D" unique_id=1280980373]
+collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=29266590]
 texture_filter = 1

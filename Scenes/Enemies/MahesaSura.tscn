@@ -513,6 +513,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvxe1"]
+radius = 28.01785
+
 [sub_resource type="Animation" id="Animation_g5pce"]
 resource_name = "Attack"
 length = 1.9
@@ -778,6 +781,12 @@ _data = {
 &"RESET": SubResource("Animation_js052")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksfme"]
+radius = 28.01785
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd6dt"]
+size = Vector2(40, 55)
+
 [node name="MahesaSura" type="CharacterBody2D" unique_id=1576495715]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1992754137]
@@ -787,6 +796,8 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1142354474]
+position = Vector2(-4, 4)
+shape = SubResource("CircleShape2D_cvxe1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=433949647]
 libraries/ = SubResource("AnimationLibrary_og3qu")
@@ -795,9 +806,13 @@ autoplay = &"Idle"
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1864733890]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1017409160]
+position = Vector2(-4, 4)
+shape = SubResource("CircleShape2D_ksfme")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1724398142]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1199655169]
+position = Vector2(16, 4.5)
+shape = SubResource("RectangleShape2D_fd6dt")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1402676164]

@@ -19,9 +19,10 @@ platform di sumur dapat dilompati dari bawah. Balkon tambahan memberi variasi co
 | CoastalProps | Sprite ornamen pantai yang bisa dipindah/dihapus |
 | EnemySpawns | Tiga kandidat musuh, masing-masing di lantai berbeda |
 
-Grid layer 16 × 16, posisi (0,0), scale (1,1). Gambar pantai berasal dari
-`coastal_packed.png`, disalin menjadi texture resource `pantai_modular_texture.tres`
-pada ukuran seperempatnya agar gambar dan collision cocok dengan grid gameplay.
+Grid gameplay tetap 16 × 16. Layer Solid, Platforms, dan SocketCaps memakai
+tile asli 64 × 64 dengan scale (0.25,0.25), posisi (0,0), seperti WallTiles pada
+wave_gallery. Texture langsung memakai `coastal_packed.png` beresolusi asli;
+`pantai_modular_texture.tres` versi kecil tidak dipakai lagi oleh tileset aktif.
 TileSet khususnya adalah `pantai_modular_solid.tres` dan `pantai_modular_platforms.tres`.
 Sumber gambar pantai asli tidak diubah.
 

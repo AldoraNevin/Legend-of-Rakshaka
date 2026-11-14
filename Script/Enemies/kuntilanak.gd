@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var attack_height := 42.0
 @export var first_attack_delay := 0.5
 @export var attack_cooldown := 0.8
-@export var contact_damage := 1
+@export var contact_damage := 20
 @export var max_health := 3
 @export var gravity := 1000.0
 @export var edge_probe_forward := 24.0

@@ -478,6 +478,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkj06"]
+radius = 33.0
+
 [sub_resource type="Animation" id="Animation_o21m5"]
 resource_name = "Attack"
 length = 1.6
@@ -744,6 +747,12 @@ _data = {
 &"RESET": SubResource("Animation_ogdno")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d56rc"]
+radius = 33.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s66j4"]
+size = Vector2(65, 60)
+
 [node name="Genderuwo" type="CharacterBody2D" unique_id=1039303643]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=582322803]
@@ -752,6 +761,8 @@ sprite_frames = SubResource("SpriteFrames_ip84r")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419811993]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_vkj06")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1716811675]
 libraries/ = SubResource("AnimationLibrary_px4ns")
@@ -760,9 +771,13 @@ autoplay = &"Idle"
 [node name="Hurtbox" type="Area2D" parent="." unique_id=975146590]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=662265352]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_d56rc")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1089520419]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=865260024]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_s66j4")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1485690798]

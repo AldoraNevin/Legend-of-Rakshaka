@@ -21,7 +21,10 @@ static func build(layout: Dictionary) -> Dictionary:
 	return {"surfaces": surfaces, "edges": edges}
 
 static func can_step(source: Rect2, target: Rect2, solid: Dictionary) -> bool:
-	if absf(source.position.y - target.position.y) > 40:
+	var rise := source.position.y - target.position.y
+	if rise > 40:
+		return wall_assisted(source, target, solid)
+	if rise < -512:
 		return false
 	var gap := maxf(0, maxf(target.position.x - source.end.x, source.position.x - target.end.x))
 	if gap > 24:
@@ -38,6 +41,33 @@ static func can_step(source: Rect2, target: Rect2, solid: Dictionary) -> bool:
 			if solid.has(Vector2i(x, y)):
 				return false
 	return true
+
+static func wall_assisted(source: Rect2, target: Rect2, solid: Dictionary) -> bool:
+	# Baseline ground jump (300^2/2g) plus at most two wall jumps (350^2/2g).
+	# This is a conservative cell estimate, not a physics proof or a double jump.
+	var rise := source.position.y - target.position.y
+	if rise > 160 or rise <= 0:
+		return false
+	for side in [-1, 1]:
+		var wall_x := roundi(source.position.x / 16) - 1 if side == -1 else roundi(source.end.x / 16)
+		var takeoff_x := source.position.x + 8 if side == -1 else source.end.x - 8
+		var landing_x := clampf(takeoff_x, target.position.x + 8, target.end.x - 8)
+		if absf(landing_x - takeoff_x) > 56:
+			continue
+		var continuous := true
+		for y in range(floori(target.position.y / 16) - 1, floori(source.position.y / 16)):
+			if not solid.has(Vector2i(wall_x, y)):
+				continuous = false
+		if not continuous:
+			continue
+		var clear := true
+		for x in range(floori(minf(takeoff_x, landing_x) / 16), floori(maxf(takeoff_x, landing_x) / 16) + 1):
+			for y in range(floori(target.position.y / 16) - 2, floori(target.position.y / 16)):
+				if solid.has(Vector2i(x, y)):
+					clear = false
+		if clear:
+			return true
+	return false
 
 static func step_points(source: Rect2, target: Rect2) -> Dictionary:
 	var landing := clampf(source.get_center().x, target.position.x + 8, target.end.x - 8)

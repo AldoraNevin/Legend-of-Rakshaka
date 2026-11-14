@@ -18,23 +18,51 @@ grow_vertical = 2
 
 [node name="Title" parent="PauseMenu/Overlay/MenuPanel" index="0"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 320.0
+offset_bottom = 58.0
 
 [node name="ContinueButton" parent="PauseMenu/Overlay/MenuPanel" index="1"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 290.0
+offset_bottom = 54.0
 
 [node name="OptionButton" parent="PauseMenu/Overlay/MenuPanel" index="2"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 290.0
+offset_bottom = 54.0
 
 [node name="RestartButton" parent="PauseMenu/Overlay/MenuPanel" index="3"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 290.0
+offset_bottom = 54.0
 
 [node name="LeaveButton" parent="PauseMenu/Overlay/MenuPanel" index="4"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 290.0
+offset_bottom = 54.0
 
 [node name="OptionsPanel" parent="PauseMenu/Overlay" index="2"]
 anchors_preset = -1
 
 [node name="BackButton" parent="PauseMenu/Overlay/OptionsPanel" index="1"]
 layout_mode = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 45.0
 
 [editable path="PauseMenu"]

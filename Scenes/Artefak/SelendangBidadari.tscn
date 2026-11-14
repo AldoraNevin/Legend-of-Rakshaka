@@ -156,6 +156,7 @@ _data = {
 }
 
 [node name="SelendangBidadari" type="Area2D" unique_id=1812463608]
+collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=828644366]
 texture_filter = 1

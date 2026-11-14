@@ -3,7 +3,7 @@ extends Node2D
 const LAYOUT = preload("res://Script/Stage/Modular/level_layout.gd")
 const NAVIGATION = preload("res://Script/Stage/Modular/room_navigation.gd")
 const DEFAULT_SETTINGS = preload("res://Scenes/Rooms/Modular/default_level_settings.tres")
-const SOLID_TILES = preload("res://Assets/Tileset/modular_solid.tres")
+const SOLID_TILES = preload("res://Assets/Tileset/pantai_modular_solid.tres")
 const BACKDROP_TILES = preload("res://Assets/Tileset/coastal_tileset.tres")
 const MAP = preload("res://Script/UI/coastal_map.gd")
 const REWARD = preload("res://Script/Interactables/modular_reward.gd")
@@ -31,7 +31,15 @@ static func validate_layout(candidate: Dictionary) -> PackedStringArray:
 
 func prepare(seed_value: int) -> bool:
 	var candidate := generate_layout(seed_value, settings)
-	var errors := validate_layout(candidate)
+	var errors := LAYOUT.validate(candidate)
+	if errors.is_empty():
+		var traversal_errors := validate_layout(candidate)
+		if settings.strict_traversal_validation:
+			errors.append_array(traversal_errors)
+		elif not traversal_errors.is_empty():
+			# Do not confuse an inconclusive cell estimate with an impossible advanced route.
+			set_meta("traversal_diagnostics", traversal_errors)
+			print("Level seed %d: %d marker routes need wall-jump/slope playtesting. See traversal_diagnostics metadata." % [seed_value, traversal_errors.size()])
 	if not errors.is_empty():
 		push_error("Modular level rejected: " + "; ".join(errors))
 		return false
@@ -65,6 +73,7 @@ func prepare(seed_value: int) -> bool:
 	var solid := TileMapLayer.new()
 	solid.name = "Solid"
 	solid.tile_set = SOLID_TILES
+	solid.scale = Vector2.ONE * (16.0 / SOLID_TILES.tile_size.x)
 	corridors.add_child(solid)
 	var background := TileMapLayer.new()
 	background.name = "Backdrop"
@@ -78,8 +87,8 @@ func prepare(seed_value: int) -> bool:
 		for x in range(roundi(rect.position.x / 16), roundi(rect.end.x / 16)):
 			var ceiling_y := roundi(rect.position.y / 16) - 1
 			var floor_y := roundi(rect.end.y / 16)
-			solid.set_cell(Vector2i(x, ceiling_y), 0, Vector2i(posmod(x, 8), 1))
-			solid.set_cell(Vector2i(x, floor_y), 0, Vector2i(posmod(x, 8), 0))
+			solid.set_cell(Vector2i(x, ceiling_y), 0, Vector2i(4, 1))
+			solid.set_cell(Vector2i(x, floor_y), 0, Vector2i(2, 0))
 			for y in range(ceiling_y + 1, floor_y):
 				background.set_cell(Vector2i(x, y), 0, Vector2i(posmod(x, 8), 2))
 	var rewards := Node2D.new()

@@ -352,6 +352,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjfpj"]
+radius = 28.0
+height = 150.0
+
 [sub_resource type="Animation" id="Animation_dt4iv"]
 resource_name = "Attack"
 tracks/0/type = "value"
@@ -617,6 +621,13 @@ _data = {
 &"RESET": SubResource("Animation_x13a5")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8tmtk"]
+radius = 28.0
+height = 150.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j8ub"]
+size = Vector2(77, 141)
+
 [node name="Sarpaneka" type="CharacterBody2D" unique_id=2140665026]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2042837791]
@@ -626,6 +637,7 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32978064]
+shape = SubResource("CapsuleShape2D_fjfpj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=79388916]
 libraries/ = SubResource("AnimationLibrary_ycqo7")
@@ -634,9 +646,12 @@ autoplay = &"Idle"
 [node name="Hurtbox" type="Area2D" parent="." unique_id=789305803]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1253512071]
+shape = SubResource("CapsuleShape2D_8tmtk")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=376280153]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1631452379]
+position = Vector2(53.5, 1.5)
+shape = SubResource("RectangleShape2D_3j8ub")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=210519830]

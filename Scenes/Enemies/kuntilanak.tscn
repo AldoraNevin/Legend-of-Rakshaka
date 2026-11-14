@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bdu28edc8m7nc"]
+[gd_scene format=3 uid="uid://degt51ah67peh"]
 
 [ext_resource type="Script" uid="uid://bf21xv5r4x04t" path="res://Script/Enemies/kuntilanak.gd" id="1_6fcdt"]
 [ext_resource type="Texture2D" uid="uid://c8i5y17gpy1op" path="res://Assets/Enemies/Kuntilanak/Kuntilanak_left_400%.png" id="2_sm6tu"]

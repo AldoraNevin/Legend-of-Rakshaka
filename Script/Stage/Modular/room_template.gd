@@ -54,8 +54,10 @@ func validate() -> PackedStringArray:
 		if layer == null or layer.tile_set == null:
 			errors.append(room_id + ": missing TileMapLayer " + child_name)
 			continue
-		if layer.transform != Transform2D.IDENTITY or layer.tile_set.tile_size != Vector2i(16, 16):
-			errors.append(room_id + ": layers must use 16px tiles, position 0, scale 1.")
+		var tile_width := layer.tile_set.tile_size.x
+		var expected_scale := Vector2.ONE * (16.0 / tile_width)
+		if tile_width not in [16, 64] or layer.tile_set.tile_size.y != tile_width or layer.position != Vector2.ZERO or layer.rotation != 0 or layer.skew != 0 or layer.scale != expected_scale:
+			errors.append(room_id + ": use 16px tiles at scale 1 or 64px tiles at scale 0.25, with zero position/rotation.")
 		if child_name != "Backdrop" and (not layer.visible or not layer.collision_enabled or not layer.enabled):
 			errors.append(room_id + ": collision layers must be visible and enabled.")
 		if child_name == "Backdrop" and layer.collision_enabled:
@@ -78,11 +80,12 @@ func validate() -> PackedStringArray:
 				errors.append(room_id + ": only Platforms may use one-way collision.")
 			else:
 				var polygon := data.get_collision_polygon_points(0, 0)
-				var full_cell := polygon.size() == 4
-				for corner in [Vector2(-8, -8), Vector2(8, -8), Vector2(8, 8), Vector2(-8, 8)]:
-					full_cell = full_cell and corner in polygon
-				if not full_cell or data.get_collision_polygons_count(0) != 1:
-					errors.append(room_id + ": use full 16px block polygons; slopes need a different navigation validator.")
+				var valid_polygon := polygon.size() >= 3
+				var half := tile_width / 2.0
+				for vertex in polygon:
+					valid_polygon = valid_polygon and absf(vertex.x) <= half and absf(vertex.y) <= half
+				if not valid_polygon or data.get_collision_polygons_count(0) != 1:
+					errors.append(room_id + ": use one solid polygon contained inside the tile.")
 	if not errors.is_empty():
 		return errors
 	if get_node_or_null("Sockets") == null or get_node_or_null("EnemySpawns") == null:
@@ -128,11 +131,16 @@ func validate() -> PackedStringArray:
 		if not closed.has(Vector2i(0, y)) or not closed.has(Vector2i(size_in_tiles.x - 1, y)):
 			errors.append(room_id + ": side boundary is open outside a socket.")
 	for point in data.markers.values() + data.enemies:
-		var foot := Vector2i(floori(point.x / TILE), roundi((point.y + 32) / TILE))
+		var foot := Vector2i(floori(point.x / TILE), -100000)
+		for y in range(ceili((point.y + 16) / TILE), floori((point.y + 48) / TILE) + 1):
+			var candidate := Vector2i(floori(point.x / TILE), y)
+			if data.solid.has(candidate) or data.platforms.has(candidate):
+				foot = candidate
+				break
 		if not Rect2(Vector2.ZERO, Vector2(size_in_tiles * TILE)).has_point(point):
 			errors.append(room_id + ": marker outside bounds.")
 		if not data.solid.has(foot) and not data.platforms.has(foot):
-			errors.append(room_id + ": markers must be 32px above a landing.")
+			errors.append(room_id + ": marker %s needs a landing 16..48px below it." % point)
 		if closed.has(foot + Vector2i.UP) or closed.has(foot + Vector2i.UP * 2):
 			errors.append(room_id + ": marker headroom is blocked.")
 	for required in ["PlayerSpawn", "RewardSpawn"]:

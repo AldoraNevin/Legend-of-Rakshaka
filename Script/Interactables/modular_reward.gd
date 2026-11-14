@@ -31,6 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	opened = true
 	player_data.discover_artifact(artifact_name)
+	if player.has_method("refresh_jump_ability"):
+		player.refresh_jump_ability()
 	prompt.text = artifact_name + " ditemukan"
 	queue_redraw()
 	get_viewport().set_input_as_handled()

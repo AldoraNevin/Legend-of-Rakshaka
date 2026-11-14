@@ -155,6 +155,7 @@ _data = {
 }
 
 [node name="TombakBaruKlinting" type="Area2D" unique_id=1813359778]
+collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1700961483]
 sprite_frames = SubResource("SpriteFrames_jkb3b")

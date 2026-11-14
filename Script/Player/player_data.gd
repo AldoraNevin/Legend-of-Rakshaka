@@ -380,7 +380,19 @@ static func apply_player_stats(player) -> void:
 	player.speed = 100.0 + upgrade_levels["speed"] * 15.0
 	player.jump_force = 300.0 + upgrade_levels["jump"] * 20.0
 	player.sword_damage = 1 + upgrade_levels["sword"]
-	player.max_jump = max(player.max_jump, 2)
+	player.max_jump = 1
+	if player.has_method("refresh_jump_ability"):
+		player.refresh_jump_ability()
+
+static func has_artifact(identifier: String) -> bool:
+	if identifier.is_empty():
+		return false
+	if identifier in discovered_artifacts:
+		return true
+	for entry in bestiary_master.get("artifacts", []):
+		if identifier in [str(entry.get("entity_id", "")), str(entry.get("name", ""))]:
+			return entry.get("name", "") in discovered_artifacts or entry.get("entity_id", "") in discovered_artifacts
+	return false
 
 
 static func _remove_file(path: String) -> void:

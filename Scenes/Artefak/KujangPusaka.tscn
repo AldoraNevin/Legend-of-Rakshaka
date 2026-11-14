@@ -156,6 +156,7 @@ _data = {
 }
 
 [node name="KujangPusaka" type="Area2D" unique_id=1519489558]
+collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=377220126]
 texture_filter = 1

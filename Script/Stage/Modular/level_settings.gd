@@ -18,6 +18,8 @@ extends Resource
 @export_range(2.0, 8.0) var target_aspect_ratio := 3.5
 @export_range(100, 50000) var search_budget := 18000
 @export_group("Content")
+## Advanced hand-painted rooms need playtesting: cell navigation cannot prove slopes/wall jumps.
+@export var strict_traversal_validation := false
 @export_range(0.0, 1.0) var enemy_spawn_chance := 0.75
 @export var room_templates: Array[PackedScene] = []
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lmq73wqof2gq"]
 
-[ext_resource type="Texture2D" uid="uid://cjdwb6auydc03" path="res://Assets/Artefak/Pecut Samandiman/pecut samandiman-sheet.png" id="1_apm1r"]
+[ext_resource type="Texture2D" uid="uid://cjdwb6auydc03" path="res://Assets/Artefak/Pecut Samandiman-20261101T132418Z-1-001/Pecut Samandiman/pecut samandiman-sheet.png" id="1_apm1r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdhry"]
 atlas = ExtResource("1_apm1r")
@@ -156,6 +156,7 @@ _data = {
 }
 
 [node name="PecutSamandiman" type="Area2D" unique_id=194922435]
+collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=878245913]
 texture_filter = 1

@@ -87,7 +87,10 @@ static func validate_template(scene: PackedScene, door_count: int) -> PackedStri
 				# TileMapLayer owns collision in modular rooms; there are no proxy bodies.
 				clearance = Rect2(point + Vector2(-6, -6), Vector2(14, 22))
 				for rect: Rect2 in room.layout.shell + room.layout.platforms:
-					if clearance.intersects(rect):
+					# One-way platforms only block bodies crossing their top surface.
+					# A marker beneath one may overlap its tile without hitting collision.
+					var blocks_spawn: bool = rect in room.layout.shell or clearance.position.y < rect.position.y
+					if blocks_spawn and clearance.intersects(rect):
 						errors.append("Marker bertabrakan dengan tile: " + str(marker.name))
 					if point.x >= rect.position.x + 6 and point.x <= rect.end.x - 6 and rect.position.y - point.y >= 16 and rect.position.y - point.y <= 48:
 						supported = true

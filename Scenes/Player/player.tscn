@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dlepp2h5kkhuh" path="res://Assets/Player/Sprites/idle.png" id="7_oikmp"]
 [ext_resource type="Texture2D" uid="uid://dg2cr0ra201ok" path="res://Assets/Player/Sprites/jump.png" id="8_06tpx"]
 [ext_resource type="Texture2D" uid="uid://b7yrtycda4nlr" path="res://Assets/Player/Sprites/nempel tembok.png" id="9_7g0yx"]
-[ext_resource type="Script" path="res://Script/Player/player_visual.gd" id="10_visual"]
+[ext_resource type="Script" uid="uid://2gsyo2x4e28i" path="res://Script/Player/player_visual.gd" id="10_visual"]
 [ext_resource type="Texture2D" uid="uid://d4kfl0kdm5bxo" path="res://Assets/Player/Sprites/idle running.png" id="11_walk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dey5f"]

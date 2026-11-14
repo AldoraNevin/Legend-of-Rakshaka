@@ -156,6 +156,7 @@ _data = {
 }
 
 [node name="PakuEmas" type="Area2D" unique_id=1051154235]
+collision_layer = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=426228212]
 texture_filter = 1

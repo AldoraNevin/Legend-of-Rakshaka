@@ -21,7 +21,7 @@ enum State {
 @export var attack_distance: float = 75.0
 @export var attack_height: float = 55.0
 @export var attack_cooldown: float = 0.8
-@export var damage: int = 1
+@export var damage: int = 12
 @export var max_health: int = 3
 @export var gravity: float = 1000.0
 
@@ -213,4 +213,5 @@ func _on_animation_finished(clip: StringName) -> void:
 
 		&"Dead":
 			if state == State.DEAD:
+				player_data.discover_enemy("Aul")
 				queue_free()

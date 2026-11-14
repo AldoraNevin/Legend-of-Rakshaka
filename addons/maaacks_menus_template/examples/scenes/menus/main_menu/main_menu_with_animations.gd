@@ -4,6 +4,7 @@ extends MainMenu
 
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
+
 # --- VARIABEL KITA ---
 @onready var mata_menyala = $bg/MataMenyala
 # Gunakan get_node_or_null agar aman jika node belum siap sesaat
@@ -33,12 +34,16 @@ func _input(event : InputEvent) -> void:
 	if _is_in_intro() and _event_skips_intro(event):
 		intro_done()
 		return
+	if CheckpointManager.loading:
+		return
 	super._input(event)
 
 func _ready() -> void:
 	super._ready()
+	# Keep menu music scene-owned; autoplay lets the global controller preserve it.
+	$BackgroundMusicPlayer.play()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
-	
+
 	if mata_menyala:
 		mata_menyala.visible = false 
 	
@@ -52,8 +57,8 @@ func _ready() -> void:
 		for sambungan in tombol_start.pressed.get_connections():
 			tombol_start.pressed.disconnect(sambungan["callable"])
 			
-		# 3. Sambungkan ke fungsi animasi buatan kita
-		tombol_start.pressed.connect(_on_new_game_animasi_pressed)
+		# 3. Start Game membuka pemilihan slot save
+		tombol_start.pressed.connect(_open_load_menu)
 
 # ==========================================
 # FUNGSI KUSTOM KITA DI BAWAH INI
@@ -67,50 +72,7 @@ func _on_new_game_mouse_exited():
 	if mata_menyala and not tombol_start.disabled:
 		mata_menyala.visible = false
 
-func _on_new_game_animasi_pressed():
-	# 1. Matikan tombol agar tidak diklik dua kali
-	tombol_start.disabled = true
-	
-	# 2. Animasi Kedip
+func _open_load_menu() -> void:
 	if mata_menyala:
-		for i in range(4):
-			mata_menyala.visible = true
-			await get_tree().create_timer(0.1).timeout
-			mata_menyala.visible = false
-			await get_tree().create_timer(0.1).timeout
-		
-		mata_menyala.visible = true
-		await get_tree().create_timer(0.5).timeout
-	
-	# 3. Animasi Fade Hitam & Fade Out Musik dengan Tween
-	var fade_hitam = ColorRect.new()
-	fade_hitam.color = Color(0, 0, 0, 0)
-	fade_hitam.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	fade_hitam.z_index = 100 
-	add_child(fade_hitam)
-	
-	var bgm = get_node_or_null("BackgroundMusicPlayer")
-	
-	var tween = get_tree().create_tween()
-	tween.set_parallel(true) # Perintah ini membuat animasi warna dan suara berjalan serentak!
-	
-	# Layar perlahan jadi hitam
-	tween.tween_property(fade_hitam, "color:a", 1.0, 1.0) 
-	
-	# Musik perlahan mengecil sampai hilang (-80 dB)
-	if bgm:
-		tween.tween_property(bgm, "volume_db", -80.0, 1.0)
-		
-	await tween.finished
-	
-	# Matikan musik sepenuhnya setelah layarnya gelap total
-	if bgm:
-		bgm.stop()
-	
-	# 4. PINDAH SCENE
-	# (Pastikan jalurnya sesuai dengan lokasi level aslimu)
-	get_tree().change_scene_to_file("res://Levels/lobby.tscn")
-
-
-func _on_new_game_button_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+		mata_menyala.visible = false
+	_open_sub_menu(preload("res://Scenes/UI/load_game_menu.tscn"))

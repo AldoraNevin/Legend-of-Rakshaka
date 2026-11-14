@@ -418,6 +418,7 @@ anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
 [node name="BackgroundMusicPlayer" parent="." index="4" unique_id=1141822549]
+autoplay = false
 stream = ExtResource("6_woqsv")
 
 [node name="BackgroundTextureRect" parent="." index="5" unique_id=1940176448]
@@ -454,37 +455,41 @@ lock = true
 
 [node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0" unique_id=2044537792]
 unique_name_in_owner = false
+visible = false
 
 [node name="OptionsButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1486236076]
 unique_name_in_owner = false
+visible = false
 
 [node name="CreditsButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=301223169]
 unique_name_in_owner = false
+visible = false
 
 [node name="ExitButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3" unique_id=1750454379]
 unique_name_in_owner = false
+visible = false
 
 [node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="1" unique_id=602624350]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 504.0
-offset_top = 140.0
-offset_right = 651.0
-offset_bottom = 194.0
+offset_left = 503.0
+offset_top = 145.0
+offset_right = 650.0
+offset_bottom = 199.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_aruns")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jjs6e")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cbmiv")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_woqsv")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_v6adn")
-text = "New Game"
+text = "Start Game"
 
 [node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="2" unique_id=1786848005]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 504.0
-offset_top = 200.0
+offset_left = 503.0
+offset_top = 205.0
 offset_right = 650.0
-offset_bottom = 253.0
+offset_bottom = 259.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_vfly5")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ajlk5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ohx1l")
@@ -495,9 +500,9 @@ text = "Options"
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 503.0
-offset_top = 258.0
-offset_right = 651.0
-offset_bottom = 312.0
+offset_top = 265.0
+offset_right = 650.0
+offset_bottom = 319.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_y346r")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yd1oa")
 theme_override_styles/hover = SubResource("StyleBoxTexture_krd2o")
@@ -507,10 +512,10 @@ text = "Credits"
 [node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="4" unique_id=2133010884]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 504.0
-offset_top = 315.0
-offset_right = 651.0
-offset_bottom = 369.0
+offset_left = 503.0
+offset_top = 325.0
+offset_right = 650.0
+offset_bottom = 379.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_0e3u2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yahvs")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8aj2q")

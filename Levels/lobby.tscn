@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
 [ext_resource type="Script" uid="uid://wwj4ntoc2k04" path="res://Script/Lobby/lobby.gd" id="2_lobby"]
+[ext_resource type="AudioStream" path="res://Assets/Legend of Rakshaka/BGM/Lobby Theme.ogg" id="lobby_music"]
 [ext_resource type="Script" uid="uid://d3r73cq02in48" path="res://Script/Lobby/lobby_interactable.gd" id="3_interact"]
 [ext_resource type="Script" uid="uid://d3k0ahlsbgywk" path="res://Script/Control/camera.gd" id="4_camera"]
 [ext_resource type="Script" uid="uid://hgi6toxkfov2" path="res://Script/UI/gui.gd" id="5_gui"]
@@ -39,6 +40,11 @@ corner_radius_bottom_left = 6
 
 [node name="Lobby" type="Node2D" unique_id=1666772771]
 script = ExtResource("2_lobby")
+
+[node name="LobbyMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("lobby_music")
+bus = &"Music"
 
 [node name="Background" type="Polygon2D" parent="." unique_id=1175512521]
 color = Color(0.075, 0.095, 0.13, 1)

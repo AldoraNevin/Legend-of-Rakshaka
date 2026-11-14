@@ -176,11 +176,11 @@ func start_dash() -> void:
 		can_dash = true
 
 
-func take_damage(amount: int = 1) -> void:
+func take_damage(amount: int = 10) -> void:
 	if is_dead or is_invincible or amount <= 0:
 		return
 
-	player_data.life -= amount
+	player_data.life = maxi(0, player_data.life - player_data.incoming_damage(amount))
 	if player_data.life <= 0:
 		start_dead()
 		return

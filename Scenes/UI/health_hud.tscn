@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/HP and mana HUD.png" id="hud"]
+
+[sub_resource type="AtlasTexture" id="EmptyBar"]
+atlas = ExtResource("hud")
+region = Rect2(14, 230, 346, 34)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="HealthFill"]
+atlas = ExtResource("hud")
+region = Rect2(14, 269, 346, 34)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Heart"]
+atlas = ExtResource("hud")
+region = Rect2(18, 344, 78, 65)
+filter_clip = true
+
+[node name="HealthHUD" type="Control"]
+mouse_filter = 2
+texture_filter = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 62.0
+offset_top = 24.0
+offset_right = 362.0
+offset_bottom = 54.0
+mouse_filter = 2
+max_value = 100.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("EmptyBar")
+texture_progress = SubResource("HealthFill")
+
+[node name="Heart" type="TextureRect" parent="."]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 82.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = SubResource("Heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HealthText" type="Label" parent="."]
+offset_left = 86.0
+offset_top = 23.0
+offset_right = 340.0
+offset_bottom = 54.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.86, 1)
+theme_override_colors/font_shadow_color = Color(0.1, 0.02, 0.02, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 18
+text = "HP 100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1

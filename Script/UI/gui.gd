@@ -1,42 +1,22 @@
 extends CanvasLayer
 
-const HEART_ROW_SIZE = 8
-const HEART_OFFSET = 16
+const HEALTH_HUD := preload("res://Scenes/UI/health_hud.tscn")
+var health_hud: Control
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in player_data.max_life:
-		var new_heart = Sprite2D.new()
-		new_heart.texture = $heart.texture
-		new_heart.hframes = $heart.hframes
-		$heart.add_child(new_heart)
+	# Keep existing level scenes compatible while replacing the heart counter.
+	$heart.hide()
+	health_hud = HEALTH_HUD.instantiate()
+	add_child(health_hud)
+	$coin_sprite.position = Vector2(27, 86)
+	$coin_number.position = Vector2(55, 63)
+	refresh()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$coin_number.text = var_to_str(player_data.coin)
-	display_heart()
+	refresh()
 
-func display_heart():
-	_sync_heart_count()
-	for heart in $heart.get_children():
-		var index = heart.get_index()
-		var x = (index % HEART_ROW_SIZE) * HEART_OFFSET
-		var y = floori(float(index) / HEART_ROW_SIZE) * HEART_OFFSET
-		heart.position = Vector2(x, y)
-		
-		var last_heart = floor(player_data.life)
-		if index > last_heart:
-			heart.frame = 0
-		if index == last_heart:
-			heart.frame = (player_data.life - last_heart) * 4
-		if index < last_heart:
-			heart.frame = 4
-
-
-func _sync_heart_count() -> void:
-	while $heart.get_child_count() < player_data.max_life:
-		var new_heart = Sprite2D.new()
-		new_heart.texture = $heart.texture
-		new_heart.hframes = $heart.hframes
-		$heart.add_child(new_heart)
+func refresh() -> void:
+	$coin_number.text = str(player_data.coin)
+	var hp := clampi(player_data.life, 0, player_data.MAX_HEALTH)
+	health_hud.get_node("HealthBar").value = hp
+	health_hud.get_node("HealthText").text = "HP %d / %d" % [hp, player_data.MAX_HEALTH]

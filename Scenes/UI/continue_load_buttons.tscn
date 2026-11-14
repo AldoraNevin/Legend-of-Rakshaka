@@ -1,0 +1,71 @@
+[gd_scene format=3]
+[ext_resource type="Script" path="res://Script/UI/continue_load_buttons.gd" id="script"]
+[ext_resource type="Texture2D" path="res://Levels/button_main menu3.png" id="normal"]
+[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu2.png" id="hover"]
+
+[sub_resource type="StyleBoxTexture" id="Paper"]
+texture = ExtResource("normal")
+
+[sub_resource type="StyleBoxTexture" id="Hover"]
+texture = ExtResource("hover")
+
+[sub_resource type="StyleBoxFlat" id="Focus"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.6, 0.6, 1)
+
+[sub_resource type="Theme" id="Theme"]
+default_font_size = 18
+Label/colors/font_color = Color(0.9, 0.95, 1, 1)
+Button/colors/font_color = Color(0.9, 0.95, 1, 1)
+Button/colors/font_hover_color = Color(0.9, 0.95, 1, 1)
+Button/colors/font_pressed_color = Color(0.9, 0.95, 1, 1)
+Button/colors/font_focus_color = Color(0.9, 0.95, 1, 1)
+Button/colors/font_disabled_color = Color(0.5, 0.6, 0.65, 1)
+Button/styles/disabled = SubResource("Paper")
+Button/styles/normal = SubResource("Paper")
+Button/styles/hover = SubResource("Hover")
+Button/styles/pressed = SubResource("Hover")
+Button/styles/focus = SubResource("Focus")
+
+[node name="ContinueLoadButtons" type="Control"]
+offset_right = 147.0
+offset_bottom = 234.0
+mouse_filter = 2
+theme = SubResource("Theme")
+script = ExtResource("script")
+
+[node name="NewGameButton" type="Button" parent="."]
+offset_right = 147.0
+offset_bottom = 54.0
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_top = 120.0
+offset_right = 147.0
+offset_bottom = 174.0
+text = "Continue"
+
+[node name="LoadButton" type="Button" parent="."]
+offset_top = 60.0
+offset_right = 147.0
+offset_bottom = 114.0
+text = "Load"
+
+[node name="BackButton" type="Button" parent="."]
+offset_top = 180.0
+offset_right = 147.0
+offset_bottom = 234.0
+text = "Back"
+
+[node name="Status" type="Label" parent="."]
+offset_left = -270.0
+offset_top = 0.0
+offset_right = -12.0
+offset_bottom = 114.0
+autowrap_mode = 3
+theme_override_colors/font_color = Color(1, 0.9, 0.75, 1)
+theme_override_font_sizes/font_size = 14

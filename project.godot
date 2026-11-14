@@ -12,7 +12,7 @@ config_version=5
 
 config/name="2d_metroidvania_1"
 run/main_scene="uid://c63y6b25bs4bk"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://bwiobqla1xybg"
 
 [autoload]
 
+CheckpointManager="*res://Script/Save/checkpoint_manager.gd"
 AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
 ProjectMusicController="*uid://r5t485lr3p7t"

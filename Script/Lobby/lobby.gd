@@ -21,6 +21,9 @@ var bestiary_catalog: Control
 
 
 func _ready() -> void:
+	# Keep this track owned by the lobby so it stops when leaving the scene.
+	ProjectMusicController.stop()
+	$LobbyMusic.play()
 	bestiary_catalog = preload("res://Scenes/Interactables/bestiary_catalog.tscn").instantiate()
 	$LobbyUI.add_child(bestiary_catalog)
 	$LobbyUI.visible = true
@@ -119,6 +122,7 @@ func refresh_upgrade_panel() -> void:
 
 	for upgrade_id in upgrade_buttons.keys():
 		var button: Button = upgrade_buttons[upgrade_id]
+		button.tooltip_text = player_data.UPGRADE_DATA[upgrade_id]["description"]
 		var level: int = player_data.upgrade_levels[upgrade_id]
 		var max_level: int = player_data.UPGRADE_DATA[upgrade_id]["max_level"]
 

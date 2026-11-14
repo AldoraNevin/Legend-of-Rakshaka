@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var damage := 15
 @export var current_state: spike_state
 enum spike_state {ACTIVE, ANIMATED}
 
@@ -17,5 +18,5 @@ func active_animated():
 	$anim.play("Active_animated")
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		player_data.life -= 1
+	if body.is_in_group("player") and body.has_method("take_damage"):
+		body.take_damage(damage)

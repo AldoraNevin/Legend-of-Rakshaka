@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player == null or absf(player.global_position.x - global_position.x) > 42 or absf(player.global_position.y - global_position.y) > 32:
 		return
 	opened = true
-	player_data.coin += REWARD
+	player_data.add_gold(REWARD)
 	prompt.text = "+%d koin - peti kosong" % REWARD
 	queue_redraw()
 	get_viewport().set_input_as_handled()

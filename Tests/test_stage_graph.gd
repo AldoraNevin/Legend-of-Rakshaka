@@ -2,6 +2,9 @@ extends SceneTree
 const Graph = preload("res://Script/Stage/stage_graph.gd")
 
 func _initialize() -> void:
+	# Authored enemy markers below one-way platforms must not abort the stage.
+	var modular := load("res://Scenes/Rooms/Modular/modular_level.tscn") as PackedScene
+	assert(Graph.validate_template(modular, 1).is_empty())
 	var castle := load("res://Scenes/Rooms/Stage/room_1_castle.tscn") as PackedScene
 	assert(Graph.validate_template(castle, 1).is_empty())
 	assert(not Graph.validate_template(castle, 2).is_empty())

@@ -418,8 +418,8 @@ anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
 [node name="BackgroundMusicPlayer" parent="." index="4" unique_id=1141822549]
-autoplay = false
 stream = ExtResource("6_woqsv")
+autoplay = false
 
 [node name="BackgroundTextureRect" parent="." index="5" unique_id=1940176448]
 texture = SubResource("AtlasTexture_013fh")

@@ -41,7 +41,7 @@ static func capture(stage: Node) -> Dictionary:
 	}
 
 static func capture_player() -> Dictionary:
-	return {"health_version": player_data.HEALTH_VERSION, "coin": player_data.coin, "life": maxi(1, player_data.life),
+	return {"fatal_shield_used": player_data.fatal_shield_used, "health_version": player_data.HEALTH_VERSION, "coin": player_data.coin, "life": maxi(1, player_data.life),
 		"max_life": player_data.max_life, "upgrades": player_data.upgrade_levels.duplicate(true),
 		"skills": player_data.unlocked_skill.duplicate(true),
 		"enemies": player_data.discovered_enemies.duplicate(true),
@@ -96,6 +96,8 @@ static func player_error(p: Dictionary) -> String:
 
 static func restore_player(data: Dictionary) -> void:
 	var p: Dictionary = data.player
+	player_data.discovered_artifacts = p.artifacts.duplicate()
+	player_data.fatal_shield_used = bool(p.get("fatal_shield_used", false))
 	player_data.coin = int(p.coin)
 	player_data.restore_health(int(p.life), int(p.max_life), int(p.get("health_version", 1)))
 	for key in player_data.upgrade_levels:

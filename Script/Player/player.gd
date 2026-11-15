@@ -7,6 +7,12 @@ const MAX_COMBO := 3
 
 const LOCK_MOVE_FROM_STEP := 2
 
+var regeneration_time := 0.0
+var negative_effects: Dictionary = {}
+var shockwave_left := 0.0
+var shockwave_fired := false
+var sword_base_scale := Vector2.ONE
+
 var input := 0.0
 var facing := 1
 var is_attacking := false
@@ -57,7 +63,8 @@ func _ready() -> void:
 	sprite.frame_changed.connect(_update_sword_window)
 	sprite.play("Idle")
 	add_to_group("player")
-	player_data.apply_player_stats(self)
+	sword_base_scale = sword_area.scale
+	refresh_artifact_stats()
 	floor_snap_length = 6.0
 	floor_max_angle = deg_to_rad(50)
 	sword_area.add_to_group("player_sword")
@@ -68,6 +75,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	_tick_artifacts(delta)
 	if player_data.life <= 0 and not is_dead:
 		start_dead()
 
@@ -196,7 +204,7 @@ func start_dash() -> void:
 	velocity.x = dash_direction * dash_speed
 	velocity.y = 0
 
-	await get_tree().create_timer(dash_time).timeout
+	await get_tree().create_timer(dash_time * (1.5 if not is_on_floor() and player_data.has_artifact("selendang_bidadari") else 1.0)).timeout
 
 	if is_dead:
 		set_collision_mask_value(ENEMY_BODY_LAYER, true)
@@ -213,11 +221,18 @@ func start_dash() -> void:
 		can_dash = true
 
 
-func take_damage(amount: int = 10) -> void:
+func take_damage(amount: int = 10, source: Node = null, projectile := false) -> void:
 	if is_dead or is_invincible or amount <= 0:
 		return
 
-	player_data.life = maxi(0, player_data.life - player_data.incoming_damage(amount))
+	var damage := player_data.incoming_damage(amount, projectile)
+	if damage >= player_data.life and player_data.has_artifact("mustika_merah_delima") and not player_data.fatal_shield_used:
+		player_data.fatal_shield_used = true
+		player_data.save_to_json()
+		return
+	player_data.life = maxi(0, player_data.life - damage)
+	if player_data.has_artifact("kujang_pusaka") and is_instance_valid(source) and source.has_method("take_damage"):
+		source.take_damage(maxi(1, ceili(damage * 0.3)))
 	if player_data.life <= 0:
 		start_dead()
 		return
@@ -235,7 +250,7 @@ func take_damage(amount: int = 10) -> void:
 func set_facing(direction: int) -> void:
 	facing = direction
 	sprite.flip_h = direction < 0
-	$sword.scale.x = direction
+	$sword.scale.x = direction * sword_base_scale.x * (1.5 if player_data.has_artifact("tombak_baru_klinting") else 1.0)
 	wall.scale.x = direction
 
 
@@ -277,6 +292,7 @@ func start_sword_attack() -> void:
 
 
 func play_attack(step: int) -> void:
+	shockwave_fired = false
 	sword_hit_targets.clear()
 	sword_collider.set_deferred("disabled", true)
 	sprite.play("Attack%d" % step, 1.5)
@@ -330,6 +346,14 @@ func check_sword_hits() -> void:
 	if combo_step == MAX_COMBO:
 		damage += combo_finisher_bonus
 
+	if player_data.has_artifact("pecut_samandiman") and not shockwave_fired:
+		shockwave_fired = true
+		shockwave_left = 0.18
+		queue_redraw()
+		for enemy in get_tree().get_nodes_in_group("artifact_enemies"):
+			var offset: Vector2 = enemy.global_position - global_position
+			if offset.x * facing >= 0 and offset.x * facing <= 120 and absf(offset.y) <= 45:
+				_hit_artifact_target(enemy, damage)
 	for area: Area2D in sword_area.get_overlapping_areas():
 		var target: Node = area.get_parent()
 
@@ -337,8 +361,7 @@ func check_sword_hits() -> void:
 			continue
 
 		if target.has_method("take_damage"):
-			sword_hit_targets.append(target)
-			target.take_damage(damage)
+			_hit_artifact_target(target, damage)
 
 
 func wall_collider() -> bool:
@@ -369,3 +392,56 @@ func update_animation() -> void:
 		sprite.play("Walk")
 	else:
 		sprite.play("Idle")
+
+func refresh_artifact_stats() -> void:
+	player_data.apply_player_stats(self)
+	set_facing(facing)
+
+func collect_artifact(artifact_name: String) -> void:
+	var old_max := player_data.max_life
+	player_data.discover_artifact(artifact_name)
+	refresh_artifact_stats()
+	player_data.life = mini(player_data.max_life, player_data.life + maxi(0, player_data.max_life - old_max))
+	if artifact_name in ["daun_kelor", "Daun Kelor"]:
+		negative_effects.clear()
+		player_data.life = mini(player_data.max_life, player_data.life + 20)
+	player_data.save_to_json()
+
+func _hit_artifact_target(target: Node, damage: int) -> void:
+	if target in sword_hit_targets:
+		return
+	sword_hit_targets.append(target)
+	preload("res://Script/Enemies/artifact_status.gd").apply(target,
+		player_data.has_artifact("keris_mpu_gandring"),
+		player_data.has_artifact("paku_emas") and randf() < 0.2)
+	target.take_damage(player_data.melee_damage(damage, randf()))
+
+## Shared entry point for enemy debuffs; Daun Kelor clears every entry.
+func apply_negative_effect(kind: String, duration: float) -> void:
+	negative_effects[kind] = {"remaining": duration, "tick": 1.0}
+
+func _tick_artifacts(delta: float) -> void:
+	if is_dead or player_data.life <= 0:
+		return
+	if shockwave_left > 0.0:
+		shockwave_left = maxf(0.0, shockwave_left - delta)
+		queue_redraw()
+	for kind in negative_effects.keys():
+		var effect: Dictionary = negative_effects[kind]
+		effect.remaining -= delta
+		effect.tick -= delta
+		if kind in ["poison", "burn", "bleed"] and effect.tick <= 0.0:
+			effect.tick += 1.0
+			take_damage(1)
+		if effect.remaining <= 0:
+			negative_effects.erase(kind)
+	if player_data.has_artifact("air_tirta_amerta"):
+		regeneration_time += delta
+		if regeneration_time >= 2.0:
+			regeneration_time -= 2.0
+			player_data.life = mini(player_data.max_life, player_data.life + 1)
+
+func _draw() -> void:
+	if shockwave_left > 0.0:
+		var reach := 120.0 / maxf(absf(global_scale.x), 0.01)
+		draw_line(Vector2(0, -8), Vector2(facing * reach, -8), Color(0.6, 0.9, 1.0, shockwave_left / 0.18), 4.0)

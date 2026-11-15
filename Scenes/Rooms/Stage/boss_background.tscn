@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Script/Stage/boss_background.gd" id="parallax"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/Boss/sky.png" id="sky"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/Boss/sea.png" id="sea"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/Boss/palace.png" id="palace"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/Boss/ruins.png" id="ruins"]
+
+[node name="BossBackground" type="Node2D"]
+physics_interpolation_mode = 2
+texture_filter = 1
+z_index = -9
+script = ExtResource("parallax")
+
+[node name="Sky" type="Sprite2D" parent="."]
+texture = ExtResource("sky")
+centered = false
+
+[node name="Sea" type="Sprite2D" parent="."]
+texture = ExtResource("sea")
+centered = false
+
+[node name="Palace" type="Sprite2D" parent="."]
+texture = ExtResource("palace")
+centered = false
+
+[node name="Ruins" type="Sprite2D" parent="."]
+texture = ExtResource("ruins")
+centered = false

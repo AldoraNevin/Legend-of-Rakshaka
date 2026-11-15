@@ -178,7 +178,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _texture(entry: Dictionary) -> Texture2D:
-	var path: String = entry.get("image_path", "")
+	var path: String = entry.get("image_path", "") if entry.get("is_unlocked", false) else entry.get("locked_image_path", "res://Assets/UI/artifact_locked.svg")
 	if path.is_empty() or "sheet" in path.to_lower() or not ResourceLoader.exists(path):
 		return null
 	return load(path) as Texture2D
@@ -204,7 +204,7 @@ func _refresh_page() -> void:
 		var button := _button("")
 		button.custom_minimum_size = Vector2(0, 138)
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		button.tooltip_text = entry.get("name", "")
+		button.tooltip_text = entry.get("name", "") if entry.get("is_unlocked", false) else "Belum ditemukan"
 		grid.add_child(button)
 		var content := VBoxContainer.new()
 		content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -222,7 +222,7 @@ func _refresh_page() -> void:
 		icon.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		content.add_child(icon)
-		var caption := _label(entry.get("name", ""), 14)
+		var caption := _label(entry.get("name", "") if entry.get("is_unlocked", false) else "???", 14)
 		caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -241,10 +241,10 @@ func _refresh_page() -> void:
 func _select(index: int) -> void:
 	selected = index
 	var entry: Dictionary = entries[index]
-	title_label.text = entry.get("name", "")
-	category_label.text = "CATATAN %02d  /  %s" % [index + 1, entry.get("category", "Pusaka").to_upper()]
+	title_label.text = entry.get("name", "") if entry.get("is_unlocked", false) else "BELUM DITEMUKAN"
+	category_label.text = "CATATAN %02d  /  %s" % [index + 1, entry.get("category", "Pusaka").to_upper() if entry.get("is_unlocked", false) else "???"]
 	picture.texture = _texture(entry)
 	status_label.text = "Ditemukan" if entry.get("is_unlocked", false) else "Belum ditemukan"
 	if picture.texture == null:
 		status_label.text += "  /  Ilustrasi belum tersedia"
-	description.text = entry.get("lore_text", "") if entry.get("is_unlocked", false) else "Catatan pusaka ini belum terbuka. Temukan artefak dalam perjalanan untuk mengungkap kisah dan khasiatnya."
+	description.text = entry.get("description", entry.get("lore_text", "")) if entry.get("is_unlocked", false) else "Catatan pusaka ini belum terbuka. Temukan artefak dalam perjalanan untuk mengungkap kisah dan khasiatnya."

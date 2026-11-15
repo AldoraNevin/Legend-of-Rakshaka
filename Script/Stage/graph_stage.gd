@@ -12,6 +12,21 @@ var node_id := 0
 var templates: Dictionary = {}
 var stage_finished := false
 var stage_seed := 0
+@export_range(1.0, 4.0, 0.1) var boss_camera_zoom := 2.4
+@onready var normal_camera_zoom: Vector2 = camera.zoom
+
+func apply_camera_limits() -> void:
+	super.apply_camera_limits()
+	if not stage_graph.is_empty() and stage_graph[node_id].kind == "boss":
+		camera.zoom = Vector2.ONE * boss_camera_zoom
+		# Boss collision is painted in TileMapLayers, not StaticBody2D shapes.
+		var origin := current_room.global_position
+		camera.limit_left = int(origin.x) - 16
+		camera.limit_top = int(origin.y) - 16
+		camera.limit_right = int(origin.x) + 848
+		camera.limit_bottom = int(origin.y) + 416
+	else:
+		camera.zoom = normal_camera_zoom
 
 func start_run() -> void:
 	var run_seed := random_seed if random_seed != 0 else int(rng.randi())

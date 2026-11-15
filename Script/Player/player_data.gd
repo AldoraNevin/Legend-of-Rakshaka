@@ -20,6 +20,7 @@ const HEALTH_VERSION := 2
 
 static var life: int = MAX_HEALTH
 static var max_life: int = MAX_HEALTH
+static var fatal_shield_used := false
 static var last_played: String = ""
 
 static var upgrade_levels: Dictionary = {
@@ -105,6 +106,7 @@ static func save_to_json() -> bool:
 		"unlocked_skill": unlocked_skill.duplicate(true),
 		"discovered_enemies": discovered_enemies.duplicate(true),
 		"discovered_artifacts": discovered_artifacts.duplicate(true),
+		"fatal_shield_used": fatal_shield_used,
 		"last_played": last_played
 	}
 
@@ -222,6 +224,9 @@ static func _apply_loaded_dict(data: Dictionary) -> void:
 	if typeof(loaded_artifacts) == TYPE_ARRAY:
 		discovered_artifacts = loaded_artifacts
 
+	max_life = artifact_max_health()
+	life = max_life
+	fatal_shield_used = bool(data.get("fatal_shield_used", false))
 	last_played = data.get("last_played", "")
 
 
@@ -373,7 +378,7 @@ static func buy_upgrade(upgrade_id: String) -> bool:
 	upgrade_levels[upgrade_id] = upgrade_levels.get(upgrade_id, 0) + 1
 
 	if upgrade_id == "max_life":
-		max_life = MAX_HEALTH
+		max_life = artifact_max_health()
 		life = max_life
 
 	save_to_json()
@@ -381,6 +386,8 @@ static func buy_upgrade(upgrade_id: String) -> bool:
 
 
 static func restore_life() -> void:
+	fatal_shield_used = false
+	max_life = artifact_max_health()
 	life = max_life
 
 
@@ -388,6 +395,12 @@ static func apply_player_stats(player) -> void:
 	player.speed = 100.0 + upgrade_levels["speed"] * 15.0
 	player.jump_force = 300.0 + upgrade_levels["jump"] * 20.0
 	player.sword_damage = 1 + upgrade_levels["sword"]
+	if has_artifact("gadha_rujakpolo"):
+		player.speed *= 0.9
+	if has_artifact("jimat_kalimasada"):
+		player.speed *= 1.2
+	max_life = artifact_max_health()
+	life = mini(life, max_life)
 	player.max_jump = 1
 	if player.has_method("refresh_jump_ability"):
 		player.refresh_jump_ability()
@@ -409,6 +422,7 @@ static func _remove_file(path: String) -> void:
 
 
 static func reset_progress() -> void:
+	fatal_shield_used = false
 	coin = 0
 	max_life = MAX_HEALTH
 	life = MAX_HEALTH
@@ -426,15 +440,34 @@ static func add_gold(amount: int) -> void:
 
 
 static func restore_health(saved_life: int, saved_max: int, version: int) -> void:
-	max_life = MAX_HEALTH
+	max_life = artifact_max_health()
 	if version < HEALTH_VERSION:
 		# Older saves used hearts (4 + upgrades); preserve their health percentage.
 		life = clampi(roundi(float(saved_life) / maxi(1, saved_max) * MAX_HEALTH), 1, MAX_HEALTH)
 	else:
-		life = clampi(saved_life, 1, MAX_HEALTH)
+		life = clampi(saved_life, 1, max_life)
 
-static func incoming_damage(amount: int) -> int:
+static func incoming_damage(amount: int, projectile := false) -> int:
 	if amount <= 0:
 		return 0
 	var reduction := clampi(int(upgrade_levels.get("max_life", 0)), 0, 3) * 0.05
-	return maxi(1, roundi(amount * (1.0 - reduction)))
+	var armor := (0.5 if projectile else 0.75) if has_artifact("zirah_antakusuma") else 1.0
+	return maxi(1, roundi(amount * (1.0 - reduction) * armor))
+
+static func artifact_max_health() -> int:
+	return MAX_HEALTH + (25 if has_artifact("jimat_kalimasada") else 0)
+
+static func melee_damage(base: int, critical_roll: float = 1.0) -> int:
+	var multiplier := 1.0
+	if has_artifact("gadha_rujakpolo"):
+		multiplier *= 1.75
+	if has_artifact("jimat_kalimasada"):
+		multiplier *= 1.25
+	if has_artifact("rencong_sakti") and life <= max_life * 0.3:
+		multiplier *= 2.0
+	if has_artifact("golok_jakasembung") and critical_roll < 0.25:
+		multiplier *= 2.0
+	return maxi(1, ceili(base * multiplier))
+
+static func enemy_resource_reward(base: int = 1) -> void:
+	add_gold(ceili(base * 1.5) if has_artifact("pring_pethuk") else base)

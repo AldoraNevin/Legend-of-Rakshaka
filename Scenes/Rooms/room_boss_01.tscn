@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhw8p2w4xnpjm"]
 
-[ext_resource type="Texture2D" uid="uid://bra1jdc33s54l" path="res://Assets/metroid_asset_1_2/Sprites/Environment/kSvekj.png" id="1_k3c6y"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Stage/boss_background.tscn" id="background"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
 size = Vector2(841, 32)
@@ -149,8 +149,5 @@ position = Vector2(302, 371)
 [node name="DoorSpawn1" type="Marker2D" parent="DoorSpawns" unique_id=934455361]
 position = Vector2(737, 369)
 
-[node name="KSvekj" type="Sprite2D" parent="." unique_id=1234081717]
-z_index = -3
-position = Vector2(420.2201, 199)
-scale = Vector2(2.0248954, 1.6944443)
-texture = ExtResource("1_k3c6y")
+[node name="BossBackground" parent="." instance=ExtResource("background")]
+scale = Vector2(1.1680556, 1.0222222)

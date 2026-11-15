@@ -45,6 +45,10 @@ func _run() -> void:
 	check(artifacts.visible and not enemies.visible, "Artifact tab switches to its independent scene")
 	check(artifacts.entries.size() == artifacts.grid.get_child_count(), "Every artifact must have its own card")
 	check(artifacts.entries.size() == player_data.bestiary_master.artifacts.size(), "All original artifacts must be migrated")
+	artifacts._select(artifacts.entries[0])
+	check(artifacts.title_label.text == "BELUM DITEMUKAN", "Locked artifact hides identity")
+	check(artifacts.portrait.texture == artifacts.locked_portrait, "Locked artifact hides illustration")
+	check(not artifacts.details.get_parsed_text().contains("Damage fisik"), "Locked artifact hides effects")
 	artifacts.search.text = "Kujang"
 	artifacts._filter()
 	check(artifacts.filtered.size() == 1 and artifacts.selected.name == "Kujang Pusaka", "Artifact data must remain available")
@@ -60,7 +64,8 @@ func _run() -> void:
 	await scene_changed
 	await process_frame
 	var tab = current_scene
-	check(tab.preview_mode, "F6 must show authored contents without save locks")
+	check(not tab.preview_mode, "F6 respects discovery by default")
+	tab.refresh_entries(true)
 	check(tab.selected.is_unlocked and not tab.entries.is_empty(), "F6 details must match editor preview")
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--capture="):
@@ -72,6 +77,7 @@ func _run() -> void:
 	# F6 of the container must respect the same editor tab/page/entry choices.
 	var preview = load("res://Scenes/Interactables/bestiary_catalog.tscn").instantiate()
 	preview.initial_tab = 1
+	preview.preview_all_when_run_alone = true
 	preview.get_node("ArtifactPage").preview_entry = 13
 	var expected: Dictionary = preview.get_node("ArtifactPage/Book/EntryGrid").get_child(13).get_entry()
 	root.add_child(preview)

@@ -7,7 +7,7 @@ signal closed
 		if Engine.is_editor_hint() and is_node_ready():
 			_set_category(initial_tab == 1)
 ## F6 shows authored content; the lobby always uses discovery progress.
-@export var preview_all_when_run_alone := true
+@export var preview_all_when_run_alone := false
 var was_paused := false
 var previous_focus: Control
 var owns_pause := false

@@ -94,7 +94,12 @@ func prepare(seed_value: int) -> bool:
 	var rewards := Node2D.new()
 	rewards.name = "Rewards"
 	add_child(rewards)
-	var artifacts: Array = player_data.bestiary_master.get("artifacts", [])
+	# Hanya artefak yang sudah punya scene di Scenes/Artefak/ yang bisa muncul.
+	var available_artifacts: Array = []
+	for entry in player_data.bestiary_master.get("artifacts", []):
+		if REWARD.has_artifact_scene(entry.name):
+			available_artifacts.append(entry.name)
+	var artifact_pool: Array = available_artifacts.duplicate()
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_value ^ 0x5A17
 	for i in range(layout.rewards.size()):
@@ -103,8 +108,14 @@ func prepare(seed_value: int) -> bool:
 		reward.name = "Reward%d" % i
 		reward.position = data.position
 		reward.reward_kind = data.kind
-		if data.kind == "artifact" and not artifacts.is_empty():
-			reward.artifact_name = artifacts[rng.randi_range(0, artifacts.size() - 1)].name
+		if data.kind == "artifact":
+			# Acak tanpa pengulangan dalam satu level; pool diisi ulang bila habis.
+			if artifact_pool.is_empty():
+				artifact_pool = available_artifacts.duplicate()
+			if not artifact_pool.is_empty():
+				var pick := rng.randi_range(0, artifact_pool.size() - 1)
+				reward.artifact_name = artifact_pool[pick]
+				artifact_pool.remove_at(pick)
 		rewards.add_child(reward)
 	marker(self, "PlayerSpawn", layout.spawn)
 	marker(self, "RewardSpawn", layout.reward)

@@ -1,5 +1,7 @@
 [gd_scene format=3]
 
+[ext_resource type="Texture2D" path="res://Assets/UI/artifact_locked.svg" id="99_locked"]
+
 [ext_resource type="Script" path="res://Script/UI/bestiary_tab.gd" id="1"]
 [ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="1_yaiuh"]
 [ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/blank book.png" id="3_tx112"]
@@ -700,7 +702,7 @@ grow_vertical = 2
 theme = SubResource("Theme_ufoio")
 script = ExtResource("1")
 artifact_mode = true
-locked_portrait = SubResource("Portrait_Locked")
+locked_portrait = ExtResource("99_locked")
 fallback_portrait = SubResource("Portrait_Fallback")
 
 [node name="DimBackground" type="ColorRect" parent="." unique_id=1211529466]
@@ -818,7 +820,7 @@ script = ExtResource("card_1")
 entity_id = "gadha_rujakpolo"
 region = "Nusantara"
 category = "Offensive"
-description = "Gada masif milik Bima. Menambah damage fisik secara drastis, namun sedikit mengurangi (Movement Speed) pemain."
+description = "Gada masif milik Bima. Menambah damage fisik secara drastis, namun sedikit mengurangi (Movement Speed) pemain.\n\nEFEK\nDamage fisik +75%; kecepatan gerak -10%."
 history = "Gada masif milik Bima. Menambah damage fisik secara drastis, namun sedikit mengurangi (Movement Speed) pemain."
 attack_pattern = ""
 tactics = ""
@@ -867,7 +869,7 @@ script = ExtResource("card_1")
 entity_id = "keris_mpu_gandring"
 region = "Nusantara"
 category = "Offensive"
-description = "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh."
+description = "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh.\n\nEFEK\nBleed: 1 damage/detik selama 3 detik; serangan berikutnya menyegarkan durasi."
 history = "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh."
 attack_pattern = ""
 tactics = ""
@@ -916,7 +918,7 @@ script = ExtResource("card_1")
 entity_id = "golok_jakasembung"
 region = "Nusantara"
 category = "Offensive"
-description = "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat."
+description = "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat.\n\nEFEK\nPeluang critical melee 25%; critical menghasilkan 2x damage."
 history = "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat."
 attack_pattern = ""
 tactics = ""
@@ -965,7 +967,7 @@ script = ExtResource("card_1")
 entity_id = "tombak_baru_klinting"
 region = "Nusantara"
 category = "Offensive"
-description = "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee."
+description = "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee.\n\nEFEK\nJangkauan tebasan +50%."
 history = "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee."
 attack_pattern = ""
 tactics = ""
@@ -1014,7 +1016,7 @@ script = ExtResource("card_1")
 entity_id = "kujang_pusaka"
 region = "Nusantara"
 category = "Offensive"
-description = "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan)."
+description = "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan).\n\nEFEK\nMemantulkan 30% damage yang diterima kepada penyerang."
 history = "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan)."
 attack_pattern = ""
 tactics = ""
@@ -1063,7 +1065,7 @@ script = ExtResource("card_1")
 entity_id = "rencong_sakti"
 region = "Nusantara"
 category = "Offensive"
-description = "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis."
+description = "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis.\n\nEFEK\nDamage 2x saat HP <=30%."
 history = "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis."
 attack_pattern = ""
 tactics = ""
@@ -1112,7 +1114,7 @@ script = ExtResource("card_1")
 entity_id = "pecut_samandiman"
 region = "Nusantara"
 category = "AoE"
-description = "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan."
+description = "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan.\n\nEFEK\nSetiap ayunan menghasilkan gelombang di depan sejauh 120 px."
 history = "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan."
 attack_pattern = ""
 tactics = ""
@@ -1161,7 +1163,7 @@ script = ExtResource("card_1")
 entity_id = "jimat_kalimasada"
 region = "Nusantara"
 category = "Buff"
-description = "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan."
+description = "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan.\n\nEFEK\nMaksimum HP +25, damage +25%, kecepatan +20%."
 history = "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan."
 attack_pattern = ""
 tactics = ""
@@ -1210,7 +1212,7 @@ script = ExtResource("card_1")
 entity_id = "mustika_merah_delima"
 region = "Nusantara"
 category = "Buff"
-description = "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain."
+description = "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain.\n\nEFEK\nMenahan satu serangan fatal tanpa kehilangan HP; pulih saat kembali ke lobi."
 history = "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain."
 attack_pattern = ""
 tactics = ""
@@ -1259,7 +1261,7 @@ script = ExtResource("card_1")
 entity_id = "zirah_antakusuma"
 region = "Nusantara"
 category = "Buff"
-description = "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh."
+description = "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh.\n\nEFEK\nDamage masuk -25%; proyektil -50%."
 history = "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh."
 attack_pattern = ""
 tactics = ""
@@ -1308,7 +1310,7 @@ script = ExtResource("card_1")
 entity_id = "selendang_bidadari"
 region = "Nusantara"
 category = "Buff"
-description = "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara."
+description = "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara.\n\nEFEK\nDouble jump dan jarak dash udara +50%."
 history = "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara."
 attack_pattern = ""
 tactics = ""
@@ -1357,7 +1359,7 @@ script = ExtResource("card_1")
 entity_id = "pring_pethuk"
 region = "Nusantara"
 category = "Buff"
-description = "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan."
+description = "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan.\n\nEFEK\nResource dari musuh +50% (dibulatkan ke atas)."
 history = "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan."
 attack_pattern = ""
 tactics = ""
@@ -1407,7 +1409,7 @@ script = ExtResource("card_1")
 entity_id = "air_tirta_amerta"
 region = "Nusantara"
 category = "Heal"
-description = "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu."
+description = "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu.\n\nEFEK\nMemulihkan 1 HP setiap 2 detik."
 history = "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu."
 attack_pattern = ""
 tactics = ""
@@ -1457,7 +1459,7 @@ script = ExtResource("card_1")
 entity_id = "daun_kelor"
 region = "Nusantara"
 category = "Heal"
-description = "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika."
+description = "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika.\n\nEFEK\nSaat diambil: hapus semua status negatif dan pulihkan 20 HP."
 history = "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika."
 attack_pattern = ""
 tactics = ""
@@ -1507,7 +1509,7 @@ script = ExtResource("card_1")
 entity_id = "paku_emas"
 region = "Nusantara"
 category = "Utility"
-description = "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat."
+description = "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat.\n\nEFEK\nPeluang stun 20% selama 1 detik."
 history = "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat."
 attack_pattern = ""
 tactics = ""
@@ -1538,256 +1540,6 @@ offset_right = -6.0
 offset_bottom = -4.0
 theme_override_font_sizes/font_size = 11
 text = "Paku Emas"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Entry_keris_nogososro" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
-visible = false
-custom_minimum_size = Vector2(100, 104)
-tooltip_text = "Leak"
-accessibility_name = "Leak"
-theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
-theme_override_styles/pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
-toggle_mode = true
-script = ExtResource("card_1")
-entity_id = "keris_nogososro"
-region = "Nusantara"
-category = "Offensive"
-description = "Keris pusaka bertahtakan emas lambang kejayaan Mataram. Meningkatkan kecepatan serang dan penetrasi daya rusak."
-history = "Keris pusaka bertahtakan emas lambang kejayaan Mataram. Meningkatkan kecepatan serang dan penetrasi daya rusak."
-attack_pattern = ""
-tactics = ""
-hp = 0
-attack = 0
-
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_keris_nogososro"]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 7.0
-offset_right = -10.0
-offset_bottom = -24.0
-mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_keris_nogososro"]
-layout_mode = 1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -20.0
-offset_right = -6.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 11
-text = "Keris Nogososro"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Entry_kembang_wijayakusuma" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
-visible = false
-custom_minimum_size = Vector2(100, 104)
-tooltip_text = "Leak"
-accessibility_name = "Leak"
-theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
-theme_override_styles/pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
-toggle_mode = true
-script = ExtResource("card_1")
-entity_id = "kembang_wijayakusuma"
-region = "Nusantara"
-category = "Buff"
-description = "Bunga sakti pembawa berkah kehidupan milik Prabu Kresna. Memberikan kesempatan hidup kembali (revive) satu kali per sesi permainan."
-history = "Bunga sakti pembawa berkah kehidupan milik Prabu Kresna. Memberikan kesempatan hidup kembali (revive) satu kali per sesi permainan."
-attack_pattern = ""
-tactics = ""
-hp = 0
-attack = 0
-
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kembang_wijayakusuma"]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 7.0
-offset_right = -10.0
-offset_bottom = -24.0
-mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_kembang_wijayakusuma"]
-layout_mode = 1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -20.0
-offset_right = -6.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 11
-text = "Kembang Wijayakusuma"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Entry_badik_tua_celebes" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
-visible = false
-custom_minimum_size = Vector2(100, 104)
-tooltip_text = "Leak"
-accessibility_name = "Leak"
-theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
-theme_override_styles/pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
-toggle_mode = true
-script = ExtResource("card_1")
-entity_id = "badik_tua_celebes"
-region = "Nusantara"
-category = "Offensive"
-description = "Senjata tikam sakti dari Sulawesi. Memberikan peningkatan serangan tusuk mendadak setelah melakukan Dash."
-history = "Senjata tikam sakti dari Sulawesi. Memberikan peningkatan serangan tusuk mendadak setelah melakukan Dash."
-attack_pattern = ""
-tactics = ""
-hp = 0
-attack = 0
-
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_badik_tua_celebes"]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 7.0
-offset_right = -10.0
-offset_bottom = -24.0
-mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_badik_tua_celebes"]
-layout_mode = 1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -20.0
-offset_right = -6.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 11
-text = "Badik Tua Celebes"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Entry_tameng_salawaku" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
-visible = false
-custom_minimum_size = Vector2(100, 104)
-tooltip_text = "Leak"
-accessibility_name = "Leak"
-theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
-theme_override_styles/pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
-toggle_mode = true
-script = ExtResource("card_1")
-entity_id = "tameng_salawaku"
-region = "Nusantara"
-category = "Defense"
-description = "Perisai perang tradisional Maluku bertuah. Mengurangi knockback dan menyerap benturan dari serangan depan."
-history = "Perisai perang tradisional Maluku bertuah. Mengurangi knockback dan menyerap benturan dari serangan depan."
-attack_pattern = ""
-tactics = ""
-hp = 0
-attack = 0
-
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_tameng_salawaku"]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 7.0
-offset_right = -10.0
-offset_bottom = -24.0
-mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_tameng_salawaku"]
-layout_mode = 1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -20.0
-offset_right = -6.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 11
-text = "Tameng Salawaku"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Entry_mandau_terbang" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
-visible = false
-custom_minimum_size = Vector2(100, 104)
-tooltip_text = "Leak"
-accessibility_name = "Leak"
-theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
-theme_override_styles/pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
-theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
-toggle_mode = true
-script = ExtResource("card_1")
-entity_id = "mandau_terbang"
-region = "Nusantara"
-category = "Offensive"
-description = "Bilah pusaka Dayak Kalimantan yang dapat digerakkan secara gaib. Memicu tebasan proyektil magis saat combo serangan melee terakhir."
-history = "Bilah pusaka Dayak Kalimantan yang dapat digerakkan secara gaib. Memicu tebasan proyektil magis saat combo serangan melee terakhir."
-attack_pattern = ""
-tactics = ""
-hp = 0
-attack = 0
-
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mandau_terbang"]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 7.0
-offset_right = -10.0
-offset_bottom = -24.0
-mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_mandau_terbang"]
-layout_mode = 1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -20.0
-offset_right = -6.0
-offset_bottom = -4.0
-theme_override_font_sizes/font_size = 11
-text = "Mandau Terbang"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 

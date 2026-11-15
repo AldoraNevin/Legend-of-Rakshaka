@@ -1,97 +1,86 @@
-[gd_scene format=3]
+[gd_scene format=4]
 
-[ext_resource type="Script" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]
+[ext_resource type="Script" path="res://Script/Stage/boss_background.gd" id="2_6wt75"]
+[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_xm0ij"]
+[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_kusnh"]
+[ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="5_mruxq"]
+[ext_resource type="PackedScene" path="res://Scenes/Rooms/Stage/boss_background.tscn" id="background"]
 
-[sub_resource type="RectangleShape2D" id="floor"]
-size = Vector2(832, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n73g"]
+atlas = ExtResource("5_mruxq")
+region = Rect2(267, 32, 86, 104)
+filter_clip = true
 
-[sub_resource type="RectangleShape2D" id="wall"]
-size = Vector2(24, 384)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw321"]
+atlas = ExtResource("5_mruxq")
+region = Rect2(505, 184, 65, 73)
+filter_clip = true
 
-[node name="Room" type="Node2D"]
+[node name="Room" type="Node2D" unique_id=855377158]
+texture_filter = 1
 
-[node name="Backdrop" type="Polygon2D" parent="."]
+[node name="Backdrop" type="Polygon2D" parent="." unique_id=2006108974]
 z_index = -10
 color = Color(0.018, 0.055, 0.075, 1)
 polygon = PackedVector2Array(0, 0, 832, 0, 832, 384, 0, 384)
 
-[node name="Floor" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="Shape" type="CollisionShape2D" parent="Floor"]
-position = Vector2(416, 396)
-shape = SubResource("floor")
-
-[node name="Visual" type="Polygon2D" parent="Floor"]
-color = Color(0.08, 0.24, 0.25, 1)
-polygon = PackedVector2Array(0, 384, 832, 384, 832, 408, 0, 408)
-
-[node name="Ceiling" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="Shape" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(416, -12)
-shape = SubResource("floor")
-
-[node name="Visual" type="Polygon2D" parent="Ceiling"]
-color = Color(0.08, 0.24, 0.25, 1)
-polygon = PackedVector2Array(0, -24, 832, -24, 832, 0, 0, 0)
-
-[node name="Left" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="Shape" type="CollisionShape2D" parent="Left"]
-position = Vector2(-12, 192)
-shape = SubResource("wall")
-
-[node name="Visual" type="Polygon2D" parent="Left"]
-color = Color(0.08, 0.24, 0.25, 1)
-polygon = PackedVector2Array(-24, 0, 0, 0, 0, 384, -24, 384)
-
-[node name="Right" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="Shape" type="CollisionShape2D" parent="Right"]
-position = Vector2(844, 192)
-shape = SubResource("wall")
-
-[node name="Visual" type="Polygon2D" parent="Right"]
-color = Color(0.08, 0.24, 0.25, 1)
-polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
-
-[node name="PlayerSpawn" type="Marker2D" parent="."]
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=956646396]
 position = Vector2(64, 350)
 
-[node name="RewardSpawn" type="Marker2D" parent="."]
+[node name="RewardSpawn" type="Marker2D" parent="." unique_id=1972439408]
 position = Vector2(420, 350)
 
-[node name="DoorSpawns" type="Node2D" parent="."]
+[node name="DoorSpawns" type="Node2D" parent="." unique_id=1718958522]
 
-[node name="Marker0" type="Marker2D" parent="DoorSpawns"]
+[node name="Marker0" type="Marker2D" parent="DoorSpawns" unique_id=1915488045]
 position = Vector2(640, 350)
 
-[node name="Marker1" type="Marker2D" parent="DoorSpawns"]
+[node name="Marker1" type="Marker2D" parent="DoorSpawns" unique_id=1646521026]
 position = Vector2(760, 350)
 
-[node name="EnemySpawns" type="Node2D" parent="."]
+[node name="EnemySpawns" type="Node2D" parent="." unique_id=1876314144]
 
-[node name="Marker0" type="Marker2D" parent="EnemySpawns"]
+[node name="Marker0" type="Marker2D" parent="EnemySpawns" unique_id=2099329531]
 position = Vector2(324, 350)
 
-[node name="Marker1" type="Marker2D" parent="EnemySpawns"]
+[node name="Marker1" type="Marker2D" parent="EnemySpawns" unique_id=435327936]
 position = Vector2(399, 350)
 
-[node name="Marker2" type="Marker2D" parent="EnemySpawns"]
+[node name="Marker2" type="Marker2D" parent="EnemySpawns" unique_id=433736157]
 position = Vector2(474, 350)
 
-[node name="Marker3" type="Marker2D" parent="EnemySpawns"]
+[node name="Marker3" type="Marker2D" parent="EnemySpawns" unique_id=1784565014]
 position = Vector2(549, 350)
 
-[node name="SeaMist" type="Node2D" parent="."]
-z_index = -3
-position = Vector2(80, 80)
-script = ExtResource("sea")
+[node name="BossBackground" type="Node2D" parent="." unique_id=1963228270 instance=ExtResource("background")]
+z_index = -9
+texture_filter = 1
+scale = Vector2(1.1555556, 0.94814813)
+script = ExtResource("2_6wt75")
+
+[node name="Solid" type="TileMapLayer" parent="." unique_id=675765150]
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAD/////AAAEAAEAAAD//xgAAAAEAAAAAAD//xkAAAAEAAEAAAAAAP//AAAEAAEAAAAAABgAAAACAAAAAAAAABkAAAACAAEAAAABAP//AAAEAAEAAAABABgAAAADAAAAAAABABkAAAADAAEAAAACAP//AAAEAAEAAAACABgAAAAEAAAAAAACABkAAAAEAAEAAAADAP//AAAEAAEAAAADABgAAAACAAAAAAADABkAAAACAAEAAAAEAP//AAAEAAEAAAAEABgAAAADAAAAAAAEABkAAAADAAEAAAAFAP//AAAEAAEAAAAFABgAAAAEAAAAAAAFABkAAAAEAAEAAAAGAP//AAAEAAEAAAAGABgAAAACAAAAAAAGABkAAAACAAEAAAAHAP//AAAEAAEAAAAHABgAAAADAAAAAAAHABkAAAADAAEAAAAIAP//AAAEAAEAAAAIABgAAAAEAAAAAAAIABkAAAAEAAEAAAAJAP//AAAEAAEAAAAJABgAAAACAAAAAAAJABkAAAACAAEAAAAKAP//AAAEAAEAAAAKABgAAAADAAAAAAAKABkAAAADAAEAAAALAP//AAAEAAEAAAALABgAAAAEAAAAAAALABkAAAAEAAEAAAAMAP//AAAEAAEAAAAMABgAAAACAAAAAAAMABkAAAACAAEAAAANAP//AAAEAAEAAAANABgAAAADAAAAAAANABkAAAADAAEAAAAOAP//AAAEAAEAAAAOABgAAAAEAAAAAAAOABkAAAAEAAEAAAAPAP//AAAEAAEAAAAPABgAAAACAAAAAAAPABkAAAACAAEAAAAQAP//AAAEAAEAAAAQABgAAAADAAAAAAAQABkAAAADAAEAAAARAP//AAAEAAEAAAARABgAAAAEAAAAAAARABkAAAAEAAEAAAASAP//AAAEAAEAAAASABgAAAACAAAAAAASABkAAAACAAEAAAATAP//AAAEAAEAAAATABgAAAADAAAAAAATABkAAAADAAEAAAAUAP//AAAEAAEAAAAUABgAAAAEAAAAAAAUABkAAAAEAAEAAAAVAP//AAAEAAEAAAAVABgAAAACAAAAAAAVABkAAAACAAEAAAAWAP//AAAEAAEAAAAWABgAAAADAAAAAAAWABkAAAADAAEAAAAXAP//AAAEAAEAAAAXABgAAAAEAAAAAAAXABkAAAAEAAEAAAAYAP//AAAEAAEAAAAYABgAAAACAAAAAAAYABkAAAACAAEAAAAZAP//AAAEAAEAAAAZABgAAAADAAAAAAAZABkAAAADAAEAAAAaAP//AAAEAAEAAAAaABgAAAAEAAAAAAAaABkAAAAEAAEAAAAbAP//AAAEAAEAAAAbABgAAAACAAAAAAAbABkAAAACAAEAAAAcAP//AAAEAAEAAAAcABgAAAADAAAAAAAcABkAAAADAAEAAAAdAP//AAAEAAEAAAAdABgAAAAEAAAAAAAdABkAAAAEAAEAAAAeAP//AAAEAAEAAAAeABgAAAACAAAAAAAeABkAAAACAAEAAAAfAP//AAAEAAEAAAAfABgAAAADAAAAAAAfABkAAAADAAEAAAAgAP//AAAEAAEAAAAgABgAAAAEAAAAAAAgABkAAAAEAAEAAAAhAP//AAAEAAEAAAAhABgAAAACAAAAAAAhABkAAAACAAEAAAAiAP//AAAEAAEAAAAiABgAAAADAAAAAAAiABkAAAADAAEAAAAjAP//AAAEAAEAAAAjABgAAAAEAAAAAAAjABkAAAAEAAEAAAAkAP//AAAEAAEAAAAkABgAAAACAAAAAAAkABkAAAACAAEAAAAlAP//AAAEAAEAAAAlABgAAAADAAAAAAAlABkAAAADAAEAAAAmAP//AAAEAAEAAAAmABgAAAAEAAAAAAAmABkAAAAEAAEAAAAnAP//AAAEAAEAAAAnABgAAAACAAAAAAAnABkAAAACAAEAAAAoAP//AAAEAAEAAAAoABgAAAADAAAAAAAoABkAAAADAAEAAAApAP//AAAEAAEAAAApABgAAAAEAAAAAAApABkAAAAEAAEAAAAqAP//AAAEAAEAAAAqABgAAAACAAAAAAAqABkAAAACAAEAAAArAP//AAAEAAEAAAArABgAAAADAAAAAAArABkAAAADAAEAAAAsAP//AAAEAAEAAAAsABgAAAAEAAAAAAAsABkAAAAEAAEAAAAtAP//AAAEAAEAAAAtABgAAAACAAAAAAAtABkAAAACAAEAAAAuAP//AAAEAAEAAAAuABgAAAADAAAAAAAuABkAAAADAAEAAAAvAP//AAAEAAEAAAAvABgAAAAEAAAAAAAvABkAAAAEAAEAAAAwAP//AAAEAAEAAAAwABgAAAACAAAAAAAwABkAAAACAAEAAAAxAP//AAAEAAEAAAAxABgAAAADAAAAAAAxABkAAAADAAEAAAAyAP//AAAEAAEAAAAyABgAAAAEAAAAAAAyABkAAAAEAAEAAAAzAP//AAAEAAEAAAAzABgAAAACAAAAAAAzABkAAAACAAEAAAA0AP//AAAEAAEAAAA0ABgAAAADAAAAAAA0ABkAAAADAAEAAAD//wAAAAAAAAEAAAA0AAAAAAAHAAEAAAD//wEAAAAAAAEAAAA0AAEAAAAHAAEAAAD//wIAAAAAAAEAAAA0AAIAAAAHAAEAAAD//wMAAAAAAAEAAAA0AAMAAAAHAAEAAAD//wQAAAAAAAEAAAA0AAQAAAAHAAEAAAD//wUAAAAAAAEAAAA0AAUAAAAHAAEAAAD//wYAAAAAAAEAAAA0AAYAAAAHAAEAAAD//wcAAAAAAAEAAAA0AAcAAAAHAAEAAAD//wgAAAAAAAEAAAA0AAgAAAAHAAEAAAD//wkAAAAAAAEAAAA0AAkAAAAHAAEAAAD//woAAAAAAAEAAAA0AAoAAAAHAAEAAAD//wsAAAAAAAEAAAA0AAsAAAAHAAEAAAD//wwAAAAAAAEAAAA0AAwAAAAHAAEAAAD//w0AAAAAAAEAAAA0AA0AAAAHAAEAAAD//w4AAAAAAAEAAAA0AA4AAAAHAAEAAAD//w8AAAAAAAEAAAA0AA8AAAAHAAEAAAD//xAAAAAAAAEAAAA0ABAAAAAHAAEAAAD//xEAAAAAAAEAAAA0ABEAAAAHAAEAAAD//xIAAAAAAAEAAAA0ABIAAAAHAAEAAAD//xMAAAAAAAEAAAA0ABMAAAAHAAEAAAD//xQAAAAAAAEAAAA0ABQAAAAHAAEAAAD//xUAAAAAAAEAAAA0ABUAAAAHAAEAAAD//xYAAAAAAAEAAAA0ABYAAAAHAAEAAAD//xcAAAAAAAEAAAA0ABcAAAAHAAEAAAA=")
+tile_set = ExtResource("3_xm0ij")
+
+[node name="Platforms" type="TileMapLayer" parent="." unique_id=302858103]
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAAGABYAAAAGAAAAAAAHABYAAAAGAAAAAAAIABYAAAAGAAAAAAAJABYAAAAGAAAAAAALABQAAAAGAAAAAAAMABQAAAAGAAAAAAANABQAAAAGAAAAAAAOABQAAAAGAAAAAAAQABIAAAAGAAAAAAARABIAAAAGAAAAAAASABIAAAAGAAAAAAAqABYAAAAGAAAAAAArABYAAAAGAAAAAAAsABYAAAAGAAAAAAAtABYAAAAGAAAAAAAlABQAAAAGAAAAAAAmABQAAAAGAAAAAAAnABQAAAAGAAAAAAAoABQAAAAGAAAAAAAhABIAAAAGAAAAAAAiABIAAAAGAAAAAAAjABIAAAAGAAAAAAA=")
+tile_set = ExtResource("4_kusnh")
+
+[node name="Decorations" type="TileMapLayer" parent="." unique_id=344622749]
+z_index = -2
+scale = Vector2(0.25, 0.25)
+tile_map_data = PackedByteArray("AAABABcAAAABAAQAAAACABcAAAACAAQAAAADABcAAAADAAQAAAAwABcAAAAAAAQAAAAxABcAAAABAAQAAAAyABcAAAACAAQAAAA=")
+tile_set = ExtResource("3_xm0ij")
+collision_enabled = false
+
+[node name="TempleRelic0" type="Sprite2D" parent="Decorations" unique_id=1540906645]
+position = Vector2(160, 1452.8)
+scale = Vector2(1.6, 1.6)
+texture = SubResource("AtlasTexture_0n73g")
+
+[node name="TempleRelic1" type="Sprite2D" parent="Decorations" unique_id=1981613348]
+position = Vector2(3168, 1477.6)
+scale = Vector2(1.6, 1.6)
+texture = SubResource("AtlasTexture_fw321")

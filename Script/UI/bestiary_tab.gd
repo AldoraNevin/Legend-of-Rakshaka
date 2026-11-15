@@ -5,7 +5,7 @@ signal category_requested(artifacts: bool)
 signal close_requested
 @export var artifact_mode := false
 @export_range(0, 99) var preview_entry := 0
-@export var preview_all_when_run_alone := true
+@export var preview_all_when_run_alone := false
 var preview_elapsed := 0.0
 var cards: Array[Button] = []
 var preview_mode := false
@@ -176,7 +176,7 @@ func _filter() -> void:
 		if discovered.button_pressed and not unlocked:
 			continue
 		# Artifact identities match the lobby catalogue; enemy identities stay locked.
-		var identity_visible: bool = unlocked or artifact_mode
+		var identity_visible: bool = unlocked
 		if not query.is_empty() and (not identity_visible or not str(entry.get("name", "")).to_lower().contains(query)):
 			continue
 		if region.selected > 0 and (not identity_visible or entry.get("region", "Nusantara") != region.get_item_text(region.selected)):
@@ -186,8 +186,8 @@ func _filter() -> void:
 	_refresh_page()
 
 func _portrait(entry: Dictionary) -> Texture2D:
-	if not artifact_mode and not entry.get("is_unlocked", false):
-		return locked_portrait
+	if not entry.get("is_unlocked", false):
+		return load("res://Assets/UI/artifact_locked.svg") if artifact_mode and locked_portrait == null else locked_portrait
 	if entry.get("portrait") != null:
 		return entry.portrait
 	return fallback_portrait
@@ -207,7 +207,7 @@ func _refresh_page() -> void:
 		var filtered_index := filtered.find(entry)
 		card.visible = filtered_index >= page * 12 and filtered_index < (page + 1) * 12
 		card.set_pressed_no_signal(false)
-		card.configure(entry, _portrait(entry), artifact_mode)
+		card.configure(entry, _portrait(entry))
 	if not filtered.is_empty():
 		var entry: Dictionary = filtered[page * 12]
 		cards[entries.find(entry)].set_pressed_no_signal(true)
@@ -217,7 +217,7 @@ func _refresh_page() -> void:
 
 func _select(entry: Dictionary) -> void:
 	selected = entry
-	var unlocked: bool = entry.get("is_unlocked", false) or artifact_mode
+	var unlocked: bool = entry.get("is_unlocked", false)
 	title_label.text = str(entry.get("name", "")).to_upper() if unlocked else "BELUM DITEMUKAN"
 	if entry.is_empty():
 		title_label.text = "CATATAN KOSONG"

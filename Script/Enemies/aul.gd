@@ -43,6 +43,7 @@ var hit_targets: Array[Node2D] = []
 
 
 func _ready() -> void:
+	add_to_group("artifact_enemies")
 	health = max_health
 	home_x = global_position.x
 	hitbox_x = abs(hitbox.position.x)
@@ -56,6 +57,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if preload("res://Script/Enemies/artifact_status.gd").tick(self, delta):
+		return
 	cooldown_left = maxf(cooldown_left - delta, 0.0)
 
 	if not is_on_floor():
@@ -161,7 +164,7 @@ func damage_overlapping_player() -> void:
 			continue
 		if body.has_method("take_damage"):
 			hit_targets.append(body)
-			body.take_damage(damage)
+			body.take_damage(damage, self)
 
 
 func take_damage(amount: int) -> void:
@@ -213,5 +216,6 @@ func _on_animation_finished(clip: StringName) -> void:
 
 		&"Dead":
 			if state == State.DEAD:
+				player_data.enemy_resource_reward()
 				player_data.discover_enemy("Aul")
 				queue_free()

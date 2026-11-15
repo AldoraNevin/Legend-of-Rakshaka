@@ -73,7 +73,8 @@ position = Vector2(-344, 98)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=145877302 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
-position_smoothing_enabled = true
+process_callback = 0
+position_smoothing_enabled = false
 position_smoothing_speed = 6.0
 script = ExtResource("4_camera")
 target = NodePath("../Player")

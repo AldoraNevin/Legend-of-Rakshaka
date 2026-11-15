@@ -467,6 +467,8 @@ position = Vector2(3, -66)
 scale = Vector2(0.3, 0.3)
 collision_mask = 18
 script = ExtResource("1_a3d8c")
+max_jump = 2
+max_wall_jump = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=863194499]
 scale = Vector2(0.68, 0.68)

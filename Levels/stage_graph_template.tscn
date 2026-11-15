@@ -31,6 +31,7 @@ sources/0 = SubResource("TileSetAtlasSource_level2")
 
 [node name="GraphStageTemplate" type="Node2D" unique_id=621713756]
 script = ExtResource("4_generator")
+preview_start_node = 0
 room_templates = Array[PackedScene]([ExtResource("8_roomcombat1")])
 
 [node name="Player" parent="." unique_id=668942640 instance=ExtResource("1_player")]
@@ -48,7 +49,8 @@ limit_top = 0
 limit_right = 2944
 limit_bottom = 240
 limit_smoothed = true
-position_smoothing_enabled = true
+process_callback = 0
+position_smoothing_enabled = false
 position_smoothing_speed = 6.0
 script = ExtResource("3_camera")
 target = NodePath("../Player")

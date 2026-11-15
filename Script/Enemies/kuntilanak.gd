@@ -37,6 +37,7 @@ var current_floor_y := INF
 
 
 func _ready() -> void:
+	add_to_group("artifact_enemies")
 	health = max_health
 	spawn_position = global_position
 	sprite_base_scale_x = abs(sprite.scale.x)
@@ -55,6 +56,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if preload("res://Script/Enemies/artifact_status.gd").tick(self, delta):
+		return
 	if is_dead:
 		return
 
@@ -240,7 +243,7 @@ func start_attack() -> void:
 
 	if not is_dead and player != null and can_attack_player_ignore_cooldown():
 		if player.has_method("take_damage"):
-			player.take_damage(contact_damage)
+			player.take_damage(contact_damage, self)
 
 	await get_tree().create_timer(0.35).timeout
 
@@ -251,6 +254,8 @@ func start_attack() -> void:
 
 
 func can_attack_player_ignore_cooldown() -> bool:
+	if float(get_meta("stun_left", 0.0)) > 0.0:
+		return false
 	if player == null or not player_in_detection:
 		return false
 
@@ -312,6 +317,7 @@ func take_damage(amount: int) -> void:
 func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
+	player_data.enemy_resource_reward()
 	player_data.discover_enemy("Kuntilanak")
 
 	damage_area.set_deferred("monitoring", false)

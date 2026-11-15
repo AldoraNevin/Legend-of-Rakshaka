@@ -9,6 +9,11 @@ var target_offset := Vector2.ZERO
 
 
 func _ready() -> void:
+	# Follow the player on the same physics clock. Rendering interpolates
+	# both transforms; only this script applies follow smoothing.
+	process_callback = Camera2D.CAMERA2D_PROCESS_PHYSICS
+	process_physics_priority = 100
+	position_smoothing_enabled = false
 	make_current()
 	if target == null:
 		target = get_tree().get_first_node_in_group("player") as Node2D
@@ -31,13 +36,15 @@ func _physics_process(delta: float) -> void:
 	target_offset.y = vertical_offset
 
 	var target_position := target.global_position + target_offset
-	global_position = global_position.lerp(target_position, clampf(follow_speed * delta, 0.0, 1.0))
+	global_position = global_position.lerp(target_position, 1.0 - exp(-follow_speed * delta))
 
 
 func snap_to_target() -> void:
 	if target == null or not is_instance_valid(target):
 		return
 
-	target_offset.y = vertical_offset
+	target_offset = Vector2(0.0, vertical_offset)
 	global_position = target.global_position + target_offset
+	target.reset_physics_interpolation()
+	reset_physics_interpolation()
 	reset_smoothing()

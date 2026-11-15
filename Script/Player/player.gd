@@ -5,7 +5,7 @@ enum PlayerStates { MOVE, SWORD, DEAD, DASH, HIT }
 const ENEMY_BODY_LAYER := 5
 const MAX_COMBO := 3
 
-const LOCK_MOVE_FROM_STEP := 2
+const LOCK_MOVE_FROM_STEP := 1
 
 var regeneration_time := 0.0
 var negative_effects: Dictionary = {}

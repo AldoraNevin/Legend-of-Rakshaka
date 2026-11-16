@@ -17,3 +17,6 @@ dist/
 Thumbs.db
 *.apk
 *.idsig
+
+*.apk
+*.idsig

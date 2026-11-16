@@ -1,0 +1,126 @@
+[gd_scene format=3]
+[ext_resource type="Script" path="res://Script/UI/mobile_controls.gd" id="script"]
+[sub_resource type="CircleShape2D" id="TouchShape"]
+radius = 48.0
+[node name="MobileControls" type="CanvasLayer"]
+script = ExtResource("script")
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Left" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_left"
+[node name="Face" type="Polygon2D" parent="Buttons/Left"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Left"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Right" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_right"
+[node name="Face" type="Polygon2D" parent="Buttons/Right"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Right"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Jump" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_accept"
+[node name="Face" type="Polygon2D" parent="Buttons/Jump"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Jump"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "LOMPAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Attack" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_sword"
+[node name="Face" type="Polygon2D" parent="Buttons/Attack"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Attack"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "SERANG"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Dash" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_dash"
+[node name="Face" type="Polygon2D" parent="Buttons/Dash"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Dash"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "DASH"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Interact" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_interact"
+[node name="Face" type="Polygon2D" parent="Buttons/Interact"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Interact"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "AKSI"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17
+
+[node name="Pause" type="TouchScreenButton" parent="Buttons"]
+shape = SubResource("TouchShape")
+action = "ui_cancel"
+[node name="Face" type="Polygon2D" parent="Buttons/Pause"]
+polygon = PackedVector2Array(-34, -44, 34, -44, 44, -34, 44, 34, 34, 44, -34, 44, -44, 34, -44, -34)
+color = Color(0.12, 0.17, 0.22, 0.75)
+[node name="Label" type="Label" parent="Buttons/Pause"]
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+mouse_filter = 2
+text = "II"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 17

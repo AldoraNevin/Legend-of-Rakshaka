@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://dup3krqhbdtln"]
+[gd_resource type="Resource" format=3 uid="uid://xn7wwp2r65ue"]
 
 [ext_resource type="Script" uid="uid://deqoahmtbvin7" path="res://Script/Stage/coastal_socket.gd" id="socket"]
 [ext_resource type="Script" uid="uid://dygfxoadxeov4" path="res://Script/Stage/coastal_template.gd" id="template"]

@@ -2,6 +2,7 @@ extends Node2D
 
 const LEVEL_1_SCENE := "res://Levels/stage_graph_template.tscn"
 
+var travel_pending := false
 var current_interactable = null
 var bestiary_catalog: Control
 
@@ -94,6 +95,9 @@ func open_artifact_panel() -> void:
 
 
 func travel_to_scene(scene_path: String) -> void:
+	if travel_pending:
+		return
+	travel_pending = true
 	if scene_path.is_empty():
 		scene_path = LEVEL_1_SCENE
 
@@ -104,6 +108,19 @@ func _change_to_scene(scene_path: String) -> void:
 	if not is_inside_tree():
 		return
 
+	if OS.has_feature("android") or "--android-scene-loading" in OS.get_cmdline_user_args():
+		# Avoid background resource-loading stalls on Android. Keep the lobby
+		# available until the scene has loaded so failures can be reported.
+		open_message_panel("Memuat stage", "Mohon tunggu...")
+		await get_tree().process_frame
+		await get_tree().process_frame
+		if not is_inside_tree():
+			return
+		var error := get_tree().change_scene_to_file(scene_path)
+		if error != OK:
+			travel_pending = false
+			open_message_panel("Stage gagal dimuat", "Kode error: %s. Coba kembali melalui portal." % error_string(error))
+		return
 	if has_node("/root/SceneLoader"):
 		get_node("/root/SceneLoader").call("load_scene", scene_path)
 	else:

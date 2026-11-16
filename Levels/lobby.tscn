@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://d613o3c166fb"]
 
-[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://djtfkxh2qha8n" path="res://Assets/Legend of Rakshaka/UI HUD/pantai layer1.png" id="2_46ad4"]
 [ext_resource type="Script" uid="uid://wwj4ntoc2k04" path="res://Script/Lobby/lobby.gd" id="2_lobby"]
-[ext_resource type="AudioStream" path="res://Assets/Legend of Rakshaka/BGM/Lobby Theme.ogg" id="lobby_music"]
 [ext_resource type="Script" uid="uid://d3r73cq02in48" path="res://Script/Lobby/lobby_interactable.gd" id="3_interact"]
 [ext_resource type="Script" uid="uid://d3k0ahlsbgywk" path="res://Script/Control/camera.gd" id="4_camera"]
 [ext_resource type="Script" uid="uid://hgi6toxkfov2" path="res://Script/UI/gui.gd" id="5_gui"]
 [ext_resource type="Texture2D" uid="uid://lvfoclcmqxkg" path="res://Assets/metroid_asset_1_2/Sprites/UI/HeartSpriteSheet.png" id="6_heart"]
 [ext_resource type="Texture2D" uid="uid://u5rns0nhucsr" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/coin.png" id="7_coin"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="99_pause"]
+[ext_resource type="AudioStream" uid="uid://brqgvb5f5l5yn" path="res://Assets/Legend of Rakshaka/BGM/Lobby Theme.ogg" id="lobby_music"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ad4"]
+atlas = ExtResource("2_46ad4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
-size = Vector2(900, 32)
+size = Vector2(970, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
 size = Vector2(72, 110)
@@ -41,32 +45,34 @@ corner_radius_bottom_left = 6
 [node name="Lobby" type="Node2D" unique_id=1666772771]
 script = ExtResource("2_lobby")
 
-[node name="LobbyMusic" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundImage" type="Sprite2D" parent="." unique_id=471049769]
+position = Vector2(-5.4836273e-06, -2.9802322e-06)
+scale = Vector2(1.4444444, 1.0864197)
+texture = SubResource("AtlasTexture_46ad4")
+
+[node name="LobbyMusic" type="AudioStreamPlayer" parent="." unique_id=1607828449]
 process_mode = 3
 stream = ExtResource("lobby_music")
 bus = &"Music"
 
 [node name="Background" type="Polygon2D" parent="." unique_id=1175512521]
+visible = false
 color = Color(0.075, 0.095, 0.13, 1)
 polygon = PackedVector2Array(-520, -220, 520, -220, 520, 220, -520, 220)
-
-[node name="BackWall" type="Polygon2D" parent="." unique_id=148860373]
-position = Vector2(0, 86)
-color = Color(0.16, 0.19, 0.24, 1)
-polygon = PackedVector2Array(-520, -48, 520, -48, 520, 48, -520, 48)
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1494266535]
 collision_layer = 2
 collision_mask = 0
 
 [node name="FloorShape" type="CollisionShape2D" parent="Floor" unique_id=2125321164]
-position = Vector2(0, 132)
+position = Vector2(-35, 131)
 shape = SubResource("RectangleShape2D_floor")
 
 [node name="FloorVisual" type="Polygon2D" parent="Floor" unique_id=202309222]
-position = Vector2(0, 132)
+position = Vector2(0.13305664, 170.64706)
+scale = Vector2(0.99970436, 3.1470587)
 color = Color(0.26, 0.31, 0.34, 1)
-polygon = PackedVector2Array(-450, -16, 450, -16, 450, 16, -450, 16)
+polygon = PackedVector2Array(-520.28687, -18, 450, -16, 450, 16, -37.303955, 15.799103, -520.28687, 15.599998)
 
 [node name="Player" parent="." unique_id=2432108 instance=ExtResource("1_player")]
 position = Vector2(-344, 98)
@@ -74,7 +80,6 @@ position = Vector2(-344, 98)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=145877302 node_paths=PackedStringArray("target")]
 zoom = Vector2(3, 3)
 process_callback = 0
-position_smoothing_enabled = false
 position_smoothing_speed = 6.0
 script = ExtResource("4_camera")
 target = NodePath("../Player")
@@ -344,4 +349,4 @@ offset_right = 380.0
 offset_bottom = 282.0
 text = "Tutup"
 
-[node name="PauseMenu" parent="." instance=ExtResource("99_pause")]
+[node name="PauseMenu" parent="." unique_id=1764094886 instance=ExtResource("99_pause")]

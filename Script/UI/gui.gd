@@ -10,7 +10,6 @@ func _ready() -> void:
 	add_child(health_hud)
 	$coin_sprite.position = Vector2(27, 86)
 	$coin_number.position = Vector2(55, 63)
-	add_child(preload("res://Scenes/UI/mobile_controls.tscn").instantiate())
 	refresh()
 
 func _process(_delta: float) -> void:

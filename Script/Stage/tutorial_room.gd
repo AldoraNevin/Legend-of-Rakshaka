@@ -204,3 +204,4 @@ func show_gate_hint() -> void:
 func _exit_tree() -> void:
 	if step in [Step.DIALOGUE, Step.REPORT_DIALOGUE] and is_instance_valid(player):
 		player.set_physics_process(previous_physics)
+

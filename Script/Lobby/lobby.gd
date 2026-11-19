@@ -24,7 +24,7 @@ var bestiary_catalog: Control
 func _ready() -> void:
 	# Keep this track owned by the lobby so it stops when leaving the scene.
 	ProjectMusicController.stop()
-	$LobbyMusic.play()
+	preload("res://Script/Audio/game_audio.gd").configure_music($LobbyMusic, true)
 	bestiary_catalog = preload("res://Scenes/Interactables/bestiary_catalog.tscn").instantiate()
 	$LobbyUI.add_child(bestiary_catalog)
 	$LobbyUI.visible = true
@@ -108,23 +108,10 @@ func _change_to_scene(scene_path: String) -> void:
 	if not is_inside_tree():
 		return
 
-	if OS.has_feature("android") or "--android-scene-loading" in OS.get_cmdline_user_args():
-		# Avoid background resource-loading stalls on Android. Keep the lobby
-		# available until the scene has loaded so failures can be reported.
-		open_message_panel("Memuat stage", "Mohon tunggu...")
-		await get_tree().process_frame
-		await get_tree().process_frame
-		if not is_inside_tree():
-			return
-		var error := get_tree().change_scene_to_file(scene_path)
-		if error != OK:
-			travel_pending = false
-			open_message_panel("Stage gagal dimuat", "Kode error: %s. Coba kembali melalui portal." % error_string(error))
-		return
-	if has_node("/root/SceneLoader"):
-		get_node("/root/SceneLoader").call("load_scene", scene_path)
-	else:
-		get_tree().change_scene_to_file(scene_path)
+	var error: int = await RoomLoading.change_scene(scene_path)
+	if error != OK:
+		travel_pending = false
+		open_message_panel("Stage gagal dimuat", "Kode error: %s. Coba kembali melalui portal." % error_string(error))
 
 
 func close_panels() -> void:

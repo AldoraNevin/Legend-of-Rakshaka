@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dthdv81vgwqbp"
-path="res://.godot/imported/tileset pantai(1).png-9face3cbca00a90e4ad995be20b5b425.ctex"
+uid="uid://cue6kk5v5dupa"
+path="res://.godot/imported/Pixel art banyan and temple sprite atlas.png-024ed9d3ab0c8e55c502617c6d6d293c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/Environment/tileset pantai(1).png"
-dest_files=["res://.godot/imported/tileset pantai(1).png-9face3cbca00a90e4ad995be20b5b425.ctex"]
+source_file="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Pixel art banyan and temple sprite atlas.png"
+dest_files=["res://.godot/imported/Pixel art banyan and temple sprite atlas.png-024ed9d3ab0c8e55c502617c6d6d293c.ctex"]
 
 [params]
 

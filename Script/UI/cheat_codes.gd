@@ -1,5 +1,5 @@
 extends Node
-## Session-only flags. Never grant artifacts or save these flags to the profile.
+## Movement and invulnerability flags are session-only; artifact unlocks persist.
 var double_jump := false
 var god_mode := false
 const ADAPTER = preload("res://Script/Save/room_checkpoint_adapter.gd")
@@ -23,6 +23,10 @@ func execute(raw: String) -> String:
 		else:
 			god_mode = enabled
 		return "%s %s." % [code, "aktif" if enabled else "nonaktif"]
+	if code == "ALLARTIFACTS":
+		if words.size() != 1:
+			return "Gunakan ALLARTIFACTS tanpa tambahan."
+		return unlock_all_artifacts()
 	if words.size() != 1 or not DESTINATIONS.has(code):
 		return "Kode tidak dikenal. Lihat daftar kode di atas."
 	var stage := get_tree().current_scene
@@ -35,11 +39,30 @@ func execute(raw: String) -> String:
 	var target: int = DESTINATIONS[code]
 	if not stage.templates.has(target):
 		return "Ruangan tujuan belum tersedia."
-	stage.stage_finished = false
-	stage.node_id = target
-	stage.current_room_index = target
-	stage.load_next_room()
-	if not is_instance_valid(stage.current_room):
-		return "Ruangan gagal dibuat. Periksa Output Godot."
-	stage.player.velocity = Vector2.ZERO
-	return "Berpindah ke %s. Tekan Back lalu Continue." % stage.stage_graph[target].label
+	if RoomLoading.busy:
+		return "Tunggu proses loading selesai."
+	stage.travel_to_room.call_deferred(target)
+	return "Memuat %s. Setelah selesai, tekan Back lalu Continue." % stage.stage_graph[target].label
+
+
+
+func unlock_all_artifacts() -> String:
+	if CheckpointManager.loading:
+		return "Tunggu proses load selesai."
+	player_data.init_system()
+	var artifacts: Array = player_data.bestiary_master.get("artifacts", [])
+	if artifacts.is_empty():
+		return "Data artefak belum tersedia."
+	for artifact in artifacts:
+		var artifact_name: String = artifact.get("name", "")
+		if not artifact_name.is_empty() and artifact_name not in player_data.discovered_artifacts:
+			player_data.discovered_artifacts.append(artifact_name)
+	player_data.sync_bestiary_status()
+	for player in get_tree().get_nodes_in_group("player"):
+		if player.has_method("refresh_artifact_stats"):
+			player.refresh_artifact_stats()
+	if not player_data.save_to_json():
+		return "Semua artefak terbuka, tetapi save gagal. Coba lagi."
+	if not CheckpointManager.enabled or CheckpointManager.active_slot < 0:
+		return "Semua artefak terbuka untuk sesi ini (tidak ada slot save aktif)."
+	return "Semua artefak terbuka dan tersimpan di slot aktif."

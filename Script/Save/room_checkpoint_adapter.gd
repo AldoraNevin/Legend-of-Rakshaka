@@ -1,5 +1,10 @@
 extends RefCounted
 ## Compatibility boundary: observes existing generator API without editing levels.
+# These gameplay-only changes preserve the generated layout of existing saves.
+const PRE_TUTORIAL_UPDATE_HASHES := {
+	"res://Script/Stage/graph_stage.gd": "39e771d07683b290b9bac989a1e86672baf79954113af182ee174a3a852db455",
+	"res://Script/Stage/tutorial_room.gd": "76d07a6c7810753766b02f19794186c2ea7b68f0c6c167ea8e1c89885186402f"
+}
 const GENERATOR := "res://Script/Stage/graph_stage.gd"
 const GRAPH := preload("res://Script/Stage/stage_graph.gd")
 
@@ -11,16 +16,17 @@ static func supports(node: Node) -> bool:
 		script = script.get_base_script()
 	return false
 
-static func signature(scene_path: String, room_path: String) -> String:
+static func signature(scene_path: String, room_path: String, previous_tutorial := false) -> String:
+	var previous: Dictionary = PRE_TUTORIAL_UPDATE_HASHES if previous_tutorial else {}
 	var parts := ""
 	for path in [GENERATOR, "res://Script/level_2_generator.gd", "res://Script/Stage/stage_graph.gd", scene_path, room_path]:
-		parts += FileAccess.get_sha256(path)
+		parts += previous.get(path, FileAccess.get_sha256(path))
 	# Generated rooms also depend on stage helper scripts, not only their .tscn.
 	var scripts := DirAccess.get_files_at("res://Script/Stage")
 	scripts.sort()
 	for name in scripts:
 		if name.ends_with(".gd"):
-			parts += FileAccess.get_sha256("res://Script/Stage/" + name)
+			parts += previous.get("res://Script/Stage/" + name, FileAccess.get_sha256("res://Script/Stage/" + name))
 	return parts.sha256_text()
 
 static func capture(stage: Node) -> Dictionary:
@@ -86,7 +92,7 @@ static func exploration_error(data: Variant) -> String:
 	return ""
 
 static func capture_player() -> Dictionary:
-	return {"fatal_shield_used": player_data.fatal_shield_used, "health_version": player_data.HEALTH_VERSION, "coin": player_data.coin, "life": maxi(1, player_data.life),
+	return {"tutorial_completed": player_data.tutorial_completed, "attack_learned": player_data.attack_learned, "dash_learned": player_data.dash_learned, "fatal_shield_used": player_data.fatal_shield_used, "health_version": player_data.HEALTH_VERSION, "coin": player_data.coin, "life": maxi(1, player_data.life),
 		"max_life": player_data.max_life, "upgrades": player_data.upgrade_levels.duplicate(true),
 		"skills": player_data.unlocked_skill.duplicate(true),
 		"enemies": player_data.discovered_enemies.duplicate(true),
@@ -107,7 +113,7 @@ static func validation_error(data: Dictionary) -> String:
 		return "Seed checkpoint tidak valid."
 	if not str(data.scene).begins_with("res://") or not ResourceLoader.exists(data.scene) or not ResourceLoader.exists(data.room_scene):
 		return "Scene level sudah dipindahkan atau tidak tersedia."
-	if data.signature != signature(data.scene, data.room_scene):
+	if data.signature != signature(data.scene, data.room_scene) and data.signature != signature(data.scene, data.room_scene, true):
 		return "Level berubah sejak checkpoint dibuat. Mulai perjalanan baru."
 	if not data.get("player") is Dictionary or not data.get("stats") is Dictionary:
 		return "Data pemain tidak tersedia."
@@ -123,13 +129,21 @@ static func validation_error(data: Dictionary) -> String:
 	return ""
 
 static func player_error(p: Dictionary) -> String:
+	for key in ["tutorial_completed", "attack_learned", "dash_learned"]:
+		if p.has(key) and not p[key] is bool:
+			return "Data tutorial tidak valid."
 	for key in ["coin", "life", "max_life"]:
 		if not (p.get(key) is float or p.get(key) is int) or not is_finite(float(p[key])):
 			return "Statistik pemain tidak valid."
 	if p.life <= 0 or p.max_life < 1 or p.life > p.max_life or p.coin < 0:
 		return "Statistik pemain di luar batas."
-	if p.get("health_version", 1) == player_data.HEALTH_VERSION and int(p.max_life) != player_data.MAX_HEALTH:
-		return "Batas HP harus 100."
+	if p.get("health_version", 1) == player_data.HEALTH_VERSION:
+		var artifacts: Array = p.get("artifacts", []) if p.get("artifacts") is Array else []
+		var has_health_artifact := "jimat_kalimasada" in artifacts or "Jimat Kalimasada" in artifacts
+		var valid_max := int(p.max_life) == player_data.MAX_HEALTH
+		valid_max = valid_max or (has_health_artifact and int(p.max_life) == player_data.MAX_HEALTH + 25)
+		if not valid_max:
+			return "Batas HP tidak sesuai dengan artefak pemain."
 	if not p.get("upgrades") is Dictionary:
 		return "Data upgrade tidak valid."
 	for key in player_data.UPGRADE_DATA:
@@ -144,6 +158,7 @@ static func player_error(p: Dictionary) -> String:
 
 static func restore_player(data: Dictionary) -> void:
 	var p: Dictionary = data.player
+	player_data.restore_tutorial(p, int(data.get("room_id", 0)) > 0)
 	player_data.discovered_artifacts = p.artifacts.duplicate()
 	player_data.fatal_shield_used = bool(p.get("fatal_shield_used", false))
 	player_data.coin = int(p.coin)

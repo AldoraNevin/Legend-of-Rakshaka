@@ -329,16 +329,14 @@ func create_door(index: int) -> Area2D:
 	shape.shape = rectangle
 	door.add_child(shape)
 
-	var marker: Polygon2D = Polygon2D.new()
-	marker.color = Color(0.72, 0.24, 0.2, 0.9)
-	marker.polygon = PackedVector2Array([
-		Vector2(-18, 32),
-		Vector2(-18, -20),
-		Vector2(0, -34),
-		Vector2(18, -20),
-		Vector2(18, 32),
-	])
-	door.add_child(marker)
+	var sprite := Sprite2D.new()
+	sprite.texture = preload("res://Assets/UI/Pixel Temple Asset Atlas.png")
+	sprite.region_enabled = true
+	sprite.region_rect = Rect2(719, 772, 110, 208)
+	sprite.scale = Vector2(0.46363637, 0.46363637)
+	sprite.position.y = -14.0
+	sprite.z_index = -1
+	door.add_child(sprite)
 
 	var label: Label = Label.new()
 	label.text = pick_door_label()

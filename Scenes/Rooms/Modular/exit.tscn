@@ -57,6 +57,15 @@ side = "right"
 
 [node name="EnemySpawns" type="Node2D" parent="." unique_id=823432272]
 
+[node name="Encounter0" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(160, 144)
+
+[node name="Encounter1" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(240, 144)
+
+[node name="Encounter2" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(304, 144)
+
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1379517739]
 position = Vector2(64, 144)
 

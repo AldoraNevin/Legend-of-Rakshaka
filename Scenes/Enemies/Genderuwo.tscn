@@ -303,7 +303,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8dh1t")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -317,7 +317,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oy3g2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackActive",
 "speed": 5.0
 }, {
@@ -337,7 +337,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ewx7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackRecovery",
 "speed": 5.0
 }, {
@@ -366,7 +366,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qc4yl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackWindUp",
 "speed": 5.0
 }, {
@@ -392,7 +392,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_574gh")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Chase",
 "speed": 5.0
 }, {
@@ -430,7 +430,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bl253")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -447,7 +447,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6nhu2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Hit",
 "speed": 5.0
 }, {
@@ -473,13 +473,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sv1b7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vkj06"]
-radius = 33.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkn0g"]
+size = Vector2(44, 65)
 
 [sub_resource type="Animation" id="Animation_o21m5"]
 resource_name = "Attack"
@@ -748,12 +748,13 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d56rc"]
-radius = 33.0
+radius = 32.01562
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s66j4"]
-size = Vector2(65, 60)
+size = Vector2(47, 65)
 
 [node name="Genderuwo" type="CharacterBody2D" unique_id=1039303643]
+scale = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=582322803]
 texture_filter = 1
@@ -761,8 +762,8 @@ sprite_frames = SubResource("SpriteFrames_ip84r")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419811993]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_vkj06")
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_hkn0g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1716811675]
 libraries/ = SubResource("AnimationLibrary_px4ns")
@@ -777,7 +778,7 @@ shape = SubResource("CircleShape2D_d56rc")
 [node name="Hitbox" type="Area2D" parent="." unique_id=1089520419]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=865260024]
-position = Vector2(-0.5, 0)
+position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_s66j4")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1485690798]

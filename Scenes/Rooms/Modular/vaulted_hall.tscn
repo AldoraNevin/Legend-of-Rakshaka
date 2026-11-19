@@ -61,6 +61,9 @@ position = Vector2(552, 208)
 [node name="Enemy26" type="Marker2D" parent="EnemySpawns" unique_id=1785101105]
 position = Vector2(424, 208)
 
+[node name="Encounter0" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(296, 208)
+
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1134784752]
 position = Vector2(64, 208)
 

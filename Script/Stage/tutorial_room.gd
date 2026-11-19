@@ -191,6 +191,15 @@ func _hostile_defeated() -> void:
 	$GateHint.hide()
 	refresh_control_text()
 
+func configure_exit_visual(door: Area2D, index: int) -> void:
+	# Artwork lives in the editable room; the stage still owns the exit trigger.
+	var sprite := get_node_or_null("DoorSpawns/Marker%d/GateSprite" % index) as Sprite2D
+	if sprite == null or sprite.texture == null or not sprite.visible:
+		return
+	for child in door.get_children():
+		if child is Polygon2D or child is Sprite2D:
+			child.hide()
+
 func can_exit() -> bool:
 	return step == Step.COMPLETE
 

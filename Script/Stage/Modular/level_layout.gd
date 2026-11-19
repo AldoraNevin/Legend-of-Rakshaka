@@ -2,6 +2,7 @@ extends RefCounted
 ## Seeded graph -> weighted handmade templates -> socket alignment -> validation.
 ## All rectangles and cells use world coordinates. No room is scaled or mirrored.
 const TILE := 16
+const ENEMY_CATALOG = preload("res://Script/Stage/Modular/enemy_catalog.gd")
 var rng := RandomNumberGenerator.new()
 var settings: Resource
 var definitions: Array[Dictionary] = []
@@ -260,6 +261,9 @@ func assemble(seed_value: int) -> Dictionary:
 	var air := {}
 	var bounds: Rect2 = rooms[0].bounds
 	var enemies: Array[Vector2] = []
+	var encounters: Array[Dictionary] = []
+	var enemy_rng := RandomNumberGenerator.new()
+	enemy_rng.seed = seed_value ^ 0xE1E7
 	var rewards: Array[Dictionary] = []
 	for room in rooms:
 		var offset := Vector2i(room.position / TILE)
@@ -279,10 +283,15 @@ func assemble(seed_value: int) -> Dictionary:
 				if not cells.has(cell):
 					air[cell + offset] = true
 		bounds = bounds.merge(room.bounds)
-		if room.kind in ["combat", "junction"]:
-			for point in room.definition.enemies:
-				if rng.randf() < settings.enemy_spawn_chance:
-					enemies.append(point + room.position)
+		if room.definition.id not in ["tower", "short_tower"]:
+			var points: Array = room.definition.enemies.duplicate()
+			var species: String = ENEMY_CATALOG.SPECIES[enemy_rng.randi_range(0, ENEMY_CATALOG.SPECIES.size() - 1)]
+			var count := mini(enemy_rng.randi_range(2, 3), points.size())
+			for i in range(count):
+				var index := enemy_rng.randi_range(0, points.size() - 1)
+				var point: Vector2 = points.pop_at(index) + room.position
+				enemies.append(point)
+				encounters.append({"room_id": room.id, "species": species, "position": point})
 		if room.kind in ["treasure", "artifact"]:
 			rewards.append({"kind": room.kind, "room_id": room.id,
 				"position": room.position + room.definition.markers.RewardSpawn + Vector2(0, 16)})
@@ -302,7 +311,7 @@ func assemble(seed_value: int) -> Dictionary:
 		"spawn": first.position + first.definition.markers.PlayerSpawn,
 		"exit": last.position + last.definition.markers.PlayerSpawn,
 		"reward": last.position + last.definition.markers.RewardSpawn,
-		"enemies": enemies, "rewards": rewards}
+		"enemies": enemies, "encounters": encounters, "rewards": rewards}
 
 static func cell_rects(cells: Dictionary) -> Array[Rect2]:
 	var rows := {}

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://re6b3x81w2qw"]
 
 [ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="book"]
+[ext_resource type="Script" uid="uid://c62w713j5j0ig" path="res://Script/Stage/tutorial_dialogue_line.gd" id="dialogue_line"]
 [ext_resource type="FontFile" uid="uid://q8r42pd8vbfm" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="font"]
+[ext_resource type="Texture2D" uid="uid://tgwagf1di2fl" path="res://Assets/UI/Pixel Temple Asset Atlas.png" id="gate_atlas"]
+[ext_resource type="PackedScene" path="res://Scenes/Environment/lobby_parallax.tscn" id="parallax"]
 [ext_resource type="Script" uid="uid://kabvrfkj0pbl" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]
 [ext_resource type="Texture2D" uid="uid://tsfbhlmdyj7u" path="res://Assets/Legend of Rakshaka/NPC/Semar/Semar.png" id="semar"]
 [ext_resource type="Script" uid="uid://ckxghnp4ghgdw" path="res://Script/Stage/tutorial_room.gd" id="tutorial"]
-
-[ext_resource type="Script" path="res://Script/Stage/tutorial_dialogue_line.gd" id="dialogue_line"]
 
 [sub_resource type="RectangleShape2D" id="floor"]
 size = Vector2(832, 24)
@@ -158,31 +159,37 @@ PanelContainer/styles/panel = SubResource("paper_panel")
 [node name="TutorialRoom" type="Node2D" unique_id=768969811]
 script = ExtResource("tutorial")
 
-[node name="DialoguePages" type="Node" parent="."]
+[node name="LobbyParallax" parent="." unique_id=265816590 instance=ExtResource("parallax")]
+courtyard_width = 832.0
+floor_y = 384.0
+left_edge = 0.0
 
-[node name="Introduction" type="Node" parent="DialoguePages"]
+[node name="DialoguePages" type="Node" parent="." unique_id=1258606641]
 
-[node name="Greeting" type="Node" parent="DialoguePages/Introduction"]
+[node name="Introduction" type="Node" parent="DialoguePages" unique_id=1653108385]
+
+[node name="Greeting" type="Node" parent="DialoguePages/Introduction" unique_id=754421913]
 script = ExtResource("dialogue_line")
 text = "Selamat datang, Rakshaka! Aku Semar. Mari berlatih sebelum melanjutkan perjalanan."
 
-[node name="Movement" type="Node" parent="DialoguePages/Introduction"]
+[node name="Movement" type="Node" parent="DialoguePages/Introduction" unique_id=1945332247]
 script = ExtResource("dialogue_line")
 text = "Gunakan {ui_left} dan {ui_right} untuk bergerak. Tekan {ui_accept} untuk melompat; tekan lagi di udara untuk lompatan kedua."
 
-[node name="Combat" type="Node" parent="DialoguePages/Introduction"]
+[node name="Combat" type="Node" parent="DialoguePages/Introduction" unique_id=1164866377]
 script = ExtResource("dialogue_line")
 text = "Tekan {ui_sword} untuk menyerang dengan pedang. Tekan {ui_dash} untuk dash dan menghindari serangan."
 
-[node name="Practice" type="Node" parent="DialoguePages/Introduction"]
+[node name="Practice" type="Node" parent="DialoguePages/Introduction" unique_id=1892631738]
 script = ExtResource("dialogue_line")
 text = "Sekarang kalahkan Aul latihan. Setelah menang, kembali dan bicara denganku untuk melapor sebelum masuk gate."
 
-[node name="Report" type="Node" parent="DialoguePages"]
+[node name="Report" type="Node" parent="DialoguePages" unique_id=1868904762]
 script = ExtResource("dialogue_line")
 text = "Bagus, Rakshaka! Kamu sudah mengalahkan Aul dan menyelesaikan latihan. Gate telah siap. Lanjutkan perjalananmu ke Room 1!"
 
 [node name="Backdrop" type="Polygon2D" parent="." unique_id=11547515]
+visible = false
 z_index = -10
 color = Color(0.018, 0.055, 0.075, 1)
 polygon = PackedVector2Array(0, 0, 832, 0, 832, 384, 0, 384)
@@ -192,10 +199,11 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Floor" unique_id=1670678085]
-position = Vector2(416, 396)
+position = Vector2(416, 412)
 shape = SubResource("floor")
 
 [node name="Visual" type="Polygon2D" parent="Floor" unique_id=2031915003]
+visible = false
 color = Color(0.08, 0.24, 0.25, 1)
 polygon = PackedVector2Array(0, 384, 832, 384, 832, 408, 0, 408)
 
@@ -208,6 +216,7 @@ position = Vector2(416, -12)
 shape = SubResource("floor")
 
 [node name="Visual" type="Polygon2D" parent="Ceiling" unique_id=1103641163]
+visible = false
 color = Color(0.08, 0.24, 0.25, 1)
 polygon = PackedVector2Array(0, -24, 832, -24, 832, 0, 0, 0)
 
@@ -220,6 +229,7 @@ position = Vector2(-12, 192)
 shape = SubResource("wall")
 
 [node name="Visual" type="Polygon2D" parent="Left" unique_id=1363036021]
+visible = false
 color = Color(0.08, 0.24, 0.25, 1)
 polygon = PackedVector2Array(-24, 0, 0, 0, 0, 384, -24, 384)
 
@@ -232,6 +242,7 @@ position = Vector2(844, 192)
 shape = SubResource("wall")
 
 [node name="Visual" type="Polygon2D" parent="Right" unique_id=1333544243]
+visible = false
 color = Color(0.08, 0.24, 0.25, 1)
 polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
 
@@ -239,9 +250,19 @@ polygon = PackedVector2Array(832, 0, 856, 0, 856, 384, 832, 384)
 position = Vector2(420, 350)
 
 [node name="DoorSpawns" type="Node2D" parent="." unique_id=1124618269]
+position = Vector2(2, 16)
 
 [node name="Marker0" type="Marker2D" parent="DoorSpawns" unique_id=75431791]
 position = Vector2(640, 350)
+
+[node name="GateSprite" type="Sprite2D" parent="DoorSpawns/Marker0" unique_id=1548118657]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -14)
+scale = Vector2(0.46363637, 0.46363637)
+texture = ExtResource("gate_atlas")
+region_enabled = true
+region_rect = Rect2(719, 772, 110, 208)
 
 [node name="Marker1" type="Marker2D" parent="DoorSpawns" unique_id=1569715822]
 position = Vector2(760, 350)
@@ -249,6 +270,7 @@ position = Vector2(760, 350)
 [node name="EnemySpawns" type="Node2D" parent="." unique_id=1294395546]
 
 [node name="SeaMist" type="Node2D" parent="." unique_id=1204223004]
+visible = false
 z_index = -3
 position = Vector2(145, 252)
 script = ExtResource("sea")
@@ -257,7 +279,7 @@ script = ExtResource("sea")
 position = Vector2(470, 350)
 
 [node name="NPC" type="Area2D" parent="." unique_id=1505947515]
-position = Vector2(170, 350)
+position = Vector2(170, 364)
 collision_layer = 0
 
 [node name="Range" type="CollisionShape2D" parent="NPC" unique_id=1722181529]
@@ -321,7 +343,7 @@ text = "Bicara dengan Semar (E)."
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="Dialogue" type="PanelContainer" parent="TutorialUI"]
+[node name="Dialogue" type="PanelContainer" parent="TutorialUI" unique_id=130696925]
 texture_filter = 1
 offset_left = 40.0
 offset_top = 100.0
@@ -329,32 +351,32 @@ offset_right = 660.0
 offset_bottom = 300.0
 theme = SubResource("tutorial_theme")
 
-[node name="Margin" type="MarginContainer" parent="TutorialUI/Dialogue"]
+[node name="Margin" type="MarginContainer" parent="TutorialUI/Dialogue" unique_id=2115281617]
 layout_mode = 2
 theme_override_constants/margin_left = 22
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 22
 theme_override_constants/margin_bottom = 16
 
-[node name="Content" type="VBoxContainer" parent="TutorialUI/Dialogue/Margin"]
+[node name="Content" type="VBoxContainer" parent="TutorialUI/Dialogue/Margin" unique_id=844838924]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Speaker" type="Label" parent="TutorialUI/Dialogue/Margin/Content"]
+[node name="Speaker" type="Label" parent="TutorialUI/Dialogue/Margin/Content" unique_id=1604119437]
 layout_mode = 2
 text = "Semar"
 
-[node name="Body" type="Label" parent="TutorialUI/Dialogue/Margin/Content"]
+[node name="Body" type="Label" parent="TutorialUI/Dialogue/Margin/Content" unique_id=1354981136]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 text = "Selamat datang, Rakshaka!"
 autowrap_mode = 2
 
-[node name="Next" type="Button" parent="TutorialUI/Dialogue/Margin/Content"]
+[node name="Next" type="Button" parent="TutorialUI/Dialogue/Margin/Content" unique_id=1829621062]
 layout_mode = 2
 size_flags_horizontal = 8
 focus_mode = 0
 text = "Lanjut"
+
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1336981937]
 position = Vector2(64, 350)
-

@@ -285,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t4mgj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 7.0
 }, {
@@ -302,7 +302,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddj0k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackActive",
 "speed": 6.0
 }, {
@@ -319,7 +319,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vujag")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackRecovery",
 "speed": 6.0
 }, {
@@ -342,7 +342,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xr83y")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackWindUp",
 "speed": 6.0
 }, {
@@ -368,7 +368,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k8om2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Chase",
 "speed": 5.0
 }, {
@@ -406,7 +406,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f326y")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dead",
 "speed": 6.0
 }, {
@@ -423,7 +423,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m6umw")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Hit",
 "speed": 6.0
 }, {
@@ -452,13 +452,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_krmmr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4b5qn"]
-radius = 46.043457
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec212"]
+size = Vector2(70, 91)
 
 [sub_resource type="Animation" id="Animation_n0iyd"]
 resource_name = "Attack"
@@ -740,8 +740,8 @@ sprite_frames = SubResource("SpriteFrames_lifls")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=22412110]
-position = Vector2(-4, 7)
-shape = SubResource("CircleShape2D_4b5qn")
+position = Vector2(-5, 6.5)
+shape = SubResource("RectangleShape2D_ec212")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=988242555]
 libraries/ = SubResource("AnimationLibrary_lpvyb")

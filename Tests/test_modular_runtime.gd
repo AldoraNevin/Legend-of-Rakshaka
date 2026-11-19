@@ -9,6 +9,14 @@ func run_test() -> void:
 	stage.player.set_physics_process(false)
 	var room: Node2D = stage.current_room
 	assert(room.get_meta("modular_level", false))
+	assert(stage.enemies.get_child_count() == room.layout.encounters.size())
+	assert(stage.active_enemies.size() == room.layout.encounters.size())
+	for i in range(room.layout.encounters.size()):
+		var enemy: Node2D = stage.enemies.get_child(i)
+		var encounter: Dictionary = room.layout.encounters[i]
+		assert(enemy.get_meta("modular_room_id") == encounter.room_id)
+		assert(enemy.global_position == room.to_global(encounter.position))
+		assert(enemy.home_x == enemy.global_position.x)
 	assert(stage.camera.limit_left == floori(room.layout.bounds.position.x))
 	assert(stage.camera.limit_bottom == ceili(room.layout.bounds.end.y))
 	var actual := {}
@@ -52,6 +60,10 @@ func run_test() -> void:
 	artifact._unhandled_input(interact)
 	assert(player_data.discovered_artifacts.size() == discovered)
 	assert(not room.exit_open) # Optional rewards never unlock/skip combat.
+	for enemy in stage.enemies.get_children():
+		enemy.queue_free()
+	await process_frame
+	assert(stage.active_enemies.is_empty() and room.exit_open)
 	stage.queue_free()
 	await process_frame
 	print("PASS: active stage uses authored tiles, map matches, M/Escape pause works, camera bounds, treasure once, artifact catalog unlock.")

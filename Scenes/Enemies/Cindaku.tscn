@@ -174,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xk84e")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -203,7 +203,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfsg5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Chase",
 "speed": 5.0
 }, {
@@ -223,7 +223,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7dgqn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -252,7 +252,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hf4wl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Hit",
 "speed": 5.0
 }, {
@@ -281,13 +281,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w17xt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t3kyo"]
-radius = 43.046486
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b5qn"]
+size = Vector2(81, 76)
 
 [sub_resource type="Animation" id="Animation_2vlvd"]
 resource_name = "Attack"
@@ -472,7 +472,7 @@ _data = {
 radius = 43.011627
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7hhv"]
-size = Vector2(79, 85)
+size = Vector2(79, 84)
 
 [node name="Cindaku" type="CharacterBody2D" unique_id=328027546]
 
@@ -483,8 +483,8 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=85053491]
-position = Vector2(3, 7)
-shape = SubResource("CircleShape2D_t3kyo")
+position = Vector2(5.5, 10)
+shape = SubResource("RectangleShape2D_4b5qn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=658946346]
 libraries/ = SubResource("AnimationLibrary_a8fwa")
@@ -499,7 +499,7 @@ shape = SubResource("CircleShape2D_hqjx6")
 [node name="Hitbox" type="Area2D" parent="." unique_id=412439868]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1856320806]
-position = Vector2(6.5, 6.5)
+position = Vector2(5, 6)
 shape = SubResource("RectangleShape2D_v7hhv")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=211923351]

@@ -13,6 +13,7 @@ var templates: Dictionary = {}
 var stage_finished := false
 var stage_seed := 0
 @export_range(1.0, 4.0, 0.1) var boss_camera_zoom := 2.4
+@export_range(1.0, 4.0, 0.1) var tutorial_camera_zoom := 1.4
 @onready var normal_camera_zoom: Vector2 = camera.zoom
 
 func apply_camera_limits() -> void:
@@ -25,6 +26,14 @@ func apply_camera_limits() -> void:
 		camera.limit_top = int(origin.y) - 16
 		camera.limit_right = int(origin.x) + 848
 		camera.limit_bottom = int(origin.y) + 416
+	elif not stage_graph.is_empty() and stage_graph[node_id].kind == "start":
+		camera.zoom = Vector2.ONE * tutorial_camera_zoom
+		# Frame the courtyard artwork, including the sky and paving below the floor.
+		var origin := current_room.global_position
+		camera.limit_left = int(origin.x)
+		camera.limit_top = int(origin.y) + 14
+		camera.limit_right = int(origin.x) + 832
+		camera.limit_bottom = int(origin.y) + 482
 	else:
 		camera.zoom = normal_camera_zoom
 
@@ -70,7 +79,16 @@ func build_template_room(template: PackedScene) -> void:
 			return
 		print(stage_graph[node_id].label, " seed: ", stage_graph[node_id].room_seed)
 		room_root.add_child(current_room)
-		spawn_from_markers("EnemySpawns", ENEMY_SCENE, enemies)
+		if current_room.get_meta("modular_level", false):
+			for encounter in current_room.layout.encounters:
+				var enemy := preload("res://Script/Stage/Modular/enemy_catalog.gd").create(encounter.species)
+				enemy.set_meta("modular_room_id", encounter.room_id)
+				enemies.add_child(enemy)
+				enemy.global_position = current_room.to_global(encounter.position)
+				# Enemies is a plain Node; reset the patrol origin after placement.
+				enemy.home_x = enemy.global_position.x
+		else:
+			spawn_from_markers("EnemySpawns", ENEMY_SCENE, enemies)
 		spawn_from_markers("SpikeSpawns", SPIKE_SCENE, spikes)
 	else:
 		super.build_template_room(template)
@@ -112,6 +130,8 @@ func show_door_choices() -> void:
 	for i in range(targets.size()):
 		var target: int = targets[i]
 		var door := create_door(i)
+		if current_room.has_method("configure_exit_visual"):
+			current_room.configure_exit_visual(door, i)
 		door.body_entered.disconnect(_on_door_body_entered)
 		door.body_entered.connect(_enter_graph_door.bind(target))
 		for child in door.get_children():

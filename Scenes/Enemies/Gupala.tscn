@@ -258,7 +258,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ci7mp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -272,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_61qjl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackActive",
 "speed": 5.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r84xp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackRecovery",
 "speed": 5.0
 }, {
@@ -312,7 +312,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_da3dm")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackWindUp",
 "speed": 5.0
 }, {
@@ -329,7 +329,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sk2q4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Chase",
 "speed": 5.0
 }, {
@@ -361,7 +361,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m3601")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -381,7 +381,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_byl48")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Hit",
 "speed": 5.0
 }, {
@@ -410,10 +410,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ys1qs")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkj06"]
+size = Vector2(44, 79)
 
 [sub_resource type="Animation" id="Animation_biu04"]
 resource_name = "Attack"
@@ -680,6 +683,12 @@ _data = {
 &"RESET": SubResource("Animation_sou6s")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql73s"]
+size = Vector2(44, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0s4m"]
+size = Vector2(44, 79)
+
 [node name="Gupala" type="CharacterBody2D" unique_id=2722937]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1327903048]
@@ -689,7 +698,23 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1433658568]
+position = Vector2(-13, -2.5)
+shape = SubResource("RectangleShape2D_vkj06")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1570098197]
 libraries/ = SubResource("AnimationLibrary_1a3hb")
 autoplay = &"Idle"
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=774316747]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=75499239]
+position = Vector2(-13, -2.5)
+shape = SubResource("RectangleShape2D_ql73s")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1974756721]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1886336757]
+position = Vector2(-13, -2.5)
+shape = SubResource("RectangleShape2D_v0s4m")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=166996984]

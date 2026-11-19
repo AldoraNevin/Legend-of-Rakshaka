@@ -21,6 +21,8 @@ buses/default_bus_layout="uid://bwiobqla1xybg"
 
 [autoload]
 
+CheatCodes="*res://Script/UI/cheat_codes.gd"
+
 CheckpointManager="*res://Script/Save/checkpoint_manager.gd"
 AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"

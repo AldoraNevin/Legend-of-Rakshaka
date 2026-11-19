@@ -167,7 +167,7 @@ func input_movement(delta: float, can_move := true) -> void:
 		velocity.y *= 0.5
 
 func refresh_jump_ability() -> void:
-	max_jump = 2 if player_data.has_artifact(double_jump_artifact_id) else 1
+	max_jump = 2 if CheatCodes.double_jump or player_data.has_artifact(double_jump_artifact_id) else 1
 	# Walking off a ledge consumes the ground jump, preventing an extra mid-air jump.
 	if not is_on_floor():
 		jump_count = maxi(jump_count, 1)
@@ -222,7 +222,7 @@ func start_dash() -> void:
 
 
 func take_damage(amount: int = 10, source: Node = null, projectile := false) -> void:
-	if is_dead or is_invincible or amount <= 0:
+	if is_dead or is_invincible or CheatCodes.god_mode or amount <= 0:
 		return
 
 	var damage := player_data.incoming_damage(amount, projectile)

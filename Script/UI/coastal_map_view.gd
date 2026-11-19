@@ -91,7 +91,7 @@ func _draw() -> void:
 			draw_line(points[0], points[1], color, 1.5)
 	draw_fog(bounds)
 	map_marker(room.get_node("PlayerSpawn").position, "IN", MAIN)
-	map_marker(room.get_node("DoorSpawns/Exit").position, "EXIT" if room.exit_open else "EXIT x", Color(0.5, 1, 0.5) if room.exit_open else Color(1, 0.5, 0.4))
+	map_marker(room.get_node("DoorSpawns/Exit").position, "EXIT" if room.exit_open else "EXIT x", Color(0.5, 1, 0.5) if room.exit_open else Color(1, 0.5, 0.4), true)
 	for chest_name in ["OptionalTreasure", "BonusTreasure"]:
 		var chest := room.get_node_or_null(chest_name) as Node2D
 		if chest != null:
@@ -141,8 +141,8 @@ func collect_surfaces() -> Array[Dictionary]:
 		surfaces.append({"points": points, "one_way": collider.one_way_collision})
 	return surfaces
 
-func map_marker(point: Vector2, title: String, color: Color) -> void:
-	if not is_explored(point):
+func map_marker(point: Vector2, title: String, color: Color, always_visible := false) -> void:
+	if not always_visible and not is_explored(point):
 		return
 	var position_on_map := map_point(point)
 	draw_rect(Rect2(position_on_map - Vector2(3, 3), Vector2(6, 6)), color)

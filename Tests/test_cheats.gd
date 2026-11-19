@@ -40,6 +40,16 @@ func run_test() -> void:
 	cheats.execute("DOUBLEJUMP OFF")
 	player.refresh_jump_ability()
 	check(player.max_jump == (2 if player_data.has_artifact(player.double_jump_artifact_id) else 1), "OFF restores artifact ability")
+	var prior_artifacts := player_data.discovered_artifacts.duplicate()
+	check("tanpa tambahan" in cheats.execute("ALLARTIFACTS OFF"), "Invalid unlock argument rejected")
+	check(player_data.discovered_artifacts == prior_artifacts, "Invalid code does not unlock artifacts")
+	check("Semua artefak terbuka" in cheats.execute(" allartifacts "), "Artifact cheat accepts case and whitespace")
+	for artifact in player_data.bestiary_master.artifacts:
+		check(player_data.has_artifact(artifact.entity_id) and artifact.is_unlocked, "Artifact unlocked: " + artifact.name)
+	var unlocked_count := player_data.discovered_artifacts.size()
+	cheats.execute("ALLARTIFACTS")
+	check(player_data.discovered_artifacts.size() == unlocked_count, "Repeated code does not duplicate artifacts")
+	check(player.max_jump == 2, "Artifact abilities refresh immediately")
 	var pause = stage.get_node("PauseMenu")
 	paused = false
 	pause.open_pause()
@@ -49,6 +59,8 @@ func run_test() -> void:
 	pause.cheats.get_node("CodeInput").text_submitted.emit("ROOM2")
 	await process_frame
 	await process_frame
+	while root.get_node("RoomLoading").busy:
+		await process_frame
 	check(stage.node_id == 2 and is_instance_valid(stage.current_room), "Room jump via UI works")
 	check(paused and pause.cheats.visible, "Room jump stays paused")
 	check(player.global_position.distance_to(stage.current_room.get_node("PlayerSpawn").global_position) < 10, "Room entry spawn restored")

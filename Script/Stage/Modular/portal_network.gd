@@ -15,10 +15,11 @@ func configure(level: Node2D) -> void:
 	room = level
 	for data in room.layout.rooms:
 		if data.kind in ["treasure", "artifact"]:
-			add_portal("Portal", data.position + data.definition.markers.PlayerSpawn, "%s_%d" % [data.kind, data.id])
+			add_portal("Portal", data.position + data.definition.markers.PlayerSpawn + Vector2(50, 35), "%s_%d" % [data.kind, data.id])
 		elif data.kind == "exit":
 			# The exit door occupies PlayerSpawn. RewardSpawn is a separate safe landing.
-			add_portal("Portal", data.position + data.definition.markers.RewardSpawn, "exit_%d" % data.id)
+			add_portal("Portal", data.position + data.definition.markers.RewardSpawn + Vector2(50, 35), "exit_%d" % data.id)
+	add_portal("Portal", room.layout.spawn + Vector2(50, 35), "entrance")
 
 func add_portal(title: String, point: Vector2, portal_id: String) -> void:
 	var portal := PORTAL.new()

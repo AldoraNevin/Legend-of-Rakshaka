@@ -15,6 +15,9 @@ const ENCRYPTION_KEY := "RakshakaNusantaraKey2026AES256"
 # ==============================================================================
 static var player_id: String = "Saka_01"
 static var coin: int = 0
+static var tutorial_completed := false
+static var attack_learned := false
+static var dash_learned := false
 const MAX_HEALTH := 100
 const HEALTH_VERSION := 2
 
@@ -97,6 +100,7 @@ static func save_to_json() -> bool:
 
 	var save_dict: Dictionary = {
 		"player_id": player_id,
+		"tutorial_completed": tutorial_completed, "attack_learned": attack_learned, "dash_learned": dash_learned,
 		"exp_point": coin,
 		"coin": coin,
 		"health_version": HEALTH_VERSION,
@@ -201,6 +205,7 @@ static func load_game_data() -> bool:
 
 
 static func _apply_loaded_dict(data: Dictionary) -> void:
+	restore_tutorial(data)
 	player_id = data.get("player_id", player_id)
 	coin = data.get("coin", data.get("exp_point", coin))
 	max_life = MAX_HEALTH
@@ -422,6 +427,9 @@ static func _remove_file(path: String) -> void:
 
 
 static func reset_progress() -> void:
+	tutorial_completed = false
+	attack_learned = false
+	dash_learned = false
 	fatal_shield_used = false
 	coin = 0
 	max_life = MAX_HEALTH
@@ -471,3 +479,22 @@ static func melee_damage(base: int, critical_roll: float = 1.0) -> int:
 
 static func enemy_resource_reward(base: int = 1) -> void:
 	add_gold(ceili(base * 1.5) if has_artifact("pring_pethuk") else base)
+
+
+static func restore_tutorial(data: Dictionary, legacy_completed := false) -> void:
+	tutorial_completed = bool(data.get("tutorial_completed", legacy_completed))
+	attack_learned = tutorial_completed or bool(data.get("attack_learned", false))
+	dash_learned = tutorial_completed or bool(data.get("dash_learned", false))
+
+static func learn_combat() -> void:
+	if attack_learned and dash_learned:
+		return
+	attack_learned = true
+	dash_learned = true
+	save_to_json()
+
+static func complete_tutorial() -> void:
+	tutorial_completed = true
+	attack_learned = true
+	dash_learned = true
+	save_to_json()

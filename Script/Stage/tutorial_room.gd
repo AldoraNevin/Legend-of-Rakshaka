@@ -32,6 +32,12 @@ func _ready() -> void:
 	$NPC.body_entered.connect(_npc_entered)
 	$NPC.body_exited.connect(_npc_exited)
 	$TutorialUI/Dialogue/Margin/Content/Next.pressed.connect(advance_dialogue)
+	if player_data.tutorial_completed:
+		step = Step.COMPLETE
+	var music := AudioStreamPlayer.new()
+	music.name = "TutorialMusic"
+	add_child(music)
+	preload("res://Script/Audio/game_audio.gd").configure_music(music, true, true)
 	refresh_control_text()
 
 # Read the same live InputMap modified by the Controls menu.
@@ -139,6 +145,8 @@ func show_page() -> void:
 	if page >= instructions.size():
 		begin_practice()
 		return
+	if $DialoguePages/Introduction.get_child(page).name == "Combat":
+		player_data.learn_combat()
 	refresh_control_text()
 	position_dialogue()
 
@@ -147,7 +155,20 @@ func position_dialogue() -> void:
 	# Semar through camera movement while keeping text at readable UI scale.
 	var head: Vector2 = $NPC.get_global_transform_with_canvas() * Vector2(0, -60)
 	var viewport_size := get_viewport_rect().size
-	dialogue.size.x = minf(620.0, viewport_size.x - 24.0)
+	# Measure rendered text so short pages shrink and long pages wrap.
+	var font := body_text.get_theme_font("font")
+	var font_size := body_text.get_theme_font_size("font_size")
+	var text_width := 0.0
+	for line in body_text.text.split("\n"):
+		text_width = maxf(text_width, font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x)
+	var padding := 60.0
+	var next_button: Button = $TutorialUI/Dialogue/Margin/Content/Next
+	var speaker: Label = $TutorialUI/Dialogue/Margin/Content/Speaker
+	var minimum_width := maxf(220.0, maxf(next_button.get_combined_minimum_size().x, speaker.get_minimum_size().x) + padding)
+	var maximum_width := minf(480.0, viewport_size.x - 24.0)
+	var width := minf(maxf(text_width + padding, minimum_width), maximum_width)
+	# Reset height as well, allowing the container to shrink after longer pages.
+	dialogue.size = Vector2(width, 0)
 	var desired := head - Vector2(dialogue.size.x * 0.5, dialogue.size.y + 12.0)
 	dialogue.position = Vector2(
 		clampf(desired.x, 12.0, maxf(12.0, viewport_size.x - dialogue.size.x - 12.0)),
@@ -159,6 +180,7 @@ func advance_dialogue() -> void:
 		if is_instance_valid(player):
 			player.set_physics_process(previous_physics)
 		step = Step.COMPLETE
+		player_data.complete_tutorial()
 		objective.text = "%s: Latihan selesai! Masuk gate menuju Room 1." % npc_name
 		return
 	if step != Step.DIALOGUE:

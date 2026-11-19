@@ -58,7 +58,14 @@ var current_state := PlayerStates.MOVE
 @onready var sword_collider: CollisionShape2D = $sword/Sword_Collider
 
 
+var action_sound: AudioStreamPlayer
+const GAME_AUDIO = preload("res://Script/Audio/game_audio.gd")
+
 func _ready() -> void:
+	action_sound = AudioStreamPlayer.new()
+	action_sound.bus = "SFX"
+	action_sound.volume_db = -6
+	add_child(action_sound)
 	sprite.animation_finished.connect(_on_animation_finished)
 	sprite.frame_changed.connect(_update_sword_window)
 	sprite.play("Idle")
@@ -95,11 +102,11 @@ func _physics_process(delta: float) -> void:
 func movement(delta: float) -> void:
 	input_movement(delta)
 
-	if Input.is_action_just_pressed("ui_sword"):
+	if player_data.attack_learned and Input.is_action_just_pressed("ui_sword"):
 		start_sword_attack()
 		return
 
-	if Input.is_action_just_pressed("ui_dash") and can_dash:
+	if player_data.dash_learned and Input.is_action_just_pressed("ui_dash") and can_dash:
 		start_dash()
 		return
 
@@ -187,6 +194,8 @@ func try_jump() -> bool:
 
 
 func start_dash() -> void:
+	if not player_data.dash_learned:
+		return
 	if is_dead or is_attacking or current_state == PlayerStates.HIT or not can_dash:
 		return
 
@@ -201,6 +210,7 @@ func start_dash() -> void:
 		dash_direction = sign(input)
 
 	sprite.play("Dash")
+	play_action_sound(GAME_AUDIO.DASH)
 	velocity.x = dash_direction * dash_speed
 	velocity.y = 0
 
@@ -281,6 +291,8 @@ func wall_jump() -> void:
 
 
 func start_sword_attack() -> void:
+	if not player_data.attack_learned:
+		return
 	if is_attacking or is_dead or current_state == PlayerStates.HIT:
 		return
 
@@ -296,6 +308,7 @@ func play_attack(step: int) -> void:
 	sword_hit_targets.clear()
 	sword_collider.set_deferred("disabled", true)
 	sprite.play("Attack%d" % step, 1.5)
+	play_action_sound(GAME_AUDIO.SLASH.pick_random())
 	_update_sword_window()
 
 
@@ -445,3 +458,9 @@ func _draw() -> void:
 	if shockwave_left > 0.0:
 		var reach := 120.0 / maxf(absf(global_scale.x), 0.01)
 		draw_line(Vector2(0, -8), Vector2(facing * reach, -8), Color(0.6, 0.9, 1.0, shockwave_left / 0.18), 4.0)
+
+
+func play_action_sound(stream: AudioStream) -> void:
+	action_sound.stream = stream
+	action_sound.pitch_scale = randf_range(0.96, 1.04)
+	action_sound.play()

@@ -107,7 +107,7 @@ func prepare(seed_value: int) -> bool:
 		var data: Dictionary = layout.rewards[i]
 		var reward := REWARD.new()
 		reward.name = "Reward%d" % i
-		reward.position = data.position
+		reward.position = data.position + Vector2(50, 6)
 		reward.reward_kind = data.kind
 		if data.kind == "artifact":
 			# Acak tanpa pengulangan dalam satu level; pool diisi ulang bila habis.

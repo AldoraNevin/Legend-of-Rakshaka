@@ -47,8 +47,6 @@ corner_radius_bottom_left = 6
 script = ExtResource("2_lobby")
 
 [node name="LobbyParallax" parent="." unique_id=837126063 instance=ExtResource("parallax")]
-background_scale = null
-background_offset = null
 
 [node name="LobbyMusic" type="AudioStreamPlayer" parent="." unique_id=316971216]
 process_mode = 3
@@ -68,7 +66,7 @@ collision_mask = 0
 position = Vector2(-35, 148)
 shape = SubResource("RectangleShape2D_floor")
 
-[node name="LeftBoundary" type="CollisionShape2D" parent="Floor"]
+[node name="LeftBoundary" type="CollisionShape2D" parent="Floor" unique_id=317066460]
 position = Vector2(-520, 0)
 shape = SubResource("WorldBoundaryShape2D_left")
 
@@ -160,22 +158,21 @@ interaction_type = "travel"
 title = "Masuk Level"
 description = "Pergi ke level pertama."
 target_scene = "res://Levels/stage_graph_template.tscn"
-auto_activate_on_enter = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stations/LevelGate" unique_id=211780629]
-position = Vector2(-85.5, 7.25)
+position = Vector2(-160.5, 7.25)
 shape = SubResource("RectangleShape2D_interact")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stations/LevelGate" unique_id=948042802]
-position = Vector2(-85.5, 8.5)
+position = Vector2(-162, 7)
 shape = SubResource("RectangleShape2D_gate")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stations/LevelGate" unique_id=1106750964]
-position = Vector2(-86, 8.000001)
-scale = Vector2(0.46363637, 0.46363634)
+position = Vector2(-163, -35)
+scale = Vector2(0.5067447, 0.5067447)
 texture = ExtResource("7_5j0vb")
 region_enabled = true
-region_rect = Rect2(719, 772, 110, 208)
+region_rect = Rect2(994, 16, 463, 371)
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1022694984]
 script = ExtResource("5_gui")

@@ -213,7 +213,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jrtx6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack",
 "speed": 1.0
 }, {
@@ -227,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v2w0e")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackActive",
 "speed": 5.0
 }, {
@@ -241,7 +241,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lsgw3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackRecovery",
 "speed": 5.0
 }, {
@@ -258,7 +258,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6md6m")
 }],
-"loop": false,
+"loop": 0,
 "name": &"AttackWindUp",
 "speed": 5.0
 }, {
@@ -284,7 +284,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uc0su")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Chase",
 "speed": 5.0
 }, {
@@ -313,7 +313,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xgvp2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -330,7 +330,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bn42m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Hit",
 "speed": 5.0
 }, {
@@ -347,7 +347,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4bn58")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }]
@@ -629,6 +629,7 @@ height = 150.0
 size = Vector2(77, 141)
 
 [node name="Sarpaneka" type="CharacterBody2D" unique_id=2140665026]
+scale = Vector2(0.6, 0.6)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2042837791]
 texture_filter = 1

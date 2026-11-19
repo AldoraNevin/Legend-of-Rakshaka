@@ -1,16 +1,13 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bel1wh07w08ih"]
 
-[ext_resource type="Script" path="res://Script/UI/bestiary_tab.gd" id="1"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="1_yaiuh"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/blank book.png" id="3_tx112"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="4_gkxo7"]
-[ext_resource type="FontFile" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="5_tx112"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary hovers.png" id="5_ur1r7"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="7_s1dge"]
-
-[ext_resource type="Script" path="res://Script/UI/bestiary_card.gd" id="card_1"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="card_1_ftjel"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="card_3_2y2rt"]
+[ext_resource type="Script" uid="uid://d2nc3r32opxj7" path="res://Script/UI/bestiary_tab.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="1_yaiuh"]
+[ext_resource type="Texture2D" uid="uid://41o7a5ngww1r" path="res://Assets/Legend of Rakshaka/UI HUD/blank book.png" id="3_tx112"]
+[ext_resource type="FontFile" uid="uid://q8r42pd8vbfm" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="5_tx112"]
+[ext_resource type="Texture2D" uid="uid://ddqb66f4mvn1p" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary hovers.png" id="5_ur1r7"]
+[ext_resource type="Script" uid="uid://c77rh4hjr4qam" path="res://Script/UI/bestiary_card.gd" id="card_1"]
+[ext_resource type="Texture2D" uid="uid://bcym3nhn1uhms" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="card_1_ftjel"]
+[ext_resource type="Texture2D" uid="uid://dtb4a5bas7g2p" path="res://Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="card_3_2y2rt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c1n3"]
 atlas = ExtResource("1_yaiuh")
@@ -32,6 +29,7 @@ texture_margin_bottom = 5.0
 
 [sub_resource type="SystemFont" id="SystemFont_yapdp"]
 font_names = PackedStringArray("Georgia")
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_ufoio"]
 default_font = SubResource("SystemFont_yapdp")
@@ -67,34 +65,6 @@ VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_nluhs")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_nluhs")
 VScrollBar/styles/scroll = SubResource("StyleBoxTexture_ar6up")
 
-[sub_resource type="AtlasTexture" id="Portrait_leak"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(100, 186, 82, 72)
-
-[sub_resource type="AtlasTexture" id="Portrait_kuntilanak"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(211, 186, 76, 72)
-
-[sub_resource type="AtlasTexture" id="Portrait_genderuwo"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(318, 186, 77, 72)
-
-[sub_resource type="AtlasTexture" id="Portrait_jerangkong"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(430, 186, 76, 72)
-
-[sub_resource type="AtlasTexture" id="Portrait_banaspati"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(100, 301, 80, 70)
-
-[sub_resource type="AtlasTexture" id="Portrait_sarpakenaka"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(211, 301, 76, 70)
-
-[sub_resource type="AtlasTexture" id="Portrait_rangda"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(430, 301, 76, 70)
-
 [sub_resource type="AtlasTexture" id="Portrait_Locked"]
 atlas = ExtResource("1_yaiuh")
 region = Rect2(181, 58, 42, 49)
@@ -103,46 +73,41 @@ region = Rect2(181, 58, 42, 49)
 atlas = ExtResource("1_yaiuh")
 region = Rect2(172, 115, 62, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6k6p6"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
+[sub_resource type="StyleBoxTexture" id="TabNormal"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+texture = ExtResource("5_ur1r7")
+texture_margin_left = 14.0
+texture_margin_top = 8.0
+texture_margin_right = 14.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(14, 54, 106, 64)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74kxa"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_6k6p6")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+[sub_resource type="StyleBoxTexture" id="TabActive"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+texture = ExtResource("5_ur1r7")
+texture_margin_left = 14.0
+texture_margin_top = 8.0
+texture_margin_right = 14.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(359, 54, 108, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jgync"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(364, 168, 101, 44)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpm0a"]
-texture = SubResource("AtlasTexture_jgync")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ugmyd"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04lcj"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_ugmyd")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+[sub_resource type="StyleBoxTexture" id="TabHover"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+texture = ExtResource("5_ur1r7")
+texture_margin_left = 14.0
+texture_margin_top = 8.0
+texture_margin_right = 14.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(128, 54, 108, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cixjm"]
 bg_color = Color(1, 1, 1, 0)
@@ -151,47 +116,6 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxr6q"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1coau"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_qxr6q")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjlt4"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(364, 168, 101, 44)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1udol"]
-texture = SubResource("AtlasTexture_jjlt4")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rxn16"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mynik"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_rxn16")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01cop"]
 bg_color = Color(1, 1, 1, 0)
@@ -202,7 +126,7 @@ border_width_bottom = 2
 border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlr3p"]
-atlas = ExtResource("4_gkxo7")
+atlas = ExtResource("card_1_ftjel")
 region = Rect2(19, 12, 174, 89)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vq0o6"]
@@ -217,7 +141,7 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uhg0"]
-atlas = ExtResource("4_gkxo7")
+atlas = ExtResource("card_1_ftjel")
 region = Rect2(19, 12, 174, 89)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7ruw"]
@@ -230,348 +154,6 @@ texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctjxl"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqltf"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_ctjxl")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pyuon"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srv6n"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_pyuon")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x25m4"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j46ya"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_x25m4")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6nqi"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37v75"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_m6nqi")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0kip"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72yal"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khq2t"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_72yal")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sounn"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hx4kr"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_sounn")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6fm4"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajutk"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_m6fm4")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6hta"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0was"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_k6hta")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38rax"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgrem"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kfhj1"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_fgrem")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7s2wt"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvdy8"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_7s2wt")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nilyc"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwnqt"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_nilyc")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcmob"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mm7qg"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_jcmob")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1prl0"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjhll"]
-atlas = ExtResource("1_yaiuh")
-region = Rect2(313, 9, 45, 41)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dde8b"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pj556"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_dde8b")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_78bqv"]
-atlas = ExtResource("7_s1dge")
-region = Rect2(100, 186, 82, 72)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_laeey"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijqrp"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_laeey")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mrdgu"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(364, 168, 101, 44)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_22my7"]
-texture = SubResource("AtlasTexture_mrdgu")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0x7x7"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ki7b0"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_0x7x7")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f7a8"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q1vqf"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tc5i"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_q1vqf")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rmk33"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(364, 168, 101, 44)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ax2hs"]
-texture = SubResource("AtlasTexture_rmk33")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1lfr"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(253, 113, 64, 53)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u52uk"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_f1lfr")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt7ur"]
-bg_color = Color(1, 1, 1, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j1h66"]
-atlas = ExtResource("4_gkxo7")
-region = Rect2(19, 12, 174, 89)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shyl1"]
-content_margin_left = 9.0
-content_margin_top = 9.0
-content_margin_right = 9.0
-content_margin_bottom = 9.0
-texture = SubResource("AtlasTexture_j1h66")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
-
-
 
 [sub_resource type="AtlasTexture" id="card_AtlasTexture_r6mc8"]
 atlas = ExtResource("card_1_ftjel")
@@ -603,60 +185,287 @@ texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
-[sub_resource type="AtlasTexture" id="card_AtlasTexture_44wig"]
+[sub_resource type="AtlasTexture" id="Portrait_kuntilanak"]
+atlas = ExtResource("card_3_2y2rt")
+region = Rect2(211, 186, 76, 72)
+
+[sub_resource type="AtlasTexture" id="Portrait_banaspati"]
+atlas = ExtResource("card_3_2y2rt")
+region = Rect2(100, 301, 80, 70)
+
+[sub_resource type="AtlasTexture" id="Portrait_leak"]
 atlas = ExtResource("card_3_2y2rt")
 region = Rect2(100, 186, 82, 72)
 
-[sub_resource type="AtlasTexture" id="TabAtlasNormal"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(14, 54, 106, 64)
-filter_clip = true
+[sub_resource type="AtlasTexture" id="Portrait_genderuwo"]
+atlas = ExtResource("card_3_2y2rt")
+region = Rect2(318, 186, 77, 72)
 
-[sub_resource type="StyleBoxTexture" id="TabNormal"]
-texture = ExtResource("5_ur1r7")
-region_rect = Rect2(14, 54, 106, 64)
-texture_margin_left = 14.0
-texture_margin_top = 8.0
-texture_margin_right = 14.0
-texture_margin_bottom = 8.0
-content_margin_left = 14.0
-content_margin_top = 6.0
-content_margin_right = 14.0
-content_margin_bottom = 6.0
+[sub_resource type="AtlasTexture" id="Portrait_jerangkong"]
+atlas = ExtResource("card_3_2y2rt")
+region = Rect2(430, 186, 76, 72)
 
-[sub_resource type="AtlasTexture" id="TabAtlasHover"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(128, 54, 108, 64)
-filter_clip = true
+[sub_resource type="AtlasTexture" id="Portrait_sarpakenaka"]
+atlas = ExtResource("card_3_2y2rt")
+region = Rect2(211, 301, 76, 70)
 
-[sub_resource type="StyleBoxTexture" id="TabHover"]
-texture = ExtResource("5_ur1r7")
-region_rect = Rect2(128, 54, 108, 64)
-texture_margin_left = 14.0
-texture_margin_top = 8.0
-texture_margin_right = 14.0
-texture_margin_bottom = 8.0
-content_margin_left = 14.0
-content_margin_top = 6.0
-content_margin_right = 14.0
-content_margin_bottom = 6.0
+[sub_resource type="AtlasTexture" id="Portrait_rangda"]
+atlas = ExtResource("card_3_2y2rt")
+region = Rect2(430, 301, 76, 70)
 
-[sub_resource type="AtlasTexture" id="TabAtlasActive"]
-atlas = ExtResource("5_ur1r7")
-region = Rect2(359, 54, 108, 64)
-filter_clip = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctjxl"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(19, 12, 174, 89)
 
-[sub_resource type="StyleBoxTexture" id="TabActive"]
-texture = ExtResource("5_ur1r7")
-region_rect = Rect2(359, 54, 108, 64)
-texture_margin_left = 14.0
-texture_margin_top = 8.0
-texture_margin_right = 14.0
-texture_margin_bottom = 8.0
-content_margin_left = 14.0
-content_margin_top = 6.0
-content_margin_right = 14.0
-content_margin_bottom = 6.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqltf"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_ctjxl")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyuon"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srv6n"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_pyuon")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x25m4"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j46ya"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_x25m4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6nqi"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37v75"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_m6nqi")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0kip"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72yal"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(19, 12, 174, 89)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khq2t"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_72yal")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sounn"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hx4kr"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_sounn")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6fm4"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ajutk"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_m6fm4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6hta"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0was"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_k6hta")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38rax"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgrem"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(19, 12, 174, 89)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kfhj1"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_fgrem")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s2wt"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uvdy8"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_7s2wt")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nilyc"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rwnqt"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_nilyc")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcmob"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(253, 113, 64, 53)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mm7qg"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_jcmob")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1prl0"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjhll"]
+atlas = ExtResource("1_yaiuh")
+region = Rect2(313, 9, 45, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dde8b"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(19, 12, 174, 89)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pj556"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_dde8b")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f7a8"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt7ur"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.08627451, 0.62352943, 0.61960787, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1h66"]
+atlas = ExtResource("card_1_ftjel")
+region = Rect2(19, 12, 174, 89)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shyl1"]
+content_margin_left = 9.0
+content_margin_top = 9.0
+content_margin_right = 9.0
+content_margin_bottom = 9.0
+texture = SubResource("AtlasTexture_j1h66")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [node name="BestiaryEnemiesTab" type="Control" unique_id=654017175]
 process_mode = 3
@@ -669,7 +478,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ufoio")
 script = ExtResource("1")
-artifact_mode = false
 locked_portrait = SubResource("Portrait_Locked")
 fallback_portrait = SubResource("Portrait_Fallback")
 
@@ -701,7 +509,6 @@ offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("5_tx112")
 theme_override_font_sizes/font_size = 20
 text = "KATALOG MITOLOGI"
-
 vertical_alignment = 1
 
 [node name="EnemyTab" type="Button" parent="Book" unique_id=1968152603]
@@ -712,6 +519,7 @@ offset_right = 298.0
 offset_bottom = 128.0
 theme_override_colors/font_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("TabNormal")
 theme_override_styles/pressed = SubResource("TabActive")
 theme_override_styles/hover = SubResource("TabHover")
@@ -721,8 +529,6 @@ toggle_mode = true
 button_pressed = true
 text = "MUSUH"
 
-theme_override_font_sizes/font_size = 17
-
 [node name="ArtifactTab" type="Button" parent="Book" unique_id=1133507001]
 layout_mode = 0
 offset_left = 306.0
@@ -731,6 +537,7 @@ offset_right = 514.0
 offset_bottom = 128.0
 theme_override_colors/font_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("TabNormal")
 theme_override_styles/pressed = SubResource("TabActive")
 theme_override_styles/hover = SubResource("TabHover")
@@ -738,8 +545,6 @@ theme_override_styles/hover_pressed = SubResource("TabActive")
 theme_override_styles/focus = SubResource("StyleBoxFlat_01cop")
 toggle_mode = true
 text = "ARTEFAK"
-
-theme_override_font_sizes/font_size = 17
 
 [node name="SearchInput" type="LineEdit" parent="Book" unique_id=748205260]
 layout_mode = 0
@@ -773,9 +578,9 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="Entry_kuntilanak" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_kuntilanak" type="Button" parent="Book/EntryGrid" unique_id=1250987522]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -784,19 +589,19 @@ theme_override_styles/hover = SubResource("card_StyleBoxTexture_2xpgi")
 theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
 theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
 toggle_mode = true
+button_pressed = true
 script = ExtResource("card_1")
 entity_id = "kuntilanak"
 region = "Nusantara (Jawa/Melayu)"
 category = "Melee"
 description = "Roh wanita pendendam bergaun putih yang melayang di udara. Bergerak mendekati pemain dan melakukan serangan jarak dekat dengan cara memuntahkan darah kental ke arah Player."
-history = "Roh wanita pendendam bergaun putih yang melayang di udara. Bergerak mendekati pemain dan melakukan serangan jarak dekat dengan cara memuntahkan darah kental ke arah Player."
-attack_pattern = ""
-tactics = ""
+history = "Dalam cerita rakyat, Kuntilanak dipercaya sebagai arwah perempuan yang meninggal dunia saat mengandung atau melahirkan, sehingga menyimpan duka dan dendam yang belum selesai. Namanya sering dikaitkan dengan kata \"bunting anak\". Ia identik dengan gaun putih panjang, rambut terurai, suara tawa melengking, serta aroma bunga kamboja atau melati. Secara kultural, mitos ini dulunya menjadi pengingat sosial agar masyarakat lebih menjaga keselamatan ibu hamil."
 hp = 3
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kuntilanak"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=420253912]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -808,8 +613,9 @@ texture = SubResource("Portrait_kuntilanak")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_kuntilanak"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=521472451]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -822,9 +628,9 @@ text = "Kuntilanak"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_banaspati" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_banaspati" type="Button" parent="Book/EntryGrid" unique_id=959896488]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -838,14 +644,13 @@ entity_id = "banaspati"
 region = "Jawa"
 category = "Melee"
 description = "Entitas roh purba berwujud bola api atau pusaran tengkorak berapi yang melayang. Berperilaku sangat agresif mengejar pemain dan memberikan efek Burn saat bersentuhan."
-history = "Entitas roh purba berwujud bola api atau pusaran tengkorak berapi yang melayang. Berperilaku sangat agresif mengejar pemain dan memberikan efek Burn saat bersentuhan."
-attack_pattern = ""
-tactics = ""
+history = "Banaspati (secara harfiah sering dikaitkan dengan \"penguasa hutan\" dari bahasa Sanskerta Vanaspati) dalam folklor Jawa dikenal sebagai makhluk halus berelemen api. Wujudnya digambarkan seperti bola api melayang atau pusaran api yang kadang menampakkan wajah tengkorak. Di masa lalu, masyarakat percaya Banaspati muncul di hutan lebat atau area angker pada malam hari dan mampu membakar siapa saja yang nekat melintas tanpa permisi."
 hp = 4
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_banaspati"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_banaspati" unique_id=1933348595]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -857,8 +662,9 @@ texture = SubResource("Portrait_banaspati")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_banaspati"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_banaspati" unique_id=2138042670]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -871,9 +677,9 @@ text = "Banaspati"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_leak" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_leak" type="Button" parent="Book/EntryGrid" unique_id=217883672]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -887,14 +693,15 @@ entity_id = "leak"
 region = "Bali"
 category = "Ranged"
 description = "Leak menjaga jarak dan menyerang dengan proyektil sihir gelap."
-history = "Praktisi sihir hitam dari Bali dalam wujud kepala terbang dengan organ dalam yang menggantung. Menjaga jarak dari pemain sambil menembakkan proyektil sihir gelap berkecepatan tinggi."
+history = "Berbeda dari hantu biasa, Leak sebenarnya adalah manusia yang mempelajari ilmu hitam tingkat tinggi (pengiwa) untuk tujuan merugikan orang lain atau mencari keabadian. Pada malam hari, praktisi ilmu Leak konon dapat melepaskan kepala beserta organ dalamnya dari tubuh untuk terbang mencari mangsa atau energi kehidupan. Dalam tradisi Bali, Leak berada di bawah pengaruh Rangda, simbol energi negatif yang selalu berhadapan dengan Barong (simbol kebaikan)."
 attack_pattern = "Menjaga jarak dari pemain sambil menembakkan proyektil sihir gelap berkecepatan tinggi."
 tactics = "Hindari lintasan proyektil dan cari kesempatan mendekat di antara serangannya."
 hp = 4
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_leak"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_leak" unique_id=2018926886]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -906,8 +713,9 @@ texture = SubResource("Portrait_leak")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_leak"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_leak" unique_id=1553011889]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -920,9 +728,9 @@ text = "Leak"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_warak_ngendhog" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_warak_ngendhog" type="Button" parent="Book/EntryGrid" unique_id=2116127744]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -936,14 +744,13 @@ entity_id = "warak_ngendhog"
 region = "Semarang, Jawa Tengah"
 category = "Melee"
 description = "Makhluk bersisik buraq, berkepala naga, dan berkaki kambing. Berperan sebagai musuh darat yang gesit, menggunakan mekanik Charge dengan tanduknya."
-history = "Makhluk bersisik buraq, berkepala naga, dan berkaki kambing. Berperan sebagai musuh darat yang gesit, menggunakan mekanik Charge dengan tanduknya."
-attack_pattern = ""
-tactics = ""
+history = "Warak Ngendhog adalah makhluk mitologi ikonik yang selalu muncul dalam tradisi Dugderan (menyambut bulan Ramadan di Semarang). Wujudnya merupakan simbol akulturasi tiga etnis besar di Semarang: kepala naga (Tionghoa), badan buraq/unta (Arab), dan kaki kambing (Jawa). Kata ngendhog (bertelur) melambangkan harapan akan berkah dan rezeki. Kehadirannya mengajarkan harmoni dan toleransi antarbudaya."
 hp = 6
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_warak_ngendhog"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=786677803]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -955,8 +762,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_warak_ngendhog"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=1656102654]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -969,9 +777,9 @@ text = "Warak Ngendhog"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_cindaku" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_cindaku" type="Button" parent="Book/EntryGrid" unique_id=1562080171]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -985,14 +793,13 @@ entity_id = "cindaku"
 region = "Kerinci, Sumatera"
 category = "Melee"
 description = "Siluman manusia harimau pelindung hutan dari Sumatera. Musuh yang sangat lincah, mampu melompat jauh ke arah pemain dan memberikan tebasan cakar yang cepat."
-history = "Siluman manusia harimau pelindung hutan dari Sumatera. Musuh yang sangat lincah, mampu melompat jauh ke arah pemain dan memberikan tebasan cakar yang cepat."
-attack_pattern = ""
-tactics = ""
+history = "Cindaku adalah legenda manusia harimau (therianthrope) yang dipercaya memiliki ikatan batin dan garis keturunan dengan harimau Sumatera. Berbeda dengan monster jahat, Cindaku sebenarnya adalah penjaga keseimbangan alam dan hutan Kerinci. Ia hanya akan berubah wujud menjadi harimau dan marah jika ada manusia yang serakah, merusak hutan, atau melanggar adat setempat."
 hp = 5
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_cindaku"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_cindaku" unique_id=1408453370]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1004,8 +811,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_cindaku"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_cindaku" unique_id=749717025]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1018,9 +826,9 @@ text = "Cindaku"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_genderuwo" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_genderuwo" type="Button" parent="Book/EntryGrid" unique_id=700216441]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1034,14 +842,13 @@ entity_id = "genderuwo"
 region = "Jawa"
 category = "Melee"
 description = "Makhluk halus raksasa berbulu lebat. Memiliki Health Point (HP) yang sangat tebal. Menyerang dengan pukulan keras ke tanah yang menghasilkan getaran Area of Effect (AoE) di sekitarnya."
-history = "Makhluk halus raksasa berbulu lebat. Memiliki Health Point (HP) yang sangat tebal. Menyerang dengan pukulan keras ke tanah yang menghasilkan getaran Area of Effect (AoE) di sekitarnya."
-attack_pattern = ""
-tactics = ""
+history = "Kata Genderuwo berasal dari bahasa Sanskerta Gandharva (makhluk surgawi pemusik dalam mitologi Hindu-Buddha), namun dalam folklor Jawa mengalami pergeseran makna menjadi makhluk halus bertubuh raksasa, kekar, dan berbulu lebat. Ia dipercaya menghuni pohon-pohon besar (seperti beringin), batu besar, atau bangunan tua yang lembap dan gelap. Mitos ini sering digunakan masyarakat tradisional untuk menjaga kelestarian pohon tua agar tidak sembarangan ditebang."
 hp = 10
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_genderuwo"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_genderuwo" unique_id=2126465370]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1053,8 +860,9 @@ texture = SubResource("Portrait_genderuwo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_genderuwo"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_genderuwo" unique_id=1997299827]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1067,9 +875,9 @@ text = "Genderuwo"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_jerangkong" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_jerangkong" type="Button" parent="Book/EntryGrid" unique_id=1560096454]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1083,14 +891,13 @@ entity_id = "jerangkong"
 region = "Jawa"
 category = "Melee"
 description = "Tulang belulang manusia kutukan yang bergerak secara gaib. Musuh rapuh namun memiliki mekanik Revive: jika tulangnya tidak segera dihancurkan sepenuhnya setelah tumbang, ia bisa menyatu dan bangkit kembali."
-history = "Tulang belulang manusia kutukan yang bergerak secara gaib. Musuh rapuh namun memiliki mekanik Revive: jika tulangnya tidak segera dihancurkan sepenuhnya setelah tumbang, ia bisa menyatu dan bangkit kembali."
-attack_pattern = ""
-tactics = ""
+history = "Jerangkong berarti kerangka atau tulang-belulang manusia. Dalam cerita rakyat Jawa, Jerangkong adalah arwah penasaran yang bangkit dalam wujud tengkorak hidup karena semasa hidupnya menyimpan urusan duniawi yang belum tuntas, atau terkena kutukan. Sosoknya sering dikaitkan dengan pesan moral tentang kematian dan pentingnya hidup dengan tenang agar arwah tidak tersesat."
 hp = 3
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_jerangkong"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_jerangkong" unique_id=1918151898]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1102,8 +909,9 @@ texture = SubResource("Portrait_jerangkong")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_jerangkong"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_jerangkong" unique_id=1127373930]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1116,9 +924,9 @@ text = "Jerangkong"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_aul" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_aul" type="Button" parent="Book/EntryGrid" unique_id=150428469]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1132,14 +940,13 @@ entity_id = "aul"
 region = "Jawa Barat"
 category = "Melee"
 description = "Manusia serigala Nusantara dengan wajah terbalik. Merupakan predator darat yang menyerang secara brutal. Memiliki Movement Speed tinggi dan suka melompat untuk menggigit pemain."
-history = "Manusia serigala Nusantara dengan wajah terbalik. Merupakan predator darat yang menyerang secara brutal. Memiliki Movement Speed tinggi dan suka melompat untuk menggigit pemain."
-attack_pattern = ""
-tactics = ""
+history = "Aul adalah makhluk mitologi tanah Sunda yang digambarkan bertubuh seperti serigala atau manusia berbulu dengan ciri khas sangat unik: kepala atau wajahnya terbalik (menghadap ke belakang). Ia dikenal sebagai predator malam yang gesit di pegunungan dan sering memangsa ternak warga seperti kambing. Kecepatan dan wujudnya yang ganjil membuat Aul menjadi salah satu kisah pengingat agar warga tidak berkeliaran sendirian di hutan pegunungan saat malam."
 hp = 5
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_aul"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_aul" unique_id=825964587]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1151,8 +958,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_aul"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_aul" unique_id=1219891012]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1165,9 +973,9 @@ text = "Aul"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_sarpakenaka" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_sarpakenaka" type="Button" parent="Book/EntryGrid" unique_id=399941128]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1181,14 +989,13 @@ entity_id = "sarpakenaka"
 region = "Pewayangan Jawa"
 category = "Melee"
 description = "Siluman wanita mematikan dengan kuku-kuku panjang beracun. Memiliki gaya serangan rentetan cakaran beruntun yang dapat memberikan status efek debuff pada player."
-history = "Siluman wanita mematikan dengan kuku-kuku panjang beracun. Memiliki gaya serangan rentetan cakaran beruntun yang dapat memberikan status efek debuff pada player."
-attack_pattern = ""
-tactics = ""
+history = "Sarpakenaka adalah adik perempuan dari Rahwana, Raja Alengka. Ia merupakan raksasa wanita (raksasi) yang memiliki kesaktian untuk berubah wujud menjadi wanita cantik demi memikat Rama dan Laksmana. Ciri khasnya yang mematikan adalah kuku-kuku panjangnya yang beracun (dalam pewayangan Jawa disebut Kuku Pancanaka versi raksasa atau kuku bisa). Amarahnya setelah ditolak Rama menjadi salah satu pemicu awal pecahnya perang besar Ramayana."
 hp = 6
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_sarpakenaka"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=1861577340]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1200,8 +1007,9 @@ texture = SubResource("Portrait_sarpakenaka")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_sarpakenaka"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=1083544579]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1214,9 +1022,9 @@ text = "Sarpakenaka"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_bajang" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_bajang" type="Button" parent="Book/EntryGrid" unique_id=2106173298]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1230,14 +1038,13 @@ entity_id = "bajang"
 region = "Nusantara (Melayu)"
 category = "Melee"
 description = "Roh kerdil yang sangat mengganggu. Mekaniknya melompat dari jarak dekat lalu menempel ke badan Player untuk memperlambat Movement."
-history = "Roh kerdil yang sangat mengganggu. Mekaniknya melompat dari jarak dekat lalu menempel ke badan Player untuk memperlambat Movement."
-attack_pattern = ""
-tactics = ""
+history = "Dalam kepercayaan tradisional Melayu dan Nusantara, Bajang adalah makhluk halus bertubuh kecil/kerdil yang sering dikaitkan dengan arwah bayi atau roh peliharaan ilmu hitam. Ia dikenal sangat usil, lincah, dan suka mengganggu manusia atau anak-anak dengan cara menempel atau membuat korbannya lemas dan sakit."
 hp = 3
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_bajang"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_bajang" unique_id=1936916108]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1249,8 +1056,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_bajang"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_bajang" unique_id=2004353435]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1263,9 +1071,9 @@ text = "Bajang"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_gupala" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_gupala" type="Button" parent="Book/EntryGrid" unique_id=934757717]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1279,14 +1087,13 @@ entity_id = "gupala"
 region = "Jawa (Candi)"
 category = "Melee"
 description = "Arca batu raksasa penjaga candi yang dihidupkan sihir kuno. Musuh tipe idle. Mengayunkan senjata Gada besar yang bisa di picu apabila player berada didekatnya."
-history = "Arca batu raksasa penjaga candi yang dihidupkan sihir kuno. Musuh tipe idle. Mengayunkan senjata Gada besar yang bisa di picu apabila player berada didekatnya."
-attack_pattern = ""
-tactics = ""
+history = "Gupala (atau Dwarapala, yang berarti \"penjaga gerbang\") adalah arca batu raksasa yang diletakkan di pintu masuk candi, keraton, atau tempat suci—seperti yang bisa ditemui di Candi Sewu atau Singosari. Wujudnya berupa raksasa bertubuh tambun, bermata melotot, dengan posisi setengah berlutut sambil menggenggam senjata Gada. Secara filosofis, Gupala melambangkan penjaga kesucian tempat ibadah yang menghalau energi negatif masuk."
 hp = 8
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_gupala"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_gupala" unique_id=898035322]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1298,8 +1105,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_gupala"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_gupala" unique_id=1761748220]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1312,9 +1120,9 @@ text = "Gupala"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_mahesa_sura" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_mahesa_sura" type="Button" parent="Book/EntryGrid" unique_id=995094933]
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1328,14 +1136,13 @@ entity_id = "mahesa_sura"
 region = "Jawa"
 category = "Melee"
 description = "Siluman beringas berbadan manusia dengan kepala kerbau. Musuh brutal yang menggunakan serangan Dash merusak rintangan dan menghasilkan damage fisik yang masif."
-history = "Siluman beringas berbadan manusia dengan kepala kerbau. Musuh brutal yang menggunakan serangan Dash merusak rintangan dan menghasilkan damage fisik yang masif."
-attack_pattern = ""
-tactics = ""
+history = "Mahesa Sura adalah tokoh legendaris berbadan manusia dan berkepala kerbau (Mahesa = kerbau, Sura = berani/sakti). Dalam legenda Gunung Kelud, ia jatuh cinta pada Dewi Kilisuci dari Kerajaan Jenggala. Karena enggan menikah dengannya, Dewi Kilisuci memberi syarat mustahil: membuat sumur di puncak Gunung Kelud dalam semalam. Saat Mahesa Sura berhasil dan masih berada di dalam sumur, ia ditimbun batu hingga tewas. Sumpah serapahnya sebelum mati dipercaya menjadi penyebab letusan Gunung Kelud."
 hp = 7
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mahesa_sura"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=854601471]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1347,8 +1154,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_mahesa_sura"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=389733269]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1361,10 +1169,10 @@ text = "Mahesa Sura"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_nyi_roro_kidul" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_nyi_roro_kidul" type="Button" parent="Book/EntryGrid" unique_id=480097075]
 visible = false
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1379,13 +1187,12 @@ region = "Pantai Selatan Jawa"
 category = "AoE Magic"
 description = "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup."
 history = "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup."
-attack_pattern = ""
-tactics = ""
 hp = 25
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_nyi_roro_kidul"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=286798357]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1397,8 +1204,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_nyi_roro_kidul"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=613246931]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1411,10 +1219,10 @@ text = "Nyi Roro Kidul"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_rangda" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_rangda" type="Button" parent="Book/EntryGrid" unique_id=2019790908]
 visible = false
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1429,13 +1237,12 @@ region = "Bali"
 category = "Summoner"
 description = "Ratu ilmu hitam dan pemimpin para Leak dari mitologi Bali. Boss dengan pergerakan melayang yang sulit ditebak. Mekanik utamanya adalah Summoning, yaitu memanggil 2-3 Leak atau musuh kecil ke dalam area untuk mengepung dan mendistraksi pemain."
 history = "Ratu ilmu hitam dan pemimpin para Leak dari mitologi Bali. Boss dengan pergerakan melayang yang sulit ditebak. Mekanik utamanya adalah Summoning, yaitu memanggil 2-3 Leak atau musuh kecil ke dalam area untuk mengepung dan mendistraksi pemain."
-attack_pattern = ""
-tactics = ""
 hp = 20
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_rangda"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_rangda" unique_id=473519410]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1447,8 +1254,9 @@ texture = SubResource("Portrait_rangda")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_rangda"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_rangda" unique_id=1766005925]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1461,10 +1269,10 @@ text = "Rangda"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_antaboga" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_antaboga" type="Button" parent="Book/EntryGrid" unique_id=1714756720]
 visible = false
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1479,13 +1287,12 @@ region = "Pewayangan Jawa (Saptapratala)"
 category = "Giant Beast"
 description = "Naga raksasa penguasa lapisan bumi bawah (Saptapratala). Mekaniknya meliputi semburan racun dari mulutnya dan hantaman ekor ke tanah yang memicu gempa bumi yang menyababkan batu berjatuhan dari langit-langit area."
 history = "Naga raksasa penguasa lapisan bumi bawah (Saptapratala). Mekaniknya meliputi semburan racun dari mulutnya dan hantaman ekor ke tanah yang memicu gempa bumi yang menyababkan batu berjatuhan dari langit-langit area."
-attack_pattern = ""
-tactics = ""
 hp = 30
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_antaboga"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_antaboga" unique_id=1627706920]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1497,8 +1304,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_antaboga"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_antaboga" unique_id=1091632782]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1511,10 +1319,10 @@ text = "Antaboga"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_batara_kala" type="Button" parent="Book/EntryGrid"]
-layout_mode = 2
+[node name="Entry_batara_kala" type="Button" parent="Book/EntryGrid" unique_id=1913264132]
 visible = false
 custom_minimum_size = Vector2(100, 104)
+layout_mode = 2
 tooltip_text = "Leak"
 accessibility_name = "Leak"
 theme_override_styles/normal = SubResource("card_StyleBoxTexture_c6nwo")
@@ -1529,13 +1337,12 @@ region = "Pewayangan Jawa"
 category = "Time Manipulator"
 description = "Dewa waktu dan kehancuran berwujud raksasa mengerikan penyebab gerhana. Memiliki kemampuan memanipulasi waktu (memperlambat Movement dan Dash pemain secara signifikan). Memiliki fase Enrage saat HP-nya menipis, di mana serangan areanya menjadi dua kali lebih cepat dan mematikan."
 history = "Dewa waktu dan kehancuran berwujud raksasa mengerikan penyebab gerhana. Memiliki kemampuan memanipulasi waktu (memperlambat Movement dan Dash pemain secara signifikan). Memiliki fase Enrage saat HP-nya menipis, di mana serangan areanya menjadi dua kali lebih cepat dan mematikan."
-attack_pattern = ""
-tactics = ""
 hp = 40
 attack = 4
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_batara_kala"]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_batara_kala" unique_id=710944011]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -1547,8 +1354,9 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_batara_kala"]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_batara_kala" unique_id=894987334]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1583,6 +1391,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_srv6n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j46ya")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_37v75")
 theme_override_styles/focus = SubResource("StyleBoxFlat_g0kip")
+disabled = true
 text = "◀"
 
 [node name="PageLabel" type="Label" parent="Book" unique_id=1655269777]
@@ -1594,7 +1403,6 @@ offset_bottom = 560.0
 theme_override_font_sizes/font_size = 18
 text = "1 / 2"
 horizontal_alignment = 1
-
 vertical_alignment = 1
 
 [node name="NextButton" type="Button" parent="Book" unique_id=713789227]
@@ -1626,7 +1434,7 @@ offset_top = 55.0
 offset_right = 945.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 18
-text = "7 / 16"
+text = "16 / 16"
 horizontal_alignment = 2
 
 [node name="CloseButton" type="Button" parent="Book" unique_id=265516033]
@@ -1659,7 +1467,7 @@ offset_left = 581.0
 offset_top = 113.0
 offset_right = 725.0
 offset_bottom = 234.0
-texture = SubResource("AtlasTexture_78bqv")
+texture = SubResource("Portrait_kuntilanak")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1670,7 +1478,7 @@ offset_top = 114.0
 offset_right = 978.0
 offset_bottom = 172.0
 theme_override_font_sizes/font_size = 22
-text = "LEAK"
+text = "KUNTILANAK"
 autowrap_mode = 3
 
 [node name="EntryRegion" type="Label" parent="Book" unique_id=1098801992]
@@ -1679,8 +1487,9 @@ offset_left = 748.0
 offset_top = 175.0
 offset_right = 978.0
 offset_bottom = 203.0
+tooltip_text = "Nusantara (Jawa/Melayu)"
 theme_override_font_sizes/font_size = 15
-text = "Bali"
+text = "Nusantara (Jawa/Melayu)"
 text_overrun_behavior = 3
 
 [node name="EntryCategory" type="Label" parent="Book" unique_id=1588250982]
@@ -1690,7 +1499,7 @@ offset_top = 206.0
 offset_right = 978.0
 offset_bottom = 234.0
 theme_override_font_sizes/font_size = 16
-text = "Jarak jauh"
+text = "Jarak dekat"
 
 [node name="DescriptionTab" type="Button" parent="Book" unique_id=59139889]
 layout_mode = 0
@@ -1700,6 +1509,7 @@ offset_right = 776.0
 offset_bottom = 295.0
 theme_override_colors/font_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("TabNormal")
 theme_override_styles/pressed = SubResource("TabActive")
 theme_override_styles/hover = SubResource("TabHover")
@@ -1709,8 +1519,6 @@ toggle_mode = true
 button_pressed = true
 text = "DESKRIPSI"
 
-theme_override_font_sizes/font_size = 17
-
 [node name="HistoryTab" type="Button" parent="Book" unique_id=1588698199]
 layout_mode = 0
 offset_left = 786.0
@@ -1719,6 +1527,7 @@ offset_right = 997.0
 offset_bottom = 295.0
 theme_override_colors/font_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 0.9411765, 0.7921569, 1)
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("TabNormal")
 theme_override_styles/pressed = SubResource("TabActive")
 theme_override_styles/hover = SubResource("TabHover")
@@ -1726,8 +1535,6 @@ theme_override_styles/hover_pressed = SubResource("TabActive")
 theme_override_styles/focus = SubResource("StyleBoxFlat_vt7ur")
 toggle_mode = true
 text = "SEJARAH"
-
-theme_override_font_sizes/font_size = 17
 
 [node name="DetailPanel" type="Panel" parent="Book" unique_id=515587965]
 layout_mode = 0
@@ -1762,5 +1569,4 @@ offset_right = 997.0
 offset_bottom = 567.0
 theme_override_font_sizes/font_size = 14
 text = "Esc  Kembali     Enter  Pilih"
-
 horizontal_alignment = 2

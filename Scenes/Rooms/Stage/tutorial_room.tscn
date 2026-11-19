@@ -258,11 +258,11 @@ position = Vector2(640, 350)
 [node name="GateSprite" type="Sprite2D" parent="DoorSpawns/Marker0" unique_id=1548118657]
 z_index = -1
 texture_filter = 1
-position = Vector2(0, -14)
+position = Vector2(74, -51)
 scale = Vector2(0.46363637, 0.46363637)
 texture = ExtResource("gate_atlas")
 region_enabled = true
-region_rect = Rect2(719, 772, 110, 208)
+region_rect = Rect2(994, 16, 463, 371)
 
 [node name="Marker1" type="Marker2D" parent="DoorSpawns" unique_id=1569715822]
 position = Vector2(760, 350)

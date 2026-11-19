@@ -47,6 +47,8 @@ func open_pause() -> void:
 		return
 	previous_focus = get_viewport().gui_get_focus_owner()
 	owns_pause = true
+	# Scene instances may hide the CanvasLayer in the editor (e.g. lobby).
+	show()
 	get_tree().paused = true
 	overlay.show()
 	back_to_pause()

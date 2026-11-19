@@ -1,4 +1,5 @@
 extends Control
+signal slot_selected(index: int, is_empty: bool)
 @onready var status: Label = $Panel/Status
 var busy := false
 var pending_delete := -1
@@ -52,6 +53,11 @@ func _load(index: int) -> void:
 		return
 	busy = true
 	var slots := CheckpointManager.list_checkpoints()
+	if slot_selected.has_connections():
+		refresh()
+		$Panel/BackButton.disabled = true
+		slot_selected.emit(index, slots[index] == null)
+		return
 	var success := CheckpointManager.create_slot(index) if slots[index] == null else CheckpointManager.load_checkpoint(index)
 	if success:
 		refresh()

@@ -185,7 +185,7 @@ theme_override_colors/font_color = Color(0.27, 0.17, 0.09, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_font_sizes/font_size = 18
-text = "Tujuan: TUTORIAL, ROOM1 - ROOM6, ELITE, BOSS\nContoh: ROOM2 untuk pindah ke Room 2.\nDOUBLEJUMP ON / OFF  |  GODMODE ON / OFF\nCheat kemampuan berlaku selama sesi game.\nPindah ruangan mengikuti sistem autosave yang aktif."
+text = "Tujuan: TUTORIAL, ROOM1 - ROOM6, ELITE, BOSS\nContoh: ROOM2 untuk pindah ke Room 2.\nDOUBLEJUMP ON / OFF  |  GODMODE ON / OFF\nALLARTIFACTS: buka semua artefak (tersimpan).\nPindah ruangan mengikuti sistem autosave yang aktif."
 autowrap_mode = 3
 
 [node name="CodeInput" type="LineEdit" parent="Overlay/CheatPanel"]

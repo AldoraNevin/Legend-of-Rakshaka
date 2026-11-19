@@ -128,8 +128,13 @@ static func player_error(p: Dictionary) -> String:
 			return "Statistik pemain tidak valid."
 	if p.life <= 0 or p.max_life < 1 or p.life > p.max_life or p.coin < 0:
 		return "Statistik pemain di luar batas."
-	if p.get("health_version", 1) == player_data.HEALTH_VERSION and int(p.max_life) != player_data.MAX_HEALTH:
-		return "Batas HP harus 100."
+	if p.get("health_version", 1) == player_data.HEALTH_VERSION:
+		var artifacts: Array = p.get("artifacts", []) if p.get("artifacts") is Array else []
+		var has_health_artifact := "jimat_kalimasada" in artifacts or "Jimat Kalimasada" in artifacts
+		var valid_max := int(p.max_life) == player_data.MAX_HEALTH
+		valid_max = valid_max or (has_health_artifact and int(p.max_life) == player_data.MAX_HEALTH + 25)
+		if not valid_max:
+			return "Batas HP tidak sesuai dengan artefak pemain."
 	if not p.get("upgrades") is Dictionary:
 		return "Data upgrade tidak valid."
 	for key in player_data.UPGRADE_DATA:

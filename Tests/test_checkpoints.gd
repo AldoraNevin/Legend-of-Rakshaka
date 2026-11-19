@@ -77,6 +77,9 @@ func run_test() -> void:
 	var bad := saved.duplicate(true)
 	bad.signature = "old-level-version"
 	check(not manager.checkpoint_error(bad).is_empty(), "Incompatible room is rejected")
+	check("tersimpan" in root.get_node("CheatCodes").execute("ALLARTIFACTS"), "Artifact cheat saves to active slot")
+	var artifact_count: int = player_data.bestiary_master.artifacts.size()
+	check(manager.list_checkpoints()[0].player.artifacts.size() == artifact_count, "All artifacts persisted")
 	check(manager.create_slot(1), "Second slot creates independent progress")
 	await wait_for_load()
 	check(not manager.list_checkpoints()[1].has("exploration"), "New slot has no inherited exploration")
@@ -92,6 +95,7 @@ func run_test() -> void:
 	var restored_network = current_scene.current_room.get_node("PortalNetwork")
 	check(restored_network.portals[0].portal_id == portal_id and restored_network.portals[0].unlocked, "Load restores discovered portal")
 	check(not restored_network.portals[1].unlocked, "Load does not reveal undiscovered portals")
+	check(player_data.discovered_artifacts.size() == artifact_count, "Artifact cheat survives slot reload")
 	check(current_scene.player.sword_damage == 2, "Restored upgrade applies to player")
 	check(current_scene.player.global_position.distance_to(current_scene.current_room.get_node("PlayerSpawn").global_position) < 10.0, "Load starts at room entrance")
 	player_data.add_gold(1)

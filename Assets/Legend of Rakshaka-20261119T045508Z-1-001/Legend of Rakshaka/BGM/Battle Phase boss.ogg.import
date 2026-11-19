@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b665rflc1jhc1"
+path="res://.godot/imported/Battle Phase boss.ogg-e61255877e2e5e8b0bdae432716c085d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/BGM/Battle Phase boss.ogg"
+dest_files=["res://.godot/imported/Battle Phase boss.ogg-e61255877e2e5e8b0bdae432716c085d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -12,11 +12,28 @@ var active_slot := -1
 var last_error := ""
 var storage_error := ""
 var last_room_instance := 0
+var exploration_timer := 0.0
+var last_exploration := {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	player_data.progress_saver = save_progress
 	get_tree().node_added.connect(_on_node_added)
+
+# Coalesce exploration changes to at most two writes per second.
+func _process(delta: float) -> void:
+	exploration_timer += delta
+	if exploration_timer < 0.5:
+		return
+	exploration_timer = 0.0
+	if not enabled or loading or active_slot < 0 or player_data.life <= 0:
+		return
+	var stage := get_tree().current_scene
+	if stage == null or not ADAPTER.supports(stage) or not is_instance_valid(stage.current_room):
+		return
+	var exploration := ADAPTER.capture_exploration(stage)
+	if exploration != last_exploration:
+		save_progress()
 
 func _exit_tree() -> void:
 	player_data.progress_saver = Callable()
@@ -135,7 +152,10 @@ func save_checkpoint(data: Dictionary) -> bool:
 	if not storage_error.is_empty():
 		return _save_error(storage_error)
 	rows[active_slot] = data
-	return _write_slots(rows)
+	var saved := _write_slots(rows)
+	if saved:
+		last_exploration = data.get("exploration", {}).duplicate(true)
+	return saved
 
 func save_progress() -> bool:
 	# Running a scene directly in the editor never overwrites an arbitrary slot.
@@ -147,6 +167,11 @@ func save_progress() -> bool:
 	if not rows[active_slot] is Dictionary:
 		return _save_error("Slot aktif tidak tersedia.")
 	var data: Dictionary = rows[active_slot].duplicate(true)
+	var stage := get_tree().current_scene
+	if stage != null and ADAPTER.supports(stage) and is_instance_valid(stage.current_room):
+		# Never attach another room's map to the previous checkpoint.
+		if data.get("scene") == stage.scene_file_path and int(data.get("seed", -1)) == stage.stage_seed and int(data.get("room_id", -1)) == stage.node_id:
+			data.exploration = ADAPTER.capture_exploration(stage)
 	data.player = ADAPTER.capture_player()
 	data.saved_at = Time.get_datetime_string_from_system()
 	return save_checkpoint(data)
@@ -239,6 +264,8 @@ func _resume(data: Dictionary, slot: int) -> void:
 		stage.rng.state = int(data.rng_state)
 		stage.current_room_index = int(data.room_index)
 		player_data.apply_player_stats(stage.player)
+		ADAPTER.restore_exploration(stage, data)
+	last_exploration = data.get("exploration", {}).duplicate(true)
 	active_slot = slot
 	get_tree().current_scene = stage
 	if is_instance_valid(previous_scene):

@@ -5,16 +5,22 @@ var owns_pause := false
 var previous_focus: Control
 @onready var overlay: Control = $Overlay
 @onready var menu: Control = $Overlay/MenuPanel
+@onready var cheats: Control = $Overlay/CheatPanel
 @onready var options: Control = $Overlay/OptionsPanel
 
 func _ready() -> void:
 	menu.get_node("ContinueButton").pressed.connect(resume)
 	menu.get_node("OptionButton").pressed.connect(show_options)
+	menu.get_node("CheatButton").pressed.connect(show_cheats)
+	cheats.get_node("BackButton").pressed.connect(back_to_pause)
+	cheats.get_node("ApplyButton").pressed.connect(submit_cheat)
+	cheats.get_node("CodeInput").text_submitted.connect(func(_text: String): submit_cheat())
 	menu.get_node("RestartButton").pressed.connect(restart)
 	menu.get_node("LeaveButton").pressed.connect(leave)
 	options.get_node("BackButton").pressed.connect(back_to_pause)
 	overlay.hide()
 	options.hide()
+	cheats.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and not event.is_echo() and not get_tree().paused:
@@ -23,7 +29,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if owns_pause and event.is_action_pressed("ui_cancel") and not event.is_echo():
-		if options.visible:
+		if cheats.visible:
+			back_to_pause()
+		elif options.visible:
 			for dialog in options.find_children("*", "OverlaidWindow", true, false):
 				if dialog.is_visible_in_tree():
 					dialog.close()
@@ -48,6 +56,7 @@ func resume() -> void:
 		return
 	overlay.hide()
 	options.hide()
+	cheats.hide()
 	owns_pause = false
 	get_tree().paused = false
 	if is_instance_valid(previous_focus) and previous_focus.is_visible_in_tree():
@@ -60,6 +69,7 @@ func show_options() -> void:
 
 func back_to_pause() -> void:
 	options.hide()
+	cheats.hide()
 	menu.show()
 	menu.get_node("ContinueButton").grab_focus()
 
@@ -85,3 +95,26 @@ func _change_scene(reload_level: bool) -> void:
 func _exit_tree() -> void:
 	if owns_pause:
 		get_tree().paused = false
+
+
+func show_cheats() -> void:
+	menu.hide()
+	options.hide()
+	cheats.show()
+	cheats.get_node("Status").text = "Double jump: %s | Kebal: %s" % [
+		"ON" if CheatCodes.double_jump else "OFF", "ON" if CheatCodes.god_mode else "OFF"]
+	cheats.get_node("CodeInput").grab_focus()
+
+func submit_cheat() -> void:
+	if not owns_pause or not cheats.visible:
+		return
+	# Run outside the input/physics callback while keeping gameplay paused.
+	_apply_cheat.call_deferred()
+
+func _apply_cheat() -> void:
+	if not owns_pause or not cheats.visible:
+		return
+	var field: LineEdit = cheats.get_node("CodeInput")
+	cheats.get_node("Status").text = CheatCodes.execute(field.text)
+	field.select_all()
+	field.grab_focus()

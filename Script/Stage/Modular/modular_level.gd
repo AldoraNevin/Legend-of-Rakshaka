@@ -5,6 +5,7 @@ const NAVIGATION = preload("res://Script/Stage/Modular/room_navigation.gd")
 const DEFAULT_SETTINGS = preload("res://Scenes/Rooms/Modular/default_level_settings.tres")
 const SOLID_TILES = preload("res://Assets/Tileset/pantai_modular_solid.tres")
 const BACKDROP_TILES = preload("res://Assets/Tileset/coastal_tileset.tres")
+const PORTALS = preload("res://Script/Stage/Modular/portal_network.gd")
 const MAP = preload("res://Script/UI/coastal_map.gd")
 const REWARD = preload("res://Script/Interactables/modular_reward.gd")
 @export var settings: Resource = DEFAULT_SETTINGS
@@ -138,6 +139,10 @@ func prepare(seed_value: int) -> bool:
 	set_meta("playable_bounds", layout.bounds)
 	set_meta("map_regions", layout.regions)
 	set_meta("modular_level", true)
+	var portal_network := PORTALS.new()
+	portal_network.name = "PortalNetwork"
+	portal_network.configure(self)
+	add_child(portal_network)
 	var map_overlay := MAP.new()
 	map_overlay.name = "CoastalMap"
 	map_overlay.room = self

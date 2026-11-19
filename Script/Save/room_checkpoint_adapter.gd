@@ -35,10 +35,55 @@ static func capture(stage: Node) -> Dictionary:
 		"room_id": stage.node_id, "room_label": room.label,
 		"room_index": stage.current_room_index, "rng_state": str(stage.rng.state),
 		"saved_at": Time.get_datetime_string_from_system(),
-		"player": capture_player(),
+		"player": capture_player(), "exploration": capture_exploration(stage),
 		"stats": {"speed": stage.player.speed, "jump_force": stage.player.jump_force,
 			"sword_damage": stage.player.sword_damage, "max_jump": stage.player.max_jump}
 	}
+
+# JSON cannot preserve Vector2i dictionary keys; store cells as coordinate pairs.
+static func capture_exploration(stage: Node) -> Dictionary:
+	var cells: Array = []
+	var portals: Array = []
+	var map: Node = stage.current_room.get_node_or_null("CoastalMap")
+	if map != null:
+		for cell in map.view.explored:
+			cells.append([cell.x, cell.y])
+	var network: Node = stage.current_room.get_node_or_null("PortalNetwork")
+	if network != null:
+		for portal in network.portals:
+			if portal.unlocked:
+				portals.append(portal.portal_id)
+	return {"cells": cells, "portals": portals}
+
+static func restore_exploration(stage: Node, data: Dictionary) -> void:
+	var exploration: Dictionary = data.get("exploration", {})
+	var map: Node = stage.current_room.get_node_or_null("CoastalMap")
+	if map != null:
+		map.view.explored.clear()
+		for cell in exploration.get("cells", []):
+			map.view.explored[Vector2i(int(cell[0]), int(cell[1]))] = true
+		map.view.queue_redraw()
+	var network: Node = stage.current_room.get_node_or_null("PortalNetwork")
+	if network != null:
+		for portal in network.portals:
+			portal.unlocked = portal.portal_id in exploration.get("portals", [])
+			portal.queue_redraw()
+
+static func exploration_error(data: Variant) -> String:
+	if not data is Dictionary or not data.get("cells", []) is Array or not data.get("portals", []) is Array:
+		return "Data eksplorasi tidak valid."
+	for cell in data.get("cells", []):
+		if not cell is Array or cell.size() != 2:
+			return "Data area peta tidak valid."
+		for coordinate in cell:
+			if not (coordinate is int or coordinate is float):
+				return "Koordinat peta tidak valid."
+			if not is_finite(float(coordinate)) or absf(float(coordinate)) > 1000000 or float(coordinate) != floor(float(coordinate)):
+				return "Koordinat peta di luar batas."
+	for portal in data.get("portals", []):
+		if not portal is String:
+			return "Data portal tidak valid."
+	return ""
 
 static func capture_player() -> Dictionary:
 	return {"fatal_shield_used": player_data.fatal_shield_used, "health_version": player_data.HEALTH_VERSION, "coin": player_data.coin, "life": maxi(1, player_data.life),
@@ -66,6 +111,9 @@ static func validation_error(data: Dictionary) -> String:
 		return "Level berubah sejak checkpoint dibuat. Mulai perjalanan baru."
 	if not data.get("player") is Dictionary or not data.get("stats") is Dictionary:
 		return "Data pemain tidak tersedia."
+	var exploration_issue := exploration_error(data.get("exploration", {}))
+	if not exploration_issue.is_empty():
+		return exploration_issue
 	var error := player_error(data.player)
 	if not error.is_empty():
 		return error

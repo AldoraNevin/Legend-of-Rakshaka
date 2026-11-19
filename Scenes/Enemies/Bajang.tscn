@@ -733,6 +733,7 @@ radius = 46.010868
 size = Vector2(67, 85)
 
 [node name="Bajang" type="CharacterBody2D" unique_id=1656621313]
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1841503448]
 texture_filter = 1

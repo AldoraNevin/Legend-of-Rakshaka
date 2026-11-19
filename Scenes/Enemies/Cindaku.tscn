@@ -475,6 +475,7 @@ radius = 43.011627
 size = Vector2(79, 84)
 
 [node name="Cindaku" type="CharacterBody2D" unique_id=328027546]
+scale = Vector2(0.7, 0.7)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1197966836]
 texture_filter = 1

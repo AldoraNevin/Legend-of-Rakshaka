@@ -55,16 +55,31 @@ func run_test() -> void:
 	stage.load_next_room()
 	await process_frame
 	await process_frame
+	var map_view = stage.current_room.get_node("CoastalMap").view
+	var network = stage.current_room.get_node("PortalNetwork")
+	map_view.reveal_at(Vector2(1000, 0))
+	network.portals[0].unlocked = true
+	var portal_id: String = network.portals[0].portal_id
+	manager._process(0.6)
+	check(manager.list_checkpoints()[0].exploration.cells.size() > 0, "Exploration autosaves without gold pickup")
+	check(portal_id in manager.list_checkpoints()[0].exploration.portals, "Discovered portal autosaves")
 	player_data.add_gold(7)
 	saved = manager.list_checkpoints()[0]
 	check(saved.room_id == 1 and saved.seed == 123456, "Room changes update the selected slot")
 	check(saved.player.coin == 23, "Gold found mid-stage persists immediately")
 	check(manager.list_checkpoints()[1] == null, "Room changes never consume another slot")
+	var legacy := saved.duplicate(true)
+	legacy.erase("exploration")
+	check(manager.checkpoint_error(legacy).is_empty(), "Older saves without exploration remain valid")
+	var malformed := saved.duplicate(true)
+	malformed.exploration = {"cells": [["bad", 1]], "portals": []}
+	check(not manager.checkpoint_error(malformed).is_empty(), "Invalid map coordinates are rejected")
 	var bad := saved.duplicate(true)
 	bad.signature = "old-level-version"
 	check(not manager.checkpoint_error(bad).is_empty(), "Incompatible room is rejected")
 	check(manager.create_slot(1), "Second slot creates independent progress")
 	await wait_for_load()
+	check(not manager.list_checkpoints()[1].has("exploration"), "New slot has no inherited exploration")
 	check(player_data.coin == 0 and player_data.upgrade_levels.sword == 0, "Second slot resets gold and upgrades")
 	check(player_data.discovered_enemies.is_empty() and player_data.discovered_artifacts.is_empty(), "Collections are isolated")
 	player_data.add_gold(3)
@@ -73,6 +88,10 @@ func run_test() -> void:
 	check(current_scene.node_id == 1 and current_scene.stage_seed == 123456, "Load restores last room and seed")
 	check(player_data.coin == 23 and player_data.upgrade_levels.sword == 1, "Load restores latest resources, not room-entry resources")
 	check("Aul" in player_data.discovered_enemies and "Kujang Pusaka" in player_data.discovered_artifacts, "Load restores the selected collections")
+	check(current_scene.current_room.get_node("CoastalMap").view.is_explored(Vector2(1000, 0)), "Load restores explored map")
+	var restored_network = current_scene.current_room.get_node("PortalNetwork")
+	check(restored_network.portals[0].portal_id == portal_id and restored_network.portals[0].unlocked, "Load restores discovered portal")
+	check(not restored_network.portals[1].unlocked, "Load does not reveal undiscovered portals")
 	check(current_scene.player.sword_damage == 2, "Restored upgrade applies to player")
 	check(current_scene.player.global_position.distance_to(current_scene.current_room.get_node("PlayerSpawn").global_position) < 10.0, "Load starts at room entrance")
 	player_data.add_gold(1)
@@ -90,6 +109,7 @@ func run_test() -> void:
 	player_data.reset_progress()
 	check(manager.load_checkpoint(0), "Progress survives a new session")
 	await wait_for_load()
+	check(current_scene.current_room.get_node("CoastalMap").view.is_explored(Vector2(1000, 0)), "Exploration survives leaving and a new session")
 	check(player_data.coin == 24 and current_scene.node_id == 1, "New session restores latest progress and stage")
 	await process_frame
 	await process_frame

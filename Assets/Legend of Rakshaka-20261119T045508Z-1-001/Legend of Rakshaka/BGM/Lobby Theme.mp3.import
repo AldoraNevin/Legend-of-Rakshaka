@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://comcswpjlc8qw"
+path="res://.godot/imported/Lobby Theme.mp3-2335795c374014e0da053158d859e3b9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/BGM/Lobby Theme.mp3"
+dest_files=["res://.godot/imported/Lobby Theme.mp3-2335795c374014e0da053158d859e3b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

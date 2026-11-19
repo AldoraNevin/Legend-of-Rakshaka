@@ -1,6 +1,6 @@
 # Portal dalam level modular
 
-Portal hanya muncul di ruang peti, artefak, dan exit. Tidak ada portal pintu masuk atau percabangan.
+Portal muncul di pintu masuk, ruang peti, artefak, dan exit. Portal pintu masuk aktif saat pemain berada di titik awal level. Tidak ada portal percabangan.
 Semua portal awalnya terkunci sampai didekati.
 Portal exit memakai RewardSpawn ruang exit agar tidak menyentuh trigger pindah stage.
 Dekati portal (60 unit, selisih tinggi maksimal 35) untuk mengaktifkannya.
@@ -20,5 +20,5 @@ bisa dibuka, dengan peta belum dijelajahi. Ruangan baru mulai dengan eksplorasi 
 Script: Script/Stage/Modular/portal_network.gd dan Script/Interactables/level_portal.gd.
 Tes: Tests/test_level_portals.gd.
 
-Tampilan portal memakai animasi Ghostly cyan firefly dari aset Main Menu (8 frame).
+Tampilan portal memakai aset Portal.png dari UI HUD, dengan tinggi 80 unit dan dasar sejajar titik teleport.
 Label di dunia dan peta hanya "Portal"; ID internal tetap membedakan tujuan save.

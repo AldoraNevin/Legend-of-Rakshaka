@@ -252,6 +252,12 @@ func _resume(data: Dictionary, slot: int) -> void:
 	var previous_pause := get_tree().paused
 	var old_state := {"player": ADAPTER.capture_player()}
 	ADAPTER.restore_player(data)
+	var skipped_tutorial := is_stage and int(data.room_id) == 0 and player_data.tutorial_completed
+	if skipped_tutorial:
+		data.room_id = 1
+		data.room_index = 1
+		data.exploration = {}
+		stage.preview_start_node = 1
 	get_tree().paused = true
 	get_tree().root.add_child(stage)
 	if is_stage and (not is_instance_valid(stage.current_room) or int(stage.node_id) != int(data.room_id)):
@@ -278,3 +284,5 @@ func _resume(data: Dictionary, slot: int) -> void:
 	get_tree().paused = false
 	loading = false
 	last_error = ""
+	if skipped_tutorial:
+		save_checkpoint(ADAPTER.capture(stage))

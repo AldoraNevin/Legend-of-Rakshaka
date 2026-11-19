@@ -81,15 +81,15 @@ func restart() -> void:
 func leave() -> void:
 	_change_scene.call_deferred(false)
 
-func _change_scene(reload_level: bool) -> void:
+func _change_scene(return_to_lobby: bool) -> void:
 	if not owns_pause:
 		return
 	if not CheckpointManager.save_progress():
 		return
 	resume()
-	if reload_level:
+	if return_to_lobby:
 		player_data.restore_life()
-	var error := get_tree().reload_current_scene() if reload_level else get_tree().change_scene_to_file(leave_scene)
+	var error := get_tree().change_scene_to_file(CheckpointManager.LOBBY if return_to_lobby else leave_scene)
 	if error != OK:
 		push_error("Tidak dapat mengganti scene: " + error_string(error))
 		open_pause()

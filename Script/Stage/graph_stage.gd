@@ -64,7 +64,7 @@ func start_run() -> void:
 		return
 	player.set_physics_process(true)
 	print("Graph stage seed: ", run_seed, " | nodes: ", stage_graph.size())
-	node_id = preview_start_node
+	node_id = 1 if preview_start_node == 0 and player_data.tutorial_completed else preview_start_node
 	stage_finished = false
 	current_room_index = 0
 	load_next_room()
@@ -92,6 +92,11 @@ func build_template_room(template: PackedScene) -> void:
 		spawn_from_markers("SpikeSpawns", SPIKE_SCENE, spikes)
 	else:
 		super.build_template_room(template)
+	if stage_graph[node_id].kind != "start":
+		var music := AudioStreamPlayer.new()
+		music.name = "RoomMusic"
+		current_room.add_child(music)
+		preload("res://Script/Audio/game_audio.gd").configure_music(music, false)
 	var title := current_room.get_node_or_null("Title") as Label
 	if title != null and stage_graph[node_id].kind != "start":
 		title.text = stage_graph[node_id].label
@@ -141,7 +146,7 @@ func show_door_choices() -> void:
 		door.global_position = positions[i]
 
 func _enter_graph_door(body: Node2D, target: int) -> void:
-	if current_state != RoomState.DOOR_SELECT or stage_finished or not body.is_in_group("player"):
+	if RoomLoading.busy or current_state != RoomState.DOOR_SELECT or stage_finished or not body.is_in_group("player"):
 		return
 	if target not in stage_graph[node_id].next:
 		return
@@ -149,6 +154,16 @@ func _enter_graph_door(body: Node2D, target: int) -> void:
 		current_room.show_gate_hint()
 		return
 	current_state = RoomState.COMBAT
-	node_id = target
-	# Leave the physics callback before adding/removing collision objects.
-	call_deferred("load_next_room")
+	# Leave the physics callback before rendering/loading the next room.
+	travel_to_room.call_deferred(target)
+
+
+func travel_to_room(target: int) -> void:
+	if RoomLoading.busy:
+		return
+	await RoomLoading.change_room(func():
+		stage_finished = false
+		node_id = target
+		load_next_room()
+		player.velocity = Vector2.ZERO
+	, "Memuat %s..." % stage_graph[target].label)

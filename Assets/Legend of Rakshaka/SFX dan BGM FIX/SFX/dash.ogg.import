@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dp1fubn8e08ae"
+path="res://.godot/imported/dash.ogg-b2d36aad60ec9be50b5e3041b1342294.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Legend of Rakshaka/SFX dan BGM FIX/SFX/dash.ogg"
+dest_files=["res://.godot/imported/dash.ogg-b2d36aad60ec9be50b5e3041b1342294.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

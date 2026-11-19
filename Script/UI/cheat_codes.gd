@@ -39,14 +39,11 @@ func execute(raw: String) -> String:
 	var target: int = DESTINATIONS[code]
 	if not stage.templates.has(target):
 		return "Ruangan tujuan belum tersedia."
-	stage.stage_finished = false
-	stage.node_id = target
-	stage.current_room_index = target
-	stage.load_next_room()
-	if not is_instance_valid(stage.current_room):
-		return "Ruangan gagal dibuat. Periksa Output Godot."
-	stage.player.velocity = Vector2.ZERO
-	return "Berpindah ke %s. Tekan Back lalu Continue." % stage.stage_graph[target].label
+	if RoomLoading.busy:
+		return "Tunggu proses loading selesai."
+	stage.travel_to_room.call_deferred(target)
+	return "Memuat %s. Setelah selesai, tekan Back lalu Continue." % stage.stage_graph[target].label
+
 
 
 func unlock_all_artifacts() -> String:

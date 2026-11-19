@@ -1,12 +1,13 @@
 extends "res://Script/Interactables/coastal_treasure.gd"
 ## Artifact branches unlock the existing artifact catalog; treasure gives coins.
+const PEDESTAL_TEXTURE := preload("res://Assets/Legend of Rakshaka/Environment/Decoration/Dudukan arte dan peti.png")
 const ARTIFACT_SCENE_DIR := "res://Scenes/Artefak/"
 @export_enum("treasure", "artifact") var reward_kind := "treasure"
 @export var artifact_name := "Daun Kelor"
 ## Sisi terpanjang artefak di dalam level (px). Skala dihitung otomatis dari ukuran frame,
 ## jadi artefak 64x64 maupun yang lebih besar (mis. Mustika Merah Delima) tampil sama besar.
 @export var artifact_visual_size := 32.0
-@export var artifact_visual_offset := Vector2(0, -18)
+@export var artifact_visual_offset := Vector2(0, -38)
 var artifact_visual: Node2D
 
 ## "Daun Kelor" -> res://Scenes/Artefak/DaunKelor.tscn
@@ -21,6 +22,7 @@ func _ready() -> void:
 	add_to_group("level_rewards")
 	if reward_kind == "artifact":
 		prompt.text = "[E] Ambil artefak"
+		prompt.position.y = -74
 		prompt.modulate = Color(0.65, 0.85, 1.0)
 		_spawn_artifact_visual()
 
@@ -79,11 +81,11 @@ func _draw() -> void:
 	if reward_kind == "treasure":
 		super._draw()
 		return
-	draw_rect(Rect2(-16, 4, 32, 12), Color(0.25, 0.33, 0.4))
-	draw_rect(Rect2(-20, 2, 40, 4), Color(0.65, 0.72, 0.78))
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	draw_texture_rect(PEDESTAL_TEXTURE, Rect2(-24, -20, 48, 36), false)
 	if not opened and artifact_visual == null:
-		draw_colored_polygon(PackedVector2Array([Vector2(0, -27), Vector2(9, -16), Vector2(0, -5), Vector2(-9, -16)]), Color(0.35, 0.85, 1.0))
-		draw_circle(Vector2(0, -16), 3, Color.WHITE)
+		draw_colored_polygon(PackedVector2Array([Vector2(0, -49), Vector2(9, -38), Vector2(0, -27), Vector2(-9, -38)]), Color(0.35, 0.85, 1.0))
+		draw_circle(Vector2(0, -38), 3, Color.WHITE)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if reward_kind != "artifact":

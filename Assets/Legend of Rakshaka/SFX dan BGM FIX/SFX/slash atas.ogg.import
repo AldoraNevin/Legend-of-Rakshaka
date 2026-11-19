@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2bhw06qlr28f"
+path="res://.godot/imported/slash atas.ogg-26ea5b7fa511ca345368bac7e0377ca0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Legend of Rakshaka/SFX dan BGM FIX/SFX/slash atas.ogg"
+dest_files=["res://.godot/imported/slash atas.ogg-26ea5b7fa511ca345368bac7e0377ca0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

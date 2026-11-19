@@ -367,7 +367,6 @@ layout_mode = 2
 text = "Semar"
 
 [node name="Body" type="Label" parent="TutorialUI/Dialogue/Margin/Content" unique_id=1354981136]
-custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 text = "Selamat datang, Rakshaka!"
 autowrap_mode = 2

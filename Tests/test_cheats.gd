@@ -59,6 +59,8 @@ func run_test() -> void:
 	pause.cheats.get_node("CodeInput").text_submitted.emit("ROOM2")
 	await process_frame
 	await process_frame
+	while root.get_node("RoomLoading").busy:
+		await process_frame
 	check(stage.node_id == 2 and is_instance_valid(stage.current_room), "Room jump via UI works")
 	check(paused and pause.cheats.visible, "Room jump stays paused")
 	check(player.global_position.distance_to(stage.current_room.get_node("PlayerSpawn").global_position) < 10, "Room entry spawn restored")

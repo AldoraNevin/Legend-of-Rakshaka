@@ -580,7 +580,7 @@ description = "Gada masif milik Bima. Menambah damage fisik secara drastis, namu
 
 EFEK
 Damage fisik +75%; kecepatan gerak -10%."
-history = "gada ini awalnya merupakan pusaka milik Prabu Duryudana (raja Kurawa) atau diperoleh Bima dari pemberian gurunya, Resi Drona, maupun anugerah dewa sebagai simbol kekuatan fisik yang luar biasa. Nama \"Rujak Polo\" sendiri secara harfiah bermakna \"penghancur kepala\" (polo dalam bahasa Jawa berarti kepala/otak), yang menggambarkan dahsyatnya daya hancur senjata ini saat diayunkan di medan perang. Dalam puncak kisah perang Baratayudha, Gada Rujak Polo menjadi senjata penentu kemenangan Pandawa saat digunakan Bima untuk mengalahkan Duryudana di tepi telaga Samantapancaka, sekaligus menuntaskan sumpah suci Bima demi menegakkan keadilan."
+history = "Gada ini awalnya merupakan pusaka milik Prabu Duryudana (raja Kurawa) atau diperoleh Bima dari pemberian gurunya, Resi Drona, maupun anugerah dewa sebagai simbol kekuatan fisik yang luar biasa. Nama \"Rujak Polo\" sendiri secara harfiah bermakna \"penghancur kepala\" (polo dalam bahasa Jawa berarti kepala/otak), yang menggambarkan dahsyatnya daya hancur senjata ini saat diayunkan di medan perang. Dalam puncak kisah perang Baratayudha, Gada Rujak Polo menjadi senjata penentu kemenangan Pandawa saat digunakan Bima untuk mengalahkan Duryudana di tepi telaga Samantapancaka, sekaligus menuntaskan sumpah suci Bima demi menegakkan keadilan."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_gadha_rujakpolo" unique_id=692418273]
 layout_mode = 1
@@ -629,7 +629,7 @@ description = "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh.
 
 EFEK
 Bleed: 1 damage/detik selama 3 detik; serangan berikutnya menyegarkan durasi."
-history = "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh."
+history = "Keris ini ditempa oleh seorang pandai besi sakti bernama Mpu Gandring atas pesanan Ken Arok, yang berambisi merebut kekuasaan Tumapel dari tangan Tunggul Ametung. Karena tidak sabar menunggu proses penempaan yang seharusnya memakan waktu satu tahun, Ken Arok merampas keris tersebut sebelum selesai disempurnakan dan langsung menikam Mpu Gandring hingga tewas. Sebelum mengembuskan napas terakhir, Mpu Gandring mengutuk keris itu akan merenggut nyawa tujuh keturunan, termasuk Ken Arok sendiri. Kutukan berdarah tersebut terbukti memicu rangkaian tragedi pembunuhan berantai di lingkungan istana Singasari—menewaskan Tunggul Ametung, Kebo Ijo, Ken Arok, hingga Anusapati—dan menjadikan keris ini simbol ambisi kekuasaan yang berujung petaka"
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_keris_mpu_gandring" unique_id=1792829710]
 layout_mode = 1
@@ -678,7 +678,7 @@ description = "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pad
 
 EFEK
 Peluang critical melee 25%; critical menghasilkan 2x damage."
-history = "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat."
+history = "Senjata ini melegenda di tangan Parmin pendekar asal Kandanghaur, Indramayu yang dijuluki Jaka Sembung saat ia menebas habis patok-patok perampasan tanah milik Kompeni di hadapan rakyat yang tertindas. Meski tidak lahir dari ritual keramat para empu keraton, bilah baja sederhana ini menyatu dengan aliran tenaga dalam murni milik Jaka Sembung, membuatnya sanggup mematahkan pedang baja pasukan bayaran penjajah dalam sekali tebas. Sebagai artefak, Golok Jaka Sembung menyimpan tekad baja rakyat kecil yang bangkit melawan tirani membuktikan bahwa senjata paling mematikan bukanlah yang ditempa dengan emas dan mantra, melainkan yang digenggam oleh keberanian membela kebenaran."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_golok_jakasembung" unique_id=1182141119]
 layout_mode = 1
@@ -727,7 +727,7 @@ description = "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) ar
 
 EFEK
 Jangkauan tebasan +50%."
-history = "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee."
+history = "Dalam legenda tanah Jawa, ketika Baru Klinting bertapa melingkari lereng gunung dalam wujud naga demi diakui sebagai putra ayahnya, lidahnya dipotong oleh Ki Ageng Mangir atas titah sang ayah dan seketika berubah menjadi mata tombak berdaya magis tinggi. Pusaka ini kemudian diwariskan secara turun-temurun hingga jatuh ke tangan Ki Ageng Mangir Wanabaya III, yang menggunakannya untuk mempertahankan kemerdekaan wilayah Perdikan Mangir dari penaklukan Kerajaan Mataram Islam di bawah Panembahan Senopati. Sebagai artefak, Tombak Baru Klinting memancarkan aura mistis darah naga yang mampu menembus pertahanan terkuat dan menundukkan kesaktian musuh, menjadikannya pusaka penentu nasib yang memadukan pengorbanan darah dan harga diri seorang ksatria."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_tombak_baru_klinting" unique_id=98796668]
 layout_mode = 1
@@ -776,7 +776,7 @@ description = "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memant
 
 EFEK
 Memantulkan 30% damage yang diterima kepada penyerang."
-history = "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan)."
+history = "Menurut legenda Tatar Sunda, pusaka ini ditempa oleh Mpu Windu Sarpo atas wangsit gaib untuk Prabu Siliwangi (Sri Baduga Maharaja), bukan sekadar sebagai alat tempur melainkan sebagai jimat penjaga kewibawaan serta keseimbangan alam semesta (Tri Tangtu). Konon, setiap lubang pada bilahnya menyimpan energi spiritual leluhur yang mampu menangkis serangan ilmu hitam, membelah pertahanan musuh dalam gerakan cepat, sekaligus menundukkan roh-roh pengganggu. Sebagai artefak, Kujang Pusaka memancarkan wibawa sang raja agung Pajajaran menjadikannya simbol kebijaksanaan, kesaktian alam, dan pelindung tanah Pasundan yang tak tertembus marabahaya."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kujang_pusaka" unique_id=282403613]
 layout_mode = 1
@@ -825,7 +825,7 @@ description = "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda
 
 EFEK
 Damage 2x saat HP <=30%."
-history = "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis."
+history = "Dalam sejarah dan tradisi keprajuritan Aceh, pusaka ini ditempa dari besi pilihan yang disepuh doa para ulama dan disematkan di pinggang para panglima perang, seperti Teuku Umar dan Cut Nyak Dhien, saat mengobarkan perlawanan sengit melawan penjajah. Bentuknya yang ramping dan runcing dirancang khusus untuk serangan jarak dekat yang mematikan konon, satu tusukan kilatnya mampu menembus celah zirah besi dan melumpuhkan lawan sebelum sempat menghunus pedang. Sebagai artefak, Rencong Sakti memancarkan aura keberanian dan semangat jihad yang tak tergoyahkan, menjadikannya simbol kehormatan ksatria Aceh yang pantang menyerah hingga titik darah penghabisan."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_rencong_sakti" unique_id=1515024755]
 layout_mode = 1
@@ -870,11 +870,11 @@ toggle_mode = true
 script = ExtResource("card_1")
 entity_id = "pecut_samandiman"
 category = "AoE"
-description = "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan.
+description = "Cambuk kilat peninggalan Prabu Klono Sewandono saat menaklukkan Singo Barong. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan.
 
 EFEK
 Setiap ayunan menghasilkan gelombang di depan sejauh 120 px."
-history = "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan."
+history = "Dalam legenda tanah Jawa, pecut sepanjang beberapa meter ini bukanlah cambuk biasa, melainkan pusaka bertuah tinggi yang diperoleh sang raja setelah menjalani laku tapa brata yang berat. Konon, setiap lecutannya mampu membelah gunung, meratakan hutan belantara, hingga menghasilkan dentuman petir yang merontokkan nyali pasukan musuh dari kejauhan. Pusaka ini menjadi penentu kemenangan Prabu Klono Sewandono saat menaklukkan Singo Barong raja berwujud manusia berkepala harimau yang mahkotanya dihinggapi burung merak dalam perjalanan meminang Dewi Songgolangit dari Kerajaan Kediri. Sebagai artefak, Pecut Samandiman menyimpan kekuatan pengendali badai dan wibawa penakluk monster, menjadikannya senjata jarak menengah yang mematikan sekaligus simbol supremasi mutlak seorang raja ksatria."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_pecut_samandiman" unique_id=1402361016]
 layout_mode = 1
@@ -919,11 +919,11 @@ toggle_mode = true
 script = ExtResource("card_1")
 entity_id = "jimat_kalimasada"
 category = "Buff"
-description = "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan.
+description = "pusaka paling keramat dalam dunia pewayangan Jawa yang menjadi jimat andalan Prabu Puntadewa (Yudistira), sulung dari lima ksatria Pandawa penguasa Kerajaan Amarta.
 
 EFEK
 Maksimum HP +25, damage +25%, kecepatan +20%."
-history = "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan."
+history = "Berbeda dengan pusaka lainnya yang berwujud senjata tajam atau pemukul, artefak ini berwujud sebuah kitab suci berisi ajaran kebenaran mutlak, kebijaksanaan, dan jalan keselamatan sejati yang dalam tradisi dakwah Wali Songo dimaknai sebagai perlambang Kalimat Syahadat. Dalam kisah pewayangan, Jimat Kalimasada hanya dapat dibaca dan dikuasai oleh pemilik hati yang suci tanpa noda kebencian seperti Puntadewa. Konon, kekuatan spiritual kitab ini sanggup menangkis segala bentuk sihir hitam, menundukkan amarah raksasa sekalipun, dan menjadi tameng tak tertembus yang menjamin keselamatan seluruh keluarga Pandawa dari kehancuran. Sebagai artefak, Jimat Kalimasada memancarkan cahaya pelindung suci yang meniadakan kutukan dan membalikkan niat jahat lawan, menjadikannya pusaka pertahanan dan kebijaksanaan tertinggi di atas segala senjata perang."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_jimat_kalimasada" unique_id=1610031243]
 layout_mode = 1
@@ -968,11 +968,11 @@ toggle_mode = true
 script = ExtResource("card_1")
 entity_id = "mustika_merah_delima"
 category = "Buff"
-description = "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain.
+description = "Permata mistis legendaris dari khazanah spiritual Nusantara yang berbentuk sebutir batu merah mungil menyerupai biji buah delima dan dipercaya berasal dari alam gaib melalui laku pertapaan tingkat tinggi.
 
 EFEK
 Menahan satu serangan fatal tanpa kehilangan HP; pulih saat kembali ke lobi."
-history = "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain."
+history = "Batu bertuah ini konon merupakan titipan para penguasa gaib atau raja jin yang hanya dapat dimiliki oleh sosok berhati bersih dengan tingkat kesaktian spiritual yang mumpuni. Keajaiban utamanya terlihat ketika dicelupkan ke dalam air—cahaya merahnya akan memancar menyala hingga menembus gelas-gelas di sekitarnya, seolah menyimpan inti kehidupan yang tak pernah padam. Bagi sang pemilik, Mustika Merah Delima dipercaya memberikan kekebalan mutlak dari serangan senjata tajam maupun racun mematikan, menyembuhkan luka parah dalam sekejap, serta memancarkan wibawa agung yang mampu menundukkan kawan maupun lawan. Sebagai artefak, batu ini memadukan daya regenerasi abadi dan perlindungan mistis tertinggi, menjadikannya pusaka yang paling diburu para raja dan pendekar sepanjang masa."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mustika_merah_delima" unique_id=716302852]
 layout_mode = 1
@@ -1017,11 +1017,11 @@ toggle_mode = true
 script = ExtResource("card_1")
 entity_id = "zirah_antakusuma"
 category = "Buff"
-description = "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh.
+description = "Baju zirah pusaka kahyangan berwujud rompi berlapis rajah emas yang menjadi pelindung ikonik Raden Gatotkaca, ksatria klan Pandawa berjuluk \"Otot Kawat Tulang Besi\" dalam kisah pewayangan Jawa.
 
 EFEK
 Damage masuk -25%; proyektil -50%."
-history = "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh."
+history = "Dalam mitologi pewayangan, zirah sakti ini ditempa dari kulit dan cahaya para dewa di Kahyangan Jonggring Saloka, lalu dianugerahkan oleh Batara Guru kepada Gatotkaca setelah ia berhasil menumpas pemberontakan raksasa Patih Sekipu. Kekuatan utama Kotang Antakusuma terletak pada kemampuannya membuat sang pemakai terbang melesat menembus awan secepat kilat tanpa memerlukan sayap, sekaligus memberikan perlindungan mutlak yang kebal terhadap segala jenis senjata fana maupun hawa dingin langit tertinggi. Sebagai artefak, Zirah Antakusuma memancarkan aura langit yang menyatukan ketahanan fisik tak tertembus dengan kelincahan udara mutlak, menjadikannya perlengkapan tempur legendaris bagi ksatria penguasa angkasa"
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_zirah_antakusuma" unique_id=1746398620]
 layout_mode = 1
@@ -1070,7 +1070,7 @@ description = "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Dou
 
 EFEK
 Double jump dan jarak dash udara +50%."
-history = "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara."
+history = "Selendang ini bukan sekadar busana kahyangan, melainkan sumber kesaktian utama milik Dewi Nawang Wulan yang memungkinkannya melayang menembus awan dan pulang ke alam dewata. Ketika selendangnya disembunyikan oleh Jaka Tarub di dasar lumbung padi, Nawang Wulan kehilangan kemampuan terbangnya dan terpaksa menetap di bumi sebagai manusia biasa hingga akhirnya ia menemukan kembali pusaka itu dan terbang pulang ke langit sambil meninggalkan kesaktiannya untuk melindungi keturunannya. Sebagai artefak, Selendang Bidadari menyimpan esensi angin kahyangan yang meringankan tubuh pemakainya, menangkis serangan fisik dengan kelenturan sutra ilahi, serta memancarkan aura pesona yang menenangkan alam di sekitarnya."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_selendang_bidadari" unique_id=1035630890]
 layout_mode = 1
@@ -1119,7 +1119,7 @@ description = "Potongan bambu langka penolak bala. Meningkatkan resource drop da
 
 EFEK
 Resource dari musuh +50% (dibulatkan ke atas)."
-history = "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan."
+history = "Dalam tradisi spiritual Nusantara, bambu keramat ini tidak dapat ditemukan dengan mata telanjang biasa, melainkan hanya menampakkan diri kepada orang-orang pilihan yang telah melewati tirakat berat atau melalui penarikan gaib pada malam-malam keramat. Konon, pertemuan dua ruas yang berlawanan arah tersebut menciptakan pusaran energi alam yang mampu membalikkan serangan ilmu hitam, melumpuhkan niat jahat lawan sebelum sempat menyerang, serta membuka pintu keberuntungan dan kelimpahan bagi pemiliknya. Sebagai artefak, Pring Pethuk memancarkan aura pelindung alami yang menetralisir kutukan dan mengalihkan bahaya, menjadikannya jimat penolak bala paling diburu oleh para petualang dan ahli kebatinan."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_pring_pethuk" unique_id=2015377631]
 layout_mode = 1
@@ -1169,7 +1169,7 @@ description = "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara p
 
 EFEK
 Memulihkan 1 HP setiap 2 detik."
-history = "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu."
+history = "Dalam legenda tanah Jawa, air kehidupan ini tidak berada di dasar samudra fisik seperti tipu muslihat Resi Drona, melainkan hanya dapat ditemukan setelah seseorang menaklukkan ego dan bertemu dengan guru sejatinya di dalam lubuk hati terdalam. Konon, setetes Air Tirta Amerta sanggup menyembuhkan luka paling mematikan sekalipun, memulihkan tenaga yang terkuras habis dalam sekejap, mematahkan segala bentuk kutukan maupun racun gaib, serta memberikan keabadian jiwa bagi siapa pun yang meminumnya. Sebagai artefak, Air Tirta Amerta memancarkan cahaya pemulihan murni dari alam semesta menjadikannya pusaka penyembuh yang selalu menjadi rebutan abadi antara kekuatan cahaya dan kegelapan."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_air_tirta_amerta" unique_id=173869172]
 layout_mode = 1
@@ -1219,7 +1219,7 @@ description = "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negati
 
 EFEK
 Saat diambil: hapus semua status negatif dan pulihkan 20 HP."
-history = "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika."
+history = "Dalam kepercayaan masyarakat Jawa dan Melayu, daun mungil ini dikenal sebagai penetral mutlak bagi mereka yang terjebak dalam kekebalan ilmu hitam atau sulit melepas nyawa karena ikatan ajian gaib. Konon, kibasan ranting Daun Kelor yang telah didoakan sanggup meruntuhkan susuk, membuyarkan pelet dan santet, mematahkan mantra kebal lawan yang bersumber dari kekuatan gelap, hingga mengusir makhluk halus pengganggu dalam sekejap. Sebagai artefak, Daun Kelor memancarkan energi pemurni yang mengembalikan segala sesuatu ke kodrat alaminya menjadikannya senjata penawar kutukan dan penghancur pertahanan magis paling ampuh di medan pertempuran."
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_daun_kelor" unique_id=1083030616]
 layout_mode = 1
@@ -1269,7 +1269,7 @@ description = "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk me
 
 EFEK
 Peluang stun 20% selama 1 detik."
-history = "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat."
+history = "Dalam mitologi Nusantara mulai dari kisah Syekh Subakir yang menancapkan pasak keramat di puncak Gunung Tidar sebagai \"Pakunya Tanah Jawa\" hingga legenda rakyat tentang sosok Sundel Bolong dan siluman hutan Paku Emas dikenal sebagai satu-satunya benda yang mampu menembus serta mengikat wujud gaib di alam nyata. Konon, jika ditancapkan di pusat suatu wilayah, pusaka ini sanggup menenangkan amarah penghuni gaib dan menstabilkan energi bumi; namun bila ditancapkan tepat di ubun-ubun sesosok siluman atau makhluk astral, seketika wujud aslinya akan terkunci dan tunduk sepenuhnya kepada sang pemilik. "
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_paku_emas" unique_id=1956436128]
 layout_mode = 1

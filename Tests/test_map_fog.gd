@@ -38,6 +38,16 @@ func run_test() -> void:
 	assert(view.spotted_enemies.is_empty())
 	view.reveal_at(Vector2(1000, 1000))
 	assert(view.is_explored(Vector2.ZERO))
+	var doors := Node2D.new()
+	doors.name = "DoorSpawns"
+	room.add_child(doors)
+	var exit_marker := Marker2D.new()
+	exit_marker.name = "Exit"
+	exit_marker.position = Vector2(2400, 0)
+	doors.add_child(exit_marker)
+	view.reveal_exit_area()
+	assert(view.is_explored(exit_marker.position + Vector2(64, 0)))
+	assert(not view.is_explored(Vector2(1600, 0)))
 	room.queue_free()
 	await process_frame
 	print("MAP FOG TEST: passed")

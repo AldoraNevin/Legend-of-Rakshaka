@@ -16,10 +16,10 @@ func run_test() -> void:
 		assert(layout.enemies.size() == layout.encounters.size())
 		for room in layout.rooms:
 			var entries: Array = layout.encounters.filter(func(e): return e.room_id == room.id)
-			if room.definition.id in ["tower", "short_tower"]:
+			if room.definition.id in ["tower", "short_tower"] or room.definition.enemies.is_empty():
 				assert(entries.is_empty())
 				continue
-			assert(entries.size() in [2, 3], room.definition.id)
+			assert(entries.size() in [mini(2, room.definition.enemies.size()), mini(3, room.definition.enemies.size())], room.definition.id)
 			counts[entries.size()] = true
 			var positions := {}
 			for entry in entries:

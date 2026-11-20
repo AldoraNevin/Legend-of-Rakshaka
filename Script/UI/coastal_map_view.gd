@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var local_player := room.to_local(player.global_position)
 	reveal_at(local_player)
+	reveal_exit_area()
 	for enemy in get_tree().get_nodes_in_group("artifact_enemies"):
 		if not enemy is Node2D or enemy.is_queued_for_deletion() or enemy.get("health") <= 0:
 			continue
@@ -56,7 +57,14 @@ var map_offset := Vector2.ZERO
 const MAIN := Color(0.3, 0.85, 0.8)
 const GOLD := Color(1, 0.76, 0.3)
 
+func reveal_exit_area() -> void:
+	if is_instance_valid(room):
+		var exit_marker := room.get_node_or_null("DoorSpawns/Exit") as Node2D
+		if exit_marker != null:
+			reveal_at(room.to_local(exit_marker.global_position))
+
 func _ready() -> void:
+	reveal_exit_area()
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	resized.connect(queue_redraw)
 

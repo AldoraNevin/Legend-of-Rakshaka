@@ -8,14 +8,14 @@ extends CharacterBody2D
 @export var first_attack_delay := 0.5
 @export var attack_cooldown := 0.8
 @export var contact_damage := 20
-@export var max_health := 3
+@export var max_health := 100
 @export var gravity := 1000.0
 @export var edge_probe_forward := 24.0
 @export var edge_probe_down := 180.0
 @export var edge_max_drop := 12.0
 
 var direction := -1.0
-var health := 0
+var health := 0.0
 var is_dead := false
 var is_attacking := false
 var can_attack := true
@@ -32,7 +32,7 @@ var current_floor_y := INF
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var damage_area: Area2D = $DamageArea
-@onready var hurtbox: Area2D = $Hurtbox
+@onready var hurtbox: Area2D = $HurtBox
 @onready var detection_area: Area2D = get_node_or_null("DetectionArea")
 
 
@@ -297,7 +297,7 @@ func _on_detection_area_body_exited(body: Node) -> void:
 		has_attacked_player = false
 
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: float) -> void:
 	if is_dead:
 		return
 

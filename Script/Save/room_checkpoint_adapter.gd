@@ -93,7 +93,7 @@ static func exploration_error(data: Variant) -> String:
 
 static func capture_player() -> Dictionary:
 	return {"tutorial_completed": player_data.tutorial_completed, "attack_learned": player_data.attack_learned, "dash_learned": player_data.dash_learned, "fatal_shield_used": player_data.fatal_shield_used, "health_version": player_data.HEALTH_VERSION, "coin": player_data.coin, "life": maxi(1, player_data.life),
-		"max_life": player_data.max_life, "upgrades": player_data.upgrade_levels.duplicate(true),
+		"max_life": player_data.max_life, "upgrades": player_data.upgrade_levels.duplicate(true), "upgrade_version": player_data.UPGRADE_VERSION, "healing_skill": player_data.capture_healing_skill(),
 		"skills": player_data.unlocked_skill.duplicate(true),
 		"enemies": player_data.discovered_enemies.duplicate(true),
 		"artifacts": player_data.discovered_artifacts.duplicate(true)}
@@ -137,20 +137,32 @@ static func player_error(p: Dictionary) -> String:
 			return "Statistik pemain tidak valid."
 	if p.life <= 0 or p.max_life < 1 or p.life > p.max_life or p.coin < 0:
 		return "Statistik pemain di luar batas."
-	if p.get("health_version", 1) == player_data.HEALTH_VERSION:
-		var artifacts: Array = p.get("artifacts", []) if p.get("artifacts") is Array else []
-		var has_health_artifact := "jimat_kalimasada" in artifacts or "Jimat Kalimasada" in artifacts
-		var valid_max := int(p.max_life) == player_data.MAX_HEALTH
-		valid_max = valid_max or (has_health_artifact and int(p.max_life) == player_data.MAX_HEALTH + 25)
-		if not valid_max:
-			return "Batas HP tidak sesuai dengan artefak pemain."
 	if not p.get("upgrades") is Dictionary:
 		return "Data upgrade tidak valid."
 	for key in player_data.UPGRADE_DATA:
-		if not (p.upgrades.get(key) is int or p.upgrades.get(key) is float):
+		var fallback = p.upgrades.get("speed", 0) if key == "skill_charge" else (p.upgrades.get("jump", 0) if key == "skill_cooldown" else null)
+		var level = p.upgrades.get(key, fallback)
+		if not (level is int or level is float) or not is_finite(float(level)):
 			return "Data upgrade tidak lengkap."
-		if p.upgrades[key] < 0 or p.upgrades[key] > player_data.UPGRADE_DATA[key].max_level:
+		if level < 0 or level > player_data.UPGRADE_DATA[key].max_level or level != floor(level):
 			return "Level upgrade tidak valid."
+	if p.get("health_version", 1) == player_data.HEALTH_VERSION:
+		var artifacts: Array = p.get("artifacts", []) if p.get("artifacts") is Array else []
+		var bonus := 25 if "jimat_kalimasada" in artifacts or "Jimat Kalimasada" in artifacts else 0
+		var expected := player_data.MAX_HEALTH + bonus
+		if int(p.get("upgrade_version", 1)) >= 2:
+			expected += int(p.upgrades.max_life) * 5
+		if int(p.max_life) != expected:
+			return "Batas HP tidak sesuai dengan upgrade dan artefak."
+	if p.has("healing_skill"):
+		if not p.healing_skill is Dictionary:
+			return "Data skill tidak valid."
+		for key in ["charges", "recharge_left", "interval_left"]:
+			var value = p.healing_skill.get(key)
+			if not (value is int or value is float) or not is_finite(float(value)) or value < 0:
+				return "Data cooldown skill tidak valid."
+		if p.healing_skill.charges > 1 + int(p.upgrades.get("skill_charge", 0)) or p.healing_skill.charges != floor(p.healing_skill.charges) or p.healing_skill.recharge_left > 30 or p.healing_skill.interval_left > 3:
+			return "Data charge skill di luar batas."
 	for key in ["skills", "enemies", "artifacts"]:
 		if not p.get(key) is Array:
 			return "Data koleksi tidak valid."
@@ -162,9 +174,9 @@ static func restore_player(data: Dictionary) -> void:
 	player_data.discovered_artifacts = p.artifacts.duplicate()
 	player_data.fatal_shield_used = bool(p.get("fatal_shield_used", false))
 	player_data.coin = int(p.coin)
+	player_data.restore_upgrades(p.upgrades)
 	player_data.restore_health(int(p.life), int(p.max_life), int(p.get("health_version", 1)))
-	for key in player_data.upgrade_levels:
-		player_data.upgrade_levels[key] = int(p.upgrades[key])
+	player_data.restore_healing_skill(p.get("healing_skill", {}))
 	player_data.unlocked_skill = p.skills.duplicate()
 	player_data.discovered_enemies = p.enemies.duplicate()
 	player_data.discovered_artifacts = p.artifacts.duplicate()

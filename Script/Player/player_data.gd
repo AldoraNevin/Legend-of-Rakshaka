@@ -26,12 +26,13 @@ static var max_life: int = MAX_HEALTH
 static var fatal_shield_used := false
 static var last_played: String = ""
 
+const UPGRADE_VERSION := 2
 static var upgrade_levels: Dictionary = {
-	"max_life": 0,
-	"speed": 0,
-	"jump": 0,
-	"sword": 0,
+	"max_life": 0, "sword": 0, "skill_charge": 0, "skill_cooldown": 0,
 }
+static var skill_charges := 1
+static var skill_recharge_left := 0.0
+static var skill_interval_left := 0.0
 
 static var unlocked_skill: Array = []
 static var discovered_enemies: Array = []
@@ -48,30 +49,10 @@ static var progress_saver: Callable
 static var _is_initialized: bool = false
 
 const UPGRADE_DATA = {
-	"max_life": {
-		"name": "Vitalitas",
-		"description": "Kurangi damage masuk 5% per level; pulihkan HP.",
-		"base_cost": 3,
-		"max_level": 3,
-	},
-	"speed": {
-		"name": "Gerak Ringan",
-		"description": "Tambah kecepatan jalan.",
-		"base_cost": 2,
-		"max_level": 3,
-	},
-	"jump": {
-		"name": "Lompatan",
-		"description": "Tambah kekuatan lompat.",
-		"base_cost": 2,
-		"max_level": 3,
-	},
-	"sword": {
-		"name": "Tebasan",
-		"description": "Tambah damage pedang.",
-		"base_cost": 4,
-		"max_level": 2,
-	},
+	"max_life": {"name": "Vitalitas", "description": "+5 HP maksimum setiap level.", "base_cost": 3, "max_level": 8},
+	"sword": {"name": "Daya Serang", "description": "+5% damage serangan setiap level.", "base_cost": 4, "max_level": 8},
+	"skill_charge": {"name": "Charge Skill", "description": "+1 charge skill setiap level. Awal 1, maksimal 5.", "base_cost": 6, "max_level": 4},
+	"skill_cooldown": {"name": "Cooldown Skill", "description": "-5% cooldown dasar setiap level. 30 detik menjadi 18 detik.", "base_cost": 5, "max_level": 8},
 }
 
 
@@ -107,6 +88,7 @@ static func save_to_json() -> bool:
 		"player_hp": max_life,
 		"max_life": max_life,
 		"upgrade_levels": upgrade_levels.duplicate(true),
+		"upgrade_version": UPGRADE_VERSION, "healing_skill": capture_healing_skill(),
 		"unlocked_skill": unlocked_skill.duplicate(true),
 		"discovered_enemies": discovered_enemies.duplicate(true),
 		"discovered_artifacts": discovered_artifacts.duplicate(true),
@@ -211,11 +193,8 @@ static func _apply_loaded_dict(data: Dictionary) -> void:
 	max_life = MAX_HEALTH
 	life = max_life
 
-	var loaded_upgrades = data.get("upgrade_levels", {})
-	if typeof(loaded_upgrades) == TYPE_DICTIONARY:
-		for k in (loaded_upgrades as Dictionary).keys():
-			if upgrade_levels.has(k):
-				upgrade_levels[k] = loaded_upgrades[k]
+	restore_upgrades(data.get("upgrade_levels", {}))
+	restore_healing_skill(data.get("healing_skill", {}))
 
 	var loaded_skills = data.get("unlocked_skill", [])
 	if typeof(loaded_skills) == TYPE_ARRAY:
@@ -379,12 +358,17 @@ static func buy_upgrade(upgrade_id: String) -> bool:
 	if not can_upgrade(upgrade_id):
 		return false
 
+	var previous_cooldown := healing_cooldown()
 	coin -= get_upgrade_cost(upgrade_id)
 	upgrade_levels[upgrade_id] = upgrade_levels.get(upgrade_id, 0) + 1
 
 	if upgrade_id == "max_life":
 		max_life = artifact_max_health()
-		life = max_life
+		life = mini(max_life, life + 5)
+	if upgrade_id == "skill_charge":
+		skill_charges += 1
+	if upgrade_id == "skill_cooldown" and skill_recharge_left > 0:
+		skill_recharge_left *= healing_cooldown() / previous_cooldown
 
 	save_to_json()
 	return true
@@ -397,9 +381,9 @@ static func restore_life() -> void:
 
 
 static func apply_player_stats(player) -> void:
-	player.speed = 100.0 + upgrade_levels["speed"] * 15.0
-	player.jump_force = 300.0 + upgrade_levels["jump"] * 20.0
-	player.sword_damage = 1 + upgrade_levels["sword"]
+	player.speed = 100.0
+	player.jump_force = 300.0
+	player.sword_damage = 1
 	if has_artifact("gadha_rujakpolo"):
 		player.speed *= 0.9
 	if has_artifact("jimat_kalimasada"):
@@ -427,6 +411,9 @@ static func _remove_file(path: String) -> void:
 
 
 static func reset_progress() -> void:
+	skill_charges = 1
+	skill_recharge_left = 0.0
+	skill_interval_left = 0.0
 	tutorial_completed = false
 	attack_learned = false
 	dash_learned = false
@@ -458,15 +445,14 @@ static func restore_health(saved_life: int, saved_max: int, version: int) -> voi
 static func incoming_damage(amount: int, projectile := false) -> int:
 	if amount <= 0:
 		return 0
-	var reduction := clampi(int(upgrade_levels.get("max_life", 0)), 0, 3) * 0.05
 	var armor := (0.5 if projectile else 0.75) if has_artifact("zirah_antakusuma") else 1.0
-	return maxi(1, roundi(amount * (1.0 - reduction) * armor))
+	return maxi(1, roundi(amount * armor))
 
 static func artifact_max_health() -> int:
-	return MAX_HEALTH + (25 if has_artifact("jimat_kalimasada") else 0)
+	return MAX_HEALTH + 5 * int(upgrade_levels.get("max_life", 0)) + (25 if has_artifact("jimat_kalimasada") else 0)
 
-static func melee_damage(base: int, critical_roll: float = 1.0) -> int:
-	var multiplier := 1.0
+static func melee_damage(base: int, critical_roll: float = 1.0) -> float:
+	var multiplier := 1.0 + 0.05 * int(upgrade_levels.get("sword", 0))
 	if has_artifact("gadha_rujakpolo"):
 		multiplier *= 1.75
 	if has_artifact("jimat_kalimasada"):
@@ -475,7 +461,7 @@ static func melee_damage(base: int, critical_roll: float = 1.0) -> int:
 		multiplier *= 2.0
 	if has_artifact("golok_jakasembung") and critical_roll < 0.25:
 		multiplier *= 2.0
-	return maxi(1, ceili(base * multiplier))
+	return maxf(1.0, base * multiplier)
 
 static func enemy_resource_reward(base: int = 1) -> void:
 	add_gold(ceili(base * 1.5) if has_artifact("pring_pethuk") else base)
@@ -498,3 +484,52 @@ static func complete_tutorial() -> void:
 	attack_learned = true
 	dash_learned = true
 	save_to_json()
+
+
+static func restore_upgrades(saved: Dictionary) -> void:
+	for key in UPGRADE_DATA:
+		var fallback: int = int(saved.get("speed", 0) if key == "skill_charge" else (saved.get("jump", 0) if key == "skill_cooldown" else 0))
+		upgrade_levels[key] = clampi(int(saved.get(key, fallback)), 0, UPGRADE_DATA[key].max_level)
+
+static func healing_capacity() -> int:
+	return 1 + int(upgrade_levels.get("skill_charge", 0))
+
+static func healing_cooldown() -> float:
+	return 30.0 * (1.0 - 0.05 * int(upgrade_levels.get("skill_cooldown", 0)))
+
+static func capture_healing_skill() -> Dictionary:
+	return {"charges": skill_charges, "recharge_left": skill_recharge_left, "interval_left": skill_interval_left}
+
+static func restore_healing_skill(saved: Dictionary) -> void:
+	skill_charges = clampi(int(saved.get("charges", healing_capacity())), 0, healing_capacity())
+	skill_recharge_left = clampf(float(saved.get("recharge_left", 0)), 0, healing_cooldown())
+	skill_interval_left = clampf(float(saved.get("interval_left", 0)), 0, 3)
+	if skill_charges < healing_capacity() and skill_recharge_left <= 0:
+		skill_recharge_left = healing_cooldown()
+
+static func use_healing_skill() -> bool:
+	if life <= 0 or life >= max_life or skill_charges <= 0 or skill_interval_left > 0:
+		return false
+	life = mini(max_life, life + 10)
+	skill_charges -= 1
+	skill_interval_left = 3.0
+	if skill_recharge_left <= 0:
+		skill_recharge_left = healing_cooldown()
+	save_to_json()
+	return true
+
+static func tick_healing_skill(delta: float) -> void:
+	skill_interval_left = maxf(0, skill_interval_left - delta)
+	if skill_charges >= healing_capacity():
+		skill_recharge_left = 0
+		return
+	skill_recharge_left -= delta
+	var gained := false
+	while skill_recharge_left <= 0 and skill_charges < healing_capacity():
+		skill_charges += 1
+		gained = true
+		skill_recharge_left += healing_cooldown()
+	if skill_charges >= healing_capacity():
+		skill_recharge_left = 0
+	if gained:
+		save_to_json()

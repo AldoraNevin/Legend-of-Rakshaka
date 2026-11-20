@@ -3,6 +3,7 @@ extends "res://Script/level_2_generator.gd"
 signal stage_completed
 
 const Graph = preload("res://Script/Stage/stage_graph.gd")
+const END_CREDITS := preload("res://addons/maaacks_menus_template/examples/scenes/end_credits/end_credits.tscn")
 @export_range(0, 8) var preview_start_node := 0
 @export var template_directory := "res://Scenes/Rooms/Stage/"
 @export var procedural_level: PackedScene = preload("res://Scenes/Rooms/Modular/modular_level.tscn")
@@ -109,6 +110,12 @@ func show_generation_error(seed_value: int) -> void:
 	$GUI.add_child(error_label)
 
 func complete_combat() -> void:
+	if node_id == 1: # Room 1 is the first combat node after the tutorial.
+		if stage_finished:
+			return
+		stage_finished = true
+		_show_room_one_credits.call_deferred()
+		return
 	if stage_graph[node_id].kind == "start":
 		current_state = RoomState.DOOR_SELECT
 		show_door_choices()
@@ -117,6 +124,10 @@ func complete_combat() -> void:
 		if current_room.has_method("open_exit"):
 			current_room.open_exit()
 
+func _show_room_one_credits() -> void:
+	if is_inside_tree() and not is_queued_for_deletion() and get_tree().current_scene == self:
+		get_tree().change_scene_to_packed(END_CREDITS)
+
 func pick_room_template() -> PackedScene:
 	return templates[node_id]
 
@@ -124,6 +135,8 @@ func show_door_choices() -> void:
 	hide_doors()
 	var targets: Array = stage_graph[node_id].next
 	if targets.is_empty():
+		if stage_finished:
+			return
 		stage_finished = true
 		stage_completed.emit()
 		var message := Label.new()

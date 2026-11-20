@@ -2,7 +2,16 @@ extends RefCounted
 ## Only these species participate in modular encounters.
 const SPECIES := ["Aul", "Bajang", "Cindaku", "Genderuwo", "Gupala",
 	"MahesaSura", "Sarpaneka", "WarakNgendhog"]
-const BEHAVIOR = preload("res://Script/Enemies/aul.gd")
+const BEHAVIORS := {
+	"Aul": preload("res://Script/Enemies/aul.gd"),
+	"Bajang": preload("res://Script/Enemies/bajang.gd"),
+	"Cindaku": preload("res://Script/Enemies/cindaku.gd"),
+	"Genderuwo": preload("res://Script/Enemies/genderuwo.gd"),
+	"Gupala": preload("res://Script/Enemies/gupala.gd"),
+	"MahesaSura": preload("res://Script/Enemies/mahesa_sura.gd"),
+	"Sarpaneka": preload("res://Script/Enemies/sarpaneka.gd"),
+	"WarakNgendhog": preload("res://Script/Enemies/warak_ngendhog.gd"),
+}
 const VISUAL = preload("res://Script/Enemies/enemy_visual.gd")
 
 static func create(species: String) -> CharacterBody2D:
@@ -10,20 +19,7 @@ static func create(species: String) -> CharacterBody2D:
 	# Instantiate the authored body, sprite, hurtbox and hitbox together.
 	var enemy: CharacterBody2D = load("res://Scenes/Enemies/%s.tscn" % species).instantiate()
 	if enemy.get_script() == null:
-		enemy.set_script(BEHAVIOR)
-	enemy.enemy_name = species
-	match species:
-		"Bajang":
-			enemy.attack_lunge_speed = 180.0
-			enemy.attack_hop_speed = 100.0
-		"MahesaSura":
-			enemy.attack_lunge_speed = 220.0
-		"WarakNgendhog":
-			enemy.attack_lunge_speed = 200.0
-	if species == "MahesaSura":
-		enemy.enemy_name = "Mahesa Sura"
-	elif species == "WarakNgendhog":
-		enemy.enemy_name = "Warak Ngendhog"
+		enemy.set_script(BEHAVIORS[species])
 	# Uniform stage scale preserves all authored sprite/collider proportions.
 	enemy.scale *= 0.5
 	enemy.collision_layer = 64

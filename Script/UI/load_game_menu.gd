@@ -40,7 +40,7 @@ func refresh() -> void:
 			button.disabled = true
 			label.text = "Save %d — Tidak tersedia\n%s" % [index + 1, error]
 		else:
-			label.text = "Save %d • %s • Gold %d\nArtefak %d • Hostile %d • Upgrade %d\n%s" % [index + 1, data.room_label, int(data.player.coin), data.player.artifacts.size(), data.player.enemies.size(), _upgrade_count(data.player.upgrades), str(data.saved_at).replace("T", "  ")]
+			label.text = "Save %d • %s • Sukma %d\nArtefak %d • Hostile %d • Upgrade %d\n%s" % [index + 1, data.room_label, int(data.player.coin), data.player.artifacts.size(), data.player.enemies.size(), _upgrade_count(data.player.upgrades), str(data.saved_at).replace("T", "  ")]
 
 func _upgrade_count(upgrades: Dictionary) -> int:
 	var total := 0

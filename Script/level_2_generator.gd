@@ -269,8 +269,13 @@ func register_enemy(enemy: Node) -> void:
 
 
 func _on_enemy_removed(enemy: Node) -> void:
+	if enemy not in active_enemies:
+		return
 	active_enemies.erase(enemy)
 
+	# Enemies also emit tree_exited when the entire stage is unloaded.
+	if not is_inside_tree() or is_queued_for_deletion() or get_tree().current_scene != self:
+		return
 	if current_state == RoomState.COMBAT and active_enemies.is_empty():
 		complete_combat()
 

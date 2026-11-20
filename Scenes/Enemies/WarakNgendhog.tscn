@@ -830,6 +830,7 @@ size = Vector2(109, 89)
 size = Vector2(53, 87)
 
 [node name="WarakNgendhog" type="CharacterBody2D" unique_id=1837261973]
+scale = Vector2(0.7, 0.7)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1026221166]
 texture_filter = 1

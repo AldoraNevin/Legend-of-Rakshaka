@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="5_mruxq"]
 [ext_resource type="PackedScene" path="res://Scenes/Rooms/Stage/boss_background.tscn" id="background"]
 
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/NyiRoroKidul.tscn" id="boss_enemy"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n73g"]
 atlas = ExtResource("5_mruxq")
 region = Rect2(267, 32, 86, 104)
@@ -40,18 +42,6 @@ position = Vector2(760, 350)
 
 [node name="EnemySpawns" type="Node2D" parent="." unique_id=1876314144]
 
-[node name="Marker0" type="Marker2D" parent="EnemySpawns" unique_id=2099329531]
-position = Vector2(324, 350)
-
-[node name="Marker1" type="Marker2D" parent="EnemySpawns" unique_id=435327936]
-position = Vector2(399, 350)
-
-[node name="Marker2" type="Marker2D" parent="EnemySpawns" unique_id=433736157]
-position = Vector2(474, 350)
-
-[node name="Marker3" type="Marker2D" parent="EnemySpawns" unique_id=1784565014]
-position = Vector2(549, 350)
-
 [node name="BossBackground" type="Node2D" parent="." unique_id=1963228270 instance=ExtResource("background")]
 z_index = -9
 texture_filter = 1
@@ -84,3 +74,6 @@ texture = SubResource("AtlasTexture_0n73g")
 position = Vector2(3168, 1477.6)
 scale = Vector2(1.6, 1.6)
 texture = SubResource("AtlasTexture_fw321")
+
+[node name="NyiRoroKidul" parent="." instance=ExtResource("boss_enemy")]
+position = Vector2(570, 330)

@@ -11,14 +11,8 @@ var bestiary_catalog: Control
 @onready var info_panel: Panel = $LobbyUI/InfoPanel
 @onready var info_title: Label = $LobbyUI/InfoPanel/Title
 @onready var info_body: Label = $LobbyUI/InfoPanel/Body
-@onready var upgrade_panel: Panel = $LobbyUI/UpgradePanel
-@onready var coin_label: Label = $LobbyUI/UpgradePanel/CoinLabel
-@onready var upgrade_buttons := {
-	"max_life": $LobbyUI/UpgradePanel/VBox/MaxLifeButton,
-	"speed": $LobbyUI/UpgradePanel/VBox/SpeedButton,
-	"jump": $LobbyUI/UpgradePanel/VBox/JumpButton,
-	"sword": $LobbyUI/UpgradePanel/VBox/SwordButton,
-}
+var upgrade_panel: Control
+
 
 
 func _ready() -> void:
@@ -32,13 +26,15 @@ func _ready() -> void:
 	player_data.restore_life()
 	prompt_panel.hide()
 	info_panel.hide()
+	$LobbyUI/UpgradePanel.hide()
+	var upgrade_layer := CanvasLayer.new()
+	upgrade_layer.layer = 120
+	add_child(upgrade_layer)
+	upgrade_panel = preload("res://Script/UI/upgrade_menu.gd").new()
+	upgrade_layer.add_child(upgrade_panel)
 	upgrade_panel.hide()
 
 	$LobbyUI/InfoPanel/CloseButton.pressed.connect(close_panels)
-	$LobbyUI/UpgradePanel/CloseButton.pressed.connect(close_panels)
-
-	for upgrade_id in upgrade_buttons.keys():
-		upgrade_buttons[upgrade_id].pressed.connect(_on_upgrade_button_pressed.bind(upgrade_id))
 
 	refresh_upgrade_panel()
 
@@ -81,7 +77,7 @@ func open_message_panel(title: String, body: String) -> void:
 func open_upgrade_panel() -> void:
 	close_panels()
 	refresh_upgrade_panel()
-	upgrade_panel.show()
+	upgrade_panel.open_menu()
 
 
 func open_bestiary_panel() -> void:
@@ -122,21 +118,7 @@ func close_panels() -> void:
 
 
 func refresh_upgrade_panel() -> void:
-	coin_label.text = "Coin: " + str(player_data.coin)
-
-	for upgrade_id in upgrade_buttons.keys():
-		var button: Button = upgrade_buttons[upgrade_id]
-		button.tooltip_text = player_data.UPGRADE_DATA[upgrade_id]["description"]
-		var level: int = player_data.upgrade_levels[upgrade_id]
-		var max_level: int = player_data.UPGRADE_DATA[upgrade_id]["max_level"]
-
-		if level >= max_level:
-			button.text = "%s Lv.%d/%d - MAX" % [player_data.get_upgrade_name(upgrade_id), level, max_level]
-			button.disabled = true
-		else:
-			var cost := player_data.get_upgrade_cost(upgrade_id)
-			button.text = "%s Lv.%d/%d - %d coin" % [player_data.get_upgrade_name(upgrade_id), level, max_level, cost]
-			button.disabled = player_data.coin < cost
+	upgrade_panel.refresh()
 
 
 func _format_entries(entries: Array) -> String:

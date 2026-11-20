@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" path="res://Scenes/Rooms/Stage/boss_background.tscn" id="background"]
 
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/NyiRoroKidul.tscn" id="boss_enemy"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
 size = Vector2(841, 32)
 
@@ -124,15 +126,6 @@ position = Vector2(649, 368)
 
 [node name="EnemySpawns" type="Node2D" parent="." unique_id=129557635]
 
-[node name="EnemySpawn1" type="Marker2D" parent="EnemySpawns" unique_id=1241397586]
-position = Vector2(331, 110)
-
-[node name="EnemySpawn2" type="Marker2D" parent="EnemySpawns" unique_id=1347253062]
-position = Vector2(406, 174)
-
-[node name="EnemySpawn3" type="Marker2D" parent="EnemySpawns" unique_id=522589002]
-position = Vector2(251, 110)
-
 [node name="SpikeSpawns" type="Node2D" parent="." unique_id=1582723319]
 
 [node name="SpikeSpawn1" type="Marker2D" parent="SpikeSpawns" unique_id=1972668696]
@@ -151,3 +144,6 @@ position = Vector2(737, 369)
 
 [node name="BossBackground" parent="." instance=ExtResource("background")]
 scale = Vector2(1.1680556, 1.0222222)
+
+[node name="NyiRoroKidul" parent="." instance=ExtResource("boss_enemy")]
+position = Vector2(570, 330)

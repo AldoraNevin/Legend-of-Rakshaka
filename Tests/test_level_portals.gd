@@ -13,7 +13,7 @@ func run_test() -> void:
 	var network = stage.current_room.get_node("PortalNetwork")
 	assert(network.portals.size() == stage.current_room.layout.rewards.size() + 2)
 	assert(network.portals.back().portal_id == "entrance")
-	assert(network.portals.back().position == stage.current_room.layout.spawn)
+	assert(network.portals.back().position == stage.current_room.layout.spawn + Vector2(50, 35))
 	assert(not network.portals[0].unlocked)
 	for portal in network.portals:
 		assert(not portal.title.begins_with("Percabangan") and portal.title != "Pintu masuk")

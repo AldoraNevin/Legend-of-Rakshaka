@@ -1,17 +1,15 @@
 extends Area2D
-
 var collected := false
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$anim.play("Active")
-
+	var texture: Texture2D = $Sprite2D.texture
+	$Sprite2D.scale = Vector2.ONE * (20.0 / maxf(texture.get_width(), texture.get_height()))
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and not collected:
+	if body.is_in_group("player") and not collected:
 		collected = true
-		$anim.play("Destroyed")
+		$CollisionShape2D.set_deferred("disabled", true)
 		player_data.add_gold(1)
-		print("Coin Collected : ", player_data.coin)
-		await $anim.animation_finished
+		var fade := create_tween().set_parallel(true)
+		fade.tween_property(self, "modulate:a", 0.0, 0.2)
+		fade.tween_property($Sprite2D, "position:y", -14.0, 0.2)
+		await fade.finished
 		queue_free()

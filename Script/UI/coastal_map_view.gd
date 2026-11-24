@@ -82,7 +82,7 @@ func _draw() -> void:
 		title = "PORTAL - PILIH TUJUAN"
 	draw_string(font, Vector2(24, 36), title, HORIZONTAL_ALIGNMENT_LEFT, -1, 22, MAIN)
 	draw_string(font, Vector2(viewport_size.x - 240, 36), "SEED  %s" % room.layout.seed, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(0.6, 0.7, 0.8))
-	draw_string(font, Vector2(24, 60), ("Klik / tap lingkaran biru untuk teleport. Esc: kembali" if portal_network != null else "M / Esc: kembali bermain  |  Game dijeda"), HORIZONTAL_ALIGNMENT_LEFT, -1, 14)
+	draw_string(font, Vector2(24, 60), ("Klik / tap lingkaran biru untuk teleport. Esc: kembali" if portal_network != null else "Peta / Esc: kembali bermain  |  Game dijeda"), HORIZONTAL_ALIGNMENT_LEFT, -1, 14)
 	var bounds: Rect2 = room.get_meta("playable_bounds")
 	update_projection()
 	# Physical space and collision geometry are copied from the built scene.

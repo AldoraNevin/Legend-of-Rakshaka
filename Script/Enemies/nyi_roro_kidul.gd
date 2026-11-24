@@ -1,6 +1,6 @@
 extends CharacterBody2D
 ## Scene-owned boss: the stage tracks its lifetime to unlock the exit.
-@export var max_health := 4800
+@export var max_health := 1000
 @export var damage := 48
 @export var attack_cooldown := 2.0
 @export var gravity := 1000.0
@@ -16,6 +16,7 @@ var pressure_window := 0.0
 var countering := false
 var released := false
 var flash: Tween
+@onready var health_hud := preload("res://Scenes/UI/boss_health_hud.tscn").instantiate() as CanvasLayer
 var health: float
 var is_dead := false
 var cooldown_left := 1.5
@@ -25,6 +26,9 @@ var player: Node2D
 
 func _ready() -> void:
 	add_to_group("artifact_enemies")
+	add_child(health_hud)
+	health_hud.get_node("Health").max_value = max_health
+	health_hud.get_node("Health").value = max_health
 	health = max_health
 	position.y -= 123.0 * scale.y - 45.6
 	$AnimationPlayer.stop()
@@ -114,8 +118,13 @@ func _spawn_rain_spear() -> void:
 	spear.overhead = overhead_rain
 	spear.origin = floor_point + Vector2.DOWN * 50.0
 	spear.apex = aim + Vector2.UP * 110.0
+	if overhead_rain:
+		# Keep the first droplet inside the visible arena even when the player jumps.
+		var screen_top := (get_canvas_transform().affine_inverse() * get_viewport_rect().position).y
+		spear.apex.y = maxf(spear.apex.y, screen_top + 44.0)
 	add_child(spear)
 	spear.global_transform = Transform2D(0.0 if overhead_rain else PI, Vector2.ONE * 0.23, 0.0, spear.apex if overhead_rain else spear.origin)
+	spear.reset_physics_interpolation()
 
 func take_damage(amount: float) -> void:
 	if is_dead or amount <= 0:
@@ -126,7 +135,9 @@ func take_damage(amount: float) -> void:
 	flash = create_tween()
 	flash.tween_property(sprite, "self_modulate", Color.WHITE, 0.2)
 	health = maxf(0.0, health - amount)
+	health_hud.get_node("Health").value = health
 	if health == 0:
+		health_hud.hide()
 		is_dead = true
 		player_data.discover_enemy("nyi_roro_kidul")
 		$Hurtbox.set_deferred("monitorable", false)
@@ -141,7 +152,8 @@ func take_damage(amount: float) -> void:
 			released = false
 			set_meta("stun_left", 0.0)
 			sprite.flip_h = player.global_position.x > global_position.x
-			sprite.play(&"TidalWall", 1.3)
+			var counter: StringName = [&"RainSpear", &"WaterCastingFortex"].pick_random()
+			sprite.play(counter, 1.6 if counter == &"RainSpear" else 1.3)
 
 func _play_defeat() -> void:
 	var music := get_parent().get_node_or_null("RoomMusic") as AudioStreamPlayer
@@ -273,8 +285,11 @@ class RainSpear extends Sprite2D:
 			frame = mini(8 + int(impact_age * 15), 11)
 			if impact_age >= 4.0 / 15.0:
 				queue_free()
-		elif overhead and age < 0.48:
-			frame = mini(5, int(age / 0.48 * 6))
+		elif overhead and age < 1.08:
+			# Hold the first droplet, form the spear, then hang briefly before release.
+			frame = clampi(int((age - 0.20) / 0.14), 0, 6)
+		elif overhead and age < 1.15:
+			frame = 7
 		elif not overhead and age < RISE:
 			global_position = origin.lerp(apex, age / RISE)
 			frame = mini(int(age / RISE * 5), 4)
@@ -284,7 +299,7 @@ class RainSpear extends Sprite2D:
 			frame = 5
 		else:
 			rotation = 0.0
-			frame = 6
+			frame = 7 if overhead else 6
 			var tip := global_position + Vector2.DOWN * 32
 			var travel := Vector2.DOWN * 490 * delta
 			var ray := PhysicsRayQueryParameters2D.create(tip, tip + travel, 3)

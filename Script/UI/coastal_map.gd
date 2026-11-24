@@ -14,28 +14,27 @@ func _ready() -> void:
 	view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	view.hide()
 	hint = Label.new()
-	hint.text = "[M] Peta level" if room.get_meta("modular_level", false) else "[M] Peta coastal"
+	hint.text = "Peta level" if room.get_meta("modular_level", false) else "Peta coastal"
 	hint.position = Vector2(16, 145)
 	hint.add_theme_font_size_override("font_size", 14)
 	add_child(hint)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode == KEY_M or event.keycode == KEY_M:
-			if owns_pause:
-				close_map()
-			elif not get_tree().paused:
-				owns_pause = true
-				view.show()
-				hint.hide()
-				view.queue_redraw()
-				get_tree().paused = true
-			get_viewport().set_input_as_handled()
-			return
-		if owns_pause and event.keycode == KEY_ESCAPE:
+	if event.is_action_pressed("level_map") and not event.is_echo():
+		if owns_pause:
 			close_map()
-			get_viewport().set_input_as_handled()
-			return
+		elif not get_tree().paused:
+			owns_pause = true
+			view.show()
+			hint.hide()
+			view.queue_redraw()
+			get_tree().paused = true
+		get_viewport().set_input_as_handled()
+		return
+	if owns_pause and event.is_action_pressed("ui_cancel"):
+		close_map()
+		get_viewport().set_input_as_handled()
+		return
 	if owns_pause:
 		get_viewport().set_input_as_handled()
 

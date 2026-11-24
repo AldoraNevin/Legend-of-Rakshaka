@@ -469,8 +469,8 @@ collision_mask = 18
 script = ExtResource("1_a3d8c")
 max_jump = 2
 max_wall_jump = 1
-sword_damage = 20
-combo_finisher_bonus = 100
+sword_damage = 1
+combo_finisher_bonus = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=863194499]
 scale = Vector2(0.68, 0.68)

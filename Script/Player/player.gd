@@ -106,9 +106,24 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 
 
+var drop_requested := false
+var drop_push_left := 0.0
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("drop_platform") and current_state == PlayerStates.MOVE and is_on_floor() and is_physics_processing():
+		drop_requested = true
+		get_viewport().set_input_as_handled()
+
 func movement(delta: float) -> void:
 	combo_grace = maxf(0, combo_grace - delta)
 	input_movement(delta)
+	if drop_requested:
+		drop_requested = false
+		if is_on_floor():
+			drop_through_platform()
+	if drop_push_left > 0.0:
+		drop_push_left -= delta
+		velocity.y = maxf(velocity.y, 90.0)
 
 	if player_data.attack_learned and Input.is_action_just_pressed("ui_sword"):
 		start_sword_attack()
@@ -120,6 +135,44 @@ func movement(delta: float) -> void:
 
 	move_and_slide()
 	update_animation()
+
+
+# Ignore only the body supporting this one-way surface, never the solid floor.
+func drop_through_platform() -> void:
+	var body_shape: CollisionShape2D = $CollisionShape2D
+	var bounds: Rect2 = body_shape.global_transform * body_shape.shape.get_rect()
+	var platforms: Array[RID] = []
+	var surfaces: Array[Object] = []
+	for x: float in [bounds.position.x, bounds.get_center().x, bounds.end.x]:
+		var feet := Vector2(x, bounds.end.y)
+		var ray := PhysicsRayQueryParameters2D.create(feet - Vector2.DOWN * 4, feet + Vector2.DOWN * 7, 2, [get_rid()])
+		var hit := get_world_2d().direct_space_state.intersect_ray(ray)
+		if hit.is_empty() or hit.rid in platforms:
+			continue
+		var surface: Object = hit.collider
+		var one_way := false
+		if surface is TileMapLayer:
+			var cell: Vector2i = surface.local_to_map(surface.to_local(hit.position + Vector2.DOWN))
+			var tile: TileData = surface.get_cell_tile_data(cell)
+			if tile:
+				for polygon in tile.get_collision_polygons_count(0):
+					one_way = one_way or tile.is_collision_polygon_one_way(0, polygon)
+		elif surface is StaticBody2D:
+			var owner_node = surface.shape_owner_get_owner(surface.shape_find_owner(hit.shape))
+			one_way = owner_node is CollisionShape2D and owner_node.one_way_collision
+		if not one_way:
+			return
+		platforms.append(hit.rid)
+		surfaces.append(surface)
+	if platforms.is_empty():
+		return
+	for platform in platforms:
+		PhysicsServer2D.body_add_collision_exception(get_rid(), platform)
+	drop_push_left = 0.10
+	await get_tree().create_timer(0.22, false, true).timeout
+	for i in platforms.size():
+		if is_instance_valid(surfaces[i]):
+			PhysicsServer2D.body_remove_collision_exception(get_rid(), platforms[i])
 
 
 func sword(delta: float) -> void:

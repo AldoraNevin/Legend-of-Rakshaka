@@ -8,7 +8,7 @@ func _ready() -> void:
 	size = Vector2(56, 54)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	tooltip_text = "Pemulihan [R] / tap: +10 HP."
+	tooltip_text = "Pemulihan / tap: +10 HP."
 
 func _process(delta: float) -> void:
 	size.x = 12 + 44 * player_data.healing_capacity()
@@ -28,9 +28,13 @@ func _draw() -> void:
 		elif not lit and slot > charges:
 			tint = Color.WHITE.darkened(0.55)
 		draw_texture_rect_region(texture, Rect2(6 + 44 * slot, 0, 44, 52), Rect2(frame * 133, 0, 133, 157), tint)
-	draw_string(preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf"), Vector2(0, 14), "R", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#f5dd96"))
+	draw_string(preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf"), Vector2(0, 14), _binding_label(), HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#f5dd96"))
 
 func _gui_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed) or (event is InputEventScreenTouch and event.pressed):
 		HealingSkill.use_skill()
 		accept_event()
+
+func _binding_label() -> String:
+	var bindings := InputMap.action_get_events("heal_skill")
+	return bindings[0].as_text().trim_suffix(" (Physical)") if not bindings.is_empty() else ""

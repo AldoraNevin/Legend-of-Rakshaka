@@ -632,7 +632,7 @@ category = "Melee"
 description = "Roh wanita pendendam bergaun putih yang melayang di udara. Bergerak mendekati pemain dan melakukan serangan jarak dekat dengan cara memuntahkan darah kental ke arah Player."
 history = "Dalam cerita rakyat, Kuntilanak dipercaya sebagai arwah perempuan yang meninggal dunia saat mengandung atau melahirkan, sehingga menyimpan duka dan dendam yang belum selesai. Namanya sering dikaitkan dengan kata \"bunting anak\". Ia identik dengan gaun putih panjang, rambut terurai, suara tawa melengking, serta aroma bunga kamboja atau melati. Secara kultural, mitos ini dulunya menjadi pengingat sosial agar masyarakat lebih menjaga keselamatan ibu hamil."
 hp = 3
-attack = 1
+attack = 20
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=1677253254]
 layout_mode = 1
@@ -781,7 +781,7 @@ category = "Melee"
 description = "Makhluk bersisik buraq, berkepala naga, dan berkaki kambing. Berperan sebagai musuh darat yang gesit, menggunakan mekanik Charge dengan tanduknya."
 history = "Warak Ngendhog adalah makhluk mitologi ikonik yang selalu muncul dalam tradisi Dugderan (menyambut bulan Ramadan di Semarang). Wujudnya merupakan simbol akulturasi tiga etnis besar di Semarang: kepala naga (Tionghoa), badan buraq/unta (Arab), dan kaki kambing (Jawa). Kata ngendhog (bertelur) melambangkan harapan akan berkah dan rezeki. Kehadirannya mengajarkan harmoni dan toleransi antarbudaya."
 hp = 6
-attack = 2
+attack = 14
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=46517490]
 layout_mode = 1
@@ -830,7 +830,7 @@ category = "Melee"
 description = "Siluman manusia harimau pelindung hutan dari Sumatera. Musuh yang sangat lincah, mampu melompat jauh ke arah pemain dan memberikan tebasan cakar yang cepat."
 history = "Cindaku adalah legenda manusia harimau (therianthrope) yang dipercaya memiliki ikatan batin dan garis keturunan dengan harimau Sumatera. Berbeda dengan monster jahat, Cindaku sebenarnya adalah penjaga keseimbangan alam dan hutan Kerinci. Ia hanya akan berubah wujud menjadi harimau dan marah jika ada manusia yang serakah, merusak hutan, atau melanggar adat setempat."
 hp = 5
-attack = 2
+attack = 18
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_cindaku" unique_id=1491897919]
 layout_mode = 1
@@ -879,7 +879,7 @@ category = "Melee"
 description = "Makhluk halus raksasa berbulu lebat. Memiliki Health Point (HP) yang sangat tebal. Menyerang dengan pukulan keras ke tanah yang menghasilkan getaran Area of Effect (AoE) di sekitarnya."
 history = "Kata Genderuwo berasal dari bahasa Sanskerta Gandharva (makhluk surgawi pemusik dalam mitologi Hindu-Buddha), namun dalam folklor Jawa mengalami pergeseran makna menjadi makhluk halus bertubuh raksasa, kekar, dan berbulu lebat. Ia dipercaya menghuni pohon-pohon besar (seperti beringin), batu besar, atau bangunan tua yang lembap dan gelap. Mitos ini sering digunakan masyarakat tradisional untuk menjaga kelestarian pohon tua agar tidak sembarangan ditebang."
 hp = 10
-attack = 2
+attack = 26
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_genderuwo" unique_id=562198215]
 layout_mode = 1
@@ -977,7 +977,7 @@ category = "Melee"
 description = "Manusia serigala Nusantara dengan wajah terbalik. Merupakan predator darat yang menyerang secara brutal. Memiliki Movement Speed tinggi dan suka melompat untuk menggigit pemain."
 history = "Aul adalah makhluk mitologi tanah Sunda yang digambarkan bertubuh seperti serigala atau manusia berbulu dengan ciri khas sangat unik: kepala atau wajahnya terbalik (menghadap ke belakang). Ia dikenal sebagai predator malam yang gesit di pegunungan dan sering memangsa ternak warga seperti kambing. Kecepatan dan wujudnya yang ganjil membuat Aul menjadi salah satu kisah pengingat agar warga tidak berkeliaran sendirian di hutan pegunungan saat malam."
 hp = 5
-attack = 2
+attack = 16
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_aul" unique_id=1030077125]
 layout_mode = 1
@@ -1026,7 +1026,7 @@ category = "Melee"
 description = "Siluman wanita mematikan dengan kuku-kuku panjang beracun. Memiliki gaya serangan rentetan cakaran beruntun yang dapat memberikan status efek debuff pada player."
 history = "Sarpakenaka adalah adik perempuan dari Rahwana, Raja Alengka. Ia merupakan raksasa wanita (raksasi) yang memiliki kesaktian untuk berubah wujud menjadi wanita cantik demi memikat Rama dan Laksmana. Ciri khasnya yang mematikan adalah kuku-kuku panjangnya yang beracun (dalam pewayangan Jawa disebut Kuku Pancanaka versi raksasa atau kuku bisa). Amarahnya setelah ditolak Rama menjadi salah satu pemicu awal pecahnya perang besar Ramayana."
 hp = 6
-attack = 2
+attack = 13
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=1758489647]
 layout_mode = 1
@@ -1075,7 +1075,7 @@ category = "Melee"
 description = "Roh kerdil yang sangat mengganggu. Mekaniknya melompat dari jarak dekat lalu menempel ke badan Player untuk memperlambat Movement."
 history = "Dalam kepercayaan tradisional Melayu dan Nusantara, Bajang adalah makhluk halus bertubuh kecil/kerdil yang sering dikaitkan dengan arwah bayi atau roh peliharaan ilmu hitam. Ia dikenal sangat usil, lincah, dan suka mengganggu manusia atau anak-anak dengan cara menempel atau membuat korbannya lemas dan sakit."
 hp = 3
-attack = 1
+attack = 8
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_bajang" unique_id=791766412]
 layout_mode = 1
@@ -1124,7 +1124,7 @@ category = "Melee"
 description = "Arca batu raksasa penjaga candi yang dihidupkan sihir kuno. Musuh tipe idle. Mengayunkan senjata Gada besar yang bisa di picu apabila player berada didekatnya."
 history = "Gupala (atau Dwarapala, yang berarti \"penjaga gerbang\") adalah arca batu raksasa yang diletakkan di pintu masuk candi, keraton, atau tempat suci—seperti yang bisa ditemui di Candi Sewu atau Singosari. Wujudnya berupa raksasa bertubuh tambun, bermata melotot, dengan posisi setengah berlutut sambil menggenggam senjata Gada. Secara filosofis, Gupala melambangkan penjaga kesucian tempat ibadah yang menghalau energi negatif masuk."
 hp = 8
-attack = 3
+attack = 32
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_gupala" unique_id=1705660725]
 layout_mode = 1
@@ -1173,7 +1173,7 @@ category = "Melee"
 description = "Siluman beringas berbadan manusia dengan kepala kerbau. Musuh brutal yang menggunakan serangan Dash merusak rintangan dan menghasilkan damage fisik yang masif."
 history = "Mahesa Sura adalah tokoh legendaris berbadan manusia dan berkepala kerbau (Mahesa = kerbau, Sura = berani/sakti). Dalam legenda Gunung Kelud, ia jatuh cinta pada Dewi Kilisuci dari Kerajaan Jenggala. Karena enggan menikah dengannya, Dewi Kilisuci memberi syarat mustahil: membuat sumur di puncak Gunung Kelud dalam semalam. Saat Mahesa Sura berhasil dan masih berada di dalam sumur, ia ditimbun batu hingga tewas. Sumpah serapahnya sebelum mati dipercaya menjadi penyebab letusan Gunung Kelud."
 hp = 7
-attack = 3
+attack = 29
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=218064857]
 layout_mode = 1
@@ -1231,7 +1231,7 @@ Versi Mataram (Babad Tanah Jawi): Dalam catatan sejarah tradisional Jawa, pengua
 Kearifan Lokal: Sosoknya sangat identik dengan pantangan memakai pakaian berwarna hijau di Pantai Selatan. Di balik sisi mistisnya, mitos ini menjadi pesan kearifan lokal agar manusia selalu menghormati alam dan waspada terhadap ganasnya ombak serta palung Laut Selatan."
 attack_pattern = "Rentetan tombak air, ombak yang melaju di lantai, dan pusaran yang meletus menjadi geyser."
 tactics = "Bergerak saat hujan tombak, lompat melewati ombak, dan tinggalkan pusaran sebelum semburan naik."
-hp = 4800
+hp = 1000
 attack = 48
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=1066829408]

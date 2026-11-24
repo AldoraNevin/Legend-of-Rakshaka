@@ -7,7 +7,7 @@
       "region": "Nusantara (Jawa/Melayu)",
       "category": "Melee",
       "hp": 3,
-      "attack": 1,
+      "attack": 20,
       "lore_text": "Roh wanita pendendam bergaun putih yang melayang di udara. Bergerak mendekati pemain dan melakukan serangan jarak dekat dengan cara memuntahkan darah kental ke arah Player.",
       "image_path": "res://Assets/Enemies/Kuntilanak/Kuntilanak_left_400%.png",
       "is_unlocked": false
@@ -43,7 +43,7 @@
       "region": "Semarang, Jawa Tengah",
       "category": "Melee",
       "hp": 6,
-      "attack": 2,
+      "attack": 14,
       "lore_text": "Makhluk bersisik buraq, berkepala naga, dan berkaki kambing. Berperan sebagai musuh darat yang gesit, menggunakan mekanik Charge dengan tanduknya.",
       "image_path": "",
       "is_unlocked": false
@@ -54,7 +54,7 @@
       "region": "Kerinci, Sumatera",
       "category": "Melee",
       "hp": 5,
-      "attack": 2,
+      "attack": 18,
       "lore_text": "Siluman manusia harimau pelindung hutan dari Sumatera. Musuh yang sangat lincah, mampu melompat jauh ke arah pemain dan memberikan tebasan cakar yang cepat.",
       "image_path": "",
       "is_unlocked": false
@@ -65,7 +65,7 @@
       "region": "Jawa",
       "category": "Melee",
       "hp": 10,
-      "attack": 2,
+      "attack": 26,
       "lore_text": "Makhluk halus raksasa berbulu lebat. Memiliki Health Point (HP) yang sangat tebal. Menyerang dengan pukulan keras ke tanah yang menghasilkan getaran Area of Effect (AoE) di sekitarnya.",
       "image_path": "",
       "is_unlocked": false
@@ -87,7 +87,7 @@
       "region": "Jawa Barat",
       "category": "Melee",
       "hp": 5,
-      "attack": 2,
+      "attack": 16,
       "lore_text": "Manusia serigala Nusantara dengan wajah terbalik. Merupakan predator darat yang menyerang secara brutal. Memiliki Movement Speed tinggi dan suka melompat untuk menggigit pemain.",
       "image_path": "",
       "is_unlocked": false
@@ -98,7 +98,7 @@
       "region": "Pewayangan Jawa",
       "category": "Melee",
       "hp": 6,
-      "attack": 2,
+      "attack": 13,
       "lore_text": "Siluman wanita mematikan dengan kuku-kuku panjang beracun. Memiliki gaya serangan rentetan cakaran beruntun yang dapat memberikan status efek debuff pada player.",
       "image_path": "",
       "is_unlocked": false
@@ -109,7 +109,7 @@
       "region": "Nusantara (Melayu)",
       "category": "Melee",
       "hp": 3,
-      "attack": 1,
+      "attack": 8,
       "lore_text": "Roh kerdil yang sangat mengganggu. Mekaniknya melompat dari jarak dekat lalu menempel ke badan Player untuk memperlambat Movement.",
       "image_path": "",
       "is_unlocked": false
@@ -120,7 +120,7 @@
       "region": "Jawa (Candi)",
       "category": "Melee",
       "hp": 8,
-      "attack": 3,
+      "attack": 32,
       "lore_text": "Arca batu raksasa penjaga candi yang dihidupkan sihir kuno. Musuh tipe idle. Mengayunkan senjata Gada besar yang bisa di picu apabila player berada didekatnya.",
       "image_path": "",
       "is_unlocked": false
@@ -131,7 +131,7 @@
       "region": "Jawa",
       "category": "Melee",
       "hp": 7,
-      "attack": 3,
+      "attack": 29,
       "lore_text": "Siluman beringas berbadan manusia dengan kepala kerbau. Musuh brutal yang menggunakan serangan Dash merusak rintangan dan menghasilkan damage fisik yang masif.",
       "image_path": "",
       "is_unlocked": false
@@ -143,7 +143,7 @@
       "name": "Nyi Roro Kidul",
       "region": "Pantai Selatan Jawa",
       "category": "AoE Magic",
-      "hp": 4800,
+      "hp": 1000,
       "attack": 48,
       "lore_text": "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup.",
       "image_path": "",

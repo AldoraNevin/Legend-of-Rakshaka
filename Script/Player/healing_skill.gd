@@ -1,12 +1,5 @@
 extends Node
 
-func _ready() -> void:
-	if not InputMap.has_action("heal_skill"):
-		InputMap.add_action("heal_skill")
-		var key := InputEventKey.new()
-		key.physical_keycode = KEY_R
-		InputMap.action_add_event("heal_skill", key)
-
 func active_player() -> Node:
 	if get_tree().paused or CheckpointManager.loading:
 		return null

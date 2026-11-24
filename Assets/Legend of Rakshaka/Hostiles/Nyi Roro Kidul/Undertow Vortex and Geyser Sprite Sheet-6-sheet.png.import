@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhp0im5e4wnmg"
-path="res://.godot/imported/Nusantara UI atlas in navy and gold-1.png-e8ff2837807d23982ba6051f9a846f5e.ctex"
+uid="uid://fjkbqq8fi4rk"
+path="res://.godot/imported/Undertow Vortex and Geyser Sprite Sheet-6-sheet.png-92f6ceac69dc42102157d88c982b59f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Nusantara UI atlas in navy and gold-1.png"
-dest_files=["res://.godot/imported/Nusantara UI atlas in navy and gold-1.png-e8ff2837807d23982ba6051f9a846f5e.ctex"]
+source_file="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/Undertow Vortex and Geyser Sprite Sheet-6-sheet.png"
+dest_files=["res://.godot/imported/Undertow Vortex and Geyser Sprite Sheet-6-sheet.png-92f6ceac69dc42102157d88c982b59f2.ctex"]
 
 [params]
 

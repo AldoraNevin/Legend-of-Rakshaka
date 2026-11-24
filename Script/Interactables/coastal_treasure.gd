@@ -27,6 +27,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	opened = true
 	player_data.add_gold(REWARD)
-	prompt.text = "+%d koin - peti kosong" % REWARD
+	prompt.text = "+%d sukma - peti kosong" % REWARD
 	queue_redraw()
 	get_viewport().set_input_as_handled()

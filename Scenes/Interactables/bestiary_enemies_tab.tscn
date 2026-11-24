@@ -1,10 +1,23 @@
-[gd_scene format=3 uid="uid://bel1wh07w08ih"]
+[gd_scene format=3 uid="uid://d1yljb7lmiich"]
 
 [ext_resource type="Script" uid="uid://d2nc3r32opxj7" path="res://Script/UI/bestiary_tab.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="1_yaiuh"]
+[ext_resource type="Texture2D" uid="uid://clc11c266vhpl" path="res://Assets/Enemies/Warak Ngendhog/warak idle-patrol.png" id="3_bqio2"]
 [ext_resource type="Texture2D" uid="uid://41o7a5ngww1r" path="res://Assets/Legend of Rakshaka/UI HUD/blank book.png" id="3_tx112"]
 [ext_resource type="FontFile" uid="uid://q8r42pd8vbfm" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="5_tx112"]
 [ext_resource type="Texture2D" uid="uid://ddqb66f4mvn1p" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary hovers.png" id="5_ur1r7"]
+[ext_resource type="Texture2D" uid="uid://dp2laipyd0a8y" path="res://Assets/Enemies/Kuntilanak_2/kuntilanak v3 idle-patrol.png" id="9_8vyeh"]
+[ext_resource type="Texture2D" uid="uid://b2kiobfrm6jnl" path="res://Assets/Enemies/Banaspati/banaspati idle-patrol.png" id="10_adnyv"]
+[ext_resource type="Texture2D" uid="uid://bmlwhlse46wb6" path="res://Assets/Enemies/Leak/leak idle-patrol.png" id="11_xnbxg"]
+[ext_resource type="Texture2D" uid="uid://c6l4rhiyc3rj6" path="res://Assets/Enemies/Cindaku/cindaku idle.png" id="12_a7gij"]
+[ext_resource type="Texture2D" uid="uid://dyn8xq255gbar" path="res://Assets/Enemies/Genderuwo/genderuwo idle-patrol.png" id="13_kxmul"]
+[ext_resource type="Texture2D" uid="uid://cvcb8mi7778hx" path="res://Assets/Enemies/Jerangkong/jerangkong-sheet.png" id="14_wp8r7"]
+[ext_resource type="Texture2D" uid="uid://b4pjfj4rcv5ux" path="res://Assets/Enemies/Aul/Aul v2 Idle-patrol.png" id="15_1v5cl"]
+[ext_resource type="Texture2D" uid="uid://dfvrppcmwx33a" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka idle.png" id="16_teoll"]
+[ext_resource type="Texture2D" uid="uid://clwk3n4y48lwp" path="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/Hostiles/Bajang/bajang idle.png" id="17_2yfki"]
+[ext_resource type="Texture2D" uid="uid://chq2d76n8hpeb" path="res://Assets/Enemies/Gupala/gupala idle-patrol.png" id="18_p8fpu"]
+[ext_resource type="Texture2D" uid="uid://vkvdsewjtxi6" path="res://Assets/Enemies/Mahesa Sura/mahesa idle-patrol.png" id="19_7txxn"]
+[ext_resource type="Texture2D" uid="uid://dxaxbnf7wjgbi" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/nyi roro kidul_idle.png" id="20_mkmeu"]
 [ext_resource type="Script" uid="uid://c77rh4hjr4qam" path="res://Script/UI/bestiary_card.gd" id="card_1"]
 [ext_resource type="Texture2D" uid="uid://bcym3nhn1uhms" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="card_1_ftjel"]
 [ext_resource type="Texture2D" uid="uid://dtb4a5bas7g2p" path="res://Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="card_3_2y2rt"]
@@ -70,8 +83,8 @@ atlas = ExtResource("1_yaiuh")
 region = Rect2(181, 58, 42, 49)
 
 [sub_resource type="AtlasTexture" id="Portrait_Fallback"]
-atlas = ExtResource("1_yaiuh")
-region = Rect2(172, 115, 62, 47)
+atlas = ExtResource("3_bqio2")
+region = Rect2(16, 12, 142, 109)
 
 [sub_resource type="StyleBoxTexture" id="TabNormal"]
 content_margin_left = 14.0
@@ -186,28 +199,52 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
 [sub_resource type="AtlasTexture" id="Portrait_kuntilanak"]
-atlas = ExtResource("card_3_2y2rt")
-region = Rect2(211, 186, 76, 72)
+atlas = ExtResource("9_8vyeh")
+region = Rect2(38, 11, 54, 67)
 
 [sub_resource type="AtlasTexture" id="Portrait_banaspati"]
-atlas = ExtResource("card_3_2y2rt")
-region = Rect2(100, 301, 80, 70)
+atlas = ExtResource("10_adnyv")
+region = Rect2(16, 24, 96, 96)
 
 [sub_resource type="AtlasTexture" id="Portrait_leak"]
-atlas = ExtResource("card_3_2y2rt")
-region = Rect2(100, 186, 82, 72)
+atlas = ExtResource("11_xnbxg")
+region = Rect2(20, 21, 59, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0vi5"]
+atlas = ExtResource("12_a7gij")
+region = Rect2(6, 26, 120, 88)
 
 [sub_resource type="AtlasTexture" id="Portrait_genderuwo"]
-atlas = ExtResource("card_3_2y2rt")
-region = Rect2(318, 186, 77, 72)
+atlas = ExtResource("13_kxmul")
+region = Rect2(10, 6, 51, 68)
 
 [sub_resource type="AtlasTexture" id="Portrait_jerangkong"]
-atlas = ExtResource("card_3_2y2rt")
-region = Rect2(430, 186, 76, 72)
+atlas = ExtResource("14_wp8r7")
+region = Rect2(23, 16, 40, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtqi5"]
+atlas = ExtResource("15_1v5cl")
+region = Rect2(22, 9, 95, 71)
 
 [sub_resource type="AtlasTexture" id="Portrait_sarpakenaka"]
-atlas = ExtResource("card_3_2y2rt")
-region = Rect2(211, 301, 76, 70)
+atlas = ExtResource("16_teoll")
+region = Rect2(46, 7, 71, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_211o3"]
+atlas = ExtResource("17_2yfki")
+region = Rect2(11, 7, 75, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv6eq"]
+atlas = ExtResource("18_p8fpu")
+region = Rect2(10, 11, 77, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pljgp"]
+atlas = ExtResource("19_7txxn")
+region = Rect2(9, 9, 54, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb22b"]
+atlas = ExtResource("20_mkmeu")
+region = Rect2(28, 20, 214, 223)
 
 [sub_resource type="AtlasTexture" id="Portrait_rangda"]
 atlas = ExtResource("card_3_2y2rt")
@@ -578,7 +615,7 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="Entry_kuntilanak" type="Button" parent="Book/EntryGrid" unique_id=1250987522]
+[node name="Entry_kuntilanak" type="Button" parent="Book/EntryGrid" unique_id=335919701]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -599,7 +636,7 @@ history = "Dalam cerita rakyat, Kuntilanak dipercaya sebagai arwah perempuan yan
 hp = 3
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=420253912]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=1677253254]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -613,7 +650,7 @@ texture = SubResource("Portrait_kuntilanak")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=521472451]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_kuntilanak" unique_id=410396068]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -628,7 +665,7 @@ text = "Kuntilanak"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_banaspati" type="Button" parent="Book/EntryGrid" unique_id=959896488]
+[node name="Entry_banaspati" type="Button" parent="Book/EntryGrid" unique_id=851705188]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -648,7 +685,7 @@ history = "Banaspati (secara harfiah sering dikaitkan dengan \"penguasa hutan\" 
 hp = 4
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_banaspati" unique_id=1933348595]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_banaspati" unique_id=881383053]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -662,7 +699,7 @@ texture = SubResource("Portrait_banaspati")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_banaspati" unique_id=2138042670]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_banaspati" unique_id=268210331]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -677,7 +714,7 @@ text = "Banaspati"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_leak" type="Button" parent="Book/EntryGrid" unique_id=217883672]
+[node name="Entry_leak" type="Button" parent="Book/EntryGrid" unique_id=1479968304]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -699,7 +736,7 @@ tactics = "Hindari lintasan proyektil dan cari kesempatan mendekat di antara ser
 hp = 4
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_leak" unique_id=2018926886]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_leak" unique_id=894028077]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -713,7 +750,7 @@ texture = SubResource("Portrait_leak")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_leak" unique_id=1553011889]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_leak" unique_id=1788832166]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -728,7 +765,7 @@ text = "Leak"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_warak_ngendhog" type="Button" parent="Book/EntryGrid" unique_id=2116127744]
+[node name="Entry_warak_ngendhog" type="Button" parent="Book/EntryGrid" unique_id=823968025]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -748,7 +785,7 @@ history = "Warak Ngendhog adalah makhluk mitologi ikonik yang selalu muncul dala
 hp = 6
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=786677803]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=46517490]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -762,7 +799,7 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=1656102654]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_warak_ngendhog" unique_id=1511734912]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -777,7 +814,7 @@ text = "Warak Ngendhog"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_cindaku" type="Button" parent="Book/EntryGrid" unique_id=1562080171]
+[node name="Entry_cindaku" type="Button" parent="Book/EntryGrid" unique_id=525326490]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -797,7 +834,7 @@ history = "Cindaku adalah legenda manusia harimau (therianthrope) yang dipercaya
 hp = 5
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_cindaku" unique_id=1408453370]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_cindaku" unique_id=1491897919]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -807,11 +844,11 @@ offset_top = 7.0
 offset_right = -10.0
 offset_bottom = -24.0
 mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
+texture = SubResource("AtlasTexture_u0vi5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_cindaku" unique_id=749717025]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_cindaku" unique_id=1144007064]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -826,7 +863,7 @@ text = "Cindaku"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_genderuwo" type="Button" parent="Book/EntryGrid" unique_id=700216441]
+[node name="Entry_genderuwo" type="Button" parent="Book/EntryGrid" unique_id=1610320867]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -846,7 +883,7 @@ history = "Kata Genderuwo berasal dari bahasa Sanskerta Gandharva (makhluk surga
 hp = 10
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_genderuwo" unique_id=2126465370]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_genderuwo" unique_id=562198215]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -860,7 +897,7 @@ texture = SubResource("Portrait_genderuwo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_genderuwo" unique_id=1997299827]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_genderuwo" unique_id=1780800304]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -875,7 +912,7 @@ text = "Genderuwo"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_jerangkong" type="Button" parent="Book/EntryGrid" unique_id=1560096454]
+[node name="Entry_jerangkong" type="Button" parent="Book/EntryGrid" unique_id=337777483]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -895,7 +932,7 @@ history = "Jerangkong berarti kerangka atau tulang-belulang manusia. Dalam cerit
 hp = 3
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_jerangkong" unique_id=1918151898]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_jerangkong" unique_id=690693001]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -909,7 +946,7 @@ texture = SubResource("Portrait_jerangkong")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_jerangkong" unique_id=1127373930]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_jerangkong" unique_id=1132821394]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -924,7 +961,7 @@ text = "Jerangkong"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_aul" type="Button" parent="Book/EntryGrid" unique_id=150428469]
+[node name="Entry_aul" type="Button" parent="Book/EntryGrid" unique_id=1410872713]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -944,7 +981,7 @@ history = "Aul adalah makhluk mitologi tanah Sunda yang digambarkan bertubuh sep
 hp = 5
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_aul" unique_id=825964587]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_aul" unique_id=1030077125]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -954,11 +991,11 @@ offset_top = 7.0
 offset_right = -10.0
 offset_bottom = -24.0
 mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
+texture = SubResource("AtlasTexture_jtqi5")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_aul" unique_id=1219891012]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_aul" unique_id=2084776430]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -973,7 +1010,7 @@ text = "Aul"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_sarpakenaka" type="Button" parent="Book/EntryGrid" unique_id=399941128]
+[node name="Entry_sarpakenaka" type="Button" parent="Book/EntryGrid" unique_id=1612508462]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -993,7 +1030,7 @@ history = "Sarpakenaka adalah adik perempuan dari Rahwana, Raja Alengka. Ia meru
 hp = 6
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=1861577340]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=1758489647]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1007,7 +1044,7 @@ texture = SubResource("Portrait_sarpakenaka")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=1083544579]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_sarpakenaka" unique_id=456488901]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1022,7 +1059,7 @@ text = "Sarpakenaka"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_bajang" type="Button" parent="Book/EntryGrid" unique_id=2106173298]
+[node name="Entry_bajang" type="Button" parent="Book/EntryGrid" unique_id=419156022]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -1042,7 +1079,7 @@ history = "Dalam kepercayaan tradisional Melayu dan Nusantara, Bajang adalah mak
 hp = 3
 attack = 1
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_bajang" unique_id=1936916108]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_bajang" unique_id=791766412]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1052,11 +1089,11 @@ offset_top = 7.0
 offset_right = -10.0
 offset_bottom = -24.0
 mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
+texture = SubResource("AtlasTexture_211o3")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_bajang" unique_id=2004353435]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_bajang" unique_id=1998095445]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1071,7 +1108,7 @@ text = "Bajang"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_gupala" type="Button" parent="Book/EntryGrid" unique_id=934757717]
+[node name="Entry_gupala" type="Button" parent="Book/EntryGrid" unique_id=266304408]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -1091,7 +1128,7 @@ history = "Gupala (atau Dwarapala, yang berarti \"penjaga gerbang\") adalah arca
 hp = 8
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_gupala" unique_id=898035322]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_gupala" unique_id=1705660725]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1101,11 +1138,11 @@ offset_top = 7.0
 offset_right = -10.0
 offset_bottom = -24.0
 mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
+texture = SubResource("AtlasTexture_dv6eq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_gupala" unique_id=1761748220]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_gupala" unique_id=967074281]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1120,7 +1157,7 @@ text = "Gupala"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_mahesa_sura" type="Button" parent="Book/EntryGrid" unique_id=995094933]
+[node name="Entry_mahesa_sura" type="Button" parent="Book/EntryGrid" unique_id=292691601]
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
 tooltip_text = "Leak"
@@ -1140,7 +1177,7 @@ history = "Mahesa Sura adalah tokoh legendaris berbadan manusia dan berkepala ke
 hp = 7
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=854601471]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=218064857]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1150,11 +1187,11 @@ offset_top = 7.0
 offset_right = -10.0
 offset_bottom = -24.0
 mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
+texture = SubResource("AtlasTexture_pljgp")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=389733269]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_mahesa_sura" unique_id=1367527279]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1169,7 +1206,7 @@ text = "Mahesa Sura"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_nyi_roro_kidul" type="Button" parent="Book/EntryGrid" unique_id=480097075]
+[node name="Entry_nyi_roro_kidul" type="Button" parent="Book/EntryGrid" unique_id=1727777240]
 visible = false
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
@@ -1186,11 +1223,17 @@ entity_id = "nyi_roro_kidul"
 region = "Pantai Selatan Jawa"
 category = "AoE Magic"
 description = "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup."
-history = "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup."
+history = "Nyi Roro Kidul adalah sosok ratu mistis penguasa Samudra Hindia (Laut Selatan) yang sangat legendaris di Nusantara. Ada dua kisah utama yang paling dikenal masyarakat:
+
+Versi Putri Kadita (Tradisi Sunda): Ia dikisahkan sebagai putri kesayangan Prabu Siliwangi dari Kerajaan Pajajaran yang cantik jelita. Karena iri, para selir istana menyihirnya dengan penyakit kulit hingga ia diusir dari keraton. Dalam pelariannya ke pantai selatan, ia mendengar bisikan gaib dan menceburkan diri ke laut. Air laut menyembuhkan kulitnya dan mengembalikan kecantikannya, lalu ia dinobatkan sebagai penguasa kerajaan laut gaib.
+
+Versi Mataram (Babad Tanah Jawi): Dalam catatan sejarah tradisional Jawa, penguasa Laut Selatan ini memiliki ikatan dan perjanjian spiritual dengan Panembahan Senopati (pendiri Kesultanan Mataram) untuk selalu melindungi tanah Jawa dan keturunan raja-rajanya.
+
+Kearifan Lokal: Sosoknya sangat identik dengan pantangan memakai pakaian berwarna hijau di Pantai Selatan. Di balik sisi mistisnya, mitos ini menjadi pesan kearifan lokal agar manusia selalu menghormati alam dan waspada terhadap ganasnya ombak serta palung Laut Selatan."
 hp = 25
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=286798357]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=1066829408]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1200,11 +1243,11 @@ offset_top = 7.0
 offset_right = -10.0
 offset_bottom = -24.0
 mouse_filter = 2
-texture = SubResource("Portrait_Fallback")
+texture = SubResource("AtlasTexture_xb22b")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=613246931]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=714399803]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1219,7 +1262,7 @@ text = "Nyi Roro Kidul"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_rangda" type="Button" parent="Book/EntryGrid" unique_id=2019790908]
+[node name="Entry_rangda" type="Button" parent="Book/EntryGrid" unique_id=440045528]
 visible = false
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
@@ -1240,7 +1283,7 @@ history = "Ratu ilmu hitam dan pemimpin para Leak dari mitologi Bali. Boss denga
 hp = 20
 attack = 2
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_rangda" unique_id=473519410]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_rangda" unique_id=681779163]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1254,7 +1297,7 @@ texture = SubResource("Portrait_rangda")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_rangda" unique_id=1766005925]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_rangda" unique_id=1237806451]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1269,7 +1312,7 @@ text = "Rangda"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_antaboga" type="Button" parent="Book/EntryGrid" unique_id=1714756720]
+[node name="Entry_antaboga" type="Button" parent="Book/EntryGrid" unique_id=2107916042]
 visible = false
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
@@ -1290,7 +1333,7 @@ history = "Naga raksasa penguasa lapisan bumi bawah (Saptapratala). Mekaniknya m
 hp = 30
 attack = 3
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_antaboga" unique_id=1627706920]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_antaboga" unique_id=1352273307]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1304,7 +1347,7 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_antaboga" unique_id=1091632782]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_antaboga" unique_id=1233606205]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1319,7 +1362,7 @@ text = "Antaboga"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Entry_batara_kala" type="Button" parent="Book/EntryGrid" unique_id=1913264132]
+[node name="Entry_batara_kala" type="Button" parent="Book/EntryGrid" unique_id=211749404]
 visible = false
 custom_minimum_size = Vector2(100, 104)
 layout_mode = 2
@@ -1340,7 +1383,7 @@ history = "Dewa waktu dan kehancuran berwujud raksasa mengerikan penyebab gerhan
 hp = 40
 attack = 4
 
-[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_batara_kala" unique_id=710944011]
+[node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_batara_kala" unique_id=1017209877]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1354,7 +1397,7 @@ texture = SubResource("Portrait_Fallback")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_batara_kala" unique_id=894987334]
+[node name="NameLabel" type="Label" parent="Book/EntryGrid/Entry_batara_kala" unique_id=1604888742]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

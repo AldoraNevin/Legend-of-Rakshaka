@@ -254,7 +254,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ks1b7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack1",
 "speed": 5.0
 }, {
@@ -271,7 +271,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h8ma5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack2",
 "speed": 5.0
 }, {
@@ -288,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qr1w5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Attack3",
 "speed": 5.0
 }, {
@@ -296,7 +296,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ythyg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dash",
 "speed": 5.0
 }, {
@@ -322,7 +322,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1agin")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -330,7 +330,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2jnj1")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Drop",
 "speed": 5.0
 }, {
@@ -356,7 +356,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ei2r2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Hit",
 "speed": 8.0
 }, {
@@ -385,7 +385,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qflxp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -405,7 +405,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pcwjh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -443,7 +443,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("Atlas_walk_10")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 12.0
 }, {
@@ -451,7 +451,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ejxfg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Wall",
 "speed": 5.0
 }]
@@ -469,6 +469,9 @@ collision_mask = 18
 script = ExtResource("1_a3d8c")
 max_jump = 2
 max_wall_jump = 1
+dash_cooldown = 1000.0
+sword_damage = 20
+combo_finisher_bonus = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=863194499]
 scale = Vector2(0.68, 0.68)

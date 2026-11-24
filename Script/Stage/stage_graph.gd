@@ -1,7 +1,7 @@
 extends RefCounted
 ## Fixed stage sequence after the lobby; seed selects room variants and per-combat-room layouts.
-const KINDS = ["start", "combat", "combat", "combat", "elite", "combat", "combat", "combat", "boss"]
-const LABELS = ["Safe", "Room 1", "Room 2", "Room 3", "Elite", "Room 4", "Room 5", "Room 6", "Boss"]
+const KINDS = ["start", "combat", "combat", "combat", "combat", "combat", "boss"]
+const LABELS = ["Safe", "Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Boss"]
 
 static func generate(seed_value: int) -> Array[Dictionary]:
 	var random := RandomNumberGenerator.new()
@@ -21,7 +21,7 @@ static func validate(graph: Array[Dictionary]) -> PackedStringArray:
 	if graph.is_empty():
 		return PackedStringArray(["Graph kosong."])
 	if graph.size() != KINDS.size():
-		errors.append("Urutan stage harus memiliki 9 ruangan setelah lobby.")
+		errors.append("Urutan stage harus memiliki 7 ruangan setelah lobby.")
 	var reached := {0: true}
 	var bosses := 0
 	for i in range(graph.size()):

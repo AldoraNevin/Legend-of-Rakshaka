@@ -45,6 +45,8 @@ var probe_x: float
 var hit_shape_x: float
 var hit_targets: Array[Node2D] = []
 var lunge_time_left := 0.0
+var stagger_window := 0.0
+var countering := false
 var attack_direction := 1.0
 
 
@@ -66,6 +68,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if preload("res://Script/Enemies/artifact_status.gd").tick(self, delta):
 		return
+	stagger_window = maxf(0, stagger_window - delta)
 	cooldown_left = maxf(cooldown_left - delta, 0.0)
 
 	if not is_on_floor():
@@ -228,19 +231,29 @@ func take_damage(amount: float) -> void:
 		return
 
 	health -= amount
-	lunge_time_left = 0.0
-	velocity.x = 0.0
-	hit_targets.clear()
-
 	if health <= 0:
 		state = State.DEAD
 		hurtbox.set_deferred("monitorable", false)
 		play_clip(&"Dead")
-	else:
-		state = State.HIT
-		# Mulai ulang reaksi jika terkena pukulan berikutnya.
-		anim.stop()
-		anim.play(&"Hit")
+		return
+	if state in [State.WINDUP, State.ACTIVE] or countering:
+		return
+	if stagger_window > 0 and is_instance_valid(player):
+		face(player.global_position.x - global_position.x)
+		cooldown_left = 0
+		if can_start_attack():
+			countering = true
+			set_meta("stun_left", 0.0)
+			anim.speed_scale = 1.0
+			state = State.WINDUP
+			attack_direction = facing
+			play_clip(&"AttackWindUp")
+		else:
+			state = State.CHASE
+		return
+	stagger_window = 1.0
+	state = State.HIT
+	play_clip(&"Hit")
 
 
 func play_clip(clip: StringName) -> void:
@@ -264,6 +277,7 @@ func _on_animation_finished(clip: StringName) -> void:
 			if state == State.ACTIVE:
 				lunge_time_left = 0.0
 				velocity.x = 0.0
+				countering = false
 				state = State.RECOVERY
 				play_clip(&"AttackRecovery")
 

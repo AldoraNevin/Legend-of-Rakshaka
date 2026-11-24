@@ -36,6 +36,7 @@ static var skill_interval_left := 0.0
 
 static var unlocked_skill: Array = []
 static var discovered_enemies: Array = []
+static var active_artifacts: Array = []
 static var discovered_artifacts: Array = []
 
 static var bestiary_master: Dictionary = {
@@ -92,6 +93,7 @@ static func save_to_json() -> bool:
 		"unlocked_skill": unlocked_skill.duplicate(true),
 		"discovered_enemies": discovered_enemies.duplicate(true),
 		"discovered_artifacts": discovered_artifacts.duplicate(true),
+		"active_artifacts": active_artifacts.duplicate(),
 		"fatal_shield_used": fatal_shield_used,
 		"last_played": last_played
 	}
@@ -207,6 +209,7 @@ static func _apply_loaded_dict(data: Dictionary) -> void:
 	var loaded_artifacts = data.get("discovered_artifacts", [])
 	if typeof(loaded_artifacts) == TYPE_ARRAY:
 		discovered_artifacts = loaded_artifacts
+	active_artifacts = data.get("active_artifacts", []).duplicate() if data.get("active_artifacts") is Array else []
 
 	max_life = artifact_max_health()
 	life = max_life
@@ -288,6 +291,8 @@ static func update_bestiary(entity_id: String) -> void:
 		for item in bestiary_master.get("artifacts", []):
 			if item.get("entity_id", "").to_lower() == target_lower or item.get("name", "").to_lower() == target_lower:
 				item["is_unlocked"] = true
+				if item["name"] not in active_artifacts:
+					active_artifacts.append(item["name"])
 				if item["name"] not in discovered_artifacts:
 					discovered_artifacts.append(item["name"])
 				found = true
@@ -375,6 +380,7 @@ static func buy_upgrade(upgrade_id: String) -> bool:
 
 
 static func restore_life() -> void:
+	active_artifacts.clear()
 	fatal_shield_used = false
 	max_life = artifact_max_health()
 	life = max_life
@@ -397,11 +403,11 @@ static func apply_player_stats(player) -> void:
 static func has_artifact(identifier: String) -> bool:
 	if identifier.is_empty():
 		return false
-	if identifier in discovered_artifacts:
+	if identifier in active_artifacts:
 		return true
 	for entry in bestiary_master.get("artifacts", []):
 		if identifier in [str(entry.get("entity_id", "")), str(entry.get("name", ""))]:
-			return entry.get("name", "") in discovered_artifacts or entry.get("entity_id", "") in discovered_artifacts
+			return entry.get("name", "") in active_artifacts or entry.get("entity_id", "") in active_artifacts
 	return false
 
 
@@ -427,6 +433,7 @@ static func reset_progress() -> void:
 	unlocked_skill = []
 	discovered_enemies = []
 	discovered_artifacts = []
+	active_artifacts = []
 	sync_bestiary_status()
 
 static func add_gold(amount: int) -> void:

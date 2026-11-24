@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d613o3c166fb"]
 
+[ext_resource type="FontVariation" path="res://Assets/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
+
 [ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Portal.png" id="portal_art"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
 [ext_resource type="Script" uid="uid://wwj4ntoc2k04" path="res://Script/Lobby/lobby.gd" id="2_lobby"]
@@ -247,6 +249,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="Title" type="Label" parent="LobbyUI/InfoPanel" unique_id=2015958891]
+theme_override_fonts/font = ExtResource("pixel_bold")
 layout_mode = 0
 offset_left = 20.0
 offset_top = 14.0
@@ -288,6 +291,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="Title" type="Label" parent="LobbyUI/UpgradePanel" unique_id=85678768]
+theme_override_fonts/font = ExtResource("pixel_bold")
 layout_mode = 0
 offset_left = 18.0
 offset_top = 14.0

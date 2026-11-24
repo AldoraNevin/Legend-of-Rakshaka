@@ -71,6 +71,12 @@ func run_test() -> void:
 	check(enemy in player.sword_hit_targets and player.shockwave_left > 0, "Forward shockwave hits enemy")
 	player_data.restore_life()
 	check(not player_data.fatal_shield_used, "Lobby restores shield")
+	check(not player_data.has_artifact("jimat_kalimasada") and player_data.max_life == 100, "Run bonuses expire")
+	check("Jimat Kalimasada" in player_data.discovered_artifacts, "Bestiary discovery persists")
+	var lobby_save := ADAPTER.capture_player()
+	check(ADAPTER.player_error(lobby_save).is_empty(), "Lobby checkpoint accepts expired health bonus")
+	ADAPTER.restore_player({"player": lobby_save})
+	check(not player_data.has_artifact("jimat_kalimasada"), "Reloading does not reactivate catalog entries")
 	player.queue_free()
 	enemy.queue_free()
 	await process_frame

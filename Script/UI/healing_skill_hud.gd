@@ -28,7 +28,7 @@ func _draw() -> void:
 		elif not lit and slot > charges:
 			tint = Color.WHITE.darkened(0.55)
 		draw_texture_rect_region(texture, Rect2(6 + 44 * slot, 0, 44, 52), Rect2(frame * 133, 0, 133, 157), tint)
-	draw_string(ThemeDB.fallback_font, Vector2(0, 14), "R", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#f5dd96"))
+	draw_string(preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf"), Vector2(0, 14), "R", HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#f5dd96"))
 
 func _gui_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed) or (event is InputEventScreenTouch and event.pressed):

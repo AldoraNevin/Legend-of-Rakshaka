@@ -9,6 +9,11 @@ const PRE_BOSS_MUSIC_HASHES := {
 	"res://Script/Stage/graph_stage.gd": "8db2ef44ec8df4681d0e0f95696c993e70dfc4ba8dbf0c5fc9ed8ff3f90b473f",
 	"res://Scenes/Rooms/Stage/tutorial_room.tscn": "8978115e582f55ac6092fe5ba341230567afeff22eb0c21ee0e85ea32ffe1fb0",
 }
+const PRE_FIVE_STAGE_HASHES := {
+	"res://Script/Stage/graph_stage.gd": "5f3fe9cfbf9ba3546915cc413536c5e37b4446912be1903a9ea88619dff68d15",
+	"res://Script/Stage/stage_graph.gd": "3273589a54eeafdd8dfe311683f71062a6d3ca559f23d9ed1f7fac90ac189872",
+	"res://Script/Stage/tutorial_room.gd": "99ca85bd68707f933808ef5cf8530577b46f6267ce983d29aeb61a859f4b6807",
+}
 const GENERATOR := "res://Script/Stage/graph_stage.gd"
 const GRAPH := preload("res://Script/Stage/stage_graph.gd")
 
@@ -20,20 +25,47 @@ static func supports(node: Node) -> bool:
 		script = script.get_base_script()
 	return false
 
-static func signature(scene_path: String, room_path: String, previous_tutorial := false, previous_boss_music := false) -> String:
+static func layout_hash(path: String, lf_source: bool) -> String:
+	var digest := FileAccess.get_sha256(path)
+	match digest:
+		"0c27550dd9bc708bfe6b529660a2064c7f90ed4b6a9e9a36d712a09c07ae91da": return "0831f981116bb42ad14e2bbba13361401ba40deec9f59ed45e02c956e10bfc39" if lf_source else "980f1bb15bf34fdb0ab8f89b0fd4e2b7f5290dd6e26571da826bcee88ff189e4"
+		"19b044280f61d86808ee097ae2ff619895f9d04877355bc7798060d066141c08": return "ac28eed61f085954bca7572dcce555a702e80630243417af3b718d70a2855678" if lf_source else "728a879398158742b1bb8dc1e2f34a8c6c67bb387bae5e6de543d07b4f806f79"
+	return digest
+
+static func signature(scene_path: String, room_path: String, previous_tutorial := false, previous_boss_music := false, lf_source := false, previous_route := false) -> String:
 	var previous: Dictionary = PRE_TUTORIAL_UPDATE_HASHES if previous_tutorial else {}
 	if previous_boss_music:
 		previous = PRE_BOSS_MUSIC_HASHES
+	if previous_route:
+		previous = PRE_FIVE_STAGE_HASHES
 	var parts := ""
 	for path in [GENERATOR, "res://Script/level_2_generator.gd", "res://Script/Stage/stage_graph.gd", scene_path, room_path]:
-		parts += previous.get(path, FileAccess.get_sha256(path))
+		parts += previous.get(path, layout_hash(path, lf_source))
 	# Generated rooms also depend on stage helper scripts, not only their .tscn.
 	var scripts := DirAccess.get_files_at("res://Script/Stage")
 	scripts.sort()
 	for name in scripts:
 		if name.ends_with(".gd"):
-			parts += previous.get("res://Script/Stage/" + name, FileAccess.get_sha256("res://Script/Stage/" + name))
+			parts += previous.get("res://Script/Stage/" + name, layout_hash("res://Script/Stage/" + name, lf_source))
 	return parts.sha256_text()
+
+static func migrate_route(data: Dictionary) -> void:
+	if not data.has("room_id") or not data.get("room_scene") is String or not data.get("scene") is String:
+		return
+	var old_id := int(data.room_id)
+	if old_id < 0 or old_id > 8:
+		return
+	if data.get("signature") != signature(data.scene, data.room_scene, false, false, false, true):
+		return
+	var new_id: int = [0, 1, 2, 3, 4, 4, 5, 6, 6][old_id]
+	var route := GRAPH.generate(int(data.seed))
+	if old_id in [4, 7, 8]:
+		data.exploration = {}
+		data.room_scene = "res://Scenes/Rooms/Modular/modular_level.tscn" if new_id == 4 else "res://Scenes/Rooms/Stage/boss_%d.tscn" % route[new_id].variant
+	data.room_id = new_id
+	data.room_label = route[new_id].label
+	data.room_index = new_id + 1
+	data.signature = signature(data.scene, data.room_scene)
 
 static func capture(stage: Node) -> Dictionary:
 	if not supports(stage) or not is_instance_valid(stage.current_room) or player_data.life <= 0:
@@ -102,6 +134,7 @@ static func capture_player() -> Dictionary:
 		"max_life": player_data.max_life, "upgrades": player_data.upgrade_levels.duplicate(true), "upgrade_version": player_data.UPGRADE_VERSION, "healing_skill": player_data.capture_healing_skill(),
 		"skills": player_data.unlocked_skill.duplicate(true),
 		"enemies": player_data.discovered_enemies.duplicate(true),
+		"active_artifacts": player_data.active_artifacts.duplicate(),
 		"artifacts": player_data.discovered_artifacts.duplicate(true)}
 
 static func validation_error(data: Dictionary) -> String:
@@ -119,7 +152,7 @@ static func validation_error(data: Dictionary) -> String:
 		return "Seed checkpoint tidak valid."
 	if not str(data.scene).begins_with("res://") or not ResourceLoader.exists(data.scene) or not ResourceLoader.exists(data.room_scene):
 		return "Scene level sudah dipindahkan atau tidak tersedia."
-	if data.signature != signature(data.scene, data.room_scene) and data.signature != signature(data.scene, data.room_scene, true) and data.signature != signature(data.scene, data.room_scene, false, true):
+	if data.signature != signature(data.scene, data.room_scene) and data.signature != signature(data.scene, data.room_scene, false, false, true) and data.signature != signature(data.scene, data.room_scene, true) and data.signature != signature(data.scene, data.room_scene, false, true):
 		return "Level berubah sejak checkpoint dibuat. Mulai perjalanan baru."
 	if not data.get("player") is Dictionary or not data.get("stats") is Dictionary:
 		return "Data pemain tidak tersedia."
@@ -153,7 +186,10 @@ static func player_error(p: Dictionary) -> String:
 		if level < 0 or level > player_data.UPGRADE_DATA[key].max_level or level != floor(level):
 			return "Level upgrade tidak valid."
 	if p.get("health_version", 1) == player_data.HEALTH_VERSION:
-		var artifacts: Array = p.get("artifacts", []) if p.get("artifacts") is Array else []
+		var owned = p.get("active_artifacts", p.get("artifacts", []))
+		if not owned is Array:
+			return "Data artefak aktif tidak valid."
+		var artifacts: Array = owned
 		var bonus := 25 if "jimat_kalimasada" in artifacts or "Jimat Kalimasada" in artifacts else 0
 		var expected := player_data.MAX_HEALTH + bonus
 		if int(p.get("upgrade_version", 1)) >= 2:
@@ -178,6 +214,7 @@ static func restore_player(data: Dictionary) -> void:
 	var p: Dictionary = data.player
 	player_data.restore_tutorial(p, int(data.get("room_id", 0)) > 0)
 	player_data.discovered_artifacts = p.artifacts.duplicate()
+	player_data.active_artifacts = p.get("active_artifacts", p.artifacts).duplicate()
 	player_data.fatal_shield_used = bool(p.get("fatal_shield_used", false))
 	player_data.coin = int(p.coin)
 	player_data.restore_upgrades(p.upgrades)

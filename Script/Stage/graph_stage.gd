@@ -4,7 +4,7 @@ signal stage_completed
 
 const Graph = preload("res://Script/Stage/stage_graph.gd")
 const END_CREDITS := preload("res://addons/maaacks_menus_template/examples/scenes/end_credits/end_credits.tscn")
-@export_range(0, 8) var preview_start_node := 0
+@export_range(0, 6) var preview_start_node := 0
 @export var template_directory := "res://Scenes/Rooms/Stage/"
 @export var procedural_level: PackedScene = preload("res://Scenes/Rooms/Modular/modular_level.tscn")
 @export_file("*.tscn") var tutorial_room_scene := "res://Scenes/Rooms/Stage/tutorial_room.tscn"
@@ -81,8 +81,11 @@ func build_template_room(template: PackedScene) -> void:
 		print(stage_graph[node_id].label, " seed: ", stage_graph[node_id].room_seed)
 		room_root.add_child(current_room)
 		if current_room.get_meta("modular_level", false):
+			var hp_rng := RandomNumberGenerator.new()
+			hp_rng.seed = stage_graph[node_id].room_seed
 			for encounter in current_room.layout.encounters:
 				var enemy := preload("res://Script/Stage/Modular/enemy_catalog.gd").create(encounter.species)
+				enemy.set("max_health", hp_rng.randi_range(10, 15) + 5 * (node_id - 1))
 				enemy.set_meta("modular_room_id", encounter.room_id)
 				enemies.add_child(enemy)
 				enemy.global_position = current_room.to_global(encounter.position)
@@ -118,12 +121,6 @@ func show_generation_error(seed_value: int) -> void:
 	$GUI.add_child(error_label)
 
 func complete_combat() -> void:
-	if node_id == 1: # Room 1 is the first combat node after the tutorial.
-		if stage_finished:
-			return
-		stage_finished = true
-		_show_room_one_credits.call_deferred()
-		return
 	if stage_graph[node_id].kind == "start":
 		current_state = RoomState.DOOR_SELECT
 		show_door_choices()
@@ -131,10 +128,6 @@ func complete_combat() -> void:
 		super.complete_combat()
 		if current_room.has_method("open_exit"):
 			current_room.open_exit()
-
-func _show_room_one_credits() -> void:
-	if is_inside_tree() and not is_queued_for_deletion() and get_tree().current_scene == self:
-		get_tree().change_scene_to_packed(END_CREDITS)
 
 func pick_room_template() -> PackedScene:
 	return templates[node_id]
@@ -208,4 +201,4 @@ class LobbyPortal extends "res://Script/Interactables/level_portal.gd":
 				return
 		leaving = true
 		get_viewport().set_input_as_handled()
-		get_tree().change_scene_to_file.call_deferred(CheckpointManager.LOBBY)
+		get_tree().change_scene_to_packed.call_deferred(END_CREDITS)

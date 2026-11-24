@@ -12,11 +12,11 @@ func _initialize() -> void:
 		var graph := Graph.generate(seed_value)
 		assert(Graph.validate(graph).is_empty())
 		assert(graph == Graph.generate(seed_value))
-		assert(graph.size() == 9)
+		assert(graph.size() == 7)
 		for i in range(graph.size()):
 			assert(graph[i].label == Graph.LABELS[i])
 	var wrong_order := Graph.generate(12)
-	wrong_order[4].kind = "combat"
+	wrong_order[4].kind = "elite"
 	assert(not Graph.validate(wrong_order).is_empty())
 	var broken := Graph.generate(12)
 	broken[0].next = [0]

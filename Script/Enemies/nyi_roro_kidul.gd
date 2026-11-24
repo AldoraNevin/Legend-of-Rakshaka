@@ -8,8 +8,12 @@ const CASTS := [&"RainSpear", &"TidalWall", &"WaterCastingFortex"]
 const FOOT_OFFSETS := {&"Idle": -5, &"Dead": -5, &"RainSpear": -5, &"TidalWall": -5, &"WaterCastingFortex": -17}
 const RAIN_COUNT := 24
 const RAIN_INTERVAL := 0.18
+var overhead_rain := false
 var rain_left := 0
 var rain_delay := 0.0
+var pressure_hits := 0
+var pressure_window := 0.0
+var countering := false
 var released := false
 var flash: Tween
 var health: float
@@ -40,6 +44,7 @@ func _ground_sprite() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	pressure_window = maxf(0, pressure_window - delta)
 	if preload("res://Script/Enemies/artifact_status.gd").tick(self, delta):
 		sprite.pause()
 		return
@@ -70,6 +75,7 @@ func _physics_process(delta: float) -> void:
 func _on_animation_finished() -> void:
 	if not is_dead and casting:
 		casting = false
+		countering = false
 		cooldown_left = attack_cooldown
 		sprite.play(&"Idle")
 
@@ -78,6 +84,7 @@ func _release_cast() -> void:
 		return
 	released = true
 	if sprite.animation == &"RainSpear":
+		overhead_rain = randf() < 0.5
 		rain_left = RAIN_COUNT
 		rain_delay = 0.0
 		return
@@ -90,6 +97,8 @@ func _release_cast() -> void:
 
 func _spawn_rain_spear() -> void:
 	var aim := player.global_position
+	if overhead_rain:
+		aim.x += [0.0, -60.0, 60.0, -30.0, 30.0][rain_left % 5]
 	var query := PhysicsRayQueryParameters2D.create(aim, aim + Vector2.DOWN * 2000.0, 2)
 	var floor_hit := get_world_2d().direct_space_state.intersect_ray(query)
 	if floor_hit.is_empty():
@@ -102,10 +111,11 @@ func _spawn_rain_spear() -> void:
 	spear.hframes = 12
 	spear.damage = damage
 	spear.target = player
+	spear.overhead = overhead_rain
 	spear.origin = floor_point + Vector2.DOWN * 50.0
 	spear.apex = aim + Vector2.UP * 110.0
 	add_child(spear)
-	spear.global_transform = Transform2D(PI, Vector2.ONE * 0.23, 0.0, spear.origin)
+	spear.global_transform = Transform2D(0.0 if overhead_rain else PI, Vector2.ONE * 0.23, 0.0, spear.apex if overhead_rain else spear.origin)
 
 func take_damage(amount: float) -> void:
 	if is_dead or amount <= 0:
@@ -121,6 +131,17 @@ func take_damage(amount: float) -> void:
 		player_data.discover_enemy("nyi_roro_kidul")
 		$Hurtbox.set_deferred("monitorable", false)
 		_play_defeat()
+	elif not casting and not countering:
+		pressure_hits = pressure_hits + 1 if pressure_window > 0 else 1
+		pressure_window = 1.0
+		if pressure_hits >= 3 and is_instance_valid(player):
+			pressure_hits = 0
+			countering = true
+			casting = true
+			released = false
+			set_meta("stun_left", 0.0)
+			sprite.flip_h = player.global_position.x > global_position.x
+			sprite.play(&"TidalWall", 1.3)
 
 func _play_defeat() -> void:
 	var music := get_parent().get_node_or_null("RoomMusic") as AudioStreamPlayer
@@ -232,6 +253,7 @@ class WaterAttack extends Node2D:
 			target.take_damage(damage, get_parent(), true)
 
 class RainSpear extends Sprite2D:
+	var overhead := false
 	const RISE := 0.55
 	const TURN := 0.20
 	var target: Node2D
@@ -251,10 +273,12 @@ class RainSpear extends Sprite2D:
 			frame = mini(8 + int(impact_age * 15), 11)
 			if impact_age >= 4.0 / 15.0:
 				queue_free()
-		elif age < RISE:
+		elif overhead and age < 0.48:
+			frame = mini(5, int(age / 0.48 * 6))
+		elif not overhead and age < RISE:
 			global_position = origin.lerp(apex, age / RISE)
 			frame = mini(int(age / RISE * 5), 4)
-		elif age < RISE + TURN:
+		elif not overhead and age < RISE + TURN:
 			global_position = apex
 			rotation = lerpf(PI, 0.0, (age - RISE) / TURN)
 			frame = 5

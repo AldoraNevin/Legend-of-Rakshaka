@@ -5,7 +5,7 @@ static func apply(target: Node, bleed: bool, stun: bool) -> void:
 		target.set_meta("bleed_left", 3.0)
 		if not target.has_meta("bleed_tick"):
 			target.set_meta("bleed_tick", 1.0)
-	if stun:
+	if stun and not target.get("countering"):
 		target.set_meta("stun_left", 1.0)
 
 static func tick(target: Node, delta: float) -> bool:

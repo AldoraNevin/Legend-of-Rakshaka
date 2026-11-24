@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="book"]
 [ext_resource type="Script" uid="uid://c62w713j5j0ig" path="res://Script/Stage/tutorial_dialogue_line.gd" id="dialogue_line"]
-[ext_resource type="FontFile" uid="uid://q8r42pd8vbfm" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="font"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/PixelifySans/PixelifySans.ttf" id="font"]
 [ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Portal.png" id="gate_atlas"]
 [ext_resource type="PackedScene" path="res://Scenes/Environment/lobby_parallax.tscn" id="parallax"]
 [ext_resource type="Script" uid="uid://kabvrfkj0pbl" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]

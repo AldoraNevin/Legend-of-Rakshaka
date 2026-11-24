@@ -201,6 +201,7 @@ func spawn_hostile() -> void:
 	if step != Step.PRACTICE or is_instance_valid(hostile):
 		return
 	hostile = hostile_scene.instantiate() as Node2D
+	hostile.set("max_health", 4)
 	hostile.scale = Vector2(0.5, 0.5)
 	hostile.position = $HostileSpawn.position
 	add_child(hostile)

@@ -1,5 +1,7 @@
 [gd_scene format=3]
 
+[ext_resource type="FontVariation" path="res://Assets/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
+
 [ext_resource type="Script" path="res://Script/UI/load_game_menu.gd" id="script"]
 
 [ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="paper"]
@@ -135,6 +137,7 @@ theme_override_styles/panel = SubResource("Paper")
 
 
 [node name="Title" type="Label" parent="Panel"]
+theme_override_fonts/font = ExtResource("pixel_bold")
 
 offset_left = 30.0
 

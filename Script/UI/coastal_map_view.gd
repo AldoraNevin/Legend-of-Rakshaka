@@ -76,7 +76,7 @@ func _draw() -> void:
 		return
 	var viewport_size := get_viewport_rect().size
 	draw_rect(Rect2(Vector2.ZERO, viewport_size), Color(0.015, 0.035, 0.05))
-	var font := ThemeDB.fallback_font
+	var font := preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf")
 	var title := "PETA RERUNTUHAN" if room.get_meta("modular_level", false) else "PETA PESISIR"
 	if portal_network != null:
 		title = "PORTAL - PILIH TUJUAN"
@@ -154,7 +154,7 @@ func map_marker(point: Vector2, title: String, color: Color, always_visible := f
 		return
 	var position_on_map := map_point(point)
 	draw_rect(Rect2(position_on_map - Vector2(3, 3), Vector2(6, 6)), color)
-	var font := ThemeDB.fallback_font
+	var font := preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf")
 	var text_width := font.get_string_size(title, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x
 	var text_position := position_on_map + Vector2(8, -7)
 	text_position.x = clampf(text_position.x, 12, get_viewport_rect().size.x - text_width - 12)

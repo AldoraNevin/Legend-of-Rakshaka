@@ -91,7 +91,11 @@ func list_checkpoints() -> Array:
 		data = _read_file(storage_path + ".bak")
 	if data.is_empty() and (FileAccess.file_exists(storage_path) or FileAccess.file_exists(storage_path + ".bak")):
 		storage_error = "File save dan backup tidak dapat dibaca. Data tidak ditimpa."
-	return data.get("slots", [null, null, null])
+	var slots: Array = data.get("slots", [null, null, null])
+	for slot in slots:
+		if slot is Dictionary:
+			ADAPTER.migrate_route(slot)
+	return slots
 
 func checkpoint_error(value: Variant) -> String:
 	if not value is Dictionary:

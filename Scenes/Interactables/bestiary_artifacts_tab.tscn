@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2nc3r32opxj7" path="res://Script/UI/bestiary_tab.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="1_yaiuh"]
 [ext_resource type="Texture2D" uid="uid://41o7a5ngww1r" path="res://Assets/Legend of Rakshaka/UI HUD/blank book.png" id="3_tx112"]
-[ext_resource type="FontFile" uid="uid://q8r42pd8vbfm" path="res://Assets/Legend of Rakshaka/silkscreen/slkscr.ttf" id="5_tx112"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/PixelifySans/PixelifySans.ttf" id="5_tx112"]
 [ext_resource type="Texture2D" uid="uid://ddqb66f4mvn1p" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary hovers.png" id="5_ur1r7"]
 [ext_resource type="Texture2D" uid="uid://xo723ncp5m2m" path="res://Assets/UI/artifact_locked.svg" id="99_locked"]
 [ext_resource type="Script" uid="uid://c77rh4hjr4qam" path="res://Script/UI/bestiary_card.gd" id="card_1"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://ba86v8c5k5puw" path="res://Assets/Artefak/Daun Kelor/daun kelor2.png" id="image_13"]
 [ext_resource type="Texture2D" uid="uid://co1a8khafxhdv" path="res://Assets/Artefak/Paku Emas/paku emas_v2.png" id="image_14"]
 
+[ext_resource type="FontVariation" path="res://Assets/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1c1n3"]
 atlas = ExtResource("1_yaiuh")
 region = Rect2(264, 246, 16, 40)
@@ -42,11 +44,8 @@ texture = SubResource("AtlasTexture_n3b0w")
 texture_margin_top = 5.0
 texture_margin_bottom = 5.0
 
-[sub_resource type="SystemFont" id="SystemFont_yapdp"]
-font_names = PackedStringArray("Georgia")
-
 [sub_resource type="Theme" id="Theme_ufoio"]
-default_font = SubResource("SystemFont_yapdp")
+default_font = ExtResource("5_tx112")
 default_font_size = 17
 Button/colors/font_color = Color(0.27450982, 0.16862746, 0.08627451, 1)
 Button/colors/font_focus_color = Color(0.27450982, 0.16862746, 0.08627451, 1)
@@ -489,7 +488,7 @@ offset_left = 90.0
 offset_top = 50.0
 offset_right = 514.0
 offset_bottom = 82.0
-theme_override_fonts/font = ExtResource("5_tx112")
+theme_override_fonts/font = ExtResource("pixel_bold")
 theme_override_font_sizes/font_size = 20
 text = "KATALOG MITOLOGI"
 vertical_alignment = 1
@@ -1403,6 +1402,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="EntryTitle" type="Label" parent="Book" unique_id=1948108332]
+theme_override_fonts/font = ExtResource("pixel_bold")
 layout_mode = 0
 offset_left = 748.0
 offset_top = 114.0

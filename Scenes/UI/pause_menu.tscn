@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c0i0ninj702kq"]
 
+[ext_resource type="FontVariation" path="res://Assets/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
+
 [ext_resource type="Script" uid="uid://ctni27557un7g" path="res://Script/UI/pause_menu.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bcym3nhn1uhms" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://bdvdf5v87mmrr" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3"]
@@ -84,6 +86,7 @@ theme = SubResource("MenuTheme")
 theme_override_styles/panel = SubResource("Normal")
 
 [node name="Title" type="Label" parent="Overlay/MenuPanel" unique_id=1046243213]
+theme_override_fonts/font = ExtResource("pixel_bold")
 layout_mode = 0
 offset_left = 30.0
 offset_top = 28.0
@@ -179,6 +182,7 @@ theme = SubResource("MenuTheme")
 theme_override_styles/panel = SubResource("Normal")
 
 [node name="Title" type="Label" parent="Overlay/CheatPanel" unique_id=1352843344]
+theme_override_fonts/font = ExtResource("pixel_bold")
 layout_mode = 0
 offset_left = 30.0
 offset_top = 22.0
@@ -199,7 +203,7 @@ theme_override_colors/font_color = Color(0.27, 0.17, 0.09, 1)
 theme_override_constants/line_spacing = 0
 theme_override_constants/paragraph_spacing = 0
 theme_override_font_sizes/font_size = 18
-text = "Tujuan: TUTORIAL, ROOM1 - ROOM6
+text = "Tujuan: TUTORIAL, ROOM1 - ROOM5, BOSS
 Contoh: ROOM2 untuk pindah ke Room 2.
 DOUBLEJUMP ON / OFF  |  GODMODE ON / OFF
 ALLARTIFACTS: buka semua artefak (tersimpan).

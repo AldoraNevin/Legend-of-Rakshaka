@@ -24,6 +24,10 @@ func _ready() -> void:
 	$LobbyUI.visible = true
 	$LobbyUI.show()
 	player_data.restore_life()
+	$Player.refresh_artifact_stats()
+	if CheckpointManager.enabled and not CheckpointManager.loading and CheckpointManager.active_slot >= 0:
+		CheckpointManager.save_checkpoint({"version": 1, "scene": CheckpointManager.LOBBY, "room_label": "Lobby",
+			"saved_at": Time.get_datetime_string_from_system(), "player": CheckpointManager.ADAPTER.capture_player()})
 	prompt_panel.hide()
 	info_panel.hide()
 	$LobbyUI/UpgradePanel.hide()

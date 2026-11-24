@@ -4,7 +4,7 @@ var double_jump := false
 var god_mode := false
 const ADAPTER = preload("res://Script/Save/room_checkpoint_adapter.gd")
 const DESTINATIONS = {"TUTORIAL": 0, "ROOM1": 1, "ROOM2": 2, "ROOM3": 3,
-	"ELITE": 4, "ROOM4": 5, "ROOM5": 6, "ROOM6": 7, "BOSS": 8}
+	"ROOM4": 4, "ROOM5": 5, "BOSS": 6}
 
 func execute(raw: String) -> String:
 	var words := raw.strip_edges().to_upper().split(" ", false)
@@ -55,6 +55,8 @@ func unlock_all_artifacts() -> String:
 		return "Data artefak belum tersedia."
 	for artifact in artifacts:
 		var artifact_name: String = artifact.get("name", "")
+		if not artifact_name.is_empty() and artifact_name not in player_data.active_artifacts:
+			player_data.active_artifacts.append(artifact_name)
 		if not artifact_name.is_empty() and artifact_name not in player_data.discovered_artifacts:
 			player_data.discovered_artifacts.append(artifact_name)
 	player_data.sync_bestiary_status()

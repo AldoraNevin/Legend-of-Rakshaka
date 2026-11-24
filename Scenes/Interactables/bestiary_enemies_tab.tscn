@@ -1219,6 +1219,7 @@ theme_override_styles/hover_pressed = SubResource("card_StyleBoxTexture_2xpgi")
 theme_override_styles/focus = SubResource("card_StyleBoxTexture_2xpgi")
 toggle_mode = true
 script = ExtResource("card_1")
+boss_border = true
 entity_id = "nyi_roro_kidul"
 region = "Pantai Selatan Jawa"
 category = "AoE Magic"
@@ -1230,8 +1231,10 @@ Versi Putri Kadita (Tradisi Sunda): Ia dikisahkan sebagai putri kesayangan Prabu
 Versi Mataram (Babad Tanah Jawi): Dalam catatan sejarah tradisional Jawa, penguasa Laut Selatan ini memiliki ikatan dan perjanjian spiritual dengan Panembahan Senopati (pendiri Kesultanan Mataram) untuk selalu melindungi tanah Jawa dan keturunan raja-rajanya.
 
 Kearifan Lokal: Sosoknya sangat identik dengan pantangan memakai pakaian berwarna hijau di Pantai Selatan. Di balik sisi mistisnya, mitos ini menjadi pesan kearifan lokal agar manusia selalu menghormati alam dan waspada terhadap ganasnya ombak serta palung Laut Selatan."
-hp = 25
-attack = 3
+attack_pattern = "Rentetan tombak air, ombak yang melaju di lantai, dan pusaran yang meletus menjadi geyser."
+tactics = "Bergerak saat hujan tombak, lompat melewati ombak, dan tinggalkan pusaran sebelum semburan naik."
+hp = 4800
+attack = 48
 
 [node name="Portrait" type="TextureRect" parent="Book/EntryGrid/Entry_nyi_roro_kidul" unique_id=1066829408]
 layout_mode = 1

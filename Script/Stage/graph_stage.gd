@@ -13,8 +13,8 @@ var node_id := 0
 var templates: Dictionary = {}
 var stage_finished := false
 var stage_seed := 0
-@export_range(1.0, 4.0, 0.1) var boss_camera_zoom := 2.4
-@export_range(1.0, 4.0, 0.1) var tutorial_camera_zoom := 1.4
+@export_range(1.0, 4.0, 0.1) var boss_camera_zoom := 1.9
+@export_range(1.0, 4.0, 0.1) var tutorial_camera_zoom := 3.0
 @onready var normal_camera_zoom: Vector2 = camera.zoom
 
 func apply_camera_limits() -> void:
@@ -25,7 +25,7 @@ func apply_camera_limits() -> void:
 		var origin := current_room.global_position
 		camera.limit_left = int(origin.x) - 16
 		camera.limit_top = int(origin.y) - 16
-		camera.limit_right = int(origin.x) + 848
+		camera.limit_right = int(origin.x) + int(current_room.get_meta("arena_width")) + 16
 		camera.limit_bottom = int(origin.y) + 416
 	elif not stage_graph.is_empty() and stage_graph[node_id].kind == "start":
 		camera.zoom = Vector2.ONE * tutorial_camera_zoom
@@ -33,7 +33,7 @@ func apply_camera_limits() -> void:
 		var origin := current_room.global_position
 		camera.limit_left = int(origin.x)
 		camera.limit_top = int(origin.y) + 14
-		camera.limit_right = int(origin.x) + 832
+		camera.limit_right = int(origin.x) + int(current_room.get_meta("arena_width", 832))
 		camera.limit_bottom = int(origin.y) + 482
 	else:
 		camera.zoom = normal_camera_zoom
@@ -97,7 +97,15 @@ func build_template_room(template: PackedScene) -> void:
 		var music := AudioStreamPlayer.new()
 		music.name = "RoomMusic"
 		current_room.add_child(music)
-		preload("res://Script/Audio/game_audio.gd").configure_music(music, false)
+		if stage_graph[node_id].kind == "boss":
+			var battle := preload("res://Assets/Legend of Rakshaka/BGM/Boss Battle Extended Better.ogg").duplicate() as AudioStreamOggVorbis
+			battle.loop = true
+			music.bus = "Music"
+			music.volume_db = -12
+			music.stream = battle
+			music.play()
+		else:
+			preload("res://Script/Audio/game_audio.gd").configure_music(music, false)
 	var title := current_room.get_node_or_null("Title") as Label
 	if title != null and stage_graph[node_id].kind != "start":
 		title.text = stage_graph[node_id].label
@@ -139,10 +147,12 @@ func show_door_choices() -> void:
 			return
 		stage_finished = true
 		stage_completed.emit()
-		var message := Label.new()
-		message.text = "STAGE SELESAI"
-		message.position = Vector2(320, 260)
-		room_root.add_child(message)
+		var portal := LobbyPortal.new()
+		portal.title = "Kembali ke lobi [F]"
+		portal.unlocked = true
+		door_root.add_child(portal)
+		var marker = current_room.get_node("DoorSpawns/Marker0")
+		portal.global_position = marker.to_global(marker.floor_offset)
 		return
 	var positions := get_template_door_positions()
 	for i in range(targets.size()):
@@ -180,3 +190,22 @@ func travel_to_room(target: int) -> void:
 		load_next_room()
 		player.velocity = Vector2.ZERO
 	, "Memuat %s..." % stage_graph[target].label)
+
+
+class LobbyPortal extends "res://Script/Interactables/level_portal.gd":
+	var leaving := false
+
+	func _unhandled_key_input(event: InputEvent) -> void:
+		if leaving or not event is InputEventKey or not event.pressed or event.echo or event.physical_keycode != KEY_F:
+			return
+		var hero := get_tree().get_first_node_in_group("player") as Node2D
+		if not is_instance_valid(hero) or hero.get("is_dead") or hero.global_position.distance_to(global_position) > 65:
+			return
+		if CheckpointManager.active_slot >= 0 and CheckpointManager.enabled:
+			var checkpoint := {"version": 1, "scene": CheckpointManager.LOBBY, "room_label": "Lobby",
+				"saved_at": Time.get_datetime_string_from_system(), "player": CheckpointManager.ADAPTER.capture_player()}
+			if not CheckpointManager.save_checkpoint(checkpoint):
+				return
+		leaving = true
+		get_viewport().set_input_as_handled()
+		get_tree().change_scene_to_file.call_deferred(CheckpointManager.LOBBY)

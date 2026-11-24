@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cp6hmtcyoxu8d"]
 
-[ext_resource type="Texture2D" uid="uid://rujixjbp7me2" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/nyi roro kidul_death.png" id="1_mcmxw"]
-[ext_resource type="Texture2D" uid="uid://dxaxbnf7wjgbi" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/nyi roro kidul_idle.png" id="2_arhb7"]
-[ext_resource type="Texture2D" uid="uid://c0wtyihl0wi0w" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/Nyi Roro Kidul Rain Spears atk.png" id="3_1o247"]
-[ext_resource type="Texture2D" uid="uid://jvttn3bsou4y" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/Turquoise Rain Spear Impact Sprite Sheet-5-sheet.png" id="3_arhb7"]
-[ext_resource type="Texture2D" uid="uid://bnqenqve2xpwr" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/Nyi Roro Kidul Tidal Wall atk.png" id="4_w3cuq"]
-[ext_resource type="Texture2D" uid="uid://dqg1ogx1o12cy" path="res://Assets/Legend of Rakshaka/Hostiles/Nyi Roro Kidul/Nyi Roro Kidul Watercasting vortex.png" id="5_o771j"]
+[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/nyi roro kidul_death.png" id="1_mcmxw"]
+[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/nyi roro kidul_idle.png" id="2_arhb7"]
+[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Nyi Roro Kidul Rain Spears atk.png" id="3_1o247"]
+[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Turquoise Rain Spear Impact Sprite Sheet-5-sheet.png" id="3_arhb7"]
+[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Nyi Roro Kidul Tidal Wall atk.png" id="4_w3cuq"]
+[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Nyi Roro Kidul Watercasting vortex.png" id="5_o771j"]
 
 [ext_resource type="Script" path="res://Script/Enemies/nyi_roro_kidul.gd" id="boss_script"]
 
@@ -642,7 +642,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"TidalWall",
-"speed": 5.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -704,7 +704,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"WaterCastingFortex",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h8u65"]
@@ -810,7 +810,7 @@ height = 190.0
 size = Vector2(53, 186)
 
 [node name="NyiRoroKidul" type="CharacterBody2D" unique_id=1988646850]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.9206, 0.9206)
 collision_layer = 64
 collision_mask = 2
 script = ExtResource("boss_script")
@@ -820,12 +820,12 @@ sprite_frames = SubResource("SpriteFrames_h8u65")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=673444341]
-position = Vector2(-20, 12)
+position = Vector2(-20, 21)
 shape = SubResource("CapsuleShape2D_h8u65")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1251537854]
 libraries/ = SubResource("AnimationLibrary_glhys")
-autoplay = &"Idle"
+
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1722249022 groups=["enemy_hurtbox"]]
 collision_layer = 8

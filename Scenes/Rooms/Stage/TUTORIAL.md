@@ -16,4 +16,3 @@
 Alur: lobby → tutorial → Room 1 → Room 2 → Room 3 → Elite → Room 4 → Room 5 → Room 6 → Boss.
 
 Textbox menggunakan PanelContainer dengan panel bestiary, MarginContainer, dan VBoxContainer. Saat bermain, posisinya mengikuti kepala Semar dalam koordinat layar dan dijaga di dalam viewport. Teks laporan dapat diedit lewat Report Text pada root TutorialRoom.
-

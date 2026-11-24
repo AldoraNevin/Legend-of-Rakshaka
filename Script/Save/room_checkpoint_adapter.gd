@@ -5,6 +5,10 @@ const PRE_TUTORIAL_UPDATE_HASHES := {
 	"res://Script/Stage/graph_stage.gd": "39e771d07683b290b9bac989a1e86672baf79954113af182ee174a3a852db455",
 	"res://Script/Stage/tutorial_room.gd": "76d07a6c7810753766b02f19794186c2ea7b68f0c6c167ea8e1c89885186402f"
 }
+const PRE_BOSS_MUSIC_HASHES := {
+	"res://Script/Stage/graph_stage.gd": "8db2ef44ec8df4681d0e0f95696c993e70dfc4ba8dbf0c5fc9ed8ff3f90b473f",
+	"res://Scenes/Rooms/Stage/tutorial_room.tscn": "8978115e582f55ac6092fe5ba341230567afeff22eb0c21ee0e85ea32ffe1fb0",
+}
 const GENERATOR := "res://Script/Stage/graph_stage.gd"
 const GRAPH := preload("res://Script/Stage/stage_graph.gd")
 
@@ -16,8 +20,10 @@ static func supports(node: Node) -> bool:
 		script = script.get_base_script()
 	return false
 
-static func signature(scene_path: String, room_path: String, previous_tutorial := false) -> String:
+static func signature(scene_path: String, room_path: String, previous_tutorial := false, previous_boss_music := false) -> String:
 	var previous: Dictionary = PRE_TUTORIAL_UPDATE_HASHES if previous_tutorial else {}
+	if previous_boss_music:
+		previous = PRE_BOSS_MUSIC_HASHES
 	var parts := ""
 	for path in [GENERATOR, "res://Script/level_2_generator.gd", "res://Script/Stage/stage_graph.gd", scene_path, room_path]:
 		parts += previous.get(path, FileAccess.get_sha256(path))
@@ -113,7 +119,7 @@ static func validation_error(data: Dictionary) -> String:
 		return "Seed checkpoint tidak valid."
 	if not str(data.scene).begins_with("res://") or not ResourceLoader.exists(data.scene) or not ResourceLoader.exists(data.room_scene):
 		return "Scene level sudah dipindahkan atau tidak tersedia."
-	if data.signature != signature(data.scene, data.room_scene) and data.signature != signature(data.scene, data.room_scene, true):
+	if data.signature != signature(data.scene, data.room_scene) and data.signature != signature(data.scene, data.room_scene, true) and data.signature != signature(data.scene, data.room_scene, false, true):
 		return "Level berubah sejak checkpoint dibuat. Mulai perjalanan baru."
 	if not data.get("player") is Dictionary or not data.get("stats") is Dictionary:
 		return "Data pemain tidak tersedia."

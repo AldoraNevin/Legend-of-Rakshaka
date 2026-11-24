@@ -19,7 +19,11 @@ var is_attacking := false
 var is_dead := false
 var is_wall_sliding := false
 var is_invincible := false
-var can_dash := true
+var air_dash_available := true
+var dash_cooldown_left := 0.0
+var can_dash: bool:
+	get:
+		return air_dash_available and dash_cooldown_left <= 0.0
 
 var jump_count := 0
 var wall_jump_count := 0
@@ -28,6 +32,8 @@ var sword_hit_targets: Array[Node] = []
 # Combo serangan
 var combo_step := 0
 var combo_queued := false
+var next_combo_step := 1
+var combo_grace := 0.0
 
 var current_state := PlayerStates.MOVE
 
@@ -47,7 +53,7 @@ var current_state := PlayerStates.MOVE
 
 @export var dash_speed := 600.0
 @export var dash_time := 0.12
-@export var dash_cooldown := 0.35
+@export var dash_cooldown := 1.0
 @export var sword_damage := 1
 # Damage tambahan khusus serangan ke-3 (0 = sama seperti serangan biasa)
 @export var combo_finisher_bonus := 0
@@ -82,6 +88,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	dash_cooldown_left = maxf(0.0, dash_cooldown_left - delta)
 	_tick_artifacts(delta)
 	if player_data.life <= 0 and not is_dead:
 		start_dead()
@@ -100,6 +107,7 @@ func _physics_process(delta: float) -> void:
 
 
 func movement(delta: float) -> void:
+	combo_grace = maxf(0, combo_grace - delta)
 	input_movement(delta)
 
 	if player_data.attack_learned and Input.is_action_just_pressed("ui_sword"):
@@ -157,7 +165,7 @@ func input_movement(delta: float, can_move := true) -> void:
 		jump_count = 0
 		wall_jump_count = 0
 		is_wall_sliding = false
-		can_dash = true
+		air_dash_available = true
 	else:
 		apply_gravity(delta)
 
@@ -199,7 +207,8 @@ func start_dash() -> void:
 	if is_dead or is_attacking or current_state == PlayerStates.HIT or not can_dash:
 		return
 
-	can_dash = false
+	air_dash_available = false
+	dash_cooldown_left = dash_cooldown
 	is_invincible = true
 	current_state = PlayerStates.DASH
 	is_wall_sliding = false
@@ -225,10 +234,6 @@ func start_dash() -> void:
 	set_collision_mask_value(ENEMY_BODY_LAYER, true)
 
 	update_animation()
-	await get_tree().create_timer(dash_cooldown).timeout
-
-	if is_on_floor():
-		can_dash = true
 
 
 func take_damage(amount: int = 10, source: Node = null, projectile := false) -> void:
@@ -247,6 +252,7 @@ func take_damage(amount: int = 10, source: Node = null, projectile := false) -> 
 		start_dead()
 		return
 	current_state = PlayerStates.HIT
+	combo_grace = 0.0
 	is_attacking = false
 	combo_step = 0
 	combo_queued = false
@@ -298,7 +304,8 @@ func start_sword_attack() -> void:
 
 	is_attacking = true
 	current_state = PlayerStates.SWORD
-	combo_step = 1
+	combo_step = next_combo_step if combo_grace > 0.0 else 1
+	combo_grace = 0.0
 	combo_queued = false
 	play_attack(combo_step)
 
@@ -307,12 +314,15 @@ func play_attack(step: int) -> void:
 	shockwave_fired = false
 	sword_hit_targets.clear()
 	sword_collider.set_deferred("disabled", true)
-	sprite.play("Attack%d" % step, 1.5)
+	sword_collider.position = Vector2(39, 42) if step == MAX_COMBO else Vector2(57.25, 0)
+	sprite.play("Attack%d" % step)
 	play_action_sound(GAME_AUDIO.SLASH.pick_random())
 	_update_sword_window()
 
 
 func end_combo() -> void:
+	next_combo_step = combo_step + 1 if combo_step < MAX_COMBO else 1
+	combo_grace = 0.18 if next_combo_step > 1 else 0.0
 	combo_step = 0
 	combo_queued = false
 	sword_collider.set_deferred("disabled", true)
@@ -343,7 +353,7 @@ func _on_animation_finished() -> void:
 			if current_state != PlayerStates.SWORD or is_dead:
 				return
 
-			if combo_queued and combo_step < MAX_COMBO:
+			if combo_step < MAX_COMBO and (combo_queued or Input.is_action_pressed("ui_sword")):
 				combo_step += 1
 				combo_queued = false
 				play_attack(combo_step)
@@ -401,8 +411,9 @@ func update_animation() -> void:
 			sprite.play("Jump")
 		else:
 			sprite.play("Drop")
-	elif input != 0:
-		sprite.play("Walk")
+	elif input != 0 and absf(get_real_velocity().x) > 1.0:
+		# One eleven-frame run cycle covers roughly 90 world pixels.
+		sprite.play("Walk", absf(get_real_velocity().x) / 90.0)
 	else:
 		sprite.play("Idle")
 

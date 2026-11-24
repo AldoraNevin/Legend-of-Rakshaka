@@ -71,6 +71,7 @@ static func validate_template(scene: PackedScene, door_count: int) -> PackedStri
 	if doors != null and doors.get_child_count() < door_count:
 		errors.append("Jumlah marker pintu kurang.")
 	# Contract for these flat-floor templates: all gameplay markers share a safe corridor.
+	var arena_width := float(room.get_meta("arena_width", 832))
 	for marker in room.find_children("*", "Marker2D", true, false):
 		if room.get_meta("modular_level", false) and marker.get_parent().name == "Sockets":
 			continue
@@ -107,7 +108,16 @@ static func validate_template(scene: PackedScene, door_count: int) -> PackedStri
 						supported = true
 			if not supported:
 				errors.append("Marker tidak memiliki lantai dekat: " + str(marker.name))
-		elif marker.position.x < 40 or marker.position.x > 792 or marker.position.y != 350:
+		elif marker.get_script() == preload("res://Script/Stage/boss_portal_marker.gd"):
+			# The portal uses its feet for placement; allow small floor-height adjustments.
+			var feet: Vector2 = relative_position(marker, room) + marker.transform.basis_xform(marker.floor_offset)
+			if feet.x < 40 or feet.x > arena_width - 40 or absf(feet.y - 384.0) > 20:
+				errors.append("Portal di luar lantai arena: " + str(marker.name))
+		elif room.has_meta("arena_width") and marker.get_parent() == doors:
+			var door_point := relative_position(marker, room)
+			if door_point.x < 40 or door_point.x > arena_width - 40 or absf(door_point.y - 350) > 20:
+				errors.append("Pintu di luar koridor arena: " + str(marker.name))
+		elif marker.position.x < 40 or marker.position.x > arena_width - 40 or marker.position.y != 350:
 			errors.append("Marker di luar koridor aman: " + str(marker.name))
 	room.free()
 	return errors

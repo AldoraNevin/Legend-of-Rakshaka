@@ -23,7 +23,7 @@ func _ready() -> void:
 	add_child(portal_sprite)
 	unlocked = unlocked
 	var label := Label.new()
-	label.text = "Portal"
+	label.text = title
 	label.position = Vector2(-65, -96)
 	label.size.x = 130
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

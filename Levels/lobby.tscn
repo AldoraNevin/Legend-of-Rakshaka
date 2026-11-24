@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d613o3c166fb"]
 
+[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Portal.png" id="portal_art"]
 [ext_resource type="PackedScene" uid="uid://bli0sigk1xqeq" path="res://Scenes/Player/player.tscn" id="1_player"]
 [ext_resource type="Script" uid="uid://wwj4ntoc2k04" path="res://Script/Lobby/lobby.gd" id="2_lobby"]
 [ext_resource type="Script" uid="uid://d3r73cq02in48" path="res://Script/Lobby/lobby_interactable.gd" id="3_interact"]
@@ -13,7 +14,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Environment/lobby_parallax.tscn" id="parallax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
-size = Vector2(970, 34)
+size = Vector2(2400, 34)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_left"]
 normal = Vector2(1, 0)
@@ -47,6 +48,8 @@ corner_radius_bottom_left = 6
 script = ExtResource("2_lobby")
 
 [node name="LobbyParallax" parent="." unique_id=837126063 instance=ExtResource("parallax")]
+courtyard_width = 2400.0
+wide_lobby = true
 
 [node name="LobbyMusic" type="AudioStreamPlayer" parent="." unique_id=316971216]
 process_mode = 3
@@ -63,11 +66,16 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="FloorShape" type="CollisionShape2D" parent="Floor" unique_id=2125321164]
-position = Vector2(-35, 148)
+position = Vector2(680, 148)
 shape = SubResource("RectangleShape2D_floor")
 
 [node name="LeftBoundary" type="CollisionShape2D" parent="Floor" unique_id=317066460]
 position = Vector2(-520, 0)
+shape = SubResource("WorldBoundaryShape2D_left")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1880, 0)
+rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_left")
 
 [node name="FloorVisual" type="Polygon2D" parent="Floor" unique_id=202309222]
@@ -81,11 +89,11 @@ polygon = PackedVector2Array(-520.28687, -18, 450, -16, 450, 16, -37.303955, 15.
 position = Vector2(-344, 110.00001)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=145877302 node_paths=PackedStringArray("target")]
-zoom = Vector2(1.2, 1.2)
+zoom = Vector2(3, 3)
 process_callback = 0
 limit_left = -520
 limit_top = -317
-limit_right = 450
+limit_right = 1880
 limit_bottom = 228
 position_smoothing_speed = 6.0
 script = ExtResource("4_camera")
@@ -95,7 +103,7 @@ target = NodePath("../Player")
 z_index = -1
 
 [node name="UpgradeStation" type="Area2D" parent="Stations" unique_id=301772729]
-position = Vector2(-170, 83)
+position = Vector2(20, 83)
 collision_layer = 8
 script = ExtResource("3_interact")
 interaction_type = "upgrade"
@@ -123,7 +131,7 @@ region_enabled = true
 region_rect = Rect2(575, 122, 352, 266)
 
 [node name="BestiaryDesk" type="Area2D" parent="Stations" unique_id=1505237641]
-position = Vector2(165, 82)
+position = Vector2(790, 82)
 collision_layer = 8
 script = ExtResource("3_interact")
 interaction_type = "bestiary"
@@ -151,7 +159,7 @@ region_enabled = true
 region_rect = Rect2(119, 146, 354, 242)
 
 [node name="LevelGate" type="Area2D" parent="Stations" unique_id=1665780988]
-position = Vector2(497, 75)
+position = Vector2(1860, 75)
 collision_layer = 8
 script = ExtResource("3_interact")
 interaction_type = "travel"
@@ -168,11 +176,9 @@ position = Vector2(-162, 7)
 shape = SubResource("RectangleShape2D_gate")
 
 [node name="Sprite2D" type="Sprite2D" parent="Stations/LevelGate" unique_id=1106750964]
-position = Vector2(-163, -35)
-scale = Vector2(0.5067447, 0.5067447)
-texture = ExtResource("7_5j0vb")
-region_enabled = true
-region_rect = Rect2(994, 16, 463, 371)
+position = Vector2(-163, 16)
+scale = Vector2(0.199005, 0.199005)
+texture = ExtResource("portal_art")
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1022694984]
 script = ExtResource("5_gui")

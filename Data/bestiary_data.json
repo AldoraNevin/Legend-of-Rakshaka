@@ -143,8 +143,8 @@
       "name": "Nyi Roro Kidul",
       "region": "Pantai Selatan Jawa",
       "category": "AoE Magic",
-      "hp": 25,
-      "attack": 3,
+      "hp": 4800,
+      "attack": 48,
       "lore_text": "Ratu mistis penguasa Laut Selatan Jawa. Pertarungan didominasi elemen air. Mekanik utamanya adalah menyapu seluruh arena dasar dengan gelombang ombak besar, memaksa pemain untuk mahir menggunakan mekanik Jump dan Wall-cling untuk bertahan hidup.",
       "image_path": "",
       "is_unlocked": false

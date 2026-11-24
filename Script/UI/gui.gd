@@ -24,6 +24,9 @@ func _process(_delta: float) -> void:
 	refresh()
 
 func refresh() -> void:
+	var extra_width := 44 * (player_data.healing_capacity() - 1)
+	$coin_sprite.position.x = 112 + extra_width
+	$coin_number.position.x = 136 + extra_width
 	$coin_number.text = str(player_data.coin)
 	var hp := clampi(player_data.life, 0, player_data.max_life)
 	health_hud.get_node("HealthBar").max_value = player_data.max_life

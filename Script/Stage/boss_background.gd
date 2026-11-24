@@ -23,9 +23,11 @@ func _process(_delta: float) -> void:
 	for index in range(layers.size()):
 		var layer := layers[index] as Sprite2D
 		layer.scale = covered_size / ART_SIZE
-		var offset := (view_center - ART_SIZE * 0.5) * (1.0 - motions[index])
-		# Keep every layer covering the view at arena edges, without repeating
-		# the palace or exposing transparent seams on wide windows.
-		var margin := (covered_size - view_size) * 0.5
-		var center := (ART_SIZE * 0.5 + offset).clamp(view_center - margin, view_center + margin)
-		layer.position = center - covered_size * 0.5
+		# Mirror the artwork horizontally so near layers can scroll for the full arena.
+		layer.texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
+		layer.region_enabled = true
+		var drift := (view_center.x - ART_SIZE.x * 0.5) * motions[index]
+		layer.region_rect = Rect2(Vector2(drift / layer.scale.x, 0), ART_SIZE)
+		var margin_y := (covered_size.y - view_size.y) * 0.5
+		var center_y := clampf(ART_SIZE.y * 0.5 + (view_center.y - ART_SIZE.y * 0.5) * (1.0 - motions[index]), view_center.y - margin_y, view_center.y + margin_y)
+		layer.position = Vector2(view_center.x, center_y) - covered_size * 0.5

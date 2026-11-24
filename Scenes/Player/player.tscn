@@ -256,7 +256,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Attack1",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -273,7 +273,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Attack2",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -290,7 +290,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Attack3",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -445,7 +445,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Walk",
-"speed": 12.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -469,7 +469,6 @@ collision_mask = 18
 script = ExtResource("1_a3d8c")
 max_jump = 2
 max_wall_jump = 1
-dash_cooldown = 1000.0
 sword_damage = 20
 combo_finisher_bonus = 100
 

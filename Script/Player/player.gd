@@ -9,7 +9,7 @@ const LOCK_MOVE_FROM_STEP := 1
 
 var regeneration_time := 0.0
 var negative_effects: Dictionary = {}
-var shockwave_left := 0.0
+const PECUT_STRIKE := preload("res://Script/Player/pecut_strike.gd")
 var shockwave_fired := false
 var sword_base_scale := Vector2.ONE
 
@@ -424,11 +424,15 @@ func check_sword_hits() -> void:
 
 	if player_data.has_artifact("pecut_samandiman") and not shockwave_fired:
 		shockwave_fired = true
-		shockwave_left = 0.18
-		queue_redraw()
+		var whip := PECUT_STRIKE.new()
+		whip.top_level = true
+		add_child(whip)
+		whip.global_position = global_position + Vector2(0, -3)
+		whip.scale.x = facing
+		whip.z_index = 5
 		for enemy in get_tree().get_nodes_in_group("artifact_enemies"):
 			var offset: Vector2 = enemy.global_position - global_position
-			if offset.x * facing >= 0 and offset.x * facing <= 120 and absf(offset.y) <= 45:
+			if offset.x * facing >= 0 and offset.x * facing <= PECUT_STRIKE.REACH and absf(offset.y) <= 45:
 				_hit_artifact_target(enemy, damage)
 	for area: Area2D in sword_area.get_overlapping_areas():
 		var target: Node = area.get_parent()
@@ -500,9 +504,6 @@ func apply_negative_effect(kind: String, duration: float) -> void:
 func _tick_artifacts(delta: float) -> void:
 	if is_dead or player_data.life <= 0:
 		return
-	if shockwave_left > 0.0:
-		shockwave_left = maxf(0.0, shockwave_left - delta)
-		queue_redraw()
 	for kind in negative_effects.keys():
 		var effect: Dictionary = negative_effects[kind]
 		effect.remaining -= delta
@@ -517,12 +518,6 @@ func _tick_artifacts(delta: float) -> void:
 		if regeneration_time >= 2.0:
 			regeneration_time -= 2.0
 			player_data.life = mini(player_data.max_life, player_data.life + 1)
-
-func _draw() -> void:
-	if shockwave_left > 0.0:
-		var reach := 120.0 / maxf(absf(global_scale.x), 0.01)
-		draw_line(Vector2(0, -8), Vector2(facing * reach, -8), Color(0.6, 0.9, 1.0, shockwave_left / 0.18), 4.0)
-
 
 func play_action_sound(stream: AudioStream) -> void:
 	action_sound.stream = stream

@@ -9,7 +9,7 @@ filter_clip = true
 
 [sub_resource type="AtlasTexture" id="HealthFill"]
 atlas = ExtResource("hud")
-region = Rect2(14, 269, 346, 34)
+region = Rect2(14, 275, 346, 25)
 filter_clip = true
 
 [sub_resource type="AtlasTexture" id="Heart"]
@@ -17,20 +17,50 @@ atlas = ExtResource("hud")
 region = Rect2(18, 344, 78, 65)
 filter_clip = true
 
+[sub_resource type="Shader" id="AmberShader"]
+code = "shader_type canvas_item;
+void fragment() {
+	vec4 ink = texture(TEXTURE, UV);
+	COLOR = vec4(1.0, 0.37 + 0.28 * ink.r, 0.075, ink.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="Amber"]
+shader = SubResource("AmberShader")
+
 [node name="HealthHUD" type="Control"]
 mouse_filter = 2
 texture_filter = 1
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="Frame" type="TextureRect" parent="."]
 offset_left = 62.0
 offset_top = 24.0
 offset_right = 362.0
 offset_bottom = 54.0
 mouse_filter = 2
-max_value = 100.0
+expand_mode = 1
+texture = SubResource("EmptyBar")
+
+[node name="DamageTrail" type="TextureProgressBar" parent="."]
+offset_left = 70.0
+offset_top = 31.0
+offset_right = 358.0
+offset_bottom = 44.0
+mouse_filter = 2
+step = 0.0
 value = 100.0
 nine_patch_stretch = true
-texture_under = SubResource("EmptyBar")
+texture_progress = SubResource("HealthFill")
+material = SubResource("Amber")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 70.0
+offset_top = 31.0
+offset_right = 358.0
+offset_bottom = 44.0
+mouse_filter = 2
+step = 0.0
+value = 100.0
+nine_patch_stretch = true
 texture_progress = SubResource("HealthFill")
 
 [node name="Heart" type="TextureRect" parent="."]
@@ -42,18 +72,3 @@ mouse_filter = 2
 texture = SubResource("Heart")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="HealthText" type="Label" parent="."]
-offset_left = 86.0
-offset_top = 23.0
-offset_right = 340.0
-offset_bottom = 54.0
-mouse_filter = 2
-theme_override_colors/font_color = Color(1, 0.96, 0.86, 1)
-theme_override_colors/font_shadow_color = Color(0.1, 0.02, 0.02, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_font_sizes/font_size = 18
-text = "HP 100 / 100"
-horizontal_alignment = 1
-vertical_alignment = 1

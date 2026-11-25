@@ -21,17 +21,22 @@ func run_test() -> void:
 	var gui = current_scene.get_node("GUI")
 	var aul = load("res://Scenes/Enemies/Aul.tscn").instantiate()
 	var kuntilanak = load("res://Script/Enemies/kuntilanak.tscn").instantiate()
-	check(aul.damage == 12 and kuntilanak.contact_damage == 20, "Enemy scenes have distinct damage")
+	check(aul.damage == 16 and kuntilanak.contact_damage == 20, "Enemy scenes have distinct damage")
 	player.take_damage(aul.damage)
-	check(player_data.life == 88, "Aul removes 12 HP")
+	check(player_data.life == 84, "Aul removes 16 HP")
 	player.take_damage(kuntilanak.contact_damage)
-	check(player_data.life == 88, "Invulnerability prevents repeated damage")
+	check(player_data.life == 84, "Invulnerability prevents repeated damage")
 	player.is_invincible = false
 	player.take_damage(kuntilanak.contact_damage)
-	check(player_data.life == 68, "Kuntilanak removes 20 HP")
+	check(player_data.life == 64, "Kuntilanak removes 20 HP")
 	gui.refresh()
-	check(gui.health_hud.get_node("HealthBar").value == 68, "HUD fill tracks numeric HP")
-	check(gui.health_hud.get_node("HealthText").text == "HP 68 / 100", "HUD displays exact HP")
+	check(gui.health_hud.get_node("HealthBar").value == 64, "HUD fill tracks numeric HP")
+	check(gui.health_hud.get_node("DamageTrail").value == 100 and not gui.health_hud.has_node("HealthText"), "Damage trail retains previous HP without a numeric label")
+	gui.trail_tween.custom_step(0.31)
+	gui.trail_tween.custom_step(0.32)
+	check(gui.health_hud.get_node("DamageTrail").value > 64 and gui.health_hud.get_node("DamageTrail").value < 100, "Orange fill drains gradually")
+	gui.trail_tween.custom_step(0.7)
+	check(gui.health_hud.get_node("DamageTrail").value == 64, "Orange fill stops at current HP")
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--capture="):
 			await RenderingServer.frame_post_draw
@@ -39,23 +44,23 @@ func run_test() -> void:
 	var spike = load("res://Script/Interactables/damage_zone.gd").new()
 	player.is_invincible = false
 	spike._on_body_entered(player)
-	check(player_data.life == 53, "Spike uses damage and hit protection")
+	check(player_data.life == 49, "Spike uses damage and hit protection")
 	spike._on_body_entered(player)
-	check(player_data.life == 53, "Spike cannot bypass invulnerability")
+	check(player_data.life == 49, "Spike cannot bypass invulnerability")
 	player_data.coin = 100
 	check(player_data.buy_upgrade("max_life"), "Vitality upgrade remains available")
-	check(player_data.max_life == 100 and player_data.life == 100, "Vitality heals without exceeding 100 HP")
-	check(player_data.incoming_damage(20) == 19, "Vitality reduces incoming damage by 5 percent")
+	check(player_data.max_life == 105 and player_data.life == 54, "Vitality adds five current and maximum HP")
+	check(player_data.incoming_damage(20) == 20, "Vitality retains base incoming damage")
 	var saved := ADAPTER.capture_player()
 	check(saved.health_version == 2 and ADAPTER.player_error(saved).is_empty(), "Point-based health saves are valid")
-	saved.life = 68
+	saved.life = 64
 	ADAPTER.restore_player({"player": saved})
-	check(player_data.life == 68, "Modern saves restore exact HP")
+	check(player_data.life == 64, "Modern saves restore exact HP")
 	saved.erase("health_version")
 	saved.life = 3
 	saved.max_life = 4
 	ADAPTER.restore_player({"player": saved})
-	check(player_data.life == 75 and player_data.max_life == 100, "Old heart saves preserve HP percentage")
+	check(player_data.life == 75 and player_data.max_life == 105, "Old heart saves preserve HP percentage")
 	player.is_invincible = false
 	player.take_damage(1000)
 	check(player_data.life == 0 and player.is_dead, "Lethal damage clamps HP to zero and triggers death")

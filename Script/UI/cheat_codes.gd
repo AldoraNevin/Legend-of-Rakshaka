@@ -23,6 +23,16 @@ func execute(raw: String) -> String:
 		else:
 			god_mode = enabled
 		return "%s %s." % [code, "aktif" if enabled else "nonaktif"]
+	if words.size() == 1 and code == "INSTANTDEATH":
+		var room := get_tree().current_scene
+		if room == null or not ADAPTER.supports(room) or CheckpointManager.loading:
+			return "Masuk stage terlebih dahulu."
+		var hits := 0
+		for enemy in room.active_enemies.duplicate():
+			if is_instance_valid(enemy) and not enemy.is_queued_for_deletion() and enemy.health > 0:
+				enemy.take_damage(enemy.health)
+				hits += 1
+		return "%d musuh dikalahkan." % hits
 	if code == "ALLARTIFACTS":
 		if words.size() != 1:
 			return "Gunakan ALLARTIFACTS tanpa tambahan."

@@ -162,6 +162,12 @@ func _play_defeat() -> void:
 		music.bus = "Music"
 		music.volume_db = -12
 		get_parent().add_child(music)
+	music.set_process(false)
+	if music.playing:
+		var transition := create_tween()
+		transition.tween_property(music, "volume_db", -52.0, 0.35)
+		await transition.finished
+	music.volume_db = -12
 	music.stream = preload("res://Assets/Legend of Rakshaka/BGM/Outro Boss.ogg")
 	music.play()
 	var frames := sprite.sprite_frames

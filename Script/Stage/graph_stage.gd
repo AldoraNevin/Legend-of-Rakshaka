@@ -99,15 +99,12 @@ func build_template_room(template: PackedScene) -> void:
 	if stage_graph[node_id].kind != "start":
 		var music := AudioStreamPlayer.new()
 		music.name = "RoomMusic"
-		current_room.add_child(music)
 		if stage_graph[node_id].kind == "boss":
-			var battle := preload("res://Assets/Legend of Rakshaka/BGM/Boss Battle Extended Better.ogg").duplicate() as AudioStreamOggVorbis
-			battle.loop = true
-			music.bus = "Music"
-			music.volume_db = -12
-			music.stream = battle
-			music.play()
+			music.set_script(preload("res://Script/Audio/boss_music.gd"))
+			current_room.add_child(music)
+			music.call("start_battle")
 		else:
+			current_room.add_child(music)
 			preload("res://Script/Audio/game_audio.gd").configure_music(music, false)
 	var title := current_room.get_node_or_null("Title") as Label
 	if title != null and stage_graph[node_id].kind != "start":

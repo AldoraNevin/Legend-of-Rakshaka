@@ -21,10 +21,15 @@ func get_main_menu_scene_path() -> String:
 	return main_menu_scene_path
 
 func _end_reached() -> void:
-	if scroll_paused and returning_to_lobby:
+	if returning_to_lobby:
 		return
 	returning_to_lobby = true
 	super._end_reached()
+	scroll_container.hide()
+	create_tween().tween_property($EndingFilm, "modulate:a", 1.0, 1.2).set_trans(Tween.TRANS_SINE)
+	$EndingFilm.paused = false
+
+func _return_to_lobby() -> void:
 	get_tree().change_scene_to_file.call_deferred("res://Levels/lobby.tscn")
 
 # ScrollContainer clamps at its maximum; reaching that value completes the roll.
@@ -46,6 +51,10 @@ func _on_visibility_changed() -> void:
 		mouse_filter = init_mouse_filter
 	super._on_visibility_changed()
 
+func set_header_and_footer() -> void:
+	super.set_header_and_footer()
+	header_space.custom_minimum_size.y = size.y * 0.14
+
 func _ready() -> void:
 	if get_main_menu_scene_path().is_empty():
 		menu_button.hide()
@@ -53,13 +62,24 @@ func _ready() -> void:
 		exit_button.hide()
 	end_message_panel.hide()
 	super._ready()
+	scroll_container.z_index = 2
+	$EndingFilm.z_index = 1
+	if not Engine.is_editor_hint():
+		$EndingFilm.finished.connect(_return_to_lobby)
+		$EndingFilm.play()
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	# Reserve the closing sequence if the player pauses or rewinds the text.
+	if not Engine.is_editor_hint() and not returning_to_lobby and $EndingFilm.stream_position >= 340.0:
+		$EndingFilm.paused = true
 
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_released("ui_cancel"):
-		if not end_message_panel.visible:
+		if not returning_to_lobby:
 			_end_reached()
 		else:
-			exit_game()
+			_return_to_lobby()
 
 func _on_exit_button_pressed():
 	exit_game()

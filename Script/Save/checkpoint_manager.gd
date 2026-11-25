@@ -61,9 +61,26 @@ func _room_entered(stage: Node, room: Node) -> void:
 		return
 	if stage.current_room != room or room.get_instance_id() == last_room_instance:
 		return
+	track_encounters(stage)
 	var data := ADAPTER.capture(stage)
 	if not data.is_empty() and save_checkpoint(data):
 		last_room_instance = room.get_instance_id()
+
+# The same room seed registers encounters in the same order on every load.
+func track_encounters(stage: Node) -> void:
+	var roster: Array = []
+	for enemy in stage.active_enemies:
+		roster.append(weakref(enemy))
+	stage.current_room.set_meta("encounter_roster", roster)
+
+func defeated_encounters(stage: Node) -> Array:
+	var defeated: Array = []
+	var roster: Array = stage.current_room.get_meta("encounter_roster", [])
+	for index in roster.size():
+		var enemy: Node = roster[index].get_ref()
+		if not is_instance_valid(enemy) or enemy.is_queued_for_deletion() or ("health" in enemy and enemy.health <= 0):
+			defeated.append(index)
+	return defeated
 
 func _read_file(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):
@@ -176,6 +193,7 @@ func save_progress() -> bool:
 		# Never attach another room's map to the previous checkpoint.
 		if data.get("scene") == stage.scene_file_path and int(data.get("seed", -1)) == stage.stage_seed and int(data.get("room_id", -1)) == stage.node_id:
 			data.exploration = ADAPTER.capture_exploration(stage)
+			data.defeated = defeated_encounters(stage)
 	data.player = ADAPTER.capture_player()
 	data.saved_at = Time.get_datetime_string_from_system()
 	return save_checkpoint(data)
@@ -271,6 +289,12 @@ func _resume(data: Dictionary, slot: int) -> void:
 		_fail("Ruangan gagal dibangun. Save tetap tersimpan; mulai perjalanan baru jika level berubah.")
 		return
 	if is_stage:
+		track_encounters(stage)
+		if not skipped_tutorial:
+			for entry in data.get("defeated", []):
+				var index := int(entry)
+				if index >= 0 and index < stage.active_enemies.size():
+					stage.active_enemies[index].queue_free()
 		stage.rng.state = int(data.rng_state)
 		stage.current_room_index = int(data.room_index)
 		player_data.apply_player_stats(stage.player)

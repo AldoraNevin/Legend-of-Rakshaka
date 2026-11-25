@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_menus_template/examples/scenes/credits/scrolling_credits.tscn" id="1_885d8"]
 [ext_resource type="Script" uid="uid://cn3sc0vsd5b1r" path="res://addons/maaacks_menus_template/examples/scenes/end_credits/end_credits.gd" id="2_6pwj4"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="3_aoilo"]
-[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/nodes/music_players/background_music_player.tscn" id="3_v7acr"]
+
+[ext_resource type="VideoStream" path="res://Assets/Legend of Rakshaka/BGM/credits.ogv" id="4_video"]
 
 [node name="EndCredits" unique_id=613298766 instance=ExtResource("1_885d8")]
 script = ExtResource("2_6pwj4")
 main_menu_scene_path = ""
 force_mouse_mode_visible = false
 
-[node name="BackgroundMusicPlayer" parent="." index="0" unique_id=1411252862 instance=ExtResource("3_v7acr")]
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="1" unique_id=813188635]
 layout_mode = 1
@@ -83,6 +83,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Menu"
+
+[node name="EndingFilm" type="VideoStreamPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+mouse_filter = 2
+modulate = Color(1, 1, 1, 0)
+stream = ExtResource("4_video")
+bus = &"Music"
 
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CenterContainer/EndMessagePanel/VBoxContainer/CenterContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -28,6 +28,9 @@ static func supports(node: Node) -> bool:
 static func layout_hash(path: String, lf_source: bool) -> String:
 	var digest := FileAccess.get_sha256(path)
 	match digest:
+		"faf998028f420501f99cd68ed9c05d31e81b16d5ac223546434cb4bc61306d00": digest = "d1d6276740a54f6c01e012e843a133aee56edbf3d01469b25b0c7924159df4fb"
+		"8cef80ffb3ea78bcdac6e90fb1adec1fe512bbaa9287a6e7acb119683d34f9f6": digest = "58ce60d2e4b8cc490893abc2f5fd5927ae5ae27e7970e91680e7df6c4dda12b9"
+	match digest:
 		"0c27550dd9bc708bfe6b529660a2064c7f90ed4b6a9e9a36d712a09c07ae91da": return "0831f981116bb42ad14e2bbba13361401ba40deec9f59ed45e02c956e10bfc39" if lf_source else "980f1bb15bf34fdb0ab8f89b0fd4e2b7f5290dd6e26571da826bcee88ff189e4"
 		"19b044280f61d86808ee097ae2ff619895f9d04877355bc7798060d066141c08": return "ac28eed61f085954bca7572dcce555a702e80630243417af3b718d70a2855678" if lf_source else "728a879398158742b1bb8dc1e2f34a8c6c67bb387bae5e6de543d07b4f806f79"
 	return digest

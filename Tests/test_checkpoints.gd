@@ -96,7 +96,7 @@ func run_test() -> void:
 	check(restored_network.portals[0].portal_id == portal_id and restored_network.portals[0].unlocked, "Load restores discovered portal")
 	check(not restored_network.portals[1].unlocked, "Load does not reveal undiscovered portals")
 	check(player_data.discovered_artifacts.size() == artifact_count, "Artifact cheat survives slot reload")
-	check(current_scene.player.sword_damage == 2, "Restored upgrade applies to player")
+	check(current_scene.player.sword_damage == 1 and player_data.melee_damage(1) > 1, "Restored upgrade applies to player")
 	check(current_scene.player.global_position.distance_to(current_scene.current_room.get_node("PlayerSpawn").global_position) < 10.0, "Load starts at room entrance")
 	player_data.add_gold(1)
 	check(manager.list_checkpoints()[1].player.coin == 3, "Autosave only updates the active slot")
@@ -104,6 +104,8 @@ func run_test() -> void:
 	var pause_menu = current_scene.get_node("PauseMenu")
 	paused = false
 	pause_menu.open_pause()
+	check(current_scene.active_enemies.size() > 0, "Room starts with enemies")
+	root.get_node("CheatCodes").execute("INSTANTDEATH")
 	pause_menu.leave()
 	await scene_changed
 	check(manager.list_checkpoints()[0].room_id == 1, "Leaving mid-stage retains the last room")
@@ -114,6 +116,8 @@ func run_test() -> void:
 	check(manager.load_checkpoint(0), "Progress survives a new session")
 	await wait_for_load()
 	check(current_scene.current_room.get_node("CoastalMap").view.is_explored(Vector2(1000, 0)), "Exploration survives leaving and a new session")
+	await process_frame
+	check(current_scene.active_enemies.is_empty(), "Defeated enemies stay gone after Leave and Continue")
 	check(player_data.coin == 24 and current_scene.node_id == 1, "New session restores latest progress and stage")
 	await process_frame
 	await process_frame

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cp6hmtcyoxu8d"]
 
-[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/nyi roro kidul_death.png" id="1_mcmxw"]
-[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/nyi roro kidul_idle.png" id="2_arhb7"]
-[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Nyi Roro Kidul Rain Spears atk.png" id="3_1o247"]
-[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Turquoise Rain Spear Impact Sprite Sheet-5-sheet.png" id="3_arhb7"]
-[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Nyi Roro Kidul Tidal Wall atk.png" id="4_w3cuq"]
-[ext_resource type="Texture2D" path="res://Assets/Boss/nyi roro kidul/Nyi Roro Kidul Watercasting vortex.png" id="5_o771j"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/boss/nyi roro kidul/nyi roro kidul_death.png" id="1_mcmxw"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/boss/nyi roro kidul/nyi roro kidul_idle.png" id="2_arhb7"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/boss/nyi roro kidul/Nyi Roro Kidul Rain Spears atk.png" id="3_1o247"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/boss/nyi roro kidul/Turquoise Rain Spear Impact Sprite Sheet-5-sheet.png" id="3_arhb7"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/boss/nyi roro kidul/Nyi Roro Kidul Tidal Wall atk.png" id="4_w3cuq"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/boss/nyi roro kidul/Nyi Roro Kidul Watercasting vortex.png" id="5_o771j"]
 
 [ext_resource type="Script" path="res://Script/Enemies/nyi_roro_kidul.gd" id="boss_script"]
 

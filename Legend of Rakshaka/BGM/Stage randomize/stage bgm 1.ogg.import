@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ca0le7thffqk2"
+path="res://.godot/imported/stage bgm 1.ogg-21efd46cc1fb2dacb99520dbb3b3ee86.oggvorbisstr"
+
+[deps]
+
+source_file="res://Legend of Rakshaka/BGM/Stage randomize/stage bgm 1.ogg"
+dest_files=["res://.godot/imported/stage bgm 1.ogg-21efd46cc1fb2dacb99520dbb3b3ee86.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

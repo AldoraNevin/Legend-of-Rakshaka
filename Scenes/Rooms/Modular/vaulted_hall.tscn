@@ -1,9 +1,9 @@
 [gd_scene format=4]
 
 [ext_resource type="Script" path="res://Script/Stage/Modular/room_template.gd" id="1_v5af2"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/coastal_tileset.tres" id="2_24163"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_v5af2"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_24163"]
+[ext_resource type="TileSet" path="res://Legend of Rakshaka/Environment/Tileset/coastal_tileset.tres" id="2_24163"]
+[ext_resource type="TileSet" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres" id="3_v5af2"]
+[ext_resource type="TileSet" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres" id="4_24163"]
 [ext_resource type="Script" path="res://Script/Stage/Modular/room_socket.gd" id="5_d8agy"]
 
 [node name="VaultedHall" type="Node2D" unique_id=1421287245]

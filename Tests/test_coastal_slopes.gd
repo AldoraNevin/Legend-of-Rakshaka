@@ -4,7 +4,7 @@ func _initialize() -> void:
 
 func run_test() -> void:
 	var layer := TileMapLayer.new()
-	layer.tile_set = load("res://Assets/Tileset/pantai_modular_solid.tres")
+	layer.tile_set = load("res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres")
 	layer.scale = Vector2(0.25, 0.25)
 	layer.set_cell(Vector2i.ZERO, 0, Vector2i(0, 4))
 	layer.set_cell(Vector2i(3, 0), 0, Vector2i(3, 4))

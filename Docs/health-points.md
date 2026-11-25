@@ -10,7 +10,7 @@ Vitalitas tetap memiliki tiga level. Setiap level mengurangi damage masuk 5%
 (maksimal 15%), dibulatkan ke integer dengan minimum 1 untuk serangan positif.
 Pembelian Vitalitas memulihkan HP tanpa menaikkan batas 100.
 
-HUD memakai atlas dari Assets/Legend of Rakshaka/UI HUD/HP and mana HUD.png,
+HUD memakai atlas dari Legend of Rakshaka/UI HUD/HP and mana HUD.png,
 dengan frame, fill merah, dan ikon hati pada Scenes/UI/health_hud.tscn.
 Bagian mana disimpan dalam aset sumber, tetapi belum ditampilkan karena gameplay
 belum mempunyai resource mana. HUD diinstansiasi oleh Script/UI/gui.gd untuk

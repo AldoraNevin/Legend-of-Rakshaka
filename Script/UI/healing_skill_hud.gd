@@ -1,6 +1,6 @@
 extends Control
-const IDLE := preload("res://Assets/Legend of Rakshaka/Skill_UI/Skill idle animation.png")
-const CHARGE := preload("res://Assets/Legend of Rakshaka/Skill_UI/skill charge.png")
+const IDLE := preload("res://Legend of Rakshaka/UI HUD/Skill/Skill idle animation.png")
+const CHARGE := preload("res://Legend of Rakshaka/UI HUD/Skill/skill charge.png")
 var elapsed := 0.0
 
 func _ready() -> void:
@@ -28,7 +28,7 @@ func _draw() -> void:
 		elif not lit and slot > charges:
 			tint = Color.WHITE.darkened(0.55)
 		draw_texture_rect_region(texture, Rect2(6 + 44 * slot, 0, 44, 52), Rect2(frame * 133, 0, 133, 157), tint)
-	draw_string(preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf"), Vector2(0, 14), _binding_label(), HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#f5dd96"))
+	draw_string(preload("res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf"), Vector2(0, 14), _binding_label(), HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#f5dd96"))
 
 func _gui_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed) or (event is InputEventScreenTouch and event.pressed):

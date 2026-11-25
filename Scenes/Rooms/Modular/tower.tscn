@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://b1bujxd5ixlps"]
 
 [ext_resource type="Script" uid="uid://b6ay5qsxgk4dj" path="res://Script/Stage/Modular/room_template.gd" id="1_j24qj"]
-[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Assets/Tileset/coastal_tileset.tres" id="2_ddbmu"]
-[ext_resource type="TileSet" uid="uid://bi8al2lc0pl26" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_j24qj"]
-[ext_resource type="TileSet" uid="uid://cbe258twrase6" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_ddbmu"]
+[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Legend of Rakshaka/Environment/Tileset/coastal_tileset.tres" id="2_ddbmu"]
+[ext_resource type="TileSet" uid="uid://bi8al2lc0pl26" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres" id="3_j24qj"]
+[ext_resource type="TileSet" uid="uid://cbe258twrase6" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres" id="4_ddbmu"]
 [ext_resource type="Script" uid="uid://dbkgi7bvmaat7" path="res://Script/Stage/Modular/room_socket.gd" id="5_s5hcw"]
 [ext_resource type="PackedScene" uid="uid://vka2pok103ay" path="res://Scenes/Environment/badge.tscn" id="6_ddbmu"]
 

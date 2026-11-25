@@ -11,7 +11,7 @@ func _ready() -> void:
 	health_hud = HEALTH_HUD.instantiate()
 	add_child(health_hud)
 	add_child(preload("res://Script/UI/healing_skill_hud.gd").new())
-	var sukma := preload("res://Assets/Legend of Rakshaka/UI HUD/Sukma.png")
+	var sukma := preload("res://Legend of Rakshaka/UI HUD/Sukma.png")
 	$coin_sprite.texture = sukma
 	$coin_sprite.hframes = 1
 	$coin_sprite.vframes = 1

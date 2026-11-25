@@ -1,7 +1,7 @@
 extends Node2D
 ## Optional reward; deliberately independent from combat completion.
 const REWARD := 5
-const CHEST_TEXTURE := preload("res://Assets/Legend of Rakshaka/Environment/Decoration/Peti 2 frame.png")
+const CHEST_TEXTURE := preload("res://Legend of Rakshaka/Environment/Decoration/Peti 2 frame.png")
 var opened := false
 var prompt: Label
 

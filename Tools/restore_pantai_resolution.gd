@@ -1,6 +1,6 @@
 extends SceneTree
 func _initialize() -> void:
-	var original: TileSet = load("res://Assets/Tileset/coastal_packed.tres")
+	var original: TileSet = load("res://Legend of Rakshaka/Environment/Tileset/coastal_packed.tres")
 	for one_way in [false, true]:
 		var tiles := TileSet.new()
 		tiles.tile_size = Vector2i(64, 64)
@@ -18,7 +18,7 @@ func _initialize() -> void:
 				data.set_collision_polygon_points(0, 0, PackedVector2Array([Vector2(-32,-32), Vector2(32,-32), Vector2(32,32), Vector2(-32,32)]))
 				data.set_collision_polygon_one_way(0, 0, one_way)
 				data.set_collision_polygon_one_way_margin(0, 0, 4.0)
-		var path := "res://Assets/Tileset/pantai_modular_platforms.tres" if one_way else "res://Assets/Tileset/pantai_modular_solid.tres"
+		var path := "res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres" if one_way else "res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres"
 		assert(ResourceSaver.save(tiles, path) == OK)
 	var catalog: Resource = load("res://Scenes/Rooms/Modular/default_level_settings.tres")
 	for scene: PackedScene in catalog.room_templates:

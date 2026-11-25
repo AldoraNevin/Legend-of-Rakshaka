@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cchrf4by32pgk"]
 
-[ext_resource type="Texture2D" uid="uid://bsqks8dlesnu1" path="res://Assets/Artefak/Kujang Pusaka/Kujang Pusaka-sheet.png" id="1_ak78g"]
+[ext_resource type="Texture2D" uid="uid://bsqks8dlesnu1" path="res://Legend of Rakshaka/Artefak/Kujang Pusaka/Kujang Pusaka-sheet.png" id="1_ak78g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef6ju"]
 atlas = ExtResource("1_ak78g")

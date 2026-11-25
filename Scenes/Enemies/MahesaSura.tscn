@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dthge5tgoj6bm"]
 
-[ext_resource type="Texture2D" uid="uid://cf2511ykx8gkd" path="res://Assets/Enemies/Mahesa Sura/mahesa atk(wind-up).png" id="1_cvxe1"]
-[ext_resource type="Texture2D" uid="uid://cqf0dinplmg01" path="res://Assets/Enemies/Mahesa Sura/mahesa atk(active).png" id="2_ksfme"]
-[ext_resource type="Texture2D" uid="uid://do338ee32hgor" path="res://Assets/Enemies/Mahesa Sura/mahesa atk(recovery).png" id="3_fd6dt"]
-[ext_resource type="Texture2D" uid="uid://chn1fq6bfhy0e" path="res://Assets/Enemies/Mahesa Sura/mahesa chase.png" id="4_l1w8x"]
-[ext_resource type="Texture2D" uid="uid://cmfwj2c4ryuv1" path="res://Assets/Enemies/Mahesa Sura/mahesa death.png" id="5_3cvoe"]
-[ext_resource type="Texture2D" uid="uid://p1n0hm1y662w" path="res://Assets/Enemies/Mahesa Sura/mahesa atk(hit react).png" id="6_1m02m"]
-[ext_resource type="Texture2D" uid="uid://vkvdsewjtxi6" path="res://Assets/Enemies/Mahesa Sura/mahesa idle-patrol.png" id="7_6k3to"]
+[ext_resource type="Texture2D" uid="uid://cf2511ykx8gkd" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa atk(wind-up).png" id="1_cvxe1"]
+[ext_resource type="Texture2D" uid="uid://cqf0dinplmg01" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa atk(active).png" id="2_ksfme"]
+[ext_resource type="Texture2D" uid="uid://do338ee32hgor" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa atk(recovery).png" id="3_fd6dt"]
+[ext_resource type="Texture2D" uid="uid://chn1fq6bfhy0e" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa chase.png" id="4_l1w8x"]
+[ext_resource type="Texture2D" uid="uid://cmfwj2c4ryuv1" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa death.png" id="5_3cvoe"]
+[ext_resource type="Texture2D" uid="uid://p1n0hm1y662w" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa atk(hit react).png" id="6_1m02m"]
+[ext_resource type="Texture2D" uid="uid://vkvdsewjtxi6" path="res://Legend of Rakshaka/Hostiles/Mahesa Sura/mahesa idle-patrol.png" id="7_6k3to"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_krv03"]
 atlas = ExtResource("1_cvxe1")

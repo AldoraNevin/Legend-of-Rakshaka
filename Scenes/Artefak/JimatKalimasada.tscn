@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbmsp47d2tqlk"]
 
-[ext_resource type="Texture2D" uid="uid://b3chdltw16p6" path="res://Assets/Artefak/Jimat Kalimasada/Jimat Kalimasada-sheet.png" id="1_545rn"]
+[ext_resource type="Texture2D" uid="uid://b3chdltw16p6" path="res://Legend of Rakshaka/Artefak/Jimat Kalimasada/Jimat Kalimasada-sheet.png" id="1_545rn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fv0pi"]
 atlas = ExtResource("1_545rn")

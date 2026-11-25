@@ -1,6 +1,6 @@
 extends "res://Script/Interactables/coastal_treasure.gd"
 ## Artifact branches unlock the existing artifact catalog; treasure gives coins.
-const PEDESTAL_TEXTURE := preload("res://Assets/Legend of Rakshaka/Environment/Decoration/Dudukan arte dan peti.png")
+const PEDESTAL_TEXTURE := preload("res://Legend of Rakshaka/Environment/Decoration/Dudukan arte dan peti.png")
 const ARTIFACT_SCENE_DIR := "res://Scenes/Artefak/"
 @export_enum("treasure", "artifact") var reward_kind := "treasure"
 @export var artifact_name := "Daun Kelor"

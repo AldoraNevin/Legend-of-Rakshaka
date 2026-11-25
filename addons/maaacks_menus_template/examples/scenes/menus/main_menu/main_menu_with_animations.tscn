@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://b5qy5nr1wivs4" path="res://addons/maaacks_menus_template/examples/scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ncvk7"]
 [ext_resource type="PackedScene" uid="uid://dum2pujhh1w4g" path="res://addons/maaacks_menus_template/examples/scenes/windows/main_menu_options_window.tscn" id="3_801fg"]
 [ext_resource type="PackedScene" uid="uid://c5pfkjxskjc60" path="res://addons/maaacks_menus_template/examples/scenes/windows/main_menu_credits_window.tscn" id="4_801fg"]
-[ext_resource type="Texture2D" uid="uid://cl3h5ndnqylqv" path="res://main_menu.png" id="5_mvgsf"]
-[ext_resource type="Texture2D" uid="uid://b4eor3md3gteu" path="res://Levels/legend_of_rakshaka.png" id="6_013fh"]
-[ext_resource type="AudioStream" uid="uid://dsloeln4lbimg" path="res://Assets/Legend of Rakshaka/BGM/Main Menu Themen.ogg" id="6_woqsv"]
-[ext_resource type="Texture2D" uid="uid://vjgihtki57da" path="res://Levels/button_main menu3.png" id="7_avwjl"]
-[ext_resource type="Texture2D" uid="uid://c7ti3imth8ptp" path="res://Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu2.png" id="8_aruns"]
-[ext_resource type="Texture2D" uid="uid://dxi35lou8gpee" path="res://Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu3.png" id="9_cbmiv"]
+[ext_resource type="Texture2D" uid="uid://cl3h5ndnqylqv" path="res://Legend of Rakshaka/UI HUD/Main Menu/main_menu.png" id="5_mvgsf"]
+[ext_resource type="Texture2D" uid="uid://b4eor3md3gteu" path="res://Legend of Rakshaka/UI HUD/Main Menu/legend_of_rakshaka.png" id="6_013fh"]
+[ext_resource type="AudioStream" uid="uid://dsloeln4lbimg" path="res://Legend of Rakshaka/BGM/Main Menu Themen.ogg" id="6_woqsv"]
+[ext_resource type="Texture2D" uid="uid://vjgihtki57da" path="res://Legend of Rakshaka/UI HUD/Main Menu/button_main menu3.png" id="7_avwjl"]
+[ext_resource type="Texture2D" uid="uid://c7ti3imth8ptp" path="res://Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu2.png" id="8_aruns"]
+[ext_resource type="Texture2D" uid="uid://dxi35lou8gpee" path="res://Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu3.png" id="9_cbmiv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvgsf"]
 atlas = ExtResource("5_mvgsf")

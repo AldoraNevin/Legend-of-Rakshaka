@@ -1,7 +1,7 @@
 extends Control
-const ATLAS := preload("res://Assets/Legend of Rakshaka/UI HUD/Legend of Rakshaka Loading UI Atlas-4.png")
-const SCENERY := preload("res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Pixel art banyan and temple sprite atlas.png")
-const LOGO := preload("res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Icon Logo.png")
+const ATLAS := preload("res://Legend of Rakshaka/UI HUD/Legend of Rakshaka Loading UI Atlas-4.png")
+const SCENERY := preload("res://Legend of Rakshaka/UI HUD/Pixel art banyan and temple sprite atlas.png")
+const LOGO := preload("res://Legend of Rakshaka/UI HUD/Icon Logo.png")
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	resized.connect(queue_redraw)

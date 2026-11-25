@@ -6,8 +6,8 @@
 
 ## Aset stage 1 yang aktif
 
-Terrain dan platform coastal sekarang memakai `Assets/Tileset/Environment/tileset pantai.png`.
-Dekorasi memakai `Assets/Tileset/Environment/tileset pantai(1).png` (pilar, panji,
+Terrain dan platform coastal sekarang memakai `Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai.png`.
+Dekorasi memakai `Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai(1).png` (pilar, panji,
 guci, batu, kerang, lentera). Rectangle atlas terpusat di
 `Script/Stage/coastal_asset_art.gd`; gambar sumber tidak diubah. Aset diperkecil
 ke grid gameplay 16 px, platform setinggi 8 px. Dekorasi bersifat visual saja.
@@ -23,7 +23,7 @@ Collision, rute, dan penempatan treasure tetap berasal dari generator.
 
 ## 1. Mengganti gambar tile
 
-Atlas aktif: `Assets/Tileset/Sprites/coastal_ruins.png`, ukuran 128 x 64 px.
+Atlas aktif: `Legend of Rakshaka/Environment/Tileset/Sprites/coastal_ruins.png`, ukuran 128 x 64 px.
 Grid: 16 x 16 px, 8 kolom dan 4 baris. Semua gambar asli proyek, bukan aset
 Dead Cells. File SVG di folder yang sama merupakan sumber gambar awal;
 runtime memakai PNG, jadi mengedit SVG saja tidak mengubah level.
@@ -65,7 +65,7 @@ menduplikasi collision yang dibangun generator.
 
 ## 3. Mengurangi/merapikan pijakan naik
 
-Klik dua kali `Assets/Tileset/coastal_style.tres` di FileSystem:
+Klik dua kali `Legend of Rakshaka/Environment/Tileset/coastal_style.tres` di FileSystem:
 
 | Properti | Default | Efek |
 | --- | --- | --- |
@@ -229,8 +229,8 @@ mengubah lukisan FloorTiles/WallTiles. Sudut luar tetap mengikuti shell batu.
 ## Atlas rapi (aktif)
 
 Sekarang pilih source **Pantai - atlas 64px** pada FloorTiles / WallTiles.
-PNG: Assets/Tileset/Sprites/coastal_packed.png (512x384, 8 kolom x 6 baris).
-TileSet: Assets/Tileset/coastal_packed.tres. Texture Region Size 64x64,
+PNG: Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png (512x384, 8 kolom x 6 baris).
+TileSet: Legend of Rakshaka/Environment/Tileset/coastal_packed.tres. Texture Region Size 64x64,
 Margins 0, Separation 0. Scale layer tetap 0.25. Semua potongan masuk utuh;
 platform berada di bagian atas sel transparan dengan tinggi maksimal 32px.
 

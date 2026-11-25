@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7f7pdwtjsf5j"]
 
-[ext_resource type="Texture2D" uid="uid://bra1jdc33s54l" path="res://Assets/metroid_asset_1_2/Sprites/Environment/kSvekj.png" id="1_34w5f"]
+[ext_resource type="Texture2D" uid="uid://bra1jdc33s54l" path="res://Legend of Rakshaka/Environment/metroid_asset_1_2/Sprites/Environment/kSvekj.png" id="1_34w5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
 size = Vector2(841, 32)

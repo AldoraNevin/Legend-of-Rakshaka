@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dap44wl0tymv0"]
 [ext_resource type="Script" path="res://Script/Interactables/coin.gd" id="script"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/Sukma pickup.png" id="sukma"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/Sukma pickup.png" id="sukma"]
 [sub_resource type="CircleShape2D" id="shape"]
 radius = 10.0
 [node name="coin" type="Area2D"]

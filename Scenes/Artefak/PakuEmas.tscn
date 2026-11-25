@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chatliedwx8iw"]
 
-[ext_resource type="Texture2D" uid="uid://ciace8gd2jb83" path="res://Assets/Artefak/Paku Emas/paku emas_v2-sheet.png" id="1_g7xjs"]
+[ext_resource type="Texture2D" uid="uid://ciace8gd2jb83" path="res://Legend of Rakshaka/Artefak/Paku Emas/paku emas_v2-sheet.png" id="1_g7xjs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7isc5"]
 atlas = ExtResource("1_g7xjs")

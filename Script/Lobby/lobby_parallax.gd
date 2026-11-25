@@ -14,11 +14,11 @@ extends Node2D
 @export var floor_y := 114.0
 @export var left_edge := -520.0
 
-const SKY = preload("res://Assets/Tileset/lobby/layer 1.png")
-const FOREST = preload("res://Assets/Tileset/lobby/layer 2.png")
-const TEMPLE = preload("res://Assets/Tileset/lobby/layer 3.png")
-const TREES = preload("res://Assets/Tileset/lobby/layer 4.png")
-const COURTYARD = preload("res://Assets/Tileset/lobby/Copy of Lotus Courtyard With Turquoise Spirit Gate-6.png")
+const SKY = preload("res://Legend of Rakshaka/Environment/Tileset/lobby/layer 1.png")
+const FOREST = preload("res://Legend of Rakshaka/Environment/Tileset/lobby/layer 2.png")
+const TEMPLE = preload("res://Legend of Rakshaka/Environment/Tileset/lobby/layer 3.png")
+const TREES = preload("res://Legend of Rakshaka/Environment/Tileset/lobby/layer 4.png")
+const COURTYARD = preload("res://Legend of Rakshaka/Environment/Tileset/lobby/Copy of Lotus Courtyard With Turquoise Spirit Gate-6.png")
 
 func _process(_delta: float) -> void:
 	queue_redraw()

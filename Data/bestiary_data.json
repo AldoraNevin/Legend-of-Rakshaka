@@ -9,7 +9,7 @@
       "hp": 3,
       "attack": 20,
       "lore_text": "Roh wanita pendendam bergaun putih yang melayang di udara. Bergerak mendekati pemain dan melakukan serangan jarak dekat dengan cara memuntahkan darah kental ke arah Player.",
-      "image_path": "res://Assets/Enemies/Kuntilanak/Kuntilanak_left_400%.png",
+      "image_path": "res://Legend of Rakshaka/Hostiles/Kuntilanak/Kuntilanak_left_400%.png",
       "is_unlocked": false
     },
     {
@@ -189,150 +189,150 @@
       "name": "Gadha Rujakpolo",
       "category": "Offensive",
       "lore_text": "Gada masif milik Bima. Menambah damage fisik secara drastis, namun sedikit mengurangi (Movement Speed) pemain.",
-      "image_path": "res://Assets/Artefak/Gadha Rujakpolo/gada v2.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Gadha Rujakpolo/gada v2.png",
       "is_unlocked": false,
       "description": "Gada masif milik Bima. Menambah damage fisik secara drastis, namun sedikit mengurangi (Movement Speed) pemain.\n\nEFEK\nDamage fisik +75%; kecepatan gerak -10%.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "keris_mpu_gandring",
       "name": "Keris Mpu Gandring",
       "category": "Offensive",
       "lore_text": "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh.",
-      "image_path": "res://Assets/Artefak/Keris Mpu Gandring/keris_v2.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Keris Mpu Gandring/keris_v2.png",
       "is_unlocked": false,
       "description": "Keris terkutuk penuh darah. Memberikan status Bleed pada musuh.\n\nEFEK\nBleed: 1 damage/detik selama 3 detik; serangan berikutnya menyegarkan durasi.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "golok_jakasembung",
       "name": "Golok Jakasembung",
       "category": "Offensive",
       "lore_text": "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat.",
-      "image_path": "res://Assets/Artefak/Golok Jakasembung/golok v3.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Golok Jakasembung/golok v3.png",
       "is_unlocked": false,
       "description": "Golok legendaris jawara sakti. Meningkatkan Critical Hit Rate pada pertarungan jarak dekat.\n\nEFEK\nPeluang critical melee 25%; critical menghasilkan 2x damage.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "tombak_baru_klinting",
       "name": "Tombak Baru Klinting",
       "category": "Offensive",
       "lore_text": "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee.",
-      "image_path": "res://Assets/Artefak/Tombak Baru Klinting/tombak baru klinting v2.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Tombak Baru Klinting/tombak baru klinting v2.png",
       "is_unlocked": false,
       "description": "Tombak pusaka dari lidah naga. Memperpanjang jangkauan (reach) area serangan melee.\n\nEFEK\nJangkauan tebasan +50%.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "kujang_pusaka",
       "name": "Kujang Pusaka",
       "category": "Offensive",
       "lore_text": "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan).",
-      "image_path": "res://Assets/Artefak/Kujang Pusaka/Kujang Pusaka1.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Kujang Pusaka/Kujang Pusaka1.png",
       "is_unlocked": false,
       "description": "Senjata kebesaran tanah Sunda. Memiliki kemampuan Reflect (memantulkan sebagian damage kembali ke musuh saat terkena serangan).\n\nEFEK\nMemantulkan 30% damage yang diterima kepada penyerang.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "rencong_sakti",
       "name": "Rencong Sakti",
       "category": "Offensive",
       "lore_text": "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis.",
-      "image_path": "res://Assets/Artefak/Rencong Sakti/Rencong Sakti.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Rencong Sakti/Rencong Sakti.png",
       "is_unlocked": false,
       "description": "Belati suci simbol keteguhan Aceh. Damage serangan berlipat ganda ketika status HP pemain sedang kritis.\n\nEFEK\nDamage 2x saat HP <=30%.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "pecut_samandiman",
       "name": "Pecut Samandiman",
       "category": "AoE",
       "lore_text": "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan.",
-      "image_path": "res://Assets/Artefak/Pecut Samandiman-20261101T132418Z-1-001/Pecut Samandiman/pecut samandiman.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Pecut Samandiman/pecut samandiman.png",
       "is_unlocked": false,
       "description": "Cambuk kilat peninggalan Warok. Serangannya menghasilkan gelombang kejut yang mengenai banyak musuh sekaligus di area depan.\n\nEFEK\nSetiap ayunan menghasilkan gelombang di depan sejauh 120 px.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "jimat_kalimasada",
       "name": "Jimat Kalimasada",
       "category": "Buff",
       "lore_text": "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan.",
-      "image_path": "res://Assets/Artefak/Jimat Kalimasada/Jimat Kalimasada.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Jimat Kalimasada/Jimat Kalimasada.png",
       "is_unlocked": false,
       "description": "Pusaka suci berwibawa tinggi. Meningkatkan seluruh status (HP, Damage, Speed) secara signifikan.\n\nEFEK\nMaksimum HP +25, damage +25%, kecepatan +20%.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "mustika_merah_delima",
       "name": "Mustika Merah Delima",
       "category": "Buff",
       "lore_text": "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain.",
-      "image_path": "res://Assets/Artefak/Mustika Merah Delima/mustika merah v3.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Mustika Merah Delima/mustika merah v3.png",
       "is_unlocked": false,
       "description": "Permata merah gaib bertuah. Memberikan pelindung yang menyerap 1 kali serangan fatal tanpa mengurangi HP pemain.\n\nEFEK\nMenahan satu serangan fatal tanpa kehilangan HP; pulih saat kembali ke lobi.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "zirah_antakusuma",
       "name": "Zirah Antakusuma",
       "category": "Buff",
       "lore_text": "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh.",
-      "image_path": "res://Assets/Artefak/Zirah Antakusuma/Zirah Antakusuma.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Zirah Antakusuma/Zirah Antakusuma.png",
       "is_unlocked": false,
       "description": "Rompi gaib Gatotkaca. Mengurangi persentase damage yang diterima secara signifikan, terutama dari proyektil musuh.\n\nEFEK\nDamage masuk -25%; proyektil -50%.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "selendang_bidadari",
       "name": "Selendang Bidadari",
       "category": "Buff",
       "lore_text": "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara.",
-      "image_path": "res://Assets/Artefak/Selendang Bidadari/Selendang Bidadari.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Selendang Bidadari/Selendang Bidadari.png",
       "is_unlocked": false,
       "description": "Kain tenun kahyangan yang sangat ringan. Memberikan kemampuan Double Jump dan memperpanjang jarak Dash pemain di udara.\n\nEFEK\nDouble jump dan jarak dash udara +50%.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "pring_pethuk",
       "name": "Pring Pethuk",
       "category": "Buff",
       "lore_text": "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan.",
-      "image_path": "res://Assets/Artefak/Pring Pethuk/bambu_pethuk2.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Pring Pethuk/bambu_pethuk2.png",
       "is_unlocked": false,
       "description": "Potongan bambu langka penolak bala. Meningkatkan resource drop dari musuh yang dikalahkan.\n\nEFEK\nResource dari musuh +50% (dibulatkan ke atas).",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "air_tirta_amerta",
       "name": "Air Tirta Amerta",
       "category": "Heal",
       "lore_text": "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu.",
-      "image_path": "res://Assets/Artefak/Air Tirta Amerta/Air Tirta Amerta.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Air Tirta Amerta/Air Tirta Amerta.png",
       "is_unlocked": false,
       "description": "Air kehidupan dari kendi kuno Dewa. HP akan beregenerasi secara perlahan-lahan seiring berjalannya waktu.\n\nEFEK\nMemulihkan 1 HP setiap 2 detik.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "daun_kelor",
       "name": "Daun Kelor",
       "category": "Heal",
       "lore_text": "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika.",
-      "image_path": "res://Assets/Artefak/Daun Kelor/daun kelor2.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Daun Kelor/daun kelor2.png",
       "is_unlocked": false,
       "description": "Daun ampuh penangkal ilmu hitam. Menghilangkan segala efek negatif dan memulihkan sedikit HP seketika.\n\nEFEK\nSaat diambil: hapus semua status negatif dan pulihkan 20 HP.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     },
     {
       "entity_id": "paku_emas",
       "name": "Paku Emas",
       "category": "Utility",
       "lore_text": "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat.",
-      "image_path": "res://Assets/Artefak/Paku Emas/paku emas_v2.png",
+      "image_path": "res://Legend of Rakshaka/Artefak/Paku Emas/paku emas_v2.png",
       "is_unlocked": false,
       "description": "Paku gaib penunduk roh. Serangan pemain memiliki peluang untuk men-stun atau menghentikan pergerakan musuh sesaat.\n\nEFEK\nPeluang stun 20% selama 1 detik.",
-      "locked_image_path": "res://Assets/UI/artifact_locked.svg"
+      "locked_image_path": "res://Legend of Rakshaka/UI HUD/artifact_locked.svg"
     }
   ]
 }

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdye1ceiig1tl"]
 
-[ext_resource type="Texture2D" uid="uid://bif27rjwvapti" path="res://Assets/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="1_d7fml"]
+[ext_resource type="Texture2D" uid="uid://bif27rjwvapti" path="res://Legend of Rakshaka/Environment/metroid_asset_1_2/Sprites/Environment/2d_metroidvania_serie_mockup_1_tileset.png" id="1_d7fml"]
 
 [node name="Statue_1" type="Node2D" unique_id=1194184899]
 

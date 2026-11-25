@@ -1,7 +1,7 @@
 extends RefCounted
 ## Source rectangles refer to the supplied, irregularly spaced art sheets.
-const TERRAIN = preload("res://Assets/Tileset/Sprites/coastal_packed.png")
-const DECOR = preload("res://Assets/Tileset/Environment/tileset pantai(1).png")
+const TERRAIN = preload("res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png")
+const DECOR = preload("res://Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai(1).png")
 const TOPS = [Rect2(0, 0, 64, 64), Rect2(64, 0, 64, 64), Rect2(128, 0, 64, 64), Rect2(192, 0, 64, 64)]
 const STONE = [Rect2(256, 64, 64, 64)]
 const PLATFORMS = [Rect2(0, 192, 64, 32), Rect2(64, 192, 64, 32), Rect2(128, 192, 64, 32), Rect2(192, 192, 64, 32), Rect2(256, 192, 64, 32), Rect2(320, 192, 64, 32)]

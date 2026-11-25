@@ -2,8 +2,8 @@ extends SceneTree
 ## Migrate the active catalog's terrain palette without changing painted geometry.
 func _initialize() -> void:
 	var catalog: Resource = load("res://Scenes/Rooms/Modular/default_level_settings.tres")
-	var solid_tiles: TileSet = load("res://Assets/Tileset/pantai_modular_solid.tres")
-	var platform_tiles: TileSet = load("res://Assets/Tileset/pantai_modular_platforms.tres")
+	var solid_tiles: TileSet = load("res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres")
+	var platform_tiles: TileSet = load("res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres")
 	for scene: PackedScene in catalog.room_templates:
 		var room: Node2D = scene.instantiate()
 		for layer_name in ["Solid", "SocketCaps", "Platforms"]:

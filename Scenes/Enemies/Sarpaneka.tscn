@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://pino7dstxwoh"]
 
-[ext_resource type="Texture2D" uid="uid://vl4kijk8adn2" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka atk(wind-up)).png" id="1_fjfpj"]
-[ext_resource type="Texture2D" uid="uid://crvp8gn0yu80k" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka atk(active).png" id="2_8tmtk"]
-[ext_resource type="Texture2D" uid="uid://bla6ug5shaey0" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka atk(recovery).png" id="3_3j8ub"]
-[ext_resource type="Texture2D" uid="uid://dicq4idet8dvf" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka chase.png" id="4_udmdk"]
-[ext_resource type="Texture2D" uid="uid://bevaueve7n2v0" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka death.png" id="5_4liy3"]
-[ext_resource type="Texture2D" uid="uid://dhqfpawtpbngi" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka hit react.png" id="6_5rq2g"]
-[ext_resource type="Texture2D" uid="uid://dfvrppcmwx33a" path="res://Assets/Enemies/Sarpakenaka/sarpakenaka idle.png" id="7_0mqtj"]
+[ext_resource type="Texture2D" uid="uid://vl4kijk8adn2" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka atk(wind-up)).png" id="1_fjfpj"]
+[ext_resource type="Texture2D" uid="uid://crvp8gn0yu80k" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka atk(active).png" id="2_8tmtk"]
+[ext_resource type="Texture2D" uid="uid://bla6ug5shaey0" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka atk(recovery).png" id="3_3j8ub"]
+[ext_resource type="Texture2D" uid="uid://dicq4idet8dvf" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka chase.png" id="4_udmdk"]
+[ext_resource type="Texture2D" uid="uid://bevaueve7n2v0" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka death.png" id="5_4liy3"]
+[ext_resource type="Texture2D" uid="uid://dhqfpawtpbngi" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka hit react.png" id="6_5rq2g"]
+[ext_resource type="Texture2D" uid="uid://dfvrppcmwx33a" path="res://Legend of Rakshaka/Hostiles/Sarpakenaka/sarpakenaka idle.png" id="7_0mqtj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f088e"]
 atlas = ExtResource("1_fjfpj")

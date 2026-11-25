@@ -1,9 +1,9 @@
 [gd_scene format=4]
 
 [ext_resource type="Script" path="res://Script/Stage/Modular/room_template.gd" id="1_njqsd"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/coastal_tileset.tres" id="2_d6dvf"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_njqsd"]
-[ext_resource type="TileSet" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_d6dvf"]
+[ext_resource type="TileSet" path="res://Legend of Rakshaka/Environment/Tileset/coastal_tileset.tres" id="2_d6dvf"]
+[ext_resource type="TileSet" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres" id="3_njqsd"]
+[ext_resource type="TileSet" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres" id="4_d6dvf"]
 [ext_resource type="Script" path="res://Script/Stage/Modular/room_socket.gd" id="5_dlj1g"]
 
 [node name="Treasure" type="Node2D" unique_id=1754913004]

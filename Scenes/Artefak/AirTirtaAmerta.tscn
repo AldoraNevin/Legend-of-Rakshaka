@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://be75cfsa5kw2n"]
 
-[ext_resource type="Texture2D" uid="uid://btg8h203fojy1" path="res://Assets/Artefak/Air Tirta Amerta/Air Tirta Amerta-sheet.png" id="1_r1h8r"]
+[ext_resource type="Texture2D" uid="uid://btg8h203fojy1" path="res://Legend of Rakshaka/Artefak/Air Tirta Amerta/Air Tirta Amerta-sheet.png" id="1_r1h8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gm618"]
 atlas = ExtResource("1_r1h8r")

@@ -1,6 +1,6 @@
 extends RefCounted
 ## Traversal surfaces shared by validation and continuous physics tests.
-const STYLE = preload("res://Assets/Tileset/coastal_style.tres")
+const STYLE = preload("res://Legend of Rakshaka/Environment/Tileset/coastal_style.tres")
 static func interior(room: Dictionary) -> Array[Rect2]:
 	var candidates: Array[Rect2] = room.template.extra_platforms.duplicate()
 	var result: Array[Rect2] = []

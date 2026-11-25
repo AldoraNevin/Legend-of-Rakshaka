@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5ndpyw6sofq2"]
 
-[ext_resource type="Texture2D" uid="uid://wvajo4esnyvx" path="res://Assets/Artefak/Pring Pethuk/bambu_pethuk2-sheet.png" id="1_edy0p"]
+[ext_resource type="Texture2D" uid="uid://wvajo4esnyvx" path="res://Legend of Rakshaka/Artefak/Pring Pethuk/bambu_pethuk2-sheet.png" id="1_edy0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jf8xk"]
 atlas = ExtResource("1_edy0p")

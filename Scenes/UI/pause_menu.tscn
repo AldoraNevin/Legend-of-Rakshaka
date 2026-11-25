@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c0i0ninj702kq"]
 
-[ext_resource type="FontVariation" path="res://Assets/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
+[ext_resource type="FontVariation" path="res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
 
 [ext_resource type="Script" uid="uid://ctni27557un7g" path="res://Script/UI/pause_menu.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://bcym3nhn1uhms" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bcym3nhn1uhms" path="res://Legend of Rakshaka/UI HUD/UI panels.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://bdvdf5v87mmrr" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3"]
 
 [sub_resource type="StyleBoxFlat" id="Focus"]

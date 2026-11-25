@@ -1,5 +1,5 @@
 extends Control
-const ATLAS := preload("res://Assets/Legend of Rakshaka/UI HUD/Legend of Rakshaka Loading UI Atlas-4.png")
+const ATLAS := preload("res://Legend of Rakshaka/UI HUD/Legend of Rakshaka Loading UI Atlas-4.png")
 var value := 0.0:
 	set(next):
 		value = clampf(next, 0, 100)

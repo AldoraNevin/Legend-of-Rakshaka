@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxkluve8gcsfl"]
 
-[ext_resource type="Texture2D" uid="uid://bkylcdccbicsp" path="res://Assets/Artefak/Tombak Baru Klinting/tombak baru klinting v2-sheet.png" id="1_v1i5d"]
+[ext_resource type="Texture2D" uid="uid://bkylcdccbicsp" path="res://Legend of Rakshaka/Artefak/Tombak Baru Klinting/tombak baru klinting v2-sheet.png" id="1_v1i5d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxlxu"]
 atlas = ExtResource("1_v1i5d")

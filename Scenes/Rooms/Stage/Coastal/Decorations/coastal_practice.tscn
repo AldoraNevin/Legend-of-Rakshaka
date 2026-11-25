@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cxs0ogqnqw2bf"]
 
-[ext_resource type="Texture2D" uid="uid://qeox0yc0k1jv" path="res://Assets/Tileset/Sprites/coastal_packed.png" id="1_abb6v"]
+[ext_resource type="Texture2D" uid="uid://qeox0yc0k1jv" path="res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png" id="1_abb6v"]
 [ext_resource type="Script" uid="uid://bu84qwclgfg8m" path="res://Script/Stage/coastal_decoration_guide.gd" id="guide"]
 [ext_resource type="PackedScene" uid="uid://bb61mqo0d3vsv" path="res://Scenes/Environment/pillar.tscn" id="pillar"]
 [ext_resource type="Resource" uid="uid://bj2jcxg1h0llh" path="res://Scenes/Rooms/Stage/Coastal/Templates/coastal_practice.tres" id="template"]

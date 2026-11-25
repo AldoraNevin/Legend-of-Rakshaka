@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cg188y585k8aw"]
 
-[ext_resource type="Texture2D" uid="uid://djhje7om13r8o" path="res://Assets/Artefak/Golok Jakasembung/golok v2-sheet.png" id="1_af4a8"]
+[ext_resource type="Texture2D" uid="uid://djhje7om13r8o" path="res://Legend of Rakshaka/Artefak/Golok Jakasembung/golok v2-sheet.png" id="1_af4a8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2tgu"]
 atlas = ExtResource("1_af4a8")

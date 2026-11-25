@@ -1,6 +1,6 @@
 extends Node2D
 ## Decorative inner corners, fitted to the final playable area after rooms connect.
-const TEXTURE = preload("res://Assets/Tileset/Sprites/coastal_packed.png")
+const TEXTURE = preload("res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png")
 const REGION := Rect2(320, 64, 64, 64)
 var corners: Dictionary = {}
 

@@ -33,7 +33,7 @@ func _draw() -> void:
 		if show_tiles:
 			draw_tiles(platform, 0)
 	draw_rect(Rect2(Vector2.ZERO, template.size), Color(0.5, 0.5, 0.5), false, 1)
-	var font := preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf")
+	var font := preload("res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf")
 	for socket in template.sockets:
 		var tangent := Vector2.RIGHT if socket.side in ["up", "down"] else Vector2.DOWN
 		draw_line(socket.position - tangent * socket.opening / 2, socket.position + tangent * socket.opening / 2, Color(0.3, 1, 0.7), 3)

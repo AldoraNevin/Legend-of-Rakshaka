@@ -2,7 +2,7 @@ extends SceneTree
 func _initialize() -> void:
 	var tiles := TileSet.new()
 	tiles.tile_size = Vector2i(64, 64)
-	var texture = load("res://Assets/Tileset/Environment/tileset pantai.png")
+	var texture = load("res://Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai.png")
 	var regions := [Rect2(204, 37, 64, 64), Rect2(286, 37, 64, 64), Rect2(31, 37, 64, 64), Rect2(453, 37, 64, 64), Rect2(204, 124, 64, 64)]
 	var names := ["Tengah A", "Tengah B", "Ujung kiri", "Ujung kanan", "Batu isi"]
 	for i in range(regions.size()):
@@ -16,7 +16,7 @@ func _initialize() -> void:
 		source.texture_region_size = Vector2i(64, 64)
 		source.create_tile(Vector2i.ZERO)
 		tiles.add_source(source, i)
-	assert(ResourceSaver.save(tiles, "res://Assets/Tileset/coastal_manual_floor.tres") == OK)
+	assert(ResourceSaver.save(tiles, "res://Legend of Rakshaka/Environment/Tileset/coastal_manual_floor.tres") == OK)
 	var directory := DirAccess.open("res://Scenes/Rooms/Stage/Coastal/Decorations")
 	for file in directory.get_files():
 		if not file.ends_with(".tscn"):

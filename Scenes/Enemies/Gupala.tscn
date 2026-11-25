@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://boyhy1ek3lfdd"]
 
-[ext_resource type="Texture2D" uid="uid://cjbatt2o5kdbw" path="res://Assets/Enemies/Gupala/gupala atk(wind-up).png" id="1_6dvrs"]
-[ext_resource type="Texture2D" uid="uid://bqumdouukkix3" path="res://Assets/Enemies/Gupala/gupala atk(active).png" id="2_c6bqy"]
-[ext_resource type="Texture2D" uid="uid://dhb5oqjxkp5vc" path="res://Assets/Enemies/Gupala/gupala atk(recovery).png" id="3_fonqb"]
-[ext_resource type="Texture2D" uid="uid://dhawyniubmbr0" path="res://Assets/Enemies/Gupala/gupala chase.png" id="4_fy020"]
-[ext_resource type="Texture2D" uid="uid://cirtxeu6i541w" path="res://Assets/Enemies/Gupala/gupala death.png" id="5_tdogc"]
-[ext_resource type="Texture2D" uid="uid://crvc6o53o83vw" path="res://Assets/Enemies/Gupala/gupala hit react.png" id="6_s4w2g"]
-[ext_resource type="Texture2D" uid="uid://chq2d76n8hpeb" path="res://Assets/Enemies/Gupala/gupala idle-patrol.png" id="7_crunw"]
+[ext_resource type="Texture2D" uid="uid://cjbatt2o5kdbw" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala atk(wind-up).png" id="1_6dvrs"]
+[ext_resource type="Texture2D" uid="uid://bqumdouukkix3" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala atk(active).png" id="2_c6bqy"]
+[ext_resource type="Texture2D" uid="uid://dhb5oqjxkp5vc" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala atk(recovery).png" id="3_fonqb"]
+[ext_resource type="Texture2D" uid="uid://dhawyniubmbr0" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala chase.png" id="4_fy020"]
+[ext_resource type="Texture2D" uid="uid://cirtxeu6i541w" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala death.png" id="5_tdogc"]
+[ext_resource type="Texture2D" uid="uid://crvc6o53o83vw" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala hit react.png" id="6_s4w2g"]
+[ext_resource type="Texture2D" uid="uid://chq2d76n8hpeb" path="res://Legend of Rakshaka/Hostiles/Gupala/gupala idle-patrol.png" id="7_crunw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pjau"]
 atlas = ExtResource("1_6dvrs")

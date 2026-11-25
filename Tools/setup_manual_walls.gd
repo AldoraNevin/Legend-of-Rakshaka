@@ -1,7 +1,7 @@
 extends SceneTree
 ## One-time authoring migration. Existing WallTiles and all other children are preserved.
 func _initialize() -> void:
-	var tiles := load("res://Assets/Tileset/coastal_manual_floor.tres") as TileSet
+	var tiles := load("res://Legend of Rakshaka/Environment/Tileset/coastal_manual_floor.tres") as TileSet
 	var directory := DirAccess.open("res://Scenes/Rooms/Stage/Coastal/Decorations")
 	for file in directory.get_files():
 		if not file.ends_with(".tscn"):

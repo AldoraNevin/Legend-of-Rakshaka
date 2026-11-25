@@ -335,7 +335,7 @@ func create_door(index: int) -> Area2D:
 	door.add_child(shape)
 
 	var sprite := Sprite2D.new()
-	sprite.texture = preload("res://Assets/UI/Pixel Temple Asset Atlas.png")
+	sprite.texture = preload("res://Legend of Rakshaka/UI HUD/Pixel Temple Asset Atlas.png")
 	sprite.region_enabled = true
 	sprite.region_rect = Rect2(719, 772, 110, 208)
 	sprite.scale = Vector2(0.46363637, 0.46363637)

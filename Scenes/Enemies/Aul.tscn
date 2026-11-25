@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://nlfhlpgc4kqp"]
 
 [ext_resource type="Script" uid="uid://fu7mlujmirv4" path="res://Script/Enemies/aul.gd" id="1_h1d0n"]
-[ext_resource type="Texture2D" uid="uid://baejup80gb628" path="res://Assets/Enemies/Aul/Aul v2 atk(active).png" id="Texture_AttackActive"]
-[ext_resource type="Texture2D" uid="uid://dcad2dj3pfl7v" path="res://Assets/Enemies/Aul/Aul v2 atk(recovery).png" id="Texture_AttackRecovery"]
-[ext_resource type="Texture2D" uid="uid://mu63fv7sf2mb" path="res://Assets/Enemies/Aul/Aul v2 atk(wind-up).png" id="Texture_AttackWindUp"]
-[ext_resource type="Texture2D" uid="uid://dg23lgi5lv0ae" path="res://Assets/Enemies/Aul/Aul v2 chase.png" id="Texture_Chase"]
-[ext_resource type="Texture2D" uid="uid://dhtiismeqlhd" path="res://Assets/Enemies/Aul/Aul v2 death.png" id="Texture_Dead"]
-[ext_resource type="Texture2D" uid="uid://d2oloxmn1tdqv" path="res://Assets/Enemies/Aul/Aul v2 hit react.png" id="Texture_Hit"]
-[ext_resource type="Texture2D" uid="uid://b4pjfj4rcv5ux" path="res://Assets/Enemies/Aul/Aul v2 Idle-patrol.png" id="Texture_Idle"]
+[ext_resource type="Texture2D" uid="uid://baejup80gb628" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 atk(active).png" id="Texture_AttackActive"]
+[ext_resource type="Texture2D" uid="uid://dcad2dj3pfl7v" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 atk(recovery).png" id="Texture_AttackRecovery"]
+[ext_resource type="Texture2D" uid="uid://mu63fv7sf2mb" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 atk(wind-up).png" id="Texture_AttackWindUp"]
+[ext_resource type="Texture2D" uid="uid://dg23lgi5lv0ae" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 chase.png" id="Texture_Chase"]
+[ext_resource type="Texture2D" uid="uid://dhtiismeqlhd" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 death.png" id="Texture_Dead"]
+[ext_resource type="Texture2D" uid="uid://d2oloxmn1tdqv" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 hit react.png" id="Texture_Hit"]
+[ext_resource type="Texture2D" uid="uid://b4pjfj4rcv5ux" path="res://Legend of Rakshaka/Hostiles/Aul/Aul v2 Idle-patrol.png" id="Texture_Idle"]
 
 [sub_resource type="AtlasTexture" id="Atlas_AttackWindUp_0"]
 atlas = ExtResource("Texture_AttackWindUp")

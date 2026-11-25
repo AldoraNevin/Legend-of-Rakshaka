@@ -6,15 +6,15 @@ func _initialize() -> void:
 		quit(1)
 		return
 	# Normalize the existing 64px coastal atlas to the gameplay's 16px grid.
-	var pixels := load("res://Assets/Tileset/Sprites/coastal_packed.png").get_image() as Image
+	var pixels := load("res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png").get_image() as Image
 	pixels.resize(128, 96, Image.INTERPOLATE_NEAREST)
 	var texture := ImageTexture.create_from_image(pixels)
-	ResourceSaver.save(texture, "res://Assets/Tileset/pantai_modular_texture.tres")
+	ResourceSaver.save(texture, "res://Legend of Rakshaka/Environment/Tileset/pantai_modular_texture.tres")
 	for one_way in [false, true]:
 		var tiles := make_tiles(one_way)
 		var atlas := tiles.get_source(0) as TileSetAtlasSource
-		atlas.texture = load("res://Assets/Tileset/pantai_modular_texture.tres")
-		var path := "res://Assets/Tileset/pantai_modular_platforms.tres" if one_way else "res://Assets/Tileset/pantai_modular_solid.tres"
+		atlas.texture = load("res://Legend of Rakshaka/Environment/Tileset/pantai_modular_texture.tres")
+		var path := "res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres" if one_way else "res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres"
 		ResourceSaver.save(tiles, path)
 		if one_way:
 			platform_tiles = load(path)

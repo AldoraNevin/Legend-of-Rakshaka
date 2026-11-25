@@ -1,10 +1,10 @@
 extends Control
-const ATLAS := preload("res://Assets/Legend of Rakshaka/Upgrade_menu/Nusantara UI atlas in navy and gold-1.png")
+const ATLAS := preload("res://Legend of Rakshaka/UI HUD/Upgrade/Nusantara UI atlas in navy and gold-1.png")
 const ICONS := {
-	"max_life": preload("res://Assets/Legend of Rakshaka/Upgrade_menu/UP Hp.png"),
-	"sword": preload("res://Assets/Legend of Rakshaka/Upgrade_menu/UP Stat.png"),
-	"skill_charge": preload("res://Assets/Legend of Rakshaka/Upgrade_menu/UP skill v2.png"),
-	"skill_cooldown": preload("res://Assets/Legend of Rakshaka/Upgrade_menu/UP CD.png"),
+	"max_life": preload("res://Legend of Rakshaka/UI HUD/Upgrade/UP Hp.png"),
+	"sword": preload("res://Legend of Rakshaka/UI HUD/Upgrade/UP Stat.png"),
+	"skill_charge": preload("res://Legend of Rakshaka/UI HUD/Upgrade/UP skill v2.png"),
+	"skill_cooldown": preload("res://Legend of Rakshaka/UI HUD/Upgrade/UP CD.png"),
 }
 var selected := "max_life"
 var owns_pause := false

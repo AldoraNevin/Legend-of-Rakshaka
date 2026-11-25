@@ -1,7 +1,7 @@
 extends SceneTree
 ## Change only collision metadata, never room cells or atlas artwork.
 func _initialize() -> void:
-	var path := "res://Assets/Tileset/pantai_modular_solid.tres"
+	var path := "res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres"
 	var tiles: TileSet = load(path)
 	var atlas := tiles.get_source(0) as TileSetAtlasSource
 	var pixels := atlas.texture.get_image()

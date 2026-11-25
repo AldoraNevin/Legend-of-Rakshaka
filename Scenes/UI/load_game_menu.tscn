@@ -1,10 +1,10 @@
 [gd_scene format=3]
 
-[ext_resource type="FontVariation" path="res://Assets/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
+[ext_resource type="FontVariation" path="res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySansBold.tres" id="pixel_bold"]
 
 [ext_resource type="Script" path="res://Script/UI/load_game_menu.gd" id="script"]
 
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="paper"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/UI panels.png" id="paper"]
 
 
 

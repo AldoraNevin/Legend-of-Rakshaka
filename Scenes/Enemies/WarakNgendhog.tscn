@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://7sye0kboadav"]
 
-[ext_resource type="Texture2D" uid="uid://dqb61hr37fmh0" path="res://Assets/Enemies/Warak Ngendhog/warak atk (wind-up).png" id="1_pbueu"]
-[ext_resource type="Texture2D" uid="uid://dmmxsq3w08qh4" path="res://Assets/Enemies/Warak Ngendhog/warak atk (active).png" id="2_ec212"]
-[ext_resource type="Texture2D" uid="uid://c01f8q4t5u0fw" path="res://Assets/Enemies/Warak Ngendhog/warak atk (recovery).png" id="3_e7hdn"]
-[ext_resource type="Texture2D" uid="uid://5gqkhb74p4kl" path="res://Assets/Enemies/Warak Ngendhog/warak chase.png" id="4_0gvks"]
-[ext_resource type="Texture2D" uid="uid://jr3w4cyyvy68" path="res://Assets/Enemies/Warak Ngendhog/warak death.png" id="5_y1453"]
-[ext_resource type="Texture2D" uid="uid://j3rn6cp06yn7" path="res://Assets/Enemies/Warak Ngendhog/warak hit react.png" id="6_wumx6"]
-[ext_resource type="Texture2D" uid="uid://clc11c266vhpl" path="res://Assets/Enemies/Warak Ngendhog/warak idle-patrol.png" id="7_8s4st"]
+[ext_resource type="Texture2D" uid="uid://dqb61hr37fmh0" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak atk (wind-up).png" id="1_pbueu"]
+[ext_resource type="Texture2D" uid="uid://dmmxsq3w08qh4" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak atk (active).png" id="2_ec212"]
+[ext_resource type="Texture2D" uid="uid://c01f8q4t5u0fw" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak atk (recovery).png" id="3_e7hdn"]
+[ext_resource type="Texture2D" uid="uid://5gqkhb74p4kl" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak chase.png" id="4_0gvks"]
+[ext_resource type="Texture2D" uid="uid://jr3w4cyyvy68" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak death.png" id="5_y1453"]
+[ext_resource type="Texture2D" uid="uid://j3rn6cp06yn7" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak hit react.png" id="6_wumx6"]
+[ext_resource type="Texture2D" uid="uid://clc11c266vhpl" path="res://Legend of Rakshaka/Hostiles/Warak Ngendhog/warak idle-patrol.png" id="7_8s4st"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h864"]
 atlas = ExtResource("1_pbueu")

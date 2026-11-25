@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lmq73wqof2gq"]
 
-[ext_resource type="Texture2D" uid="uid://cjdwb6auydc03" path="res://Assets/Artefak/Pecut Samandiman-20261101T132418Z-1-001/Pecut Samandiman/pecut samandiman-sheet.png" id="1_apm1r"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/Artefak/Pecut Samandiman/pecut samandiman-sheet.png" id="1_apm1r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdhry"]
 atlas = ExtResource("1_apm1r")

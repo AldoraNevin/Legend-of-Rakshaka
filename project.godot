@@ -43,7 +43,7 @@ enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 
 [gui]
 
-theme/custom_font="res://Assets/Fonts/PixelifySans/PixelifySans.ttf"
+theme/custom_font="res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf"
 
 [input]
 

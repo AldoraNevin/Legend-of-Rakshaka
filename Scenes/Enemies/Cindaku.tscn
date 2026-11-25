@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b48syx1wmybgk"]
 
-[ext_resource type="Texture2D" uid="uid://b5nff5gv0nfdp" path="res://Assets/Enemies/Cindaku/atk.png" id="1_t3kyo"]
-[ext_resource type="Texture2D" uid="uid://eqqp255lx6jj" path="res://Assets/Enemies/Cindaku/cindaku chase.png" id="2_hqjx6"]
-[ext_resource type="Texture2D" uid="uid://c5bbce0byyout" path="res://Assets/Enemies/Cindaku/cindaku death.png" id="3_v7hhv"]
-[ext_resource type="Texture2D" uid="uid://cnadec7flra0d" path="res://Assets/Enemies/Cindaku/cindaku hit react.png" id="4_4j3gm"]
-[ext_resource type="Texture2D" uid="uid://c6l4rhiyc3rj6" path="res://Assets/Enemies/Cindaku/cindaku idle.png" id="5_haosa"]
+[ext_resource type="Texture2D" uid="uid://b5nff5gv0nfdp" path="res://Legend of Rakshaka/Hostiles/Cindaku/atk.png" id="1_t3kyo"]
+[ext_resource type="Texture2D" uid="uid://eqqp255lx6jj" path="res://Legend of Rakshaka/Hostiles/Cindaku/cindaku chase.png" id="2_hqjx6"]
+[ext_resource type="Texture2D" uid="uid://c5bbce0byyout" path="res://Legend of Rakshaka/Hostiles/Cindaku/cindaku death.png" id="3_v7hhv"]
+[ext_resource type="Texture2D" uid="uid://cnadec7flra0d" path="res://Legend of Rakshaka/Hostiles/Cindaku/cindaku hit react.png" id="4_4j3gm"]
+[ext_resource type="Texture2D" uid="uid://c6l4rhiyc3rj6" path="res://Legend of Rakshaka/Hostiles/Cindaku/cindaku idle.png" id="5_haosa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsjor"]
 atlas = ExtResource("1_t3kyo")

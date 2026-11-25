@@ -5,7 +5,7 @@ const FRAME_TIME := 0.042
 var elapsed := 0.0
 
 func _ready() -> void:
-	texture = preload("res://Assets/Player/Sprites/pecut_strike.png")
+	texture = preload("res://Legend of Rakshaka/Main Chara/Sprites/pecut_strike.png")
 	hframes = 8
 	centered = false
 	offset = Vector2(-4, -33)

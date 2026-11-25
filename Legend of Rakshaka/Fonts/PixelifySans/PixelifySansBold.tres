@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3]
+
+[ext_resource type="FontFile" path="res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf" id="base"]
+
+[resource]
+base_font = ExtResource("base")
+variation_opentype = {2003265652: 700}

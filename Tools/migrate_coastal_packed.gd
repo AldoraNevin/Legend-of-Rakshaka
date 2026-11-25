@@ -5,7 +5,7 @@ func _initialize() -> void:
 	tiles.tile_size = Vector2i(64,64)
 	var atlas := TileSetAtlasSource.new()
 	atlas.resource_name = "Pantai - atlas 64px"
-	atlas.texture = load("res://Assets/Tileset/Sprites/coastal_packed.png")
+	atlas.texture = load("res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png")
 	atlas.texture_region_size = Vector2i(64,64)
 	for y in range(6):
 		for x in range(8):
@@ -18,8 +18,8 @@ func _initialize() -> void:
 				data.flip_v = (variant & 2) != 0
 				data.transpose = (variant & 4) != 0
 	tiles.add_source(atlas,100)
-	assert(ResourceSaver.save(tiles,"res://Assets/Tileset/coastal_packed.tres") == OK)
-	tiles.take_over_path("res://Assets/Tileset/coastal_packed.tres")
+	assert(ResourceSaver.save(tiles,"res://Legend of Rakshaka/Environment/Tileset/coastal_packed.tres") == OK)
+	tiles.take_over_path("res://Legend of Rakshaka/Environment/Tileset/coastal_packed.tres")
 	var directory := DirAccess.open("res://Scenes/Rooms/Stage/Coastal/Decorations")
 	var total := 0
 	for file in directory.get_files():

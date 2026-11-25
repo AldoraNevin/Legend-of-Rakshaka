@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1h1bwcy3o4bt"]
 
-[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="1_d2g5e"]
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai(1).png" id="1_d2g5e"]
 
 [node name="Grass" type="Sprite2D" unique_id=1878025945]
 texture_filter = 1

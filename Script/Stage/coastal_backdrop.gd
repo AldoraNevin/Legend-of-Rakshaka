@@ -1,6 +1,6 @@
 extends Node2D
 ## Visual art only; generated geometry owns all collisions.
-const STYLE = preload("res://Assets/Tileset/coastal_style.tres")
+const STYLE = preload("res://Legend of Rakshaka/Environment/Tileset/coastal_style.tres")
 const ART = preload("res://Script/Stage/coastal_asset_art.gd")
 var layout: Dictionary = {}
 var air := {}

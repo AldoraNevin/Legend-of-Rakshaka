@@ -5,7 +5,7 @@ const DIRECTORY := "res://Scenes/Rooms/Modular/"
 const TEMPLATE = preload("res://Script/Stage/Modular/room_template.gd")
 const SOCKET = preload("res://Script/Stage/Modular/room_socket.gd")
 const SETTINGS = preload("res://Script/Stage/Modular/level_settings.gd")
-const TEXTURE = preload("res://Assets/Tileset/Sprites/coastal_ruins.png")
+const TEXTURE = preload("res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_ruins.png")
 var solid_tiles: TileSet
 var platform_tiles: TileSet
 var scenes: Array[PackedScene] = []
@@ -18,10 +18,10 @@ func _initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(DIRECTORY))
 	solid_tiles = make_tiles(false)
 	platform_tiles = make_tiles(true)
-	ResourceSaver.save(solid_tiles, "res://Assets/Tileset/modular_solid.tres")
-	ResourceSaver.save(platform_tiles, "res://Assets/Tileset/modular_platforms.tres")
-	solid_tiles = load("res://Assets/Tileset/modular_solid.tres")
-	platform_tiles = load("res://Assets/Tileset/modular_platforms.tres")
+	ResourceSaver.save(solid_tiles, "res://Legend of Rakshaka/Environment/Tileset/modular_solid.tres")
+	ResourceSaver.save(platform_tiles, "res://Legend of Rakshaka/Environment/Tileset/modular_platforms.tres")
+	solid_tiles = load("res://Legend of Rakshaka/Environment/Tileset/modular_solid.tres")
+	platform_tiles = load("res://Legend of Rakshaka/Environment/Tileset/modular_platforms.tres")
 	make_room("entrance", ["entrance"], Vector2i(24, 12))
 	make_room("hall", ["combat"], Vector2i(36, 12))
 	make_room("long_gallery", ["combat"], Vector2i(52, 14), "gallery")
@@ -89,13 +89,13 @@ func make_room(id: String, roles: Array, size: Vector2i, style := "hall") -> voi
 	room.roles = PackedStringArray(roles)
 	room.size_in_tiles = size
 	room.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	var backdrop := layer(room, "Backdrop", load("res://Assets/Tileset/coastal_tileset.tres"), -8)
+	var backdrop := layer(room, "Backdrop", load("res://Legend of Rakshaka/Environment/Tileset/coastal_tileset.tres"), -8)
 	backdrop.modulate = Color(0.48, 0.57, 0.65)
 	backdrop.collision_enabled = false
 	var solid := layer(room, "Solid", solid_tiles, 0)
 	var platforms := layer(room, "Platforms", platform_tiles, 1)
 	var caps := layer(room, "SocketCaps", solid_tiles, 0)
-	layer(room, "Decorations", load("res://Assets/Tileset/coastal_tileset.tres"), -3).collision_enabled = false
+	layer(room, "Decorations", load("res://Legend of Rakshaka/Environment/Tileset/coastal_tileset.tres"), -3).collision_enabled = false
 	var sockets := Node2D.new()
 	sockets.name = "Sockets"
 	add_owned(room, sockets, room)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8eev3trefqib"]
 
-[ext_resource type="Texture2D" uid="uid://4ai4wt536dxo" path="res://Assets/Artefak/Zirah Antakusuma/Zirah Antakusuma-sheet.png" id="1_ic4qh"]
+[ext_resource type="Texture2D" uid="uid://4ai4wt536dxo" path="res://Legend of Rakshaka/Artefak/Zirah Antakusuma/Zirah Antakusuma-sheet.png" id="1_ic4qh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5l1aw"]
 atlas = ExtResource("1_ic4qh")

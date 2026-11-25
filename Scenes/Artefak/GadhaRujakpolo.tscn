@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2phw4ndkw5ex"]
 
-[ext_resource type="Texture2D" uid="uid://bay1cih45lph0" path="res://Assets/Artefak/Gadha Rujakpolo/gada v2-sheet.png" id="1_0ownv"]
+[ext_resource type="Texture2D" uid="uid://bay1cih45lph0" path="res://Legend of Rakshaka/Artefak/Gadha Rujakpolo/gada v2-sheet.png" id="1_0ownv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ownv"]
 atlas = ExtResource("1_0ownv")

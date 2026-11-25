@@ -1,7 +1,7 @@
 [gd_scene format=3]
 [ext_resource type="Script" path="res://Script/UI/continue_load_buttons.gd" id="script"]
-[ext_resource type="Texture2D" path="res://Levels/button_main menu3.png" id="normal"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu2.png" id="hover"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/Main Menu/button_main menu3.png" id="normal"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/buttons_mainmenu/Salinan button_main menu2.png" id="hover"]
 
 [sub_resource type="StyleBoxTexture" id="Paper"]
 texture = ExtResource("normal")

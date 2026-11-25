@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://eer2xglw3leh"]
 
-[ext_resource type="Texture2D" uid="uid://qeox0yc0k1jv" path="res://Assets/Tileset/Sprites/coastal_packed.png" id="1_xup0o"]
+[ext_resource type="Texture2D" uid="uid://qeox0yc0k1jv" path="res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png" id="1_xup0o"]
 [ext_resource type="PackedScene" uid="uid://vka2pok103ay" path="res://Scenes/Environment/badge.tscn" id="4_7e6qn"]
 [ext_resource type="PackedScene" uid="uid://bwimahmo7fp72" path="res://Scenes/Environment/badge_2.tscn" id="5_do0lt"]
 [ext_resource type="PackedScene" uid="uid://1h1bwcy3o4bt" path="res://Scenes/Environment/grass.tscn" id="6_h034c"]

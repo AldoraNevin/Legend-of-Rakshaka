@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ci6kvvbmn4sot"]
 
-[ext_resource type="Texture2D" uid="uid://c58xc7bjaox35" path="res://Assets/Artefak/Keris Mpu Gandring/keris_v2-sheet.png" id="1_i7pep"]
+[ext_resource type="Texture2D" uid="uid://c58xc7bjaox35" path="res://Legend of Rakshaka/Artefak/Keris Mpu Gandring/keris_v2-sheet.png" id="1_i7pep"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1iw1w"]
 atlas = ExtResource("1_i7pep")

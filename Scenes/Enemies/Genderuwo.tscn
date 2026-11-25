@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b3xpqiqomlnks"]
 
-[ext_resource type="Texture2D" uid="uid://b1mk03fkmjtth" path="res://Assets/Enemies/Genderuwo/genderuwo atk(wind-up).png" id="1_vkj06"]
-[ext_resource type="Texture2D" uid="uid://ccss6tayf5hgp" path="res://Assets/Enemies/Genderuwo/genderuwo atk(active).png" id="2_d56rc"]
-[ext_resource type="Texture2D" uid="uid://mu4ivbktof6" path="res://Assets/Enemies/Genderuwo/genderuwo atk(recovery).png" id="3_s66j4"]
-[ext_resource type="Texture2D" uid="uid://60hyfysd4x8i" path="res://Assets/Enemies/Genderuwo/genderuwo chase.png" id="4_rcgx1"]
-[ext_resource type="Texture2D" uid="uid://bxxub0hvmvw7t" path="res://Assets/Enemies/Genderuwo/genderuwo death.png" id="5_qt30f"]
-[ext_resource type="Texture2D" uid="uid://cvxwx60qexqql" path="res://Assets/Enemies/Genderuwo/genderuwo hit react.png" id="6_afxxi"]
-[ext_resource type="Texture2D" uid="uid://dyn8xq255gbar" path="res://Assets/Enemies/Genderuwo/genderuwo idle-patrol.png" id="7_ryyfc"]
+[ext_resource type="Texture2D" uid="uid://b1mk03fkmjtth" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo atk(wind-up).png" id="1_vkj06"]
+[ext_resource type="Texture2D" uid="uid://ccss6tayf5hgp" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo atk(active).png" id="2_d56rc"]
+[ext_resource type="Texture2D" uid="uid://mu4ivbktof6" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo atk(recovery).png" id="3_s66j4"]
+[ext_resource type="Texture2D" uid="uid://60hyfysd4x8i" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo chase.png" id="4_rcgx1"]
+[ext_resource type="Texture2D" uid="uid://bxxub0hvmvw7t" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo death.png" id="5_qt30f"]
+[ext_resource type="Texture2D" uid="uid://cvxwx60qexqql" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo hit react.png" id="6_afxxi"]
+[ext_resource type="Texture2D" uid="uid://dyn8xq255gbar" path="res://Legend of Rakshaka/Hostiles/Genderuwo/genderuwo idle-patrol.png" id="7_ryyfc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnvy8"]
 atlas = ExtResource("1_vkj06")

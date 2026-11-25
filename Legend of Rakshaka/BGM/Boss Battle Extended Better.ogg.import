@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1vswca8lun7r"
+path="res://.godot/imported/Boss Battle Extended Better.ogg-cd350f7628044c0b674d574da8f91cdc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Legend of Rakshaka/BGM/Boss Battle Extended Better.ogg"
+dest_files=["res://.godot/imported/Boss Battle Extended Better.ogg-cd350f7628044c0b674d574da8f91cdc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

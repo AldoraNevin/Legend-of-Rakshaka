@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://37ugwjb3aai2"]
 
-[ext_resource type="Texture2D" uid="uid://ci85gucy0fvt7" path="res://Assets/Enemies/Bajang/bajang atk(wind-up).png" id="1_4b5qn"]
-[ext_resource type="Texture2D" uid="uid://b52eyin7dfvff" path="res://Assets/Enemies/Bajang/bajang atk(active).png" id="2_hkn0g"]
-[ext_resource type="Texture2D" uid="uid://c8cln85eud3l3" path="res://Assets/Enemies/Bajang/bajang atk(recovery).png" id="3_civmp"]
-[ext_resource type="Texture2D" uid="uid://f8vpipucrtid" path="res://Assets/Enemies/Bajang/bajang chase.png" id="4_ng67x"]
-[ext_resource type="Texture2D" uid="uid://sp4fvyebg0vp" path="res://Assets/Enemies/Bajang/bajang death.png" id="5_sx5ad"]
-[ext_resource type="Texture2D" uid="uid://lxjjk8c1fp5e" path="res://Assets/Enemies/Bajang/bajang hit react.png" id="6_3cnu0"]
-[ext_resource type="Texture2D" uid="uid://cmtww0dddsveq" path="res://Assets/Enemies/Bajang/bajang idle.png" id="7_sj8tj"]
+[ext_resource type="Texture2D" uid="uid://ci85gucy0fvt7" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang atk(wind-up).png" id="1_4b5qn"]
+[ext_resource type="Texture2D" uid="uid://b52eyin7dfvff" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang atk(active).png" id="2_hkn0g"]
+[ext_resource type="Texture2D" uid="uid://c8cln85eud3l3" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang atk(recovery).png" id="3_civmp"]
+[ext_resource type="Texture2D" uid="uid://f8vpipucrtid" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang chase.png" id="4_ng67x"]
+[ext_resource type="Texture2D" uid="uid://sp4fvyebg0vp" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang death.png" id="5_sx5ad"]
+[ext_resource type="Texture2D" uid="uid://lxjjk8c1fp5e" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang hit react.png" id="6_3cnu0"]
+[ext_resource type="Texture2D" uid="uid://cmtww0dddsveq" path="res://Legend of Rakshaka/Hostiles/Bajang/bajang idle.png" id="7_sj8tj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_he5f4"]
 atlas = ExtResource("1_4b5qn")

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://fk3uipn6rpqm"]
 
-[ext_resource type="Texture2D" uid="uid://rdrx5on753me" path="res://Assets/Enemies/Banaspati/banaspati atk(wind-up).png" id="1_528gx"]
-[ext_resource type="Texture2D" uid="uid://bpcpas8lf2gwg" path="res://Assets/Enemies/Banaspati/banaspati atk(active).png" id="2_34pdl"]
-[ext_resource type="Texture2D" uid="uid://c03evg7a574d8" path="res://Assets/Enemies/Banaspati/banaspati atk(recovery).png" id="3_om5dx"]
-[ext_resource type="Texture2D" uid="uid://dhrk16pxyrlwb" path="res://Assets/Enemies/Banaspati/banaspati chase.png" id="4_4m6x8"]
-[ext_resource type="Texture2D" uid="uid://8skp0n0rinfp" path="res://Assets/Enemies/Banaspati/banaspati death.png" id="5_vxrpk"]
-[ext_resource type="Texture2D" uid="uid://c82uh3fvpj8x6" path="res://Assets/Enemies/Banaspati/banaspati hit react.png" id="6_g2qpy"]
-[ext_resource type="Texture2D" uid="uid://b2kiobfrm6jnl" path="res://Assets/Enemies/Banaspati/banaspati idle-patrol.png" id="7_r7qdb"]
+[ext_resource type="Texture2D" uid="uid://rdrx5on753me" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati atk(wind-up).png" id="1_528gx"]
+[ext_resource type="Texture2D" uid="uid://bpcpas8lf2gwg" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati atk(active).png" id="2_34pdl"]
+[ext_resource type="Texture2D" uid="uid://c03evg7a574d8" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati atk(recovery).png" id="3_om5dx"]
+[ext_resource type="Texture2D" uid="uid://dhrk16pxyrlwb" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati chase.png" id="4_4m6x8"]
+[ext_resource type="Texture2D" uid="uid://8skp0n0rinfp" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati death.png" id="5_vxrpk"]
+[ext_resource type="Texture2D" uid="uid://c82uh3fvpj8x6" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati hit react.png" id="6_g2qpy"]
+[ext_resource type="Texture2D" uid="uid://b2kiobfrm6jnl" path="res://Legend of Rakshaka/Hostiles/Banaspati/banaspati idle-patrol.png" id="7_r7qdb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_100qm"]
 atlas = ExtResource("1_528gx")

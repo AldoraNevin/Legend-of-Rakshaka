@@ -187,7 +187,7 @@ func _filter() -> void:
 
 func _portrait(entry: Dictionary) -> Texture2D:
 	if not entry.get("is_unlocked", false):
-		return load("res://Assets/UI/artifact_locked.svg") if artifact_mode and locked_portrait == null else locked_portrait
+		return load("res://Legend of Rakshaka/UI HUD/artifact_locked.svg") if artifact_mode and locked_portrait == null else locked_portrait
 	if entry.get("portrait") != null:
 		return entry.portrait
 	return fallback_portrait

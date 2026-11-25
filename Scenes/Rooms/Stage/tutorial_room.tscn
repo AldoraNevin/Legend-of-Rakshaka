@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://re6b3x81w2qw"]
 
-[ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Assets/Legend of Rakshaka/UI HUD/bestiary icons.png" id="book"]
+[ext_resource type="Texture2D" uid="uid://dscnbqvk1e1ke" path="res://Legend of Rakshaka/UI HUD/bestiary icons.png" id="book"]
 [ext_resource type="Script" uid="uid://c62w713j5j0ig" path="res://Script/Stage/tutorial_dialogue_line.gd" id="dialogue_line"]
-[ext_resource type="FontFile" path="res://Assets/Fonts/PixelifySans/PixelifySans.ttf" id="font"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Portal.png" id="gate_atlas"]
+[ext_resource type="FontFile" path="res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf" id="font"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/Portal.png" id="gate_atlas"]
 [ext_resource type="PackedScene" path="res://Scenes/Environment/lobby_parallax.tscn" id="parallax"]
 [ext_resource type="Script" uid="uid://kabvrfkj0pbl" path="res://Script/Stage/coastal_atmosphere.gd" id="sea"]
-[ext_resource type="Texture2D" uid="uid://tsfbhlmdyj7u" path="res://Assets/Legend of Rakshaka/NPC/Semar/Semar.png" id="semar"]
+[ext_resource type="Texture2D" uid="uid://tsfbhlmdyj7u" path="res://Legend of Rakshaka/NPC/Semar/Semar.png" id="semar"]
 [ext_resource type="Script" uid="uid://ckxghnp4ghgdw" path="res://Script/Stage/tutorial_room.gd" id="tutorial"]
 
 [sub_resource type="RectangleShape2D" id="floor"]

@@ -2,10 +2,10 @@ extends Node2D
 ## Screen-filling parallax: horizontal repetition, bounded vertical drift.
 ## A CanvasLayer keeps the composition consistent at different camera zooms.
 const TEXTURES = [
-	preload("res://Assets/Tileset/Environment/pantai layer1.png"),
-	preload("res://Assets/Tileset/Environment/pantai layer3.png"),
-	preload("res://Assets/Tileset/Environment/pantai layer2.png"),
-	preload("res://Assets/Tileset/Environment/pantai layer 4.png")]
+	preload("res://Legend of Rakshaka/Environment/Tileset/Environment/pantai layer1.png"),
+	preload("res://Legend of Rakshaka/Environment/Tileset/Environment/pantai layer3.png"),
+	preload("res://Legend of Rakshaka/Environment/Tileset/Environment/pantai layer2.png"),
+	preload("res://Legend of Rakshaka/Environment/Tileset/Environment/pantai layer 4.png")]
 const SPEEDS = [0.025, 0.10, 0.16, 0.30]
 var anchor := Vector2.ZERO
 var anchored := false

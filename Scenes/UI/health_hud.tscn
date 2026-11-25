@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/HP and mana HUD.png" id="hud"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/HP and mana HUD.png" id="hud"]
 
 [sub_resource type="AtlasTexture" id="EmptyBar"]
 atlas = ExtResource("hud")

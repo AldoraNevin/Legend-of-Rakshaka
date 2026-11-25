@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cixl7fmqyakxy"
+path="res://.godot/imported/lobby theme v2.ogg-c131c15942222bef6470f39a7a4fcaf0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Legend of Rakshaka/BGM/Lobby Randomize/lobby theme v2.ogg"
+dest_files=["res://.godot/imported/lobby theme v2.ogg-c131c15942222bef6470f39a7a4fcaf0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

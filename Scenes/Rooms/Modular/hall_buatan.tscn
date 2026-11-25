@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://tnfo5xq6g6ci"]
 
 [ext_resource type="Script" uid="uid://b6ay5qsxgk4dj" path="res://Script/Stage/Modular/room_template.gd" id="1_7n6ko"]
-[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Assets/Tileset/coastal_tileset.tres" id="2_dygin"]
-[ext_resource type="TileSet" uid="uid://bi8al2lc0pl26" path="res://Assets/Tileset/pantai_modular_solid.tres" id="3_ryxbq"]
-[ext_resource type="TileSet" uid="uid://cbe258twrase6" path="res://Assets/Tileset/pantai_modular_platforms.tres" id="4_cv5it"]
+[ext_resource type="TileSet" uid="uid://dcm75hvqnkbi5" path="res://Legend of Rakshaka/Environment/Tileset/coastal_tileset.tres" id="2_dygin"]
+[ext_resource type="TileSet" uid="uid://bi8al2lc0pl26" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres" id="3_ryxbq"]
+[ext_resource type="TileSet" uid="uid://cbe258twrase6" path="res://Legend of Rakshaka/Environment/Tileset/pantai_modular_platforms.tres" id="4_cv5it"]
 [ext_resource type="Script" uid="uid://dbkgi7bvmaat7" path="res://Script/Stage/Modular/room_socket.gd" id="5_8eiwc"]
-[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Assets/Tileset/Environment/tileset pantai(1).png" id="6_ugxwr"]
+[ext_resource type="Texture2D" uid="uid://ckcsgwuv2wdck" path="res://Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai(1).png" id="6_ugxwr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmhbi"]
 atlas = ExtResource("6_ugxwr")

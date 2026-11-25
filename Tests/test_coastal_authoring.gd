@@ -1,6 +1,6 @@
 extends SceneTree
 func _initialize() -> void:
-	var style = load("res://Assets/Tileset/coastal_style.tres")
+	var style = load("res://Legend of Rakshaka/Environment/Tileset/coastal_style.tres")
 	var atlas := style.tileset.get_source(0) as TileSetAtlasSource
 	assert(atlas.texture.get_size() == Vector2(128, 64))
 	assert(atlas.texture_region_size == Vector2i(16, 16))

@@ -81,7 +81,7 @@ sprite pemain benar-benar terlihat. Untuk memperbarui screenshot map, jalankan
 
 ## Platform parkour dan tileset
 
-Pijakan zigzag kini memakai pengaturan di `Assets/Tileset/coastal_style.tres`:
+Pijakan zigzag kini memakai pengaturan di `Legend of Rakshaka/Environment/Tileset/coastal_style.tres`:
 lebar 96 px, offset 32 px, dan jarak maksimal 40 px yang dibagi merata.
 Pijakan masuk 144 px dan penangkap 192 px tetap dipertahankan.
 Semua room mendapat balkon samping jika air_regions cukup luas, dengan

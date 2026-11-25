@@ -1,8 +1,8 @@
 extends SceneTree
 ## Deterministic asset packing; never redraws the source artwork.
-const OUTPUT := "res://Assets/Tileset/Sprites/coastal_packed.png"
+const OUTPUT := "res://Legend of Rakshaka/Environment/Tileset/Sprites/coastal_packed.png"
 func _initialize() -> void:
-	var original := Image.load_from_file("res://Assets/Tileset/Environment/tileset pantai.png")
+	var original := Image.load_from_file("res://Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai.png")
 	var atlas := Image.create(512, 384, false, Image.FORMAT_RGBA8)
 	atlas.fill(Color.TRANSPARENT)
 	var edges := [20, 108, 192, 276, 360, 445, 532, 615, 704]

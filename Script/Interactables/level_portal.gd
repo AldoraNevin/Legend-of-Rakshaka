@@ -1,5 +1,5 @@
 extends Node2D
-const PORTAL_TEXTURE := preload("res://Assets/Legend of Rakshaka-20261119T045508Z-1-001/Legend of Rakshaka/UI HUD/Portal.png")
+const PORTAL_TEXTURE := preload("res://Legend of Rakshaka/UI HUD/Portal.png")
 var title := "Portal"
 var portal_id := ""
 var unlocked := false:

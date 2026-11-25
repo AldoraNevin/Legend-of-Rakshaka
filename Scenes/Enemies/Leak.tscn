@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://mv0rn1ar37r5"]
 
-[ext_resource type="Texture2D" uid="uid://dgy0vhihpsvxv" path="res://Assets/Enemies/Leak/leak atk(wind-up).png" id="1_bjpwn"]
-[ext_resource type="Texture2D" uid="uid://b1e5fmily2cvq" path="res://Assets/Enemies/Leak/leak atk(active).png" id="2_7jvem"]
-[ext_resource type="Texture2D" uid="uid://br8q4yf7vq5iy" path="res://Assets/Enemies/Leak/leak atk(recovery).png" id="3_petdr"]
-[ext_resource type="Texture2D" uid="uid://b1pqxunfilu2v" path="res://Assets/Enemies/Leak/leak chase.png" id="4_8iqxa"]
-[ext_resource type="Texture2D" uid="uid://ni1bt2jrky4" path="res://Assets/Enemies/Leak/leak death.png" id="5_bp3qv"]
-[ext_resource type="Texture2D" uid="uid://dm18dwinar3gm" path="res://Assets/Enemies/Leak/leak hit react.png" id="6_jcymj"]
-[ext_resource type="Texture2D" uid="uid://bmlwhlse46wb6" path="res://Assets/Enemies/Leak/leak idle-patrol.png" id="7_rpn8h"]
+[ext_resource type="Texture2D" uid="uid://dgy0vhihpsvxv" path="res://Legend of Rakshaka/Hostiles/Leak/leak atk(wind-up).png" id="1_bjpwn"]
+[ext_resource type="Texture2D" uid="uid://b1e5fmily2cvq" path="res://Legend of Rakshaka/Hostiles/Leak/leak atk(active).png" id="2_7jvem"]
+[ext_resource type="Texture2D" uid="uid://br8q4yf7vq5iy" path="res://Legend of Rakshaka/Hostiles/Leak/leak atk(recovery).png" id="3_petdr"]
+[ext_resource type="Texture2D" uid="uid://b1pqxunfilu2v" path="res://Legend of Rakshaka/Hostiles/Leak/leak chase.png" id="4_8iqxa"]
+[ext_resource type="Texture2D" uid="uid://ni1bt2jrky4" path="res://Legend of Rakshaka/Hostiles/Leak/leak death.png" id="5_bp3qv"]
+[ext_resource type="Texture2D" uid="uid://dm18dwinar3gm" path="res://Legend of Rakshaka/Hostiles/Leak/leak hit react.png" id="6_jcymj"]
+[ext_resource type="Texture2D" uid="uid://bmlwhlse46wb6" path="res://Legend of Rakshaka/Hostiles/Leak/leak idle-patrol.png" id="7_rpn8h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hviw8"]
 atlas = ExtResource("1_bjpwn")

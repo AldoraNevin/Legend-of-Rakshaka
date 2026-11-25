@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2dpffxkrxnuv"]
 
-[ext_resource type="Texture2D" uid="uid://bqsdrp5y24dem" path="res://Assets/Artefak/Daun Kelor/daun kelor2-sheet.png" id="1_maje4"]
+[ext_resource type="Texture2D" uid="uid://bqsdrp5y24dem" path="res://Legend of Rakshaka/Artefak/Daun Kelor/daun kelor2-sheet.png" id="1_maje4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kr2cu"]
 atlas = ExtResource("1_maje4")

@@ -25,7 +25,7 @@ func run():
  player.wall_jump()
  assert(player.velocity.y==-player.wall_jump_force)
  assert(not player.try_jump())
- var tiles=load("res://Assets/Tileset/pantai_modular_solid.tres")
+ var tiles=load("res://Legend of Rakshaka/Environment/Tileset/pantai_modular_solid.tres")
  var a=tiles.get_source(0)
  for x in range(8):
   var polygon=a.get_tile_data(Vector2i(x,4),0).get_collision_polygon_points(0,0)

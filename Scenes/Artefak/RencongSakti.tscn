@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4x8qqmcv4ltv"]
 
-[ext_resource type="Texture2D" uid="uid://bymsl7fp3lxk2" path="res://Assets/Artefak/Rencong Sakti/Rencong Sakti-sheet.png" id="1_vj631"]
+[ext_resource type="Texture2D" uid="uid://bymsl7fp3lxk2" path="res://Legend of Rakshaka/Artefak/Rencong Sakti/Rencong Sakti-sheet.png" id="1_vj631"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m432v"]
 atlas = ExtResource("1_vj631")

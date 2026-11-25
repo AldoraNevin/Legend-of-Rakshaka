@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwdppceabk0lx"]
 
-[ext_resource type="Texture2D" uid="uid://c0w3b2ec1neb3" path="res://Assets/Artefak/Selendang Bidadari/Selendang Bidadari-sheet.png" id="1_iv4fi"]
+[ext_resource type="Texture2D" uid="uid://c0w3b2ec1neb3" path="res://Legend of Rakshaka/Artefak/Selendang Bidadari/Selendang Bidadari-sheet.png" id="1_iv4fi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dcjub"]
 atlas = ExtResource("1_iv4fi")

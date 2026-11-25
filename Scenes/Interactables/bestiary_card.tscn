@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://p4f1m6s8okjn"]
 
 [ext_resource type="Script" path="res://Script/UI/bestiary_card.gd" id="1"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/UI panels.png" id="1_ftjel"]
-[ext_resource type="Texture2D" path="res://Assets/Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="3_2y2rt"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/UI panels.png" id="1_ftjel"]
+[ext_resource type="Texture2D" path="res://Legend of Rakshaka/UI HUD/mockup_bestiary.png" id="3_2y2rt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6mc8"]
 atlas = ExtResource("1_ftjel")

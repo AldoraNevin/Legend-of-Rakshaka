@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cpkaidruyx1y2"]
 
-[ext_resource type="Texture2D" uid="uid://b8jhesvedyon6" path="res://Assets/Artefak/Mustika Merah Delima/mustika merah v3-sheet-sheet.png" id="1_ena8r"]
+[ext_resource type="Texture2D" uid="uid://b8jhesvedyon6" path="res://Legend of Rakshaka/Artefak/Mustika Merah Delima/mustika merah v3-sheet-sheet.png" id="1_ena8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7x1f"]
 atlas = ExtResource("1_ena8r")

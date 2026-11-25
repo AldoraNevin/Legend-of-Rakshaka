@@ -8,7 +8,7 @@ Angka awal efek tercantum pada bagian EFEK di katalog dan Data/bestiary_data.jso
 
 ## Mengganti gambar
 
-- Buku utama: buka Scenes/Interactables/bestiary_artifacts_tab.tscn. Ganti `Locked Portrait` pada root untuk gambar terkunci. Placeholder sekarang Assets/UI/artifact_locked.svg.
+- Buku utama: buka Scenes/Interactables/bestiary_artifacts_tab.tscn. Ganti `Locked Portrait` pada root untuk gambar terkunci. Placeholder sekarang Legend of Rakshaka/UI HUD/artifact_locked.svg.
 - Gambar terbuka: ganti texture pada `Book/EntryGrid/Entry_<id>/Portrait` setiap kartu. Ilustrasi sementara memakai texture kartu yang sudah ada.
 - Katalog alternatif: ganti `image_path` dan `locked_image_path` pada entri Data/bestiary_data.json.
 - Nama, gambar, kategori, dan deskripsi terkunci sampai artefak didapat. F6 juga mengikuti status penemuan; aktifkan `Preview All When Run Alone` secara eksplisit untuk preview seluruh isi.

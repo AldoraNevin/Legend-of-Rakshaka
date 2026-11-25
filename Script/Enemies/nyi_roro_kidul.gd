@@ -111,7 +111,7 @@ func _spawn_rain_spear() -> void:
 	var spear := RainSpear.new()
 	spear.top_level = true
 	spear.z_index = 3
-	spear.texture = preload("res://Assets/Boss/nyi roro kidul/Turquoise Rain Spear Impact Sprite Sheet-5-sheet.png")
+	spear.texture = preload("res://Legend of Rakshaka/boss/nyi roro kidul/Turquoise Rain Spear Impact Sprite Sheet-5-sheet.png")
 	spear.hframes = 12
 	spear.damage = damage
 	spear.target = player
@@ -168,7 +168,7 @@ func _play_defeat() -> void:
 		transition.tween_property(music, "volume_db", -52.0, 0.35)
 		await transition.finished
 	music.volume_db = -12
-	music.stream = preload("res://Assets/Legend of Rakshaka/BGM/Outro Boss.ogg")
+	music.stream = preload("res://Legend of Rakshaka/BGM/Outro Boss.ogg")
 	music.play()
 	var frames := sprite.sprite_frames
 	var duration := frames.get_frame_count(&"Dead") / frames.get_animation_speed(&"Dead")
@@ -221,9 +221,9 @@ class WaterAttack extends Node2D:
 		effect = Sprite2D.new()
 		if kind == &"WaterCastingFortex":
 			global_position.x = target.global_position.x
-			effect.texture = preload("res://Assets/Boss/nyi roro kidul/Undertow Vortex and Geyser Sprite Sheet-6-sheet.png")
+			effect.texture = preload("res://Legend of Rakshaka/boss/nyi roro kidul/Undertow Vortex and Geyser Sprite Sheet-6-sheet.png")
 		else:
-			effect.texture = preload("res://Assets/Boss/nyi roro kidul/Pixel art tidal wall sprite sheet-4-sheet.png")
+			effect.texture = preload("res://Legend of Rakshaka/boss/nyi roro kidul/Pixel art tidal wall sprite sheet-4-sheet.png")
 		effect.hframes = 12
 		effect.scale = Vector2.ONE * 0.45
 		effect.position.y = -50

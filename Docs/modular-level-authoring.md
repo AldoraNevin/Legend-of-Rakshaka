@@ -67,7 +67,7 @@ dan hanya membuka empat tile `SocketCaps` untuk pintu yang digunakan.
 
 Gunakan grid **16 × 16**, posisi layer **(0,0)** dan scale **(1,1)**.
 `modular_solid.tres` dan `modular_platforms.tres` menggunakan atlas
-`Assets/Tileset/Sprites/coastal_ruins.png` dengan ukuran asli 16 px per tile.
+`Legend of Rakshaka/Environment/Tileset/Sprites/coastal_ruins.png` dengan ukuran asli 16 px per tile.
 Ganti/gambar ulang PNG tersebut untuk mengganti skin bersama, atau buat TileSet
 16 px sendiri. Tile collision memakai polygon persegi penuh dari (-8,-8) ke
 (8,8), physics layer **Ground (2)**; platform juga memakai **One Way**.

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ce46whornb2wn"]
 
 [ext_resource type="Script" uid="uid://4bbho0gpi8e" path="res://Script/Interactables/crates.gd" id="1_t6dgu"]
-[ext_resource type="Texture2D" uid="uid://jhfqiuq175i8" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png" id="2_nitks"]
+[ext_resource type="Texture2D" uid="uid://jhfqiuq175i8" path="res://Legend of Rakshaka/Environment/metroid_asset_1_2/Sprites/Interactables/Crate-animated.png" id="2_nitks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bl4m"]
 size = Vector2(16, 15)

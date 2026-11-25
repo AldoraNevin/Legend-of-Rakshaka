@@ -1,5 +1,5 @@
 extends SceneTree
-const SHEET = preload("res://Assets/Tileset/Environment/tileset pantai.png")
+const SHEET = preload("res://Legend of Rakshaka/Environment/Tileset/Environment/tileset pantai.png")
 func configure(tiles: TileSet) -> void:
 	# IDs 0..4 remain compatible with existing painted cells.
 	var entries := [
@@ -43,7 +43,7 @@ func configure(tiles: TileSet) -> void:
 				data.transpose = (variant & 4) != 0
 		tiles.add_source(source, entry[0])
 func _initialize() -> void:
-	var shared := load("res://Assets/Tileset/coastal_manual_floor.tres") as TileSet
+	var shared := load("res://Legend of Rakshaka/Environment/Tileset/coastal_manual_floor.tres") as TileSet
 	configure(shared)
 	assert(ResourceSaver.save(shared) == OK)
 	var directory := DirAccess.open("res://Scenes/Rooms/Stage/Coastal/Decorations")

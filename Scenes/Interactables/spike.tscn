@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwjqi2vaye2o0"]
 
 [ext_resource type="Script" uid="uid://b6v5jv3chwoe5" path="res://Script/Interactables/damage_zone.gd" id="1_okc22"]
-[ext_resource type="Texture2D" uid="uid://bgyonvaylxhg3" path="res://Assets/metroid_asset_1_2/Sprites/Interactables/spikes_spritesheet.png" id="2_rm3an"]
+[ext_resource type="Texture2D" uid="uid://bgyonvaylxhg3" path="res://Legend of Rakshaka/Environment/metroid_asset_1_2/Sprites/Interactables/spikes_spritesheet.png" id="2_rm3an"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0qyu"]
 size = Vector2(16, 12)

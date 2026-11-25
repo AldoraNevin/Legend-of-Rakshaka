@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-const BATTLE := preload("res://Assets/Legend of Rakshaka/BGM/Boss Battle Extended Better.ogg")
+const BATTLE := preload("res://Legend of Rakshaka/BGM/Boss Battle Extended Better.ogg")
 const LOOP_START := 20.0
 const MIX_DB := -12.0
 const FADE := 0.65

@@ -1,21 +1,21 @@
 extends RefCounted
 const LOBBY = [
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Lobby Randomize/lobby theme v2.ogg"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Lobby Randomize/lobby theme v3.ogg"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Lobby Randomize/Lobby Theme.ogg")
+	preload("res://Legend of Rakshaka/BGM/Lobby Randomize/lobby theme v2.ogg"),
+	preload("res://Legend of Rakshaka/BGM/Lobby Randomize/lobby theme v3.ogg"),
+	preload("res://Legend of Rakshaka/BGM/Lobby Randomize/Lobby Theme.ogg")
 ]
 const STAGE = [
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Stage randomize/battle phase stage.ogg"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Stage randomize/bgm_2.mp3"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Stage randomize/stage bgm 1.ogg"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/BGM/Stage randomize/stage bgm 2.ogg")
+	preload("res://Legend of Rakshaka/BGM/Stage randomize/battle phase stage.ogg"),
+	preload("res://Legend of Rakshaka/BGM/Stage randomize/bgm_2.mp3"),
+	preload("res://Legend of Rakshaka/BGM/Stage randomize/stage bgm 1.ogg"),
+	preload("res://Legend of Rakshaka/BGM/Stage randomize/stage bgm 2.ogg")
 ]
 const SLASH = [
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/SFX/slash atas.ogg"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/SFX/slash bawah.ogg"),
-	preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/SFX/slash samping.ogg")
+	preload("res://Legend of Rakshaka/SFX/slash atas.ogg"),
+	preload("res://Legend of Rakshaka/SFX/slash bawah.ogg"),
+	preload("res://Legend of Rakshaka/SFX/slash samping.ogg")
 ]
-const DASH = preload("res://Assets/Legend of Rakshaka/SFX dan BGM FIX/SFX/dash.ogg")
+const DASH = preload("res://Legend of Rakshaka/SFX/dash.ogg")
 static var lobby_track: AudioStream
 static var stage_track: AudioStream
 

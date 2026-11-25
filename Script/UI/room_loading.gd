@@ -1,5 +1,5 @@
 extends CanvasLayer
-const ATLAS := preload("res://Assets/Legend of Rakshaka/UI HUD/Legend of Rakshaka Loading UI Atlas-4.png")
+const ATLAS := preload("res://Legend of Rakshaka/UI HUD/Legend of Rakshaka Loading UI Atlas-4.png")
 var busy := false
 var screen: Control
 var caption: Label
@@ -18,14 +18,14 @@ func _ready() -> void:
 	var title := Label.new()
 	title.name = "Title"
 	title.text = "LEGEND OF RAKSHAKA"
-	title.add_theme_font_override("font", preload("res://Assets/Fonts/PixelifySans/PixelifySansBold.tres"))
+	title.add_theme_font_override("font", preload("res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySansBold.tres"))
 	title.add_theme_font_size_override("font_size", 25)
 	title.add_theme_color_override("font_color", Color("#fff4d4"))
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	screen.add_child(title)
 	caption = Label.new()
 	caption.text = "MEMUAT..."
-	caption.add_theme_font_override("font", preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf"))
+	caption.add_theme_font_override("font", preload("res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf"))
 	caption.add_theme_font_size_override("font_size", 20)
 	caption.add_theme_color_override("font_color", Color("#fff4d4"))
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -35,7 +35,7 @@ func _ready() -> void:
 	var tip := Label.new()
 	tip.name = "Tip"
 	tip.text = "Perhatikan gerakan musuh sebelum menyerang."
-	tip.add_theme_font_override("font", preload("res://Assets/Fonts/PixelifySans/PixelifySans.ttf"))
+	tip.add_theme_font_override("font", preload("res://Legend of Rakshaka/Fonts/PixelifySans/PixelifySans.ttf"))
 	tip.add_theme_font_size_override("font_size", 15)
 	tip.add_theme_color_override("font_color", Color("#fff4d4"))
 	tip.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

@@ -178,7 +178,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _texture(entry: Dictionary) -> Texture2D:
-	var path: String = entry.get("image_path", "") if entry.get("is_unlocked", false) else entry.get("locked_image_path", "res://Assets/UI/artifact_locked.svg")
+	var path: String = entry.get("image_path", "") if entry.get("is_unlocked", false) else entry.get("locked_image_path", "res://Legend of Rakshaka/UI HUD/artifact_locked.svg")
 	if path.is_empty() or "sheet" in path.to_lower() or not ResourceLoader.exists(path):
 		return null
 	return load(path) as Texture2D

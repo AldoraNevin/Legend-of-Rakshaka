@@ -102,6 +102,8 @@ func _release_cast() -> void:
 func _spawn_rain_spear() -> void:
 	var aim := player.global_position
 	if overhead_rain:
+		# Lead ordinary movement, then leave each visible lane fixed for dodging.
+		aim.x += clampf(player.velocity.x, -160.0, 160.0) * 0.42
 		aim.x += [0.0, -60.0, 60.0, -30.0, 30.0][rain_left % 5]
 	var query := PhysicsRayQueryParameters2D.create(aim, aim + Vector2.DOWN * 2000.0, 2)
 	var floor_hit := get_world_2d().direct_space_state.intersect_ray(query)
@@ -139,6 +141,9 @@ func take_damage(amount: float) -> void:
 	if health == 0:
 		health_hud.hide()
 		is_dead = true
+		var victor := get_tree().get_first_node_in_group("player")
+		if victor != null and victor.has_method("on_boss_victory"):
+			victor.on_boss_victory(self)
 		player_data.discover_enemy("nyi_roro_kidul")
 		$Hurtbox.set_deferred("monitorable", false)
 		_play_defeat()
@@ -212,6 +217,7 @@ class WaterAttack extends Node2D:
 	var heading: float
 	var effect: Sprite2D
 	var spent := false
+	var eruption_height := 180.0
 
 	func launch(feet: Vector2) -> void:
 		top_level = true
@@ -250,15 +256,16 @@ class WaterAttack extends Node2D:
 				queue_free()
 		else:
 			# Lock the geyser to the platform under the player before it erupts.
-			if age <= delta:
+			if age < 0.38:
 				var aim := target.global_position
 				var query := PhysicsRayQueryParameters2D.create(aim, aim + Vector2.DOWN * 2000, 2)
 				var hit := get_world_2d().direct_space_state.intersect_ray(query)
 				if not hit.is_empty():
 					global_position = hit.position
-			var surge := clampf((age - 0.55) / 0.2, 0.0, 1.0)
+					eruption_height = maxf(180.0, global_position.y - aim.y + 90.0)
+			var surge := clampf((age - 0.55) / 0.10, 0.0, 1.0)
 			var fade := clampf((1.35 - age) / 0.25, 0.0, 1.0)
-			height = (10 + 135 * surge) * fade
+			height = (10 + eruption_height * surge) * fade
 			effect.scale = Vector2(0.52, height / 224.0)
 			effect.frame = mini(int(age * 6), 3) if age < 0.55 else mini(4 + int((age - 0.55) * 15), 11)
 			active = surge > 0.1 and fade > 0.1
@@ -291,11 +298,8 @@ class RainSpear extends Sprite2D:
 			frame = mini(8 + int(impact_age * 15), 11)
 			if impact_age >= 4.0 / 15.0:
 				queue_free()
-		elif overhead and age < 1.08:
-			# Hold the first droplet, form the spear, then hang briefly before release.
-			frame = clampi(int((age - 0.20) / 0.14), 0, 6)
-		elif overhead and age < 1.15:
-			frame = 7
+		elif overhead and age < 0.32:
+			frame = mini(int(age / 0.04), 7)
 		elif not overhead and age < RISE:
 			global_position = origin.lerp(apex, age / RISE)
 			frame = mini(int(age / RISE * 5), 4)
@@ -307,7 +311,7 @@ class RainSpear extends Sprite2D:
 			rotation = 0.0
 			frame = 7 if overhead else 6
 			var tip := global_position + Vector2.DOWN * 32
-			var travel := Vector2.DOWN * 490 * delta
+			var travel := Vector2.DOWN * (760.0 if overhead else 490.0) * delta
 			var ray := PhysicsRayQueryParameters2D.create(tip, tip + travel, 3)
 			ray.hit_from_inside = true
 			var hit := get_world_2d().direct_space_state.intersect_ray(ray)

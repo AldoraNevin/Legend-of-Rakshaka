@@ -10,6 +10,9 @@ func execute(raw: String) -> String:
 	var words := raw.strip_edges().to_upper().split(" ", false)
 	if words.is_empty():
 		return "Masukkan kode terlebih dahulu."
+	if words.size() >= 2 and words[0] == "ALL" and words[1] == "BESTIARY":
+		words.remove_at(0)
+		words[0] = "ALLBESTIARY"
 	var code: String = words[0]
 	if code in ["DOUBLEJUMP", "GODMODE"]:
 		if words.size() > 2 or (words.size() == 2 and words[1] not in ["ON", "OFF"]):
@@ -42,10 +45,10 @@ func execute(raw: String) -> String:
 				enemy.take_damage(enemy.health)
 				hits += 1
 		return "%d musuh dikalahkan." % hits
-	if code == "ALLARTIFACTS":
+	if code == "ALLBESTIARY":
 		if words.size() != 1:
-			return "Gunakan ALLARTIFACTS tanpa tambahan."
-		return unlock_all_artifacts()
+			return "Gunakan ALLBESTIARY tanpa tambahan."
+		return unlock_all_bestiary()
 	if words.size() != 1 or not DESTINATIONS.has(code):
 		return "Kode tidak dikenal. Lihat daftar kode di atas."
 	var stage := get_tree().current_scene
@@ -65,7 +68,7 @@ func execute(raw: String) -> String:
 
 
 
-func unlock_all_artifacts() -> String:
+func unlock_all_bestiary() -> String:
 	if CheckpointManager.loading:
 		return "Tunggu proses load selesai."
 	player_data.init_system()
@@ -78,12 +81,16 @@ func unlock_all_artifacts() -> String:
 			player_data.active_artifacts.append(artifact_name)
 		if not artifact_name.is_empty() and artifact_name not in player_data.discovered_artifacts:
 			player_data.discovered_artifacts.append(artifact_name)
+	for section in ["enemies", "bosses"]:
+		for entry in player_data.bestiary_master.get(section, []):
+			if entry.name not in player_data.discovered_enemies and entry.entity_id not in player_data.discovered_enemies:
+				player_data.discovered_enemies.append(entry.name)
 	player_data.sync_bestiary_status()
 	for player in get_tree().get_nodes_in_group("player"):
 		if player.has_method("refresh_artifact_stats"):
 			player.refresh_artifact_stats()
 	if not player_data.save_to_json():
-		return "Semua artefak terbuka, tetapi save gagal. Coba lagi."
+		return "Seluruh Bestiary terbuka, tetapi save gagal. Coba lagi."
 	if not CheckpointManager.enabled or CheckpointManager.active_slot < 0:
-		return "Semua artefak terbuka untuk sesi ini (tidak ada slot save aktif)."
-	return "Semua artefak terbuka dan tersimpan di slot aktif."
+		return "Seluruh Bestiary terbuka untuk sesi ini (tidak ada slot save aktif)."
+	return "Seluruh Bestiary terbuka dan tersimpan di slot aktif."

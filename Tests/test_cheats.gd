@@ -41,13 +41,19 @@ func run_test() -> void:
 	player.refresh_jump_ability()
 	check(player.max_jump == (2 if player_data.has_artifact(player.double_jump_artifact_id) else 1), "OFF restores artifact ability")
 	var prior_artifacts := player_data.discovered_artifacts.duplicate()
-	check("tanpa tambahan" in cheats.execute("ALLARTIFACTS OFF"), "Invalid unlock argument rejected")
+	check("tanpa tambahan" in cheats.execute("ALLBESTIARY OFF"), "Invalid unlock argument rejected")
 	check(player_data.discovered_artifacts == prior_artifacts, "Invalid code does not unlock artifacts")
-	check("Semua artefak terbuka" in cheats.execute(" allartifacts "), "Artifact cheat accepts case and whitespace")
+	check("Seluruh Bestiary terbuka" in cheats.execute(" allbestiary "), "Artifact cheat accepts case and whitespace")
 	for artifact in player_data.bestiary_master.artifacts:
 		check(player_data.has_artifact(artifact.entity_id) and artifact.is_unlocked, "Artifact unlocked: " + artifact.name)
+	for section in ["enemies", "bosses"]:
+		for entry in player_data.bestiary_master[section]:
+			check(entry.is_unlocked, "Bestiary entry unlocked: " + entry.name)
+	var enemy_count := player_data.discovered_enemies.size()
+	check("Seluruh Bestiary terbuka" in cheats.execute("all bestiary"), "Spaced command accepted")
+	check(enemy_count == player_data.discovered_enemies.size(), "Repeated code does not duplicate enemies")
 	var unlocked_count := player_data.discovered_artifacts.size()
-	cheats.execute("ALLARTIFACTS")
+	cheats.execute("ALLBESTIARY")
 	check(player_data.discovered_artifacts.size() == unlocked_count, "Repeated code does not duplicate artifacts")
 	check(player.max_jump == 2, "Artifact abilities refresh immediately")
 	var pause = stage.get_node("PauseMenu")

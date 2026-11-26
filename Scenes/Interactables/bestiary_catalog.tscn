@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://du6uonyhjm6th"]
 
-[ext_resource type="Script" path="res://Script/UI/bestiary_catalog.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactables/bestiary_enemies_tab.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://Scenes/Interactables/bestiary_artifacts_tab.tscn" id="3"]
+[ext_resource type="Script" uid="uid://bohif2y7kaqja" path="res://Script/UI/bestiary_catalog.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://d1yljb7lmiich" path="res://Scenes/Interactables/bestiary_enemies_tab.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://m5xgw01j6isr" path="res://Scenes/Interactables/bestiary_artifacts_tab.tscn" id="3"]
 
-[node name="BestiaryCatalog" type="Control"]
+[node name="BestiaryCatalog" type="Control" unique_id=241172896]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1")
 
-[node name="EnemyPage" parent="." instance=ExtResource("2")]
+[node name="EnemyPage" parent="." unique_id=394803550 instance=ExtResource("2")]
 layout_mode = 1
 
-[node name="ArtifactPage" parent="." instance=ExtResource("3")]
+[node name="ArtifactPage" parent="." unique_id=444292825 instance=ExtResource("3")]
 visible = false
 layout_mode = 1

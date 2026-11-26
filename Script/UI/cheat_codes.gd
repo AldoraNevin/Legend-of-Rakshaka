@@ -23,6 +23,15 @@ func execute(raw: String) -> String:
 		else:
 			god_mode = enabled
 		return "%s %s." % [code, "aktif" if enabled else "nonaktif"]
+	if code == "SUKMA":
+		if words.size() != 1:
+			return "Gunakan SUKMA tanpa tambahan."
+		if CheckpointManager.loading:
+			return "Tunggu proses load selesai."
+		player_data.coin = 999_999_999
+		if not player_data.save_to_json():
+			return "Sukma berubah, tetapi save gagal."
+		return "Sukma sekarang 999.999.999."
 	if words.size() == 1 and code == "INSTANTDEATH":
 		var room := get_tree().current_scene
 		if room == null or not ADAPTER.supports(room) or CheckpointManager.loading:

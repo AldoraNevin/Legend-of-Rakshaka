@@ -206,6 +206,7 @@ theme_override_font_sizes/font_size = 18
 text = "Tujuan: TUTORIAL, ROOM1 - ROOM5, BOSS
 Contoh: ROOM2 untuk pindah ke Room 2.
 DOUBLEJUMP ON / OFF  |  GODMODE ON / OFF
+SUKMA: atur saldo menjadi 999.999.999.
 INSTANTDEATH: kalahkan semua musuh di stage aktif.
 ALLARTIFACTS: buka semua artefak (tersimpan).
 Pindah ruangan mengikuti sistem autosave yang aktif."

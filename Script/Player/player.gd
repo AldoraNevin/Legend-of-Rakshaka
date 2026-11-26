@@ -289,7 +289,17 @@ func start_dash() -> void:
 	update_animation()
 
 
+var defeated_boss: WeakRef
+
+func on_boss_victory(boss: Node) -> void:
+	if is_dead:
+		return
+	defeated_boss = weakref(boss)
+	player_data.life = maxi(1, player_data.life)
+
 func take_damage(amount: int = 10, source: Node = null, projectile := false) -> void:
+	if defeated_boss != null and defeated_boss.get_ref() != null:
+		return
 	if is_dead or is_invincible or CheatCodes.god_mode or amount <= 0:
 		return
 
@@ -301,6 +311,8 @@ func take_damage(amount: int = 10, source: Node = null, projectile := false) -> 
 	player_data.life = maxi(0, player_data.life - damage)
 	if player_data.has_artifact("kujang_pusaka") and is_instance_valid(source) and source.has_method("take_damage"):
 		source.take_damage(maxi(1, ceili(damage * 0.3)))
+		if defeated_boss != null and defeated_boss.get_ref() == source:
+			return
 	if player_data.life <= 0:
 		start_dead()
 		return
